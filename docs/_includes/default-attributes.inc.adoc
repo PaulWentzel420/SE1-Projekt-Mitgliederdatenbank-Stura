@@ -1,5 +1,5 @@
 // Meta
-:project-name: <Projektname (T00)>
+:project-name: Mitgliederdatenbank für den StuRa (I06)
 // Settings:
 :toc:
 :toc-title: Inhaltsverzeichnis
