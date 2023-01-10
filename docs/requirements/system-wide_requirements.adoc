@@ -6,7 +6,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema> spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
+In diesem Dokument werden die systemweiten Anforderungen für das Projekt Mitgliederdatenbank spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
 
 * Systemweite funktionale Anforderungen (F),
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
@@ -17,33 +17,39 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-
+Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig. Änderungen am System oder an der Software sollen dokumentiert werden (Auditing). Die Datenbank soll zeitgesteuert selbständig Backups anfertigen. Um die Sicherheit nach außen zu gewährleisten, soll der Server ausschließlich im Intranet kommunizieren.
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
 
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
+Die Stakeholder sitzen ausschließlich in Deutschland, weshalb die Software deutsch lokalisiert sein soll. Es soll sichergestellt sein, dass auch ein ungelernter Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit (max. 1 Tag) erlernen kann. Mithilfe einer Rechteverwaltung soll sichergestellt werden, dass nur berechtige Nutzer Schreibrechte haben. Die Berechtigungen sollen vom Administrator festgelegt werden können.
+Mithilfe von maximal 3 Klicks sollen relevante Informationen für Mitglieder in einem geordneten Format ausgegeben werden können.
 
 === Zuverlässigkeit (Reliability)
-Die Website benötigt keine 99,99% Erreichbarkeit, sollte jedoch so oft wie möglich verfügbar sein. Die Benutzereingaben sind auf Sinnhaftigkeit zu überprüfen um Falscheingaben zu verhindern (z.B. keine Postleitzahl im Namensfeld).
+Website sowie Datenbank benötigen keine 99,99% Erreichbarkeit, sollten jedoch so oft wie möglich verfügbar sein. Die Benutzereingaben sind auf Sinnhaftigkeit zu überprüfen um Falscheingaben zu vermeiden (z.B. keine Postleitzahl im Namensfeld). Es sollen automatisiert Backups angelegt werden, um Datenverluste zu verhindern. Änderungen sollen dokumentiert werden (z.B. Nutzer A löscht Mitglied B am 01.01.2023). Systemausfälle sollen mittels Log-Dateien nachvollziehbar sein.
 
 === Effizienz (Performance)
-Auf die Website sollen bis zu 3 Nutzer gleichzeitig zugreifen können. Datenbankabfragen sollten auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt sein. 
+Auf die Website sollen bis zu 3 Nutzer gleichzeitig zugreifen können. Datenbankabfragen sollten auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt sein. Das Anlegen neuer Datensätze soll direkt erfolgen. 
 
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
-
+Es soll eine Installationsanleitung beigelegt werden, welche das selbständige (neu-)installieren der Software durch die Nutzer ermöglicht. Berechtigte Nutzer sollen Tabellen selbständig verwalten (z.B. Anlegen neuer Spalten).
 
 == Zusätzliche Anforderungen
 
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Ressourcenbegrenzungen
-* zu nutzende Komponenten / Bibliotheken / Frameworks
-* Vorgaben für die Programmiersprache
-* zu unterstützende Plattformen / Betriebssysteme
-* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+Website sowie Datenbank sollen auf einem Server laufen.
+
+//Ressourcenbegrenzungen
+
+//zu nutzende Komponenten / Bibliotheken / Frameworks
+Es soll kein Java verwendet werden.
+Die Nutzung der Software soll über einen beliebigen aktuellen Webbrowser erfolgen. 
+Die Software soll sich am Tool Antragsgrün orientieren.
+//Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
@@ -53,4 +59,4 @@ Auf die Website sollen bis zu 3 Nutzer gleichzeitig zugreifen können. Datenbank
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 * Lizensierung der Anwendung
-* Datenschutz
+Die Verarbeitung von personenbezogenen Daten muss dem Datenschutz entsprechen. 
