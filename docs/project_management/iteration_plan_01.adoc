@@ -12,9 +12,9 @@ include::../_includes/default-attributes.inc.adoc[]
 |===
 | Meilenstein | Datum
 
-| Beginn der Iteration | -
+| Beginn der Iteration | 30.11.2022
 | ... | -
-| Ende der Iteration | -
+| Ende der Iteration | 07.12.2022
 |===
 
 
@@ -23,9 +23,12 @@ include::../_includes/default-attributes.inc.adoc[]
 
 Beispiele:
 
-* Beheben der Usability-Probleme, die von Abteilung X berichtet wurden
-* Ausliefern der Hauptszenarios, die die Integration mit System Y zeigen
-* Present a technical demonstration (demo).
+* Team aufbauen, Rollen zuordnen, Stakeholder involvieren
+* Systemfokus finden: Grenzen, Akteure, Schnittstellen
+* Zentrale Projektrisiken identifizieren
+* Kosten-Nutzen-Analyse („Rechtfertigung“)
+* Einrichtung der Projektumgebung, Git, IDE, Testsystem…
+
 
 
 == Aufgabenzuordnung
