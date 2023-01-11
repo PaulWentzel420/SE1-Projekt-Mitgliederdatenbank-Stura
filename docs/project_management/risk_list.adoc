@@ -38,3 +38,5 @@ include::risks.csv[]
 // PDF-Export: Seite zurück zum Hochformat
 [.portrait]
 <<<
+
+image::risk_list.png[]
