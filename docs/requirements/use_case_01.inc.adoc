@@ -1,58 +1,50 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC01 <use-case name>
+== Use-Case: UC01 Mitglied anlegen
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
+Der Use Case beschreibt das Anlegen neuer Nutzer im Online-Tool. Diese sollen mit den Rechten, Aufgaben und Stundensätzen ausgestattet werden, die zu ihrem jeweiligen Amt passen.
 
 === Kurzbeschreibung der Akteure
-
-==== <Akteur 1 Name>
+Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörigen Amt zuordnen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
-<Vorbedingung 1>
+* User muss im Online-Tool angemeldet sein.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. …
-. <Standardablauf Schritt n>
-. Der Use Case ist abgeschlossen.
+1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
+2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
+3. Der User betätigt den Button "Neuer Nutzer".
+4. Das System gibt eine Auswahl an vorgefertigten Ämtern vor.
+5. Der User wählt ein Amt aus.
+6. Das System ordnet dem Mitglied Rechte, Aufgaben und Stundensatz entsprechend des Amtes zu.
+7. Das System speichert das neue Mitglied ab.
+8. Der Use Case endet.
 
-=== Alternative Abläufe
+//=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
+//=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
 
-=== Unterabläufe (subflows)
-//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
 
-==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
-
-=== Wesentliche Szenarios
+//=== Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. …
-. <Szenario 1, Schritt n>
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-==== <Nachbedingung 1>
+* Alle eingegebenen Daten und ausgewählten Optionen gespeichert.
+* Neue Nutzer haben ihre korrekten Ämter, Funktionen und Rechte.
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-
-==== <Besondere Anforderung 1>
