@@ -1,0 +1,43 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+
+== Use-Case: UC06 Checkliste generieren
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+Es soll ein Arbeitsleitfaden in Form einer Checkliste erstellt werden. Diese beinhaltet Daten bezüglich E Mail-Verteilern, Schlüsselkasten, Zugangsschließsystem, Berechtigungen (Website/Dateiverwaltung/Aufgabenverwaltung) sowie notwendige Unterschriften.
+
+=== Kurzbeschreibung der Akteure
+Die StuRa-Mitglieder benötigen einen Arbeitsleitfaden für die interne Verwaltung in Form einer Checkliste.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+* User muss im Online-Tool angemeldet sein.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+1. Der Use Case beginnt mit einem Klick auf den "Arbeitsleitfaden"-Button.
+2. Der User betätigt den Button "Arbeitsleitfaden erstellen".
+3. Auf Basis der vorhandenen Daten wird ein Arbeitsleitfaden für die interne Verwaltung erstellt.
+4. Der Use Case endet.
+
+//=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+//=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
+
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
+
+//=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+//=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+
+//=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
