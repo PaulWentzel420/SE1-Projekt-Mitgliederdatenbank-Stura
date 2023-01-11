@@ -1,0 +1,48 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+
+== Use-Case: UC03 Mitgliederdaten bearbeiten
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+Die vorhandenen Daten benötigen eine Änderung.
+
+=== Kurzbeschreibung der Akteure
+Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händisch ändern.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+* User muss im Online-Tool angemeldet sein.
+* Das zu ändernde Mitglied ist im System erfasst.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+1. Der Use Case beginnt mit einem Klick auf den "Daten bearbeiten"-Button
+2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
+3. Der User ändert die fehlerhaften Daten.
+4. Der User bestätigt die Änderung der Daten.
+5. System speichert alle Daten in der Datenbank.
+6. Der Use Case endet.
+
+//=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+//=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
+
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
+
+//=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+
+* Das System hat die geänderten Daten vollständig gespeichert.
+
+//=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
