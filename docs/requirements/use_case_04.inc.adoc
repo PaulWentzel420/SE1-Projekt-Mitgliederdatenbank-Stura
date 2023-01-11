@@ -1,0 +1,50 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+
+== Use-Case: UC04 Mitwirkungsdauer von Mitgliedern ausgeben
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+Die Mitwirkungsdauer von Mitgliedern soll in Monaten ausgegeben werden.
+
+=== Kurzbeschreibung der Akteure
+Die StuRa-Mitglieder wollen die Mitwirkungsdauer eines Mitglieds angezeigt bekommen.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+* Das Mitglied, dessen Mitwirkunsdauer angefragt wird, ist im System erfasst.
+* User muss im Online-Tool angemeldet sein.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
+2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
+3. Der User betätigt den "Mitwirkungsdauer"-Button.
+4. Der User wählt Mitglieder aus.
+5. Das System gibt die jeweilige Mitwirkungsdauer in Monaten aus.
+6. Der Use Case endet.
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+*Die Mitwirkungsdauer des ausgewählten Mitglieds liegt unter einem Monat*
+
+* Der User erhält eine Mitteilung dass die Mitwirkungszeit unter einem Monat liegt.
+
+//=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
+
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
+
+//=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+//=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+
+//=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
