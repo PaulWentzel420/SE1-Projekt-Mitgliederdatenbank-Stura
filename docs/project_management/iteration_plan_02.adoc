@@ -1,4 +1,4 @@
-= Iteration Plan 02: {project-name}
+= Iteration Plan 02: {I6 - Mitgliederdatenbank für StuRa}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -8,40 +8,45 @@ include::../_includes/default-attributes.inc.adoc[]
 == Meilensteine
 //Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
 
-[%header, cols="3,1"]
+[%header, cols="3,1,1"]
 |===
-| Meilenstein | Datum
+| Meilenstein | Datum | Notizen
 
-| Beginn der Iteration | 30.11.2022
-| ... | -
-| Ende der Iteration | 07.12.2022
+| Beginn der Iteration | 21.12.2022 |
+| Weihnachtsferien | 23.12.2022-02.01.2023 |
+| Teammeeting | 07.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
+| Teammeeting | 11.01.2023 | Besprechung Treffen mit StuRa
+| Treffen mit Themenstellern | 13.01.2023 | x
+| Ende der Iteration | 13.01.2023 | Assessment
 |===
 
 
 == Wesentliche Ziele
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
-Beispiele:
+* Anforderungen vergleichen und ggf. korrigieren
+* Use Cases aktualisieren
+* Risk List editieren
+* Essence Navigator
 
-* Team aufbauen, Rollen zuordnen, Stakeholder involvieren
-* Systemfokus finden: Grenzen, Akteure, Schnittstellen
-* Zentrale Projektrisiken identifizieren
-* Kosten-Nutzen-Analyse („Rechtfertigung“)
-* Einrichtung der Projektumgebung, Git, IDE, Testsystem…
 
 
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
 
-Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (hier Verweis einfügen).
+Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
+Tabelle:
 
-_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
-[%header, cols="3,1,1,1,2,1,1,1,1"]
+[%header, cols="3,1,1,1,2,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) |Status | Referenzen | geplante Iteration | Zugewiesen (Name) | Gearbeite Stunden | Schätzung der verbleibenden Stunden
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
 
-| x | x | x | x | x | x | x | x | x
+| Use Cases | mittel | 4 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 2
+| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
+| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 2
+| Iterationsplan 03 | hoch | 2 | erledigt | docs/project_management/iteration_plan_03.adoc | Tony | 2
+| Anforderungsanalyse überarbeiten | mittel | 3 | docs/requirements/system-wide_requirements.adoc | Collin, Georg, Paul | 2
 |===
 
 
@@ -52,18 +57,16 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 |===
 | Problem | Status | Notizen
 
-| x | x | x
+| Weihnachtsferien | abgeschlossen | Stagnation des Projektfortschrittes
 |===
 
 
 == Bewertungskriterien
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
 
-Beispiele:
+* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit dem gesamten Team ergibt positive Rückmeldung.
+* Anforderungsanalyse Vergleich mit Themenstellern erzielt positive Ergebnisse
 
-* 97% der Testfälle auf Systemebene sind erfolgreich.
-* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit den Abteilungen X und Y ergibt positive Rückmeldung.
-* Technische Präsentation / Demo erhält positive Rückmeldungen.
 
 
 == Assessment
@@ -73,20 +76,10 @@ Beispiele:
 |===
 | Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
 
-| Assessment Datum | ...
-| Teilnehmer | ...
-| Projektstatus	| Zum Beispiel ausgedrückt als rot, gelb oder grün.
+| Assessment Datum | 13.01.2023
+| Teilnehmer | alle
+| Projektstatus	| grün
 |===
 
-* Beurteilung im Vergleich zu den Zielen
-//Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
-
-* Geplante vs. erledigte Aufgaben
-//Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
-
-* Beurteilung im Vergleich zu den Bewertungskriterien
-//Document whether you met the evaluation criteria as specified in the Iteration Plan.
-//Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
-
-* Andere Belange und Abweichungen
-//Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
+* Beurteilung im Vergleich zu den Zielen → alle Ziele wurden erreicht
+* Geplante vs. erledigte Aufgaben → alle Aufgaben erledigt
