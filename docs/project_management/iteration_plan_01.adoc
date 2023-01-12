@@ -1,4 +1,4 @@
-= Iteration Plan 01: {project-name}
+= Iteration Plan 01: {I6 - Mitgliederdatenbank für StuRa}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -43,12 +43,12 @@ Tabelle:
 |===
 | Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
 
-| Vision | hoch | 4 | erledigt | x | Tony | 5
-| Use Cases | mittel | 7 | erldigt | x | Nathalie | 6
+| Vision | hoch | 4 | erledigt | docs/requirements/vision.adoc | Tony | 5
+| Use Cases | mittel | 7 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 6
 | Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
-| Risikoanalyse | mittel | 2 | erledigt | x | Hao | 3
-| Anforderungsanalyse | hoch | 7 | erledigt | x | Collin, Gerorg, Paul | 5
-| Iterationsplan 02 | hoch | 1 | erledigt | x | Tony | 2
+| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 3
+| Anforderungsanalyse | hoch | 7 | erledigt | docs/requirements/system-wide_requirements.adoc | Collin, Gerorg, Paul | 5
+| Iterationsplan 02 | hoch | 1 | erledigt | docs/project_management/iteration_plan_02.adoc | Tony | 2
 |===
 
 
