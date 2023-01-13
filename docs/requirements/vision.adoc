@@ -115,22 +115,23 @@ Beispiel Produkt:
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| xx | xx | xx | xx
+| einfache Verwaltung der Mitglieder | hoch | Eigener Tab für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | xx
+| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Tab "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | xx
+| Ausgabe der Bearbeitungshistorie | mittel | Eigener Tab der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | xx
+| Generierung einer Checkliste | mittel | Eigener Tab "Arbeitsleitfaden", der vom User geklickt wird und eine Checkliste generiert, welche Aufgaben noch zu erledigen sind. Diese soll Daten bezüglich E Mail-Verteilern, Schlüsselkasten, Zugangsschließsystem, ... beinhalten |xx
+| Organigramm generieren | mittel | Eigener Tab "Organigramm", der ein Organigramm für den/die Bearbeiter*in ausgiebt | xx
 |===
 
 
 == Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
-Hinweise:
 
-. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
-. Definieren Sie grob die Qualitätsanforderungen für Leistung, Robustheit, Ausfalltoleranz, Benutzbarkeit und ähnliche Merkmale, die nicht von den genannten Features erfasst werden.
-. Notieren Sie alle Entwurfseinschränkungen, externe Einschränkungen, Annahmen oder andere Abhängigkeiten, die wenn Sie geändert werden, das Visions-Dokument beeinflussen. Ein Beispiel wäre die Annahme, dass ein bestimmtes Betriebssystem für die vom System erforderliche Hardware verfügbar ist. Ist das Betriebssystem nicht verfügbar, muss das Visions-Dokument angepasst werden.
-. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen-
-. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| xx | xx | xx
+| Einfache und intuitive Bedienbarkeit | hoch | -
+| System nur online nutzbar | hoch | -
+| System muss auf Windows, Linux und gängigen mobilen Browsern nutzbar sein | hoch | -
+| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel | -
 |===
