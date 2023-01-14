@@ -17,8 +17,7 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 * *UC04*: Mitwirkungsdauer von Mitgliedern ausgeben
 * *UC05*: Historie ausgeben (alle Änderungen)
 * *UC06*: Checkliste generieren
-* *UC07*: Arbeitsleitfaden ausgeben
-* *UC08*: Organigramm generieren 
+* *UC07*: Organigramm generieren 
 
 
 == Use Case Diagramm
@@ -43,6 +42,3 @@ include::use_case_06.inc.adoc[]
 
 <<<
 include::use_case_07.inc.adoc[]
-
-<<<
-include::use_case_08.inc.adoc[]
