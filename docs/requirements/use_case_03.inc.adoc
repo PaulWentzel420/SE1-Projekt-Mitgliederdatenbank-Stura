@@ -20,10 +20,12 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 
 1. Der Use Case beginnt mit einem Klick auf den "Daten bearbeiten"-Button
 2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
-3. Der User ändert die fehlerhaften Daten.
-4. Der User bestätigt die Änderung der Daten.
-5. System speichert alle Daten in der Datenbank.
-6. Der Use Case endet.
+3. Der User wählt ein Mitglied, dass bearbeitet werden soll.
+4. Eine Checkliste gibt Auskunft über noch offene Aufgaben, die der User bearbeiten muss.
+5. Der User ändert fehlerhafte oder ergänzt fehlende Daten.
+6. Der User bestätigt die Änderung der Daten.
+7. System speichert alle Daten in der Datenbank.
+8. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
