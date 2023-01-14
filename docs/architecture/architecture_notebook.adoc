@@ -19,7 +19,9 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
 Das System stellt ein Online-Tool zur Verwaltung der Mitglieder des StuRa der HTW Dresden dar. Offizielle Mitglieder des StuRa erhalten über einen Login Zugang zur Website und können entsprechend ihrer verliehenen Rechte entweder nur Informationen einsehen oder diese gegebenenfalls auch bearbeiten. Auf Grund dessen muss eine parallele Nutzung von drei Personen gewährleistet sein. 
+
 Eine gute Bedienbarkeit wird durch eine übersichtliche, leicht verständliche und intuitiv bedienbare Benutzeroberfläche sichergestellt. Die leichte Bedienbarkeit soll ebenfalls garantieren, dass auch ungelernte Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit erlernen können. 
+
 Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfragen sollen auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt werden.
 
 == Annahmen und Abhängigkeiten
