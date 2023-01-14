@@ -27,6 +27,12 @@ Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfrag
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
+*Annahmen*
+
+* Jeder Nutzer besitzt eine stabile Internetverbindung mit genügend Bandbreite.
+* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome)
+
+*Abhängikeiten*
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
@@ -46,9 +52,6 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 //Beispiele: relationales DBMS, Messaging-Dienste, Transaktionsserver, Webserver, Publish-Subscribe Mechanismus
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
-
-. Architekturmechanismus 1
-. Architekturmechanismus 2
 
 
 == Wesentliche Abstraktionen
