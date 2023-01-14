@@ -4,7 +4,7 @@
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Es soll ein Arbeitsleitfaden in Form einer Checkliste erstellt werden. Diese beinhaltet Daten bezüglich E Mail-Verteilern, Schlüsselkasten, Zugangsschließsystem, Berechtigungen (Website/Dateiverwaltung/Aufgabenverwaltung) sowie notwendige Unterschriften.
+Es soll ein Arbeitsleitfaden in Form einer Checkliste erstellt werden. Aufgrund der unterschiedlichen Ämter gibt es für die Mitglieder verschiedene Pflichtfelder, welche jeweils ausgefüllt werden müssen. Der User soll durch die Checkliste darauf hingewiesen werden, dass von bestimmten Mitgliedern beispielsweise eine Unterschrift benötigt wird oder diesen zum Beispiel noch ein Schlüsselkasten zugeordnet werden muss.
 
 === Kurzbeschreibung der Akteure
 Die StuRa-Mitglieder benötigen einen Arbeitsleitfaden für die interne Verwaltung in Form einer Checkliste.
@@ -17,10 +17,9 @@ Die StuRa-Mitglieder benötigen einen Arbeitsleitfaden für die interne Verwaltu
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Arbeitsleitfaden"-Button.
-2. Der User betätigt den Button "Arbeitsleitfaden erstellen".
-3. Auf Basis der vorhandenen Daten wird ein Arbeitsleitfaden für die interne Verwaltung erstellt.
-4. Der Use Case endet.
+1. Der Use Case beginnt wenn das Amt eines Mitglieds geändert wird.
+2. Eine Checkliste gibt Auskunft über noch offene Angaben, die entsprechend des Amtes verpflichtend anzugeben sind.
+3. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
