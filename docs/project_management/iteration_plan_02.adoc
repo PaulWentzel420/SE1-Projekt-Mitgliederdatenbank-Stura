@@ -16,7 +16,7 @@ include::../_includes/default-attributes.inc.adoc[]
 | Weihnachtsferien | 23.12.2022-02.01.2023 |
 | Teammeeting | 07.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
 | Teammeeting | 11.01.2023 | Besprechung Treffen mit StuRa
-| Treffen mit Themenstellern | 13.01.2023 | x
+| Treffen mit Themenstellern | 13.01.2023 | docs/project_management/Treff 2 StuRa.docx
 | Ende der Iteration | 13.01.2023 | Assessment
 |===
 
