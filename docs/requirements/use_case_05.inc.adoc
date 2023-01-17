@@ -17,7 +17,7 @@ Die StuRa-Mitglieder wollen alle historischen Änderungen an den Daten einsehen.
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Daten bearbeiten"-Button
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
 2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
 3. Der User betätigt den "Historie"-Button.
 4. Das System zeigt alle historischen Änderungen an der Datenbank an.
