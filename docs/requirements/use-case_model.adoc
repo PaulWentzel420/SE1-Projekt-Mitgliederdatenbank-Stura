@@ -17,7 +17,7 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 * *UC04*: Mitwirkungsdauer von Mitgliedern ausgeben
 * *UC05*: Historie ausgeben (alle Änderungen)
 * *UC06*: Logdateien ausgeben
-* *UC07*: Datenimport
+* *UC07*: Daten importieren
 * *UC08*: Daten exportieren
 * *UC09*: Stimmberechtigung ausgeben
 
