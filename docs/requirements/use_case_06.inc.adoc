@@ -19,7 +19,7 @@ Die StuRa-Mitglieder wollen die Logdateien ausgeben um sich einen Überblick üb
 
 1. Der Use case beginnt mit einem Klick auf den "Logdateien"-Button.
 2. Das System gibt die Protokolldateien aus.
-3. Der Use case endet.
+3. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
