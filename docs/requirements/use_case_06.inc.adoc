@@ -1,13 +1,13 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC06 Checkliste generieren
+== Use-Case: UC06 Logdateien ausgeben
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Es soll ein Arbeitsleitfaden in Form einer Checkliste erstellt werden. Aufgrund der unterschiedlichen Ämter gibt es für die Mitglieder verschiedene Pflichtfelder, welche jeweils ausgefüllt werden müssen. Der User soll durch die Checkliste darauf hingewiesen werden, dass von bestimmten Mitgliedern beispielsweise eine Unterschrift benötigt wird oder diesen zum Beispiel noch ein Schlüsselkasten zugeordnet werden muss.
+Es sollen die Protokolldateien ausgegeben werden, um einen Einblick in die Netzwerkereignisse zu erhalten.
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder benötigen einen Arbeitsleitfaden für die interne Verwaltung in Form einer Checkliste.
+Die StuRa-Mitglieder wollen die Logdateien ausgeben um sich einen Überblick über aufgetretene Ereignisse, einen Prozess-Status oder Transaktionen zu verschaffen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -17,9 +17,9 @@ Die StuRa-Mitglieder benötigen einen Arbeitsleitfaden für die interne Verwaltu
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt wenn das Amt eines Mitglieds geändert wird.
-2. Eine Checkliste gibt Auskunft über noch offene Angaben, die entsprechend des Amtes verpflichtend anzugeben sind.
-3. Der Use Case endet.
+1. Der Use case beginnt mit einem Klick auf den "Logdateien"-Button.
+2. Das System gibt die Protokolldateien aus.
+3. Der Use case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
