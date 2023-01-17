@@ -17,9 +17,10 @@ Die StuRa-Mitglieder wollen die Logdateien ausgeben um sich einen Überblick üb
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use case beginnt mit einem Klick auf den "Logdateien"-Button.
-2. Das System gibt die Protokolldateien aus.
-3. Der Use Case endet.
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button.
+2. Der User betätigt den "Logdateien"-Button.
+3. Das System gibt die Protokolldateien aus.
+4. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
