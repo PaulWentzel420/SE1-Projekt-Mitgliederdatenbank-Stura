@@ -18,7 +18,7 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Daten bearbeiten"-Button
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
 2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
 3. Der User wählt ein Mitglied, dass bearbeitet werden soll.
 4. Eine Checkliste gibt Auskunft über noch offene Aufgaben, die der User bearbeiten muss.
