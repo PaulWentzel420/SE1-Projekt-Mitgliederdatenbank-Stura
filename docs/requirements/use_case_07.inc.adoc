@@ -1,13 +1,13 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC07 Organigramm generieren
+== Use-Case: UC07 Datenimport
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Auf Basis der vorhandenen Daten soll ein Organigramm erstellt werden.
+Es sollen vorhandene Daten, beispielsweise aus einer Excel-Tabelle, in das datenbank-Tool importiert werden.
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder benötigen eine grafische Darstellung der internen Struktur des StuRa in Form eines Organigramms.
+Die StuRa-Mitglieder wollen vorhandene Daten in die Datenbank importieren lassen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -17,10 +17,12 @@ Die StuRa-Mitglieder benötigen eine grafische Darstellung der internen Struktur
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Organigramm"-Button.
-2. Das System generiert auf Basis der vorhandenen Daten ein Organigramm.
-3. Das System gibt das Organigramm aus.
-4. Der Use Case endet.
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
+2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
+3. Der User wählt den Button "Datenimport".
+4. Der User wählt eine Datei mit den benötigten Daten aus.
+5. Die Daten werden importiert.
+6. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -39,9 +41,5 @@ Die StuRa-Mitglieder benötigen eine grafische Darstellung der internen Struktur
 //=== Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-
-*Effizienz*
-
-Automatische Aktualisierung des Organigramms bei Änderung der vorhandenen Daten.
