@@ -4,7 +4,7 @@
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Es sollen vorhandene Daten, beispielsweise aus einer Excel-Tabelle, in das datenbank-Tool importiert werden.
+Es sollen vorhandene Daten, beispielsweise aus einer Excel-Tabelle, in das Datenbank-Tool importiert werden.
 
 === Kurzbeschreibung der Akteure
 Die StuRa-Mitglieder wollen vorhandene Daten in die Datenbank importieren lassen.
