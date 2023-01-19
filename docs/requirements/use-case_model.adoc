@@ -1,4 +1,4 @@
-= Use-Case Model: {project-name}
+= Use-Case Model: Projekt I6 Mitgliederdatenbank für den StuRa
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -6,26 +6,23 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Allgemeine Informationen
-// ...
+Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure und deren Abläufe vorgestellt.
 
 
 == Identifizierte Use Cases
-// Liste aller identifizierten Use Cases (priorisiert)
-* *UC01*: ...
-* *UC02*: ...
+// Liste aller identifizierten Use Cases 
+* *UC01*: Mitglied anlegen
+* *UC02*: Mitglied löschen
+* *UC03*: Mitgliederdaten bearbeiten
+* *UC04*: Mitwirkungsdauer von Mitgliedern ausgeben
+* *UC05*: Historie ausgeben (alle Änderungen)
+* *UC06*: Logdateien ausgeben
+* *UC07*: Daten importieren
+* *UC08*: Daten exportieren
+* *UC09*: Stimmberechtigung ausgeben
 
 
 == Use Case Diagramm
-// ...
-
-//Fügen Sie nachfolgend alle detaillierten Use-Cases per Include ein.
-//Dafür sollten Sie pro Use-Case eine Datei anlegen, die auf dem use_case_01.inc.adoc Template basiert.
-
-////
-Mit `<<<` wird im PDF ein Seitenumbruch erzeugt.
-Zwischen `include::...` und dem darauf folgenden `<<<` muss sich eine Leerzeile befinden. Fehlt diese, werden unter Umständen die erste Überschriften aus der inkludierten Datei nicht korrekt übernommen.
-Ein `include` entfernt am Anfang und Ende eine möglich Leerzeile, was in Kombination mit `<<<` zu Fehlern führen kann.
-////
 
 <<<
 include::use_case_01.inc.adoc[]
@@ -33,26 +30,23 @@ include::use_case_01.inc.adoc[]
 <<<
 include::use_case_02.inc.adoc[]
 
-//<<<
-//include::use_case_03.inc.adoc[]
+<<<
+include::use_case_03.inc.adoc[]
 
-//<<<
-//include::use_case_04.inc.adoc[]
+<<<
+include::use_case_04.inc.adoc[]
 
-//<<<
-//include::use_case_05.inc.adoc[]
+<<<
+include::use_case_05.inc.adoc[]
 
-//<<<
-//include::use_case_06.inc.adoc[]
+<<<
+include::use_case_06.inc.adoc[]
 
-//<<<
-//include::use_case_07.inc.adoc[]
+<<<
+include::use_case_07.inc.adoc[]
 
-//<<<
-//include::use_case_08.inc.adoc[]
+<<<
+include::use_case_08.inc.adoc[]
 
-//<<<
-//include::use_case_09.inc.adoc[]
-
-//<<<
-//include::use_case_10.inc.adoc[]
+<<<
+include::use_case_09.inc.adoc[]

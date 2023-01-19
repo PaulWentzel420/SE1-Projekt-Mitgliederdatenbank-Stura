@@ -1,5 +1,5 @@
 = Glossar: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+//Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -13,7 +13,10 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| xx | xx | xx
+| Access-Control | Zugriffskontrolle |
+| Backup | Sicherheitskopie |
+| Intranet | Organisationsinternes Netzwerk |
+| Admin | Eine Person mit Vollzugriff auf das System | Administrator
 |===
 
 

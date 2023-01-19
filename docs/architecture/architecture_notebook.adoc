@@ -1,4 +1,4 @@
-= Architecture Notebook: {project-name}
+= Architecture Notebook: Projekt I6 Mitgliederdatenbank für den StuRa
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -18,10 +18,21 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
+Das System stellt ein Online-Tool zur Verwaltung der Mitglieder des StuRa der HTW Dresden dar. Offizielle Mitglieder des StuRa erhalten über einen Login Zugang zur Website und können entsprechend ihrer verliehenen Rechte entweder nur Informationen einsehen oder diese gegebenenfalls auch bearbeiten. Auf Grund dessen muss eine parallele Nutzung von drei Personen gewährleistet sein. 
+
+Eine gute Bedienbarkeit wird durch eine übersichtliche, leicht verständliche und intuitiv bedienbare Benutzeroberfläche sichergestellt. Die leichte Bedienbarkeit soll ebenfalls garantieren, dass auch ungelernte Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit erlernen können. 
+
+Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfragen sollen auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt werden.
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
+*Annahmen*
+
+* Jeder Nutzer besitzt eine stabile Internetverbindung mit genügend Bandbreite.
+* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome)
+
+*Abhängikeiten*
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
@@ -41,9 +52,6 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 //Beispiele: relationales DBMS, Messaging-Dienste, Transaktionsserver, Webserver, Publish-Subscribe Mechanismus
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
-
-. Architekturmechanismus 1
-. Architekturmechanismus 2
 
 
 == Wesentliche Abstraktionen

@@ -1,13 +1,13 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC02 Mitglied löschen
+== Use-Case: UC07 Daten importieren
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Der Use Case beschreibt das Löschen von Mitgliedern im Online-Tool.
+Es sollen vorhandene Daten, beispielsweise aus einer Excel-Tabelle, in das Datenbank-Tool importiert werden.
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
+Die StuRa-Mitglieder wollen vorhandene Daten in die Datenbank importieren lassen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -17,11 +17,11 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
-2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
-3. Der User wählt ein Mitglied aus und drückt den "Mitglied löschen"-Button.
-4. Der User bestätigt das Löschen des Nutzers.
-5. Das System entfernt das Mitglied und alle dazugehörigen Daten aus der Datenbank.
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
+2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
+3. Der User wählt den Button "Datenimport".
+4. Der User wählt eine Datei mit den benötigten Daten aus.
+5. Die Daten werden importiert.
 6. Der Use Case endet.
 
 //=== Alternative Abläufe
@@ -40,13 +40,7 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+* Alle importierten Daten wurden korrekt gespeichert.
 
-* Alle Daten des Mitglieds wurden gelöscht.
-* Gelöschte Mitglieder haben keinen Zugriff mehr auf das Online-Tool.
-
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-
-*Usability*
-
-Die Benutzeroberfläche muss verdeutlichen, dass das Löschen eines Mitglieds endgültig und irreversibel ist.

@@ -1,0 +1,85 @@
+= Iteration Plan 02: {I6 - Mitgliederdatenbank für StuRa}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+
+== Meilensteine
+//Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
+
+[%header, cols="3,1,1"]
+|===
+| Meilenstein | Datum | Notizen
+
+| Beginn der Iteration | 21.12.2022 |
+| Weihnachtsferien | 23.12.2022-02.01.2023 |
+| Teammeeting | 07.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
+| Teammeeting | 11.01.2023 | Besprechung Treffen mit StuRa
+| Treffen mit Themenstellern | 13.01.2023 | docs/project_management/Treff 2 StuRa.docx
+| Ende der Iteration | 13.01.2023 | Assessment
+|===
+
+
+== Wesentliche Ziele
+//Nennen Sie 1-5 wesentliche Ziele für die Iteration.
+
+* Anforderungen vergleichen und ggf. korrigieren
+* Use Cases aktualisieren
+* Risk List editieren
+* Essence Navigator
+
+
+
+
+== Aufgabenzuordnung
+//Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
+
+Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
+Tabelle:
+
+[%header, cols="3,1,1,1,2,1,1"]
+|===
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
+
+| Use Cases | mittel | 4 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 2
+| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
+| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 2
+| Iterationsplan 03 | hoch | 2 | erledigt | docs/project_management/iteration_plan_03.adoc | Tony | 2
+| Anforderungsanalyse überarbeiten | mittel | 3 | docs/requirements/system-wide_requirements.adoc | Collin, Georg, Paul | 2
+|===
+
+
+== Probleme (optional)
+//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
+
+[%header, cols="2,1,3"]
+|===
+| Problem | Status | Notizen
+
+| Weihnachtsferien | abgeschlossen | Stagnation des Projektfortschrittes
+|===
+
+
+== Bewertungskriterien
+//Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
+
+* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit dem gesamten Team ergibt positive Rückmeldung.
+* Anforderungsanalyse Vergleich mit Themenstellern erzielt positive Ergebnisse
+
+
+
+== Assessment
+//In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommuniziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage, die eigene Arbeitsweise ("Way of Working") zu verbessern.
+
+[%header, cols="1,3"]
+|===
+| Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
+
+| Assessment Datum | 13.01.2023
+| Teilnehmer | alle
+| Projektstatus	| grün
+|===
+
+* Beurteilung im Vergleich zu den Zielen → alle Ziele wurden erreicht
+* Geplante vs. erledigte Aufgaben → alle Aufgaben erledigt

@@ -1,4 +1,4 @@
-= Iteration Plan 01: {project-name}
+= Iteration Plan 01: {I6 - Mitgliederdatenbank für StuRa}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -8,62 +8,65 @@ include::../_includes/default-attributes.inc.adoc[]
 == Meilensteine
 //Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
 
-[%header, cols="3,1"]
+[%header, cols="3,1,1"]
 |===
-| Meilenstein | Datum
+| Meilenstein | Datum | Notizen
 
-| Beginn der Iteration | 30.11.2022
-| ... | -
-| Ende der Iteration | 07.12.2022
+| Beginn der Iteration | 30.11.2022 |
+| Erstes Meeting mit Teammitgliedern und Projetansprechpartnerin | 30.11.2022 |
+| Teammeeting | 02.12.2022 |
+| Meeting mit Themenstellern | 19.12.2022 | x
+| Teammeeting | 20.12.2022 |
+| Ende der Iteration | 20.12.2022 |
 |===
 
 
 == Wesentliche Ziele
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
-Beispiele:
-
-* Team aufbauen, Rollen zuordnen, Stakeholder involvieren
-* Systemfokus finden: Grenzen, Akteure, Schnittstellen
-* Zentrale Projektrisiken identifizieren
-* Kosten-Nutzen-Analyse („Rechtfertigung“)
-* Einrichtung der Projektumgebung, Git, IDE, Testsystem…
+• Überblick über genutzte Tools/Projektumgebung verschaffen
+• Erstes Meeting mit den Themenstellern
+• Aufgabenstellung analysieren, Vision entwerfen
+• Kennenlernen des Teams
+• Aufgabenverteilung untereinander
+• allgemeines Verständnis der Anforderungen
 
 
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
 
-Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (hier Verweis einfügen).
+Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
+Tabelle:
 
-_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
-[%header, cols="3,1,1,1,2,1,1,1,1"]
+[%header, cols="3,1,1,1,2,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) |Status | Referenzen | geplante Iteration | Zugewiesen (Name) | Gearbeite Stunden | Schätzung der verbleibenden Stunden
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
 
-| x | x | x | x | x | x | x | x | x
+| Vision | hoch | 4 | erledigt | docs/requirements/vision.adoc | Tony | 5
+| Use Cases | mittel | 7 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 6
+| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
+| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 3
+| Anforderungsanalyse | hoch | 7 | erledigt | docs/requirements/system-wide_requirements.adoc | Collin, Gerorg, Paul | 5
+| Iterationsplan 02 | hoch | 1 | erledigt | docs/project_management/iteration_plan_02.adoc | Tony | 2
 |===
 
 
-== Probleme (optional)
+== Probleme
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
 
 [%header, cols="2,1,3"]
 |===
 | Problem | Status | Notizen
 
-| x | x | x
+| Themensteller war im Urlaub -> kein Ersatz festgelegt | abgeschlossen | Es entstand eine Wartezeit, in der das Team relativ wenig unternehmen konnte, da genaue Projektziele nicht besprochen werden konnten.
 |===
 
 
 == Bewertungskriterien
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
 
-Beispiele:
-
-* 97% der Testfälle auf Systemebene sind erfolgreich.
-* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit den Abteilungen X und Y ergibt positive Rückmeldung.
-* Technische Präsentation / Demo erhält positive Rückmeldungen.
+* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit dem gesamten Team ergibt positive Rückmeldung.
 
 
 == Assessment
@@ -71,22 +74,40 @@ Beispiele:
 
 [%header, cols="1,3"]
 |===
-| Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
+| Assessment Ziel | Iteration 1 beenden
 
-| Assessment Datum | ...
-| Teilnehmer | ...
-| Projektstatus	| Zum Beispiel ausgedrückt als rot, gelb oder grün.
+| Assessment Datum | 20.12.2022
+| Teilnehmer | alle
+| Projektstatus	| grün
 |===
 
-* Beurteilung im Vergleich zu den Zielen
+* Beurteilung im Vergleich zu den Zielen -> alle Ziele wurden erreicht
 //Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
 
-* Geplante vs. erledigte Aufgaben
+* Geplante vs. erledigte Aufgaben -> alle Aufgaben erledigt
 //Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
 
-* Beurteilung im Vergleich zu den Bewertungskriterien
-//Document whether you met the evaluation criteria as specified in the Iteration Plan.
-//Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
 
-* Andere Belange und Abweichungen
-//Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
+*Erstes Meeting mit StuRa* +
+
+Datum/Zeit: 19.12.2022 / 16:00 Uhr +
+Ort: A-Gebäude +
+Teilnehmer: Paul Wentzel, Collin Neumann, Lennart Bronke, Elli Range (Auftraggeber) +
+
+
+.Agenda
+//
+* Besprechung der Anforderungen und Gegebenheiten
+* Führung der bestehenden Daten in einer Excel-Tabelle 
+* Anlegen/Verwaltung von Mitgliedern für jeweilige Legislatur
+* Ämter mit Funktionen und Aufwand ausgeben
+* Mitwirkung in Monaten berechnen für Anrechnung eines Gremiensemesters
+* Vorhandenes Organigramm ersetzen durch neues, leichter zu pflegendes
+* Anleitung der Installation wichtig für Anpassungen und Handhabung bei schnellen Mitglieder wechseln
+* Oberfläche Antragsgrün oder ähnlich zu Antragsgrün soll verwendet werden 
+
+
+.To-Do-Liste
+* Dokumentation (Vision, Analyse, Use Cases erstellen, Modellierung)
+* Nächstes Treffen für dem 13.01.2023 festgelegt +
+

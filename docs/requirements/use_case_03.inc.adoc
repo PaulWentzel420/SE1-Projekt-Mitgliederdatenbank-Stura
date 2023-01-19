@@ -1,28 +1,31 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC02 Mitglied löschen
+== Use-Case: UC03 Mitgliederdaten bearbeiten
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Der Use Case beschreibt das Löschen von Mitgliedern im Online-Tool.
+Die vorhandenen Daten benötigen eine Änderung.
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
+Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händisch ändern.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
 * User muss im Online-Tool angemeldet sein.
+* Das zu ändernde Mitglied ist im System erfasst.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
-2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
-3. Der User wählt ein Mitglied aus und drückt den "Mitglied löschen"-Button.
-4. Der User bestätigt das Löschen des Nutzers.
-5. Das System entfernt das Mitglied und alle dazugehörigen Daten aus der Datenbank.
-6. Der Use Case endet.
+1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
+2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
+3. Der User wählt ein Mitglied, dass bearbeitet werden soll.
+4. Eine Checkliste gibt Auskunft über noch offene Aufgaben, die der User bearbeiten muss.
+5. Der User ändert fehlerhafte oder ergänzt fehlende Daten.
+6. Der User bestätigt die Änderung der Daten.
+7. System speichert alle Daten in der Datenbank.
+8. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -41,12 +44,7 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-* Alle Daten des Mitglieds wurden gelöscht.
-* Gelöschte Mitglieder haben keinen Zugriff mehr auf das Online-Tool.
+* Das System hat die geänderten Daten vollständig gespeichert.
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-
-*Usability*
-
-Die Benutzeroberfläche muss verdeutlichen, dass das Löschen eines Mitglieds endgültig und irreversibel ist.
