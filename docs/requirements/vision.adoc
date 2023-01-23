@@ -64,7 +64,7 @@ Beispiel:
 |===
 | Für | Mitglieder des StuRa
 | die | Pflege der Mitglieder zulässt
-| Das Produkt / die Lösung ist ein | Programm?
+| Das Produkt / die Lösung ist eine | hauseigene Software
 | die | die Daten für alle Mitglieder organisiert
 | Im Gegensatz zu | zu Excel Tabellen
 | Unser Produkt | ermöglicht die übersichtliche Organisation der Mitglieder des StuRa
