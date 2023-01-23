@@ -13,10 +13,11 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| Access-Control | Zugriffskontrolle |
-| Backup | Sicherheitskopie |
-| Intranet | Organisationsinternes Netzwerk |
-| Admin | Eine Person mit Vollzugriff auf das System | Administrator
+| Access-Control | Reguliert wer oder was auf eine bestimmte Ressource zugreifen kann. Dies geschieht mittels Autorisierung und Authentifizierung | Zugriffskontrolle
+| Backend | Bezeichnet den Teil eines IT-Systems, welcher sich mit der Datenverarbeitung im Hintergrund beschäftigt. Die Daten erhält es vom Frontend. |
+| Frontend | Die tatsächliche Schnittstelle zwischen Nutzer und Software-Anwendung. In der Regel geschieht dies über eine grafische Benutzeroberfläche. | Präsentationsebene
+| Administrator | Eine Person mit Vollzugriff auf das System. Der Admin ist Zuständig für die Wartung und Installation eines IT-Systems. | Admin
+| Online-Tool |  |
 |===
 
 
