@@ -64,7 +64,7 @@ Beispiel:
 |===
 | Für | Mitglieder des StuRa
 | die | Pflege der Mitglieder zulässt
-| Das Produkt / die Lösung ist ein | Programm?
+| Das Produkt / die Lösung ist eine | hauseigene Software
 | die | die Daten für alle Mitglieder organisiert
 | Im Gegensatz zu | zu Excel Tabellen
 | Unser Produkt | ermöglicht die übersichtliche Organisation der Mitglieder des StuRa
@@ -115,11 +115,11 @@ Beispiel Produkt:
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| einfache Verwaltung der Mitglieder | hoch | Eigener Tab für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | xx
-| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Tab "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | xx
-| Ausgabe der Bearbeitungshistorie | mittel | Eigener Tab der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | xx
-| Generierung einer Checkliste | mittel | Eigener Tab "Arbeitsleitfaden", der vom User geklickt wird und eine Checkliste generiert, welche Aufgaben noch zu erledigen sind. Diese soll Daten bezüglich E Mail-Verteilern, Schlüsselkasten, Zugangsschließsystem, ... beinhalten |xx
-| Organigramm generieren | mittel | Eigener Tab "Organigramm", der ein Organigramm für den/die Bearbeiter*in ausgiebt | xx
+| einfache Verwaltung der Mitglieder | hoch | Eigener Button für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | xx
+| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | xx
+| Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | xx
+| Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | xx
+| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | xx
 |===
 
 
