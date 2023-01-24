@@ -20,6 +20,14 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Online-Tool | (Hilfs-)Werkzeug zur Datenverarbeitung mithilfe einer Nutzeroberfläche. | Online-Plattform
 | Auditing | Feststellung der Datensicherheit sowie Datenintegrität. |
 | persistente Speicherung | Speicherung von Daten auch über die Laufzeit des Systems hinaus. | nicht flüchtige Datenspeicherung
+|Beratendes Mitglied|In den StuRa gewähltes Mitglied.|
+|Exekutives Mitglied|Mitglied mit einer auführenden Funktion|
+|Legislatives Mitglied|Von den Studierenden gewähltes Mitglied|
+|Legislatur|Wahlperiode eines gewählten Mitgliedes|
+|Plenum|Zusammenschluss sämtlicher Mitglieder des StuRas|
+
+| Mitglied||
+
 |===
 
 
@@ -27,7 +35,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
-//| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
+| StuRa | Studentenrat | 
 | xx | xx | xx
 |===
 
