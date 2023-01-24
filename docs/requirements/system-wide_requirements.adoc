@@ -17,55 +17,96 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-* *SWFA-1*: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.
+* *SWFA-1>: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.*
 ** Zur Überprüfung können mittels unberechtigter oder gar falscher Logins Zugriffe auf unberechtige Daten oder Use Cases versucht werden.
 
-* *SWFA-2*: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.
+* *SWFA-2>: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.*
 ** Zur Validierung können mit verschiedenen Test-Nutzern Daten verändert, gelöscht und hinzugefügt werden. Anschließend werden alle alle getätigten Änderungen mit der Historie abgeglichen.
 
-* *SWFA-3*: Das System muss relevante Daten persistent speichern.
+* *SWFA-3>: Das System muss relevante Daten persistent speichern.*
 ** Zur Sicherstellung kann eine Reihe plötzlicher Systemausfälle simuliert werden. Bei einer anschließenden Überprüfung werden relevante Daten auf Vollständigkeit überprüft.
 
-== Qualitätsanforderungen für das Gesamtsystem
+== Qualitätsanforderungen für das Gesamtsystem 
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
 
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
-Die Stakeholder sitzen ausschließlich in Deutschland, weshalb die Software deutsch lokalisiert sein soll. Es soll sichergestellt sein, dass auch ein ungelernter Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit (max. 1 Tag) erlernen kann. Mithilfe einer Rechteverwaltung soll sichergestellt werden, dass nur berechtige Nutzer Schreibrechte haben. Die Berechtigungen sollen vom Administrator festgelegt werden können.
-Mithilfe von maximal 3 Klicks sollen relevante Informationen für Mitglieder in einem geordneten Format ausgegeben werden können.
+* *NFAU-1 Lokalisation:* +
+Die Stakeholder sitzen ausschließlich in Deutschland, weshalb die Software deutsch lokalisiert sein soll (Sprache, Datumsformat, Währung).
+
+* *NFAU-2 Erlernbarkeit:* +
+Es soll sichergestellt sein, dass auch ein ungelernter Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit (max. 1 Tag) erlernen kann. 
+
+* *NFAU-3 Zugangsbeschränkung:* +
+Mithilfe einer Rechteverwaltung soll sichergestellt werden, dass nur berechtige Nutzer Schreibrechte haben. Die Berechtigungen sollen vom Administrator festgelegt werden können.
+
+* *NFAU-4 Benutzerfreundlichkeit:* +
+Mithilfe von maximal 3 Klicks sollen relevante Informationen für Mitglieder in einem geordneten Format ausgegeben werden können. Die Ausgabe muss vom Benutzer nach mehreren Kriterien filterbar sein.
+
+* *NFAU-5 Eingabehilfe:* +
 Das Tool soll zwischen verpflichtenden und optionalen Eingaben unterscheiden (z.B. Eingabe einer alternativen E-Mail-Adresse). Es ist die Aufgabe des Frontends, dem Nutzer diese Unterscheidung zu verdeutlichen.
 
 === Zuverlässigkeit (Reliability)
-Website sowie Datenbank benötigen keine 99,99% Erreichbarkeit, sollten jedoch so oft wie möglich verfügbar sein. Die Benutzereingaben sind auf Sinnhaftigkeit zu überprüfen um Falscheingaben zu vermeiden (z.B. keine Postleitzahl im Namensfeld). Fehlende Pflichtdaten führen zu einer Eingabeaufforderung an den Nutzer und lösen noch keine Änderung an der Datenbank aus. Änderungen sollen dokumentiert werden (z.B. Nutzer A löscht Mitglied B am 01.01.2023). Systemausfälle sollen mittels Log-Dateien nachvollziehbar sein.
+
+* *NFAR-1 Verfügbarkeit:* +
+Website sowie Datenbank benötigen keine 99,99% Erreichbarkeit, sollten jedoch so oft wie möglich verfügbar sein.
+
+* *NFAR-2 Eingabevalidierung:* +
+Die Benutzereingaben sind auf Sinnhaftigkeit zu überprüfen um Falscheingaben zu vermeiden (z.B. keine Postleitzahl im Namensfeld). Fehlende Pflichtdaten führen zu einer Eingabeaufforderung an den Nutzer und lösen noch keine Änderung an der Datenbank aus.
+
+* *NFAR-3 Dokumentation:* +
+Änderungen sollen dokumentiert werden (z.B. Nutzer A löscht Mitglied B am 01.01.2023). Systemausfälle sollen mittels Log-Dateien nachvollziehbar sein. 
+
+* *NFAR-4 Wiederherstellbarkeit:* +
+Im Zweifelsfall müssen Backups vom Nutzer einspielbar sein.
 
 === Effizienz (Performance)
-Auf die Website sollen bis zu 3 Nutzer gleichzeitig zugreifen können. Datenbankabfragen sollten auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt sein. Das Anlegen neuer Datensätze soll direkt erfolgen, um reibungslose Arbeitsabläufe zu gewährleisten.
+* *NFAP-1 Serialisierung:* +
+Auf die Website sollen bis zu 3 Nutzer gleichzeitig zugreifen können. Datenbankabfragen sollten auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt sein. 
+
+* *NFAP-2 Workflow:* +
+Das Anlegen neuer Datensätze soll direkt erfolgen, um reibungslose Arbeitsabläufe zu gewährleisten.
 
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
-Es soll eine Installationsanleitung beigelegt werden, welche das selbständige (neu-)installieren der Software durch die Nutzer ermöglicht. Berechtigte Nutzer sollen Tabellen selbständig verwalten (z.B. Anlegen neuer Spalten) können.
+* *NFAS-1 Installation:* +
+Es soll eine Installationsanleitung beigelegt werden, welche das selbständige (neu-)installieren der Software durch die Nutzer ermöglicht. 
+
+* *NFAS-2 Erweiterbarkeit:* +
+Berechtigte Nutzer sollen Tabellen selbständig verwalten (z.B. Anlegen neuer Spalten) können.
+
+//* *NFAS-3 Kompatibilität:* +
+
 
 == Zusätzliche Anforderungen
 
-=== Einschränkungen
+=== Einschränkungen (Constraints)
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-Website sowie Datenbank sollen auf einem Server laufen.
+* *ZAC-1 Plattform:* +
+Die Website sowie die Datenbank sollen auf einem Server des StuRa laufen. Des Weiteren soll die Website auf allen aktuell gängigen Browsern nutzbar sein.
 
 //Ressourcenbegrenzungen
+* *ZAC-2 Ressourcen:* +
+Der StuRa stellt einen Docker zur Verfügung auf dem ein beliebiges Linux-Betriebssystem virtualisiert werden kann.
 
 //zu nutzende Komponenten / Bibliotheken / Frameworks
-Es soll kein Java verwendet werden. Das System soll auf einem beliebigen Linux-Betriebssystem lauffähig sein.
-Die Nutzung der Software soll über einen beliebigen aktuellen Webbrowser erfolgen. 
+* *ZAC-3 Implementierung:* +
+Es soll kein Java verwendet werden. Das System soll unter Linux lauffähig sein.
 
 //Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Anforderungen an Betrieb, Management und Wartung der Anwendung
-* zu beachtende Standards, Normen und Regeln
+//* Anforderungen an Betrieb, Management und Wartung der Anwendung
+//* zu beachtende Standards, Normen und Regeln
+* *ZAO-1 Standards:*
+** Die Software muss dem Wertekanon des StuRa entsprechen
+** Die Datensicherung muss ausschließlich lokal erfolgen
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Lizensierung der Anwendung
+* *ZAR-1 Lizensierung:* +
+Die Anwendung soll Open-Source sein
 
-Die Verarbeitung von personenbezogenen Daten muss dem Datenschutz entsprechen. 
+* *ZAR-2 Datenschutz:* +
+Das System muss den Datenschutzanforderungen der HTW Dresden, des StuRas und der DSGVO entsprechen
