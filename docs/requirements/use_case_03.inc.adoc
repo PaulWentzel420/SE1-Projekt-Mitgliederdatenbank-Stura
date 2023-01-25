@@ -24,11 +24,24 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 4. Eine Checkliste gibt Auskunft über noch offene Aufgaben, die der User bearbeiten muss.
 5. Der User ändert fehlerhafte oder ergänzt fehlende Daten.
 6. Der User bestätigt die Änderung der Daten.
-7. System speichert alle Daten in der Datenbank.
-8. Der Use Case endet.
+7. Das System überprüft die Eingaben auf ihre Vollständigkeit und Korrektheit.
+8. Das System speichert alle Daten in der Datenbank.
+9. Der Use Case endet.
 
-//=== Alternative Abläufe
+=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+*Alternativer Ablauf 1*
+
+1. Der User hat nicht alle geforderten Daten angegeben bzw. geforderte Daten gelöscht.
+2. Der Speichervorgang der Änderungen schägt fehl.
+3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
+
+*Alternativer Abluaf 2*
+
+1. Der User hat ungültige Daten angegeben.
+2. Der Speichervorgang der Änderungen schägt fehl.
+3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
 //=== Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
@@ -48,3 +61,7 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 
 //=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+*Usability*
+
+* Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss dementsprechend eine einfache Bedienbarkeit ermöglichen.
