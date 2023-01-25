@@ -42,5 +42,7 @@ Die StuRa-Mitglieder wollen vorhandene Daten in die Datenbank importieren lassen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 * Alle importierten Daten wurden korrekt gespeichert.
 
-//=== Besondere Anforderungen
+=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+* Nur User mit Adminrechten dürfen Daten importieren.
