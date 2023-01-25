@@ -51,4 +51,4 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 
 *Usability*
 
-Die Benutzeroberfläche muss verdeutlichen, dass das Löschen eines Mitglieds endgültig und irreversibel ist.
+* Die Benutzeroberfläche muss verdeutlichen, dass das Löschen eines Mitglieds endgültig und irreversibel ist.
