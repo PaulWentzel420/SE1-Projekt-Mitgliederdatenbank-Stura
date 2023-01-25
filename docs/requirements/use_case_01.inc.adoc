@@ -52,5 +52,9 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 * Alle eingegebenen Daten und ausgewählten Optionen wurden gespeichert.
 * Neue Nutzer haben ihre korrekten Ämter, Funktionen und Rechte.
 
-//=== Besondere Anforderungen
+=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+*Usability*
+
+* Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss dementsprechend eine einfache Bedienbarkeit ermöglichen.
