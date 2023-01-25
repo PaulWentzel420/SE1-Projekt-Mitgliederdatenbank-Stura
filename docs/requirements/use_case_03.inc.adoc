@@ -62,6 +62,8 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
+* Nur User mit Adminrechten dürfen Mitgliederdaten bearbeiten.
+
 *Usability*
 
 * Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss dementsprechend eine einfache Bedienbarkeit ermöglichen.
