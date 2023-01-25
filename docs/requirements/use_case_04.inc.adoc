@@ -28,8 +28,9 @@ Die StuRa-Mitglieder wollen die Mitwirkungsdauer eines Mitglieds angezeigt bekom
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-*Die Mitwirkungsdauer des ausgewählten Mitglieds liegt unter einem Monat*
+*Alternativer Ablauf 1*
 
+*Die Mitwirkungsdauer des ausgewählten Mitglieds liegt unter einem Monat
 * Der User erhält eine Mitteilung, dass die Mitwirkungszeit unter einem Monat liegt.
 
 //=== Unterabläufe (subflows)
