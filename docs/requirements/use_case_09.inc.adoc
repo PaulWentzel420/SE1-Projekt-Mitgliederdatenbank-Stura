@@ -4,7 +4,7 @@
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Es sollen alle stimmberechtiggten Mitglieder ausgegeben werden.
+Es sollen alle stimmberechtigten Mitglieder ausgegeben werden.
 
 === Kurzbeschreibung der Akteure
 Die StuRa-Mitglieder wollen sich über die Stimmberechtigung informieren.
