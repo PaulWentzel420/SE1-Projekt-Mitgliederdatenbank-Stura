@@ -23,8 +23,10 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 4. Das System gibt eine Auswahl an vorgefertigten Ämtern vor.
 5. Der User wählt ein Amt aus.
 6. Das System ordnet dem Mitglied Rechte, Aufgaben und Stundensatz entsprechend des Amtes zu.
-7. Das System speichert das neue Mitglied ab.
-8. Der Use Case endet.
+7. Der User gibt die geforderten Daten für das neue Mitglied ein.
+8. Das System überprüft die Eingaben auf ihre Vollständigkeit und Korrektheit.
+9. Das System speichert das neue Mitglied ab.
+10. Der Use Case endet.
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -33,6 +35,12 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 
 1. Der User hat nicht alle geforderten Daten angegeben.
 2. Der Speichervorgang des neuen Mitglieds schlägt fehl.
+3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
+
+*Alternativer Abluaf 2*
+
+1. Der User hat ungültige Daten angegeben.
+2. Der Speichervorgang des neuen Mitglieds schägt fehl.
 3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
 //=== Unterabläufe (subflows)
