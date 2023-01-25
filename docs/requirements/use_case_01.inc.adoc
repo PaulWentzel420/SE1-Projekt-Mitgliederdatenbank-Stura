@@ -63,6 +63,8 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
+* Nur User mit Adminrechten dürfen sich die Historie ausgeben lassen.
+
 *Usability*
 
 * Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss dementsprechend eine einfache Bedienbarkeit ermöglichen.
