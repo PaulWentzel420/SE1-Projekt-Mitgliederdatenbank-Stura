@@ -20,7 +20,7 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 
 1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
 2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
-3. Der User wählt ein Mitglied, dass bearbeitet werden soll.
+3. Der User wählt ein Mitglied, das bearbeitet werden soll.
 4. Eine Checkliste gibt Auskunft über noch offene Aufgaben, die der User bearbeiten muss.
 5. Der User ändert fehlerhafte oder ergänzt fehlende Daten.
 6. Der User bestätigt die Änderung der Daten.
