@@ -20,7 +20,7 @@ Die StuRa-Mitglieder wollen alle historischen Änderungen an den Daten einsehen.
 1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button
 2. Das Tool zeigt die vorhandenen Mitgliedsdaten an.
 3. Der User betätigt den "Historie"-Button.
-4. Das System zeigt alle historischen Änderungen an der Datenbank an.
+4. Das System zeigt alle historischen Änderungen an der Datenbank an, sowie durch wen sie durchgeführt wurden.
 5. Der Use Case endet.
 
 //=== Alternative Abläufe
@@ -40,5 +40,7 @@ Die StuRa-Mitglieder wollen alle historischen Änderungen an den Daten einsehen.
 //=== Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-//=== Besondere Anforderungen
+=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+* Nur User mit Adminrechten dürfen sich die Historie ausgeben lassen.
