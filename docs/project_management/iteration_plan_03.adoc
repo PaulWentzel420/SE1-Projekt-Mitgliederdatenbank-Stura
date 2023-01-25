@@ -12,22 +12,22 @@ include::../_includes/default-attributes.inc.adoc[]
 |===
 | Meilenstein | Datum | Notizen
 
-| Beginn der Iteration | 21.12.2022 |
-| Weihnachtsferien | 23.12.2022-02.01.2023 |
-| Teammeeting | 07.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
-| Teammeeting | 11.01.2023 | Besprechung Treffen mit StuRa
-| Treffen mit Themenstellern | 13.01.2023 | x
-| Ende der Iteration | 13.01.2023 | Assessment
+| Beginn der Iteration | 14.01.2023 |
+| Teammeeting | 15.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
+| Teammeeting | 19.01.2023 | Vergleich des derzeitigen Bearbeitungsstandes
+| Teammeeting | 26.01.2023 |
+| Ende der Iteration | 26.01.2023 | Assessment
+| Belegabgabe | 27.01.2023 |
 |===
 
 
 == Wesentliche Ziele
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
-* Anforderungen vergleichen und ggf. korrigieren
+* Architektur fertigstellen
 * Use Cases aktualisieren
 * Risk List editieren
-* Essence Navigator
+* Ersten Prototypen/Wireframes entwickeln
 
 
 
@@ -42,11 +42,11 @@ Tabelle:
 |===
 | Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
 
-| Use Cases | mittel | 4 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 2
-| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
+| Architektur | hoch | 4 | erldigt |  | Nathalie, Hao, Lennart | 5
+| Use Cases | mittel | 1 | erledigt |  | Nathalie | 1
 | Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 2
 | Iterationsplan 03 | hoch | 2 | erledigt | docs/project_management/iteration_plan_03.adoc | Tony | 2
-| Anforderungsanalyse überarbeiten | mittel | 3 | docs/requirements/system-wide_requirements.adoc | Collin, Georg, Paul | 2
+| Wireframes/Prototyp | mittel | 3 |  | Collin, Georg, Paul | 4
 |===
 
 
@@ -57,7 +57,7 @@ Tabelle:
 |===
 | Problem | Status | Notizen
 
-| Weihnachtsferien | abgeschlossen | Stagnation des Projektfortschrittes
+| x | x | x
 |===
 
 
@@ -65,7 +65,7 @@ Tabelle:
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
 
 * Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit dem gesamten Team ergibt positive Rückmeldung.
-* Anforderungsanalyse Vergleich mit Themenstellern erzielt positive Ergebnisse
+* Nach weiterer Absprache mit Themenstellern - es ist alles soweit klar und kann umgesetzt werden.
 
 
 
@@ -76,7 +76,7 @@ Tabelle:
 |===
 | Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
 
-| Assessment Datum | 13.01.2023
+| Assessment Datum | 26.01.2023
 | Teilnehmer | alle
 | Projektstatus	| grün
 |===
