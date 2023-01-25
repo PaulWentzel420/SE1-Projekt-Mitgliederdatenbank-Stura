@@ -24,8 +24,14 @@ Die StuRa-Mitglieder wollen vorhandene Daten in die Datenbank importieren lassen
 5. Die Daten werden importiert.
 6. Der Use Case endet.
 
-//=== Alternative Abläufe
+=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+*Alternativer Ablauf 1*
+
+1. User wählt eine Datei mit einem nicht unterstützten Dateiformat aus.
+2. Das System gibt eine entsprechende Fehlermeldung aus.
+3. Der Prozess wird abgebrochen.
 
 //=== Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern.
