@@ -59,7 +59,7 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 
 * Das System hat die geänderten Daten vollständig gespeichert.
 
-//=== Besondere Anforderungen
+=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
 *Usability*
