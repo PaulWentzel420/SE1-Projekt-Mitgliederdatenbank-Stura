@@ -47,6 +47,8 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
+* Nur User mit Adminrechten dürfen Mitglieder löschen.
+
 *Usability*
 
 Die Benutzeroberfläche muss verdeutlichen, dass das Löschen eines Mitglieds endgültig und irreversibel ist.
