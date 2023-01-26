@@ -48,6 +48,7 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 |
 * Team organisieren (Aufgabe kennenlernen, Rollenverteilung)
 * Kontakt zum StuRa und Coach aufnehmen
+* link:iteration_plan_01.adoc[Iterationsplan 01]
 | 30.11.2022-20.12.2022
 
 
@@ -59,7 +60,7 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 
 | I3
 |
-* Iterationsplan 03
+* link:iteration_plan_03.adoc[Iterationsplan 03]
 | 14.01.2023-27.01.2023
 |===
 
