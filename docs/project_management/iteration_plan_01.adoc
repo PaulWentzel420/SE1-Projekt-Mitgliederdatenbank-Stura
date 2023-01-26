@@ -1,4 +1,4 @@
-= Iteration Plan 01: {I6 - Mitgliederdatenbank für StuRa}
+= Iteration Plan 01: {project-name}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]

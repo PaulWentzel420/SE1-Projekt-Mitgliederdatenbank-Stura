@@ -1,4 +1,4 @@
-= Architecture Notebook: Projekt I6 Mitgliederdatenbank für den StuRa
+= Architecture Notebook: {project-name}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
