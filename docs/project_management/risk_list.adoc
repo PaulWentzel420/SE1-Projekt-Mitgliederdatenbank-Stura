@@ -8,17 +8,25 @@ include::../_includes/default-attributes.inc.adoc[]
 In diesem Dokument sind die wesentlichen Risiken des Projekts aufgeführt.
 
 
-== Attribute
+== 1.1. Attribute
 
 Dabei werden folgende Attribute verwendet:
 
-* *Typ*: Ressourcen, Geschäftlich, Technisch, Zeitlich
-* *Auswirkung (IMP)*: Wert zwischen 1 (niedrig) und 5 (hoch), der die Auswirkungen auf das Projekt angibt, wenn das Risiko eintritt
-* *Wahrscheinlichkeit (PRB)*: Prozentangabe für die Eintrittswahrscheinlichkeit des Risikos
+* *ID*: Identifizierungsmerkmal der einzelnen Risikos.
+* *Datum*: Eintragungsdatum in Risikosliste.
+* *Name*: Bezeichnung des Risikos.
+* *Owner*: Verantwortliche Person für das Risiko.
+* *Impact (Auswirkungen)*: Prozentangabe für die Auswirkungen, die auf das Projekt angibt, wenn das Risiko eintritt.
+* *Probability (Wahrscheinlichkeit)*: Wert zwischen 1 (niedrig) und 10 (hoch) für die Eintrittswahrscheinlichkeit des Risikos.
+* *Risk Ranking*: Risikofaktor
 
-== Risiken
+== 1.2. Risiken
 
 Die Risiken sind in folgender Tabelle: <<table_risks>> dargestellt. Das Datum des Dokuments oben gibt an, wann die Risikoliste zuletzt aktualisiert wurde.
+
+*Allgemeine Hinweis*:
+
+Grundsätzlich lassen sich Risiken in einem Projekt nicht vermeiden. Ziel ist es jedoch diese auf ein Minimum zu redurieren. Dazu gibt es bewährte Techniken. Wichtigster Bestandteil unserer Risikokominimierung ist es diese frühzeitig zu identifizieren und Gegenmaßnahmen festzusetzen. Dabei wird in jedem Teammeeting der aktuelle Projektstand geupdatet und auf Grundlage des aktuellen Standes die Risikoliste aktualisiert. Dabei ändern sich Wahrscheinlichkeit für das Eintreten eines Risikos kontinuierlich. Ziel ist es diesen Faktor soweit wie möglich zu reduzieren. Anhang der Wahrscheinlichkeitsentwicklung lässt sich ableiten, wie effektiv die eingesetzten Gegenmaßnahmen tatsächlich waren (bzw. sind). Daraus lassen sich gezielt die Schwachpunkte bestimmen (z.B.: in der Projektsplanung). Diese sind dann der zentrale Fokus im Projektmanagement für die nächste Iteration. Die Kontrolle der Reduzierung unterliegt dem Projektmanagement. 
 
 // Die inkludierte csv-Datei "risks.csv" verwendet `;` Semmikolons als Trennzeichen. Achten Sie beim Export als csv-Datei auf das Angeben des entsprechenden Trennzeichens. Verwenden Sie stattdessen `,` Kommas, kann das Tabellenattribut `separator=` weggelassen werden oder muss entprechend angepasst werden.
 
