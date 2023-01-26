@@ -39,4 +39,4 @@ include::risks.csv[]
 [.portrait]
 <<<
 
-image::risk_list.png[] 
+image::risk_list.png[]
