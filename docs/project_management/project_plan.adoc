@@ -18,14 +18,21 @@ Die Projektarbeit gliedert sich in verschiedene Inhaltsbereiche. Jeder Bereich w
 
 
 Projekt Management: +
+Tony Heinz Hörnig
 
 Analyst: +
+Nathalie Kästner
+Dang Tam Hao Nguyen
 
 Architekt: +
+Lennart Bronke
 
 Entwickler: +
+Collin Neumann
+Paul Wentzel
 
 Tester: +
+Georg Schicker
 
 
 == Praktiken und Bewertung

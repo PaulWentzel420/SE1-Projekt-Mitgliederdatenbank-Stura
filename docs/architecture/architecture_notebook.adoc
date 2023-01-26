@@ -18,9 +18,11 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
-Das System stellt ein Online-Tool zur Verwaltung der Mitglieder des StuRa der HTW Dresden dar. Offizielle Mitglieder des StuRa erhalten über einen Login Zugang zur Website und können entsprechend ihrer verliehenen Rechte entweder nur Informationen einsehen oder diese gegebenenfalls auch bearbeiten. Auf Grund dessen muss eine parallele Nutzung von drei Personen gewährleistet sein. 
+Das System stellt ein Online-Tool zur Verwaltung der Mitglieder des StuRa der HTW Dresden dar. Offizielle Mitglieder des StuRa erhalten über einen Login Zugang zur Website und können entsprechend ihrer verliehenen Rechte entweder nur Informationen einsehen oder diese gegebenenfalls auch bearbeiten. Auf Grund dessen muss eine parallele Nutzung von bis zu drei Personen gewährleistet sein. 
 
-Eine gute Bedienbarkeit wird durch eine übersichtliche, leicht verständliche und intuitiv bedienbare Benutzeroberfläche sichergestellt. Die leichte Bedienbarkeit soll ebenfalls garantieren, dass auch ungelernte Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit erlernen können. 
+Eine gute Bedienbarkeit wird durch eine übersichtliche, leicht verständliche und intuitiv bedienbare Benutzeroberfläche sichergestellt. Die leichte Bedienbarkeit soll ebenfalls garantieren, dass auch ungelernte Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit erlernen können.
+
+Es sollen verschiedene Nutzergruppen angelegt werden, welche über unterschiedliche Rechte verfügen.
 
 Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfragen sollen auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt werden.
 
@@ -30,10 +32,17 @@ Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfrag
 *Annahmen*
 
 * Jeder Nutzer besitzt eine stabile Internetverbindung mit genügend Bandbreite.
-* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome)
+* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome) und erlaubt Javascript.
+* Der Server auf dem die Webseite laufen soll, bietet ausreichende Ressourcen, welches noch geklärt werden müssen
+* Die bisher verwendeten Datenbankmodelle und Frameworks können weiter verwendet
+werden.
+* Die Mitgliederdatenbank wird in Zukunft funktional erweitert.
+* Das Django-Framework gibt bereits eine Aufbau-Architektur vor.
 
-*Abhängikeiten*
 
+*Abhängigkeiten*
+
+* Wir sind von den gegebenen Ressourcen des StuRas abhängig. Diese belaufen sich auf einen Docker Container des hauseigenen Servers.
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
@@ -41,9 +50,10 @@ Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfrag
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
-
+. Bei der Wahl der Programmiersprache haben wir uns für Python entschieden, da uns der StuRa die Vorgabe gab kein Java zu verwenden. Des weiteren hat Python eine gut verständliche Syntax und ist vielfältig einsetzbar.
+. Wir entschieden uns für das Django Webframework, da dieses eine größe Community und somit großen Support bietet. Zusätzlich ist es ein Open-Source-Projekt.
+. Wir haben uns für ein Webdesign entschieden, welches der HTW-Website ähnelt, um eine vertraute Nutzerumgebung zu schaffen.
+. Für das Datenbanksystem werden wir SQLite verwenden, unter Anderem da unsere Vorgänger dies bereits nutzten. Außerdem ist es Open-Source und wird standardmäßig von Django unterstützt.
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -52,11 +62,51 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 //Beispiele: relationales DBMS, Messaging-Dienste, Transaktionsserver, Webserver, Publish-Subscribe Mechanismus
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
+*Archivierung*
 
+* Zweck: Es dürfen auch bei Systemausfällen keine Datenverluste entstehen
+* Eigenschaften: Daten werden regelmäßig gesichert und sind nach Systemfehlern oder -ausfall wiederherstellbar
+* Funktion: Backups werden vom Administrator manuell angelegt und müssen lediglich einfach einspielbar sein.
+
+*Kommunikation*
+
+* Zweck: Datenaustausch zwischen Website und Datenbank
+* Eigenschaften: synchron, schnell
+* Funktion: Mittels optimierter SQL-Anfragen wird eine reibungslose Kommunikation gewährleistet
+
+*Persistenz*
+
+* Zweck: Daten müssen dauerhaft für den Admin und die Mitglieder des Stura verfügbar bleiben
+* Eigenschaften: Speicherung der Daten in einer Datenbank
+* Funktion: Die Datensätze werden noch während der Ausführung der Anwendung in einer
+Datenbank gespeichert und sind von dort auch wieder abrufbar
+
+*Zugriffsschutz*
+
+* Zweck: Schutz der personenbezogenen Daten vor unberechtigtem Zugriff
+* Eigenschaften: 
+** Nicht jeder Nutzer ist dazu berechtigt, alle Daten einzusehen 
+** Bestimmte Nutzer haben bestimmte Rechte, um verschiedene Informationen einsehen zu können
+* Funktion: Anmeldung der Nutzer mit Logindaten, anhand derer ermittelt werden kann, welche Rechte der Nutzer hat. (Unterscheidung nach Mitglied Stura und Admin)
+
+*Error Management*
+
+* Zweck: Anwender muss über unerwartete Fehler informiert werden
+* Eigenschaften: Fehlerausgabe im Browser
+* Funktion: Datenbank- oder Webservice-Fehler werden dem Anwender über verständliche Fehlermeldungen mitgeteilt
+
+*Eingabelogik*
+
+* Zweck: Eingabemasken sollten mit geringem Aufwand ausfüllbar sein
+* Eigenschaften: Leichte Bedienung durch Menüführung statt Texteingaben
+* Funktion: Mittels Dropdown-Menü werden dem Anwender verschiedene Eingabemöglichkeiten vorgegeben, aus denen er mittels Mausklick auswählen kann
 
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
-
+* Schutz vor Änderungen unbefugter Dritter
+* Datensicherung durch relationale Datenbank
+* robuste Verwaltung von Mitgliedern und Ämtern
+* Ausgabe einer Checkliste/Arbeitsleitfaden für den StuRa
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
@@ -69,6 +119,9 @@ Folgende Sichten werden empfohlen:
 
 === Logische Sicht
 //Beschreibt die Struktur und das Verhalten Systemteilen, die hohen Einfluss auf die Architektur haben. Dies kann die Paketstruktur, kritische Schnittstellen, wichtige Klassen und Subsysteme sowie die Beziehungen zwischen diesen Elementen enthalten. Zudem sollten die physische und logische Sicht persistenter Daten beschrieben werden, wenn es diesen Aspekt im System gibt. Dies ist ein hier dokumentierter Teilaspekt des Entwurfs.
+.(Von Vorgängergruppe übernommen, Klick auf Bild führt zum Original)
+[#paketdiagramm,link=https://github.com/mribrgr/StuRa-Mitgliederdatenbank/blob/master/docs/anforderung/anforderungsanalyse.pdf]
+image::paketdiagramm.png[]
 
 === Physische Sicht (Betriebssicht)
 //Beschreibt die physischen Knoten (Rechner) des Systems, der Prozesse, Threads und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
