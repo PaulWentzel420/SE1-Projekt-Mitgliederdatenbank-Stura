@@ -53,7 +53,7 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 
 | I2
 |
-* link:iteration_plan_02.adoc.html[Iterationsplan 02]
+* link:iteration_plan_02.adoc[Iterationsplan 02]
 | 21.12.2022-13.01.2023
 
 
