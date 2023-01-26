@@ -21,14 +21,14 @@ Projekt Management: +
 Tony Heinz Hörnig
 
 Analyst: +
-Nathalie Kästner
+Nathalie Kästner +
 Dang Tam Hao Nguyen
 
 Architekt: +
 Lennart Bronke
 
 Entwickler: +
-Collin Neumann
+Collin Neumann +
 Paul Wentzel
 
 Tester: +
