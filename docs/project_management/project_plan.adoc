@@ -15,10 +15,15 @@ In diesem Projektplan werden die Organisation, Praktiken, und Meilensteine des T
 
 Die Projektarbeit gliedert sich in verschiedene Inhaltsbereiche. Jeder Bereich wird von einem Mitglied geleitet und kann weitere Mitwirkende haben, was in der folgenden Rollenübersicht dargestellt wird. Der jeweilige Leiter ist verantwortlich, dass Bugs und Verbesserungswünsche gesichtet und zugewiesen werden.
 
+
 Projekt Management: +
+
 Analyst: +
+
 Architekt: +
+
 Entwickler: +
+
 Tester: +
 
 
@@ -54,14 +59,25 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 | I3
 |
 * Iterationsplan 03
-| 14.01.2023-
+| 14.01.2023-27.01.2023
 |===
 
+=== Ziele
+  1. Kurzfristig:
+		- Wöchentliche Meetings im Team und regelmäßige Absprachen mit dem Auftraggeber
+		- Aufgaben werden in iterativen Zyklen vergeben und abgearbeitet
+	2. Langfristig
+		- Entwicklung einer funktionalen Software, für den Prozess der Mitgliederverwaltung des StuRa
 
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
+Das System wird auf dem Server des StuRa laufen. Die Software wird nach Fertigstellung an ausgewählte verantwortliche Personen weitergegeben um diese zu in ihr System zu integrieren. Der Einrichtungsprozess und Bedienung der Software wird vor der Übergabe geklärt, damit eine reibungslose Umstellung und nachfolgender Einsatz der Software möglich ist.
 
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
+
+-	Kommunikation in regelmäßigen Abständen mit den Stakeholdern und im Team ist sehr wichtig
+-	Iterative Planung ist wichtig, um gut voranzukommen 
+-	Zuverlässigkeit der Teammitglieder ist wichtig um ein gutes/produktives Teamklima zu schaffen
