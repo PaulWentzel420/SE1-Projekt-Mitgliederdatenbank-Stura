@@ -29,6 +29,8 @@ Die Risiken sind in folgender Tabelle: <<table_risks>> dargestellt. Das Datum de
 
 Grundsätzlich lassen sich Risiken in einem Projekt nicht vermeiden. Ziel ist es jedoch diese auf ein Minimum zu redurieren. Dazu gibt es bewährte Techniken. Wichtigster Bestandteil unserer Risikokominimierung ist es diese frühzeitig zu identifizieren und Gegenmaßnahmen festzusetzen. Dabei wird in jedem Teammeeting der aktuelle Projektstand geupdatet und auf Grundlage des aktuellen Standes die Risikoliste aktualisiert. Dabei ändern sich Wahrscheinlichkeit für das Eintreten eines Risikos kontinuierlich. Ziel ist es diesen Faktor soweit wie möglich zu reduzieren. Anhang der Wahrscheinlichkeitsentwicklung lässt sich ableiten, wie effektiv die eingesetzten Gegenmaßnahmen tatsächlich waren (bzw. sind). Daraus lassen sich gezielt die Schwachpunkte bestimmen (z.B.: in der Projektsplanung). Diese sind dann der zentrale Fokus im Projektmanagement für die nächste Iteration. Die Kontrolle der Reduzierung unterliegt dem Projektmanagement. 
 
+Die dazugehörige Excel-Tabelle befindet sich im Github im Ordner docs/project_management. 
+
 // Die inkludierte csv-Datei "risks.csv" verwendet `;` Semmikolons als Trennzeichen. Achten Sie beim Export als csv-Datei auf das Angeben des entsprechenden Trennzeichens. Verwenden Sie stattdessen `,` Kommas, kann das Tabellenattribut `separator=` weggelassen werden oder muss entprechend angepasst werden.
 
 // PDF-Export: Seite im Querformat
