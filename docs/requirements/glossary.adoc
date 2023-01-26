@@ -20,14 +20,11 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Online-Tool | (Hilfs-)Werkzeug zur Datenverarbeitung mithilfe einer Nutzeroberfläche. | Online-Plattform
 | Auditing | Feststellung der Datensicherheit sowie Datenintegrität. |
 | persistente Speicherung | Speicherung von Daten auch über die Laufzeit des Systems hinaus. | nicht flüchtige Datenspeicherung
-|Beratendes Mitglied|In den StuRa gewähltes Mitglied.|
-|Exekutives Mitglied|Mitglied mit einer auführenden Funktion|
-|Legislatives Mitglied|Von den Studierenden gewähltes Mitglied|
-|Legislatur|Wahlperiode eines gewählten Mitgliedes|
-|Plenum|Zusammenschluss sämtlicher Mitglieder des StuRas|
-
-| Mitglied||
-
+| Beratendes Mitglied|In den StuRa gewähltes Mitglied.|
+| Exekutives Mitglied|Mitglied mit einer auführenden Funktion|
+| Legislatives Mitglied|Von den Studierenden gewähltes Mitglied|
+| Legislatur|Wahlperiode eines gewählten Mitgliedes|
+| Plenum|Zusammenschluss sämtlicher Mitglieder des StuRas|
 |===
 
 
@@ -36,7 +33,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Abkürzung | Bedeutung | Erläuterung
 | StuRa | Studentenrat | 
-| xx | xx | xx
+| UP | Unified Process | Vorgehensmodell für die
+Softwareentwicklung
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -49,10 +47,10 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | String
 | Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
 | Login
+| Mitgliedsdaten
+| Gesamtheit personenbezogener Daten eines Mitglieds (Name, Adresse, Amt)
+| Klasse
+| 
+| -
 
-| xx
-| xx
-| xx
-| xx
-| xx
 |===
