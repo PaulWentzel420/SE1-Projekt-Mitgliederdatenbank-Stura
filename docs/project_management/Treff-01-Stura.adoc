@@ -1,0 +1,22 @@
+== Erstes Meeting mit StuRa +
+
+Datum/Zeit: 19.12.2022 / 16:00 Uhr +
+Ort: A-Gebäude +
+Teilnehmer: Paul Wentzel, Collin Neumann, Lennart Bronke, Elli Range (Auftraggeber) +
+
+
+=== Agenda
+//
+* Besprechung der Anforderungen und Gegebenheiten
+* Führung der bestehenden Daten in einer Excel-Tabelle 
+* Anlegen/Verwaltung von Mitgliedern für jeweilige Legislatur
+* Ämter mit Funktionen und Aufwand ausgeben
+* Mitwirkung in Monaten berechnen für Anrechnung eines Gremiensemesters
+* Vorhandenes Organigramm ersetzen durch neues, leichter zu pflegendes
+* Anleitung der Installation wichtig für Anpassungen und Handhabung bei schnellen Mitglieder wechseln
+* Oberfläche Antragsgrün oder ähnlich zu Antragsgrün soll verwendet werden 
+
+
+=== To-Do-Liste
+* Dokumentation (Vision, Analyse, Use Cases erstellen, Modellierung)
+* Nächstes Treffen für dem 13.01.2023 festgelegt +
