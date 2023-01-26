@@ -3,7 +3,7 @@
 // --- 2. Teammitglieder -----------------------
 Tony_Heinz Hörnig <s81083@htw-dresden.de>; Paul Wentzel <s83970@htw-dresden.de>; Georg Schicker <s83938@htw-dresden.de>; Nathalie Kästner <s83816@htw-dresden.de>; Collin Neumann <s84599@htw-dresden.de>; Lennart Bronke <s83778@htw-dresden.de>; Dang_Tam_Hao Nguyen <s82118@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-01. Januar 2020
+27. Januar 2023
 // ---------------------------------------------
 :docs: ../docs
 include::{docs}/_includes/default-attributes.inc.adoc[]

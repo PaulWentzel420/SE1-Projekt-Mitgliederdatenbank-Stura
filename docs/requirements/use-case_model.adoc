@@ -55,9 +55,9 @@ include::use_case_09.inc.adoc[]
 
 == Wireframes
 
-image::0.png[Formular]
-image::1.png[Input-Validierung]
-image::2.png[Formular (Ämter-Auswahl)]
-
-
-
+.Formular
+image::0.png[]
+.Input-Validierung
+image::1.png[]
+.Formular (Ämter-Auswahl)
+image::2.png[]

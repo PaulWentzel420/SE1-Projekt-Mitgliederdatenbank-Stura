@@ -6,7 +6,9 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Projektes: I6 - Mitgliederdatenbank für StuRa zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das Projekt diese Bedarfe erfüllt, werden in dem Use-Case Model und den System-Wide Requirements beschrieben.
+Ziel dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Projektes {project-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das Projekt diese Bedarfe erfüllt, werden in dem Use-Case Model und den System-Wide Requirements beschrieben.
+[comment]
+Dieser Satz benötigt Überarbeitung!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Stakeholder:
 
@@ -17,20 +19,20 @@ Stakeholder:
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf die Mitgliederdatenbank des StuRa der HTW Dresden, das vom Team I6 entwickelt wird. Das System wird es dem StuRa erlauben, eine Mitgliederdatenbank zu nutzen, um damit ein hauseigenes System zu besitzen, welches ihnen ermöglicht, sämtliche Mitglieder des StuRa zu verwalten. 
+Dieses Visions-Dokument bezieht sich auf die Mitgliederdatenbank des StuRas der HTW Dresden, die vom Team I6 entwickelt wird. Das System wird es dem StuRa erlauben, eine Mitgliederdatenbank zu nutzen, um damit ein hauseigenes System zu besitzen, welches ihnen ermöglicht, sämtliche Mitglieder des StuRas zu verwalten. 
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
 Siehe <<#glossary, Glossar>>.
 
-=== Referenzen
-(hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
+//=== Referenzen
+//(hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
 
 
 == Positionierung
 
 === Fachliche Motivation
-Der Studierendenrat der Htw Dresden beschäftigt sich mit den Wünschen, Problemen und Anforderungen der Studierenden der HTW. Er arbeitet eng mit der Hochschulleitung und des Studentenwerkes des Landes Sachsen zusammen um die Studienbedinungen zu verbessern. Hierfür fallen zahlreiche Arbeiten an, welche durch eine entsprechende Anzahl von Mitgliedern im StuRa bearbeitet werden müssen. Zur Zeit sind 205 Mitglieder (Stand 19.12.2022) im StuRa tätig. Hierfür existiert eine Excel-Tabelle, die die Mitglieder listet und zusätzlich Informationen über ihre Position im StuRa beinhaltet. Bei dieser Zahl an Angehörigen verliert man schnell den Überblick und eine ordentliche Organisation ist nahezu unmöglich.
+Der Studierendenrat der HTW Dresden beschäftigt sich mit den Wünschen, Problemen und Anforderungen der Studierenden der HTW. Er arbeitet eng mit der Hochschulleitung und des Studentenwerkes des Landes Sachsen zusammen um die Studienbedinungen zu verbessern. Hierfür fallen zahlreiche Arbeiten an, welche durch eine entsprechende Anzahl von Mitgliedern im StuRa bearbeitet werden müssen. Zur Zeit sind 205 Mitglieder (Stand 19.12.2022) im StuRa tätig. Hierfür existiert eine Excel-Tabelle, die die Mitglieder listet und zusätzlich Informationen über ihre Position im StuRa beinhaltet. Bei dieser Zahl an Angehörigen verliert man schnell den Überblick und eine ordentliche Organisation ist nahezu unmöglich.
 Dieses Projekt beschäftigt sich mit den angesprochenen Problemen. Hierfür soll ein hauseigenes System entwickelt werden, welches es ermöglicht alle Mitglieder übersichtlich zu listen und zu bearbeiten, neue Mitglieder einfach anzulegen und ausgeschiedene zu entfernen. Außerdem sollen Arbeitsaufgaben im System verteilt werden können.
 
 === Problem Statement
@@ -62,12 +64,12 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | Mitglieder des StuRa
+| Für | Mitglieder des StuRas
 | die | Pflege der Mitglieder zulässt
 | Das Produkt / die Lösung ist eine | hauseigene Software
 | die | die Daten für alle Mitglieder organisiert
 | Im Gegensatz zu | zu Excel Tabellen
-| Unser Produkt | ermöglicht die übersichtliche Organisation der Mitglieder des StuRa
+| Unser Produkt | ermöglicht die übersichtliche Organisation der Mitglieder des StuRas
 |===
 
 ////
