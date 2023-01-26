@@ -22,8 +22,6 @@ Das System stellt ein Online-Tool zur Verwaltung der Mitglieder des StuRa der HT
 
 Eine gute Bedienbarkeit wird durch eine übersichtliche, leicht verständliche und intuitiv bedienbare Benutzeroberfläche sichergestellt. Die leichte Bedienbarkeit soll ebenfalls garantieren, dass auch ungelernte Nutzer mithilfe einer Anleitung den Umgang mit der Software problemlos und in absehbarer Zeit erlernen können.
 
-Es sollen verschiedene Nutzergruppen angelegt werden, welche über unterschiedliche Rechte verfügen.
-
 Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfragen sollen auch bei hoher Mitgliederanzahl innerhalb von 5 Sekunden ausgeführt werden.
 
 == Annahmen und Abhängigkeiten
@@ -31,29 +29,33 @@ Des Weiteren sollen schnelle Seitenladezeiten geboten werden und Datenbankabfrag
 
 *Annahmen*
 
-* Jeder Nutzer besitzt eine stabile Internetverbindung mit genügend Bandbreite.
-* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome) und erlaubt Javascript.
-* Der Server auf dem die Webseite laufen soll, bietet ausreichende Ressourcen, welches noch geklärt werden müssen
+* Jeder Nutzer besitzt eine stabile Internetverbindung mit genügend Bandbreite
+* Jeder Nutzer nutzt einen aktuellen Browser (z.B. Firefox oder Chrome) und erlaubt Javascript
+* Der Server auf dem die Webseite laufen soll bietet ausreichend Ressourcen
 * Die bisher verwendeten Datenbankmodelle und Frameworks können weiter verwendet
-werden.
-* Die Mitgliederdatenbank wird in Zukunft funktional erweitert.
-* Das Django-Framework gibt bereits eine Aufbau-Architektur vor.
+werden
+* Die Mitgliederdatenbank wird in Zukunft funktional erweitert
+* Das Django-Framework gibt bereits eine Aufbau-Architektur vor
 
 
 *Abhängigkeiten*
 
-* Wir sind von den gegebenen Ressourcen des StuRas abhängig. Diese belaufen sich auf einen Docker Container des hauseigenen Servers.
-== Architektur-relevante Anforderungen
-//Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
+* Wir sind von den gegebenen Ressourcen des StuRas abhängig. Diese belaufen sich auf einen Linux Docker-Container des hauseigenen Servers
 
+== Architektur - relevante Anforderungen
+//Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
+* SWFA-1 Access-Control
+* NFAU-3 Zugangsbeschränkung
+* NFAP-1 Serialisierung
+* ZAC-1 Plattform
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Bei der Wahl der Programmiersprache haben wir uns für Python entschieden, da uns der StuRa die Vorgabe gab kein Java zu verwenden. Des weiteren hat Python eine gut verständliche Syntax und ist vielfältig einsetzbar.
-. Wir entschieden uns für das Django Webframework, da dieses eine größe Community und somit großen Support bietet. Zusätzlich ist es ein Open-Source-Projekt.
-. Wir haben uns für ein Webdesign entschieden, welches der HTW-Website ähnelt, um eine vertraute Nutzerumgebung zu schaffen.
-. Für das Datenbanksystem werden wir SQLite verwenden, unter Anderem da unsere Vorgänger dies bereits nutzten. Außerdem ist es Open-Source und wird standardmäßig von Django unterstützt.
+* Bei der Wahl der Programmiersprache haben wir uns für Python entschieden, da uns durch den StuRa vorgegeben wurde kein Java zu verwenden. Des Weiteren bietet Python eine gut verständliche Syntax und ist vielfältig einsetzbar.
+* Wir entschieden uns für das Django Webframework, da dieses eine große Community und somit großen Support bietet. Zusätzlich ist es ein Open-Source-Projekt.
+* Wir haben uns für ein Webdesign entschieden, welches der StuRa-Website ähnelt, um eine vertraute Nutzerumgebung zu schaffen.
+* Für das Datenbanksystem werden wir SQLite verwenden, da dies bereits in den Vorjahren genutzt wurde. Außerdem ist es Open-Source und wird standardmäßig von Django unterstützt.
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -111,6 +113,8 @@ Datenbank gespeichert und sind von dort auch wieder abrufbar
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
 
+Die Webanwendung basiert wie in den Vorjahren auf dem Webframework Django. Es handelt sich um eine Komponentenarchitektur. Die Objekte der einzelnen Klassen werden voraussichtlich in einer Datenbank mittels SQLite gespeichert. Auf einem dafür vorgesehenen Linux Docker-Container des StuRa-Webservers soll die Webanwendung gehostet werden.
+
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
@@ -125,6 +129,11 @@ image::paketdiagramm.png[]
 
 === Physische Sicht (Betriebssicht)
 //Beschreibt die physischen Knoten (Rechner) des Systems, der Prozesse, Threads und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
+* Webserver → LXC Container → Webanwendung (Django)
 
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
+* UC01 Mitglied anlegen
+* UC02 Mitglied löschen
+* UC03 Mitgliederdaten bearbeiten
+* UC07 Daten importieren
