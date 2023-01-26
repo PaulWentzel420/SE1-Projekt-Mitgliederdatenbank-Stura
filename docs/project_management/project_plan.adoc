@@ -8,40 +8,55 @@ include::../_includes/default-attributes.inc.adoc[]
 == Einführung
 //Briefly describe the content of the project plan.
 
+In diesem Projektplan werden die Organisation, Praktiken, und Meilensteine des Teams beschrieben. Dieser Plan wird im Laufe des Projekts vervollständigt und angepasst und dient als Grundlage um die Kommunikation zwischen dem Team und dem Auftraggeber zu erleichtern und die Projektziele vor Augen zu haben.
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
+
+Die Projektarbeit gliedert sich in verschiedene Inhaltsbereiche. Jeder Bereich wird von einem Mitglied geleitet und kann weitere Mitwirkende haben, was in der folgenden Rollenübersicht dargestellt wird. Der jeweilige Leiter ist verantwortlich, dass Bugs und Verbesserungswünsche gesichtet und zugewiesen werden.
+
+Projekt Management: +
+Analyst: +
+Architekt: +
+Entwickler: +
+Tester: +
 
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
+Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als technische Praktik genutzt. Es wird agil gearbeitet. In jeder Iteration (14-tägig) wird ein Teil des Lösungsprozesses umgesetzt, dadurch wird das Risiko auf eine falsche Lösung vermindert. Es findet vor jeder Iteration ein Meeting statt um Aufgaben, Aufwand, Risiken zu Besprechen und mit Projektgeber zu kommunizieren um einen Reibungslosen Ablauf zu ermöglichen. Die Planung wird in einem Protokoll und auf Github festgehalten.
 
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-[%header, cols="1,3a,2,1"]
+[%header, cols="1,3a,2"]
 |===
 | Iteration
 | Primary objectives +
 (risks and use case scenarios)
 | Scheduled start or milestone
-| Target velocity
+
 
 | I1
 |
-* Mitigate Risk1
-* Develop Use Case 3, Scenario 2
-| Date from/Date to
-| 15
+*	Team organisieren (Aufgabe kennenlernen, Rollenverteilung)
+*	Kontakt zum StuRa und Coach aufnehmen
+| 30.11.2022-20.12.2022
+
 
 | I2
 |
-* Mitigate Risk 2
-* Develop Use Case 1, Scenario 2
-| Date from/Date to
-| 16
+* Iterationsplan 02
+| 21.12.2022-13.01.2023
+
+
+| I3
+|
+* Iterationsplan 03
+| 14.01.2023-
 |===
+
 
 
 == Deployment
