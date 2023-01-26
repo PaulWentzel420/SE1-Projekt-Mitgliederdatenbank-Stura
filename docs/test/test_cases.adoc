@@ -7,8 +7,36 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
+[#vb]
+=== Vorbedingung
+. Nutzer verfügt über eine stabile Internetverbindung
+. Server des StuRa läuft
+. Nutzer ist auf der Website angemeldet
+
 == Test Cases
 
 === Test Case 01
 
-=== Test Case 02
+*Vorbedingung*
+
+. Siehe <<vb>>
+. Ein neues Mitglied muss angelegt werden
+. Formular "Mitglied hinzufügen" ist geöffnet
+
+*Testablauf*
+
+Das Formular "Mitglied hinzufügen" wird ausgefüllt und die Nutzereingaben werden überprüft
+. Es werden korrekte Mitgliederdaten eingegeben
+. Es werden inkorrekte Mitgliederdaten eingegeben
+. Es werden verpflichtende Mitgliederdaten nicht eingegeben
+
+*Testobjekt*
+
+Prototyp
+
+*Eingabedaten*
+
+. korrekte Mitgliederdaten
+. inkorrekte Mitglieder
+. Pflichtfeld wird leer gelassen
+
