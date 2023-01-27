@@ -27,7 +27,6 @@ include::../_includes/default-attributes.inc.adoc[]
 * Anforderungen vergleichen und ggf. korrigieren
 * Use Cases aktualisieren
 * Risk List editieren
-* Essence Navigator
 
 
 
@@ -38,15 +37,14 @@ include::../_includes/default-attributes.inc.adoc[]
 Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
 Tabelle:
 
-[%header, cols="3,1,1,1,2,1,1"]
+[%header, cols="3,1,1,2,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Zugewiesen (Name) | Gearbeite Stunden
 
-| Use Cases | mittel | 4 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 2
-| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
-| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 2
-| Iterationsplan 03 | hoch | 2 | erledigt | docs/project_management/iteration_plan_03.adoc | Tony | 2
-| Anforderungsanalyse überarbeiten | mittel | 3 | docs/requirements/system-wide_requirements.adoc | Collin, Georg, Paul | 2
+| Use Cases | mittel | 4 | erldigt | Nathalie | 2
+| Risikoanalyse | mittel | 2 | erledigt | Hao | 2
+| Iterationsplan 03 | hoch | 2 | erledigt | Tony | 2
+| Anforderungsanalyse überarbeiten | mittel | 3 | Collin, Georg, Paul | 2
 |===
 
 
