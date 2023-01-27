@@ -38,15 +38,15 @@ include::../_includes/default-attributes.inc.adoc[]
 Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
 Tabelle:
 
-[%header, cols="3,1,1,1,2,1,1"]
+[%header, cols="3,1,1,2,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Zugewiesen (Name) | Gearbeite Stunden
 
-| Architektur | hoch | 4 | erldigt |  | Nathalie, Hao, Lennart | 5
-| Use Cases | mittel | 1 | erledigt |  | Nathalie | 1
-| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 2
-| Iterationsplan 03 | hoch | 2 | erledigt | docs/project_management/iteration_plan_03.adoc | Tony | 2
-| Wireframes/Prototyp | mittel | 3 |  | Collin, Georg, Paul | 4
+| Architektur | hoch | 4 | erledigt | Nathalie, Hao, Lennart | 5
+| Use Cases | mittel | 1 | erledigt | Nathalie | 1
+| Risikoanalyse | mittel | 2 | erledigt | Hao | 2
+| Iterationsplan 03 | hoch | 2 | erledigt | Tony | 2
+| Wireframes/Prototyp | mittel | 3 | erledigt | Collin, Georg, Paul | 4
 |===
 
 
