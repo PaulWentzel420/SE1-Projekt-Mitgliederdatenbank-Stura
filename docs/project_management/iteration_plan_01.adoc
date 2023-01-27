@@ -15,7 +15,7 @@ include::../_includes/default-attributes.inc.adoc[]
 | Beginn der Iteration | 30.11.2022 |
 | Erstes Meeting mit Teammitgliedern und Projetansprechpartnerin | 30.11.2022 |
 | Teammeeting | 02.12.2022 |
-| Meeting mit Themenstellern | 19.12.2022 | x
+| Meeting mit Themenstellern | 19.12.2022 |
 | Teammeeting | 20.12.2022 |
 | Ende der Iteration | 20.12.2022 |
 |===
