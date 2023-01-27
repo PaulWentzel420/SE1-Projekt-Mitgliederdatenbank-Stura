@@ -19,7 +19,7 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 
 1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
 2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
-3. Der User betätigt den Button "Neuer Nutzer".
+3. Der User betätigt den Button "Neues Mitglied".
 4. Das System gibt eine Auswahl an vorgefertigten Ämtern vor.
 5. Der User wählt ein Amt aus.
 6. Das System ordnet dem Mitglied Rechte, Aufgaben und Stundensatz entsprechend des Amtes zu.
@@ -37,10 +37,10 @@ Die StuRa-Mitglieder wollen ein neues Mitglied anlegen und dieses dem zugehörig
 2. Der Speichervorgang des neuen Mitglieds schlägt fehl.
 3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
-*Alternativer Abluaf 2*
+*Alternativer Ablauf 2*
 
 1. Der User hat ungültige Daten angegeben.
-2. Der Speichervorgang des neuen Mitglieds schägt fehl.
+2. Der Speichervorgang des neuen Mitglieds schlägt fehl.
 3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
 //=== Unterabläufe (subflows)

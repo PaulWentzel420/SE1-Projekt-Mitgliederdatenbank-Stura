@@ -40,3 +40,4 @@ Prototyp
 . inkorrekte Mitglieder
 . Pflichtfeld wird leer gelassen
 
+image::1.png[]

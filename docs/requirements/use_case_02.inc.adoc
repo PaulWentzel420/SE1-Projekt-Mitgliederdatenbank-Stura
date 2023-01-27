@@ -20,7 +20,7 @@ Die StuRa-Mitglieder wollen ein bestehendes Mitglied aus dem System entfernen.
 1. Der Use Case beginnt mit einem Klick auf den "Mitgliederverwaltung"-Button.
 2. Das System zeigt eine Übersicht aller, im Online-Tool registrierten, Mitglieder an.
 3. Der User wählt ein Mitglied aus und drückt den "Mitglied löschen"-Button.
-4. Der User bestätigt das Löschen des Nutzers.
+4. Der User bestätigt das Löschen des Mitglieds.
 5. Das System entfernt das Mitglied und alle dazugehörigen Daten aus der Datenbank.
 6. Der Use Case endet.
 

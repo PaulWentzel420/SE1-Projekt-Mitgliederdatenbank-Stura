@@ -120,11 +120,11 @@ Beispiel Produkt:
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| einfache Verwaltung der Mitglieder | hoch | Eigener Button für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | xx
-| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | xx
-| Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | xx
-| Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | xx
-| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | xx
+| einfache Verwaltung der Mitglieder | hoch | Eigener Button für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | 
+| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | 
+| Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | 
+| Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | 
+| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | 
 |===
 
 
@@ -135,8 +135,8 @@ Beispiel Produkt:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| Einfache und intuitive Bedienbarkeit | hoch | -
-| System nur online nutzbar | hoch | -
-| System muss auf Windows, Linux und gängigen mobilen Browsern nutzbar sein | hoch | -
-| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel | -
+| Einfache und intuitive Bedienbarkeit | hoch | 
+| System nur online nutzbar | hoch |
+| System muss auf Windows, Linux und gängigen Browsern nutzbar sein | hoch |
+| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel |
 |===

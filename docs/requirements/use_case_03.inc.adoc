@@ -34,13 +34,13 @@ Die StuRa-Mitglieder wollen die Daten eines bereits vorhandenen Mitglieds händi
 *Alternativer Ablauf 1*
 
 1. Der User hat nicht alle geforderten Daten angegeben bzw. geforderte Daten gelöscht.
-2. Der Speichervorgang der Änderungen schägt fehl.
+2. Der Speichervorgang der Änderungen schlägt fehl.
 3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
 *Alternativer Abluaf 2*
 
 1. Der User hat ungültige Daten angegeben.
-2. Der Speichervorgang der Änderungen schägt fehl.
+2. Der Speichervorgang der Änderungen schlägt fehl.
 3. Dem User wird eine entsprechende Fehlermeldung ausgegeben.
 
 //=== Unterabläufe (subflows)

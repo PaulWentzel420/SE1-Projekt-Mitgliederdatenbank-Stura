@@ -17,13 +17,13 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-* *SWFA-1>: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.*
+* *SWFA-1: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.*
 ** Zur Überprüfung können mittels unberechtigter oder gar falscher Logins Zugriffe auf unberechtige Daten oder Use Cases versucht werden.
 
-* *SWFA-2>: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.*
-** Zur Validierung können mit verschiedenen Test-Nutzern Daten verändert, gelöscht und hinzugefügt werden. Anschließend werden alle alle getätigten Änderungen mit der Historie abgeglichen.
+* *SWFA-2: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.*
+** Zur Validierung können mit verschiedenen Test-Nutzern Daten verändert, gelöscht und hinzugefügt werden. Anschließend werden alle getätigten Änderungen mit der Historie abgeglichen.
 
-* *SWFA-3>: Das System muss relevante Daten persistent speichern.*
+* *SWFA-3: Das System muss relevante Daten persistent speichern.*
 ** Zur Sicherstellung kann eine Reihe plötzlicher Systemausfälle simuliert werden. Bei einer anschließenden Überprüfung werden relevante Daten auf Vollständigkeit überprüft.
 
 == Qualitätsanforderungen für das Gesamtsystem 
