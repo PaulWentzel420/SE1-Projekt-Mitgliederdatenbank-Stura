@@ -47,7 +47,7 @@ Tabelle:
 | Use Cases | mittel | 7 | erldigt | Nathalie | 6
 | Essence Navigator | niedrig | 1 | erledigt | alle Teammitglieder | 1
 | Risikoanalyse | mittel | 2 | erledigt | Hao | 3
-| Anforderungsanalyse | hoch | 7 | erledigt | Collin, Gerorg, Paul | 5
+| Anforderungsanalyse | hoch | 7 | erledigt | Collin, Georg, Paul | 5
 | Iterationsplan 02 | hoch | 1 | erledigt | Tony | 2
 |===
 
