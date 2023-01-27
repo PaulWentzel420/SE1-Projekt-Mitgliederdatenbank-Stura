@@ -1,4 +1,4 @@
-Risk ID;Datum;Name;Risk Description;Owner ;Impact (1-10);Probability;Risk Ranking;Vermeidungsmaßnahmen
+Risk ID;Datum;Name;Risk Description;Owner ;Probability (1-10);Impact;Risk Ranking;Vermeidungsmaßnahmen
 1;24.11.2022;Verlust Arbeitsleistung/Ausfall Teamitglied;Mitglied(-er) des Teams kann (dauerhaft oder zeitweise) nicht mehr am Projekt teilnehmen, z.B: wegen Krankheit oder Studiengangwechseln.;Projektmanagement;7;20%; 1,40   ;Die Selbstorganisationsfähigkeit des Teams aktivieren, Wissentranfer bei Meetings und Backuprolle für alle Projektrolle verteilen.
 2;24.11.2022;Ineffektive Organisation im Team;Unzureichende Kommunikation zwischen den Mitgliedern, wodurch Aufgaben zum falschen Zeitpunkt bearbeitet werden, aufeinander aufbauende Aufgaben sich verzögern und die Vertrauensbasis im Team bechädigt wird;Alle Mitglieder, Projektmanagement;5;60%; 3,00   ;"Offene Kommunikationskultur im Team kultivieren (durch Projektmanagement),
 Nachfragen bei Unklarheiten, 

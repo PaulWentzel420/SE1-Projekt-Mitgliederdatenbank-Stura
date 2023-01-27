@@ -38,9 +38,10 @@ Die dazugehörige Excel-Tabelle befindet sich im Github im Ordner docs/project_m
 <<<
 
 // table risks
+//[%header, format="csv", separator=";", cols="^1,^2,3,4,3,^1,^1,^1,3,4"]
 [#table_risks]
 .Risiken
-[%header, format="csv", separator=";", cols="^1,^2,3,4,3,^1,^1,^1,3,4"]
+[%header, format="csv", separator=";", cols="^1,^2,3,4,3,^1,^1,^1,4"]
 |===
 include::risks.csv[]
 |===
@@ -48,7 +49,3 @@ include::risks.csv[]
 // PDF-Export: Seite zurück zum Hochformat
 [.portrait]
 <<<
-
-image::risk_list.png[]
-
-

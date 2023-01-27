@@ -77,7 +77,7 @@ include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Risikoliste
-include::{docs-project-management}/risk_list.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::{docs-project-management}/risk_list.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Iteration 1
 include::{docs-project-management}/iteration_plan_01.adoc[lines=1..1;4..-1,leveloffset=+1]
