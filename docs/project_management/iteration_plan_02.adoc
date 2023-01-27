@@ -44,7 +44,7 @@ Tabelle:
 | Use Cases | mittel | 4 | erldigt | Nathalie | 2
 | Risikoanalyse | mittel | 2 | erledigt | Hao | 2
 | Iterationsplan 03 | hoch | 2 | erledigt | Tony | 2
-| Anforderungsanalyse überarbeiten | mittel | 3 | Collin, Georg, Paul | 2
+| Anforderungsanalyse überarbeiten | mittel | 3 | erledigt | Collin, Georg, Paul | 2
 |===
 
 
