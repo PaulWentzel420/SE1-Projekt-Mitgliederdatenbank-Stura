@@ -39,16 +39,16 @@ include::../_includes/default-attributes.inc.adoc[]
 Die Aufgaben, welche in der ersten Iteration bearbeitet werden, folgen in der untenstehenden
 Tabelle:
 
-[%header, cols="3,1,1,1,2,1,1"]
+[%header, cols="3,1,1,2,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) | Gearbeite Stunden
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) | Status | Zugewiesen (Name) | Gearbeite Stunden
 
-| Vision | hoch | 4 | erledigt | docs/requirements/vision.adoc | Tony | 5
-| Use Cases | mittel | 7 | erldigt | docs/requirements/use-case_model.adoc | Nathalie | 6
-| Essence Navigator | niedrig | 1 | erledigt | x | alle Teammitglieder | 1
-| Risikoanalyse | mittel | 2 | erledigt | docs/project_management/risk_list.adoc | Hao | 3
-| Anforderungsanalyse | hoch | 7 | erledigt | docs/requirements/system-wide_requirements.adoc | Collin, Gerorg, Paul | 5
-| Iterationsplan 02 | hoch | 1 | erledigt | docs/project_management/iteration_plan_02.adoc | Tony | 2
+| Vision | hoch | 4 | erledigt | Tony | 5
+| Use Cases | mittel | 7 | erldigt | Nathalie | 6
+| Essence Navigator | niedrig | 1 | erledigt | alle Teammitglieder | 1
+| Risikoanalyse | mittel | 2 | erledigt | Hao | 3
+| Anforderungsanalyse | hoch | 7 | erledigt | Collin, Gerorg, Paul | 5
+| Iterationsplan 02 | hoch | 1 | erledigt | Tony | 2
 |===
 
 
