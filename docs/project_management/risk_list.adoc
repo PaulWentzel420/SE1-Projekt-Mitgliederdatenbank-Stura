@@ -16,8 +16,8 @@ Dabei werden folgende Attribute verwendet:
 * *Datum*: Eintragungsdatum in Risikosliste.
 * *Name*: Bezeichnung des Risikos.
 * *Owner*: Verantwortliche Person für das Risiko.
-* *Impact (Auswirkungen)*: Prozentangabe für die Auswirkungen, die auf das Projekt angibt, wenn das Risiko eintritt.
-* *Probability (Wahrscheinlichkeit)*: Wert zwischen 1 (niedrig) und 10 (hoch) für die Eintrittswahrscheinlichkeit des Risikos.
+* *Impact (Auswirkungen)*: Wert zwischen 1 (niedrig) und 10 (hoch) für die Auswirkungen, die auf das Projekt angibt, wenn das Risiko eintritt.
+* *Probability (Wahrscheinlichkeit)*: Prozentangabe für die Eintrittswahrscheinlichkeit des Risikos.
 * *Risk Ranking*: Risikofaktor
 * *Gegenmaßnahmen*: Hinweise um die Faktoren soweit wie möglich zu reduzieren. 
 
