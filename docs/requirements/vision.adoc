@@ -33,7 +33,10 @@ Siehe <<#glossary, Glossar>>.
 
 === Fachliche Motivation
 Der Studierendenrat der HTW Dresden beschäftigt sich mit den Wünschen, Problemen und Anforderungen der Studierenden der HTW. Er arbeitet eng mit der Hochschulleitung und des Studentenwerkes des Landes Sachsen zusammen um die Studienbedinungen zu verbessern. Hierfür fallen zahlreiche Arbeiten an, welche durch eine entsprechende Anzahl von Mitgliedern im StuRa bearbeitet werden müssen. Zur Zeit sind 205 Mitglieder (Stand 19.12.2022) im StuRa tätig. Hierfür existiert eine Excel-Tabelle, die die Mitglieder listet und zusätzlich Informationen über ihre Position im StuRa beinhaltet. Bei dieser Zahl an Angehörigen verliert man schnell den Überblick und eine ordentliche Organisation ist nahezu unmöglich.
+
 Dieses Projekt beschäftigt sich mit den angesprochenen Problemen. Hierfür soll ein hauseigenes System entwickelt werden, welches es ermöglicht alle Mitglieder übersichtlich zu listen und zu bearbeiten, neue Mitglieder einfach anzulegen und ausgeschiedene zu entfernen. Außerdem sollen Arbeitsaufgaben im System verteilt werden können.
+
+In der Vergangenheit wurde bereits eine Software erstellt, die allerdings nicht voll funktionsfähig war. Hier sollen, auf Anraten des StuRa, Teile des Layouts bzw. des Codes der alten Software übernommen werden. 
 
 === Problem Statement
 //Stellen Sie zusammenfassend das Problem dar, das mit diesem Projekt gelöst werden soll. Das folgende Format kann dazu verwendet werden:
