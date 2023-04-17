@@ -1,0 +1,34 @@
+<div class="modal-content">
+    <h3>{{kandidatur.vorname}} {% if kandidatur.spitzname %}"{{kandidatur.spitzname}}"{% endif %} {{kandidatur.name}}</h3>
+    <div>
+        <br />
+        <p><b>Kandidatur-ID:</b> {{kandidatur.id}}</p>
+        {% if kandidatur.kandidaturamt_set.all %}
+
+        <p><b>Ämter:</b>
+            {% if funktionen %}
+                <ul>
+                    {% for kandidaturamt in funktionen %}
+                        <li>{{kandidaturamt.funktion}}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}-
+            {% endif %}
+        </p>
+        {% endif %}
+        <br />
+        <h5>Kontaktdaten</h5>
+        {% if kandidatur.kandidaturmail_set.all %}
+        <p><b>E-Mails:</b>
+            <ul>
+            {% for mail in kandidatur.kandidaturmail_set.all %}
+            <li>{{mail.email}}</li>
+            {% endfor %}
+            </ul>
+        </p>
+        {% endif %}
+    </div>
+</div>
+<div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
+</div>

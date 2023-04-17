@@ -1,0 +1,9 @@
+<p><b>Mitglied: </b>{{entry.mitglied_id}} (aktuell {{latestMitglied.vorname}} {{latestMitglied.name}}, damals {{historicalMitglied.vorname}} {{historicalMitglied.name}})</p>
+<p><b>E-Mail-Adresse: </b>{{entry.email}}</p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Mitglied: </b>{{entry.prev_record.mitglied_id}} (aktuell {{latestMitgliedAlt.vorname}} {{latestMitgliedAlt.name}}, damals {{historicalMitgliedAlt.vorname}} {{historicalMitgliedAlt.name}})</p>
+    <p><b>E-Mail-Adresse: </b> {{entry.prev_record.email}}</p>
+{% endif %}

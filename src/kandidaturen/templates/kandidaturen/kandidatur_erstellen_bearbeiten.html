@@ -1,0 +1,464 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form id="mitgliedForm" action={% if kandidatur %}"{% url 'kandidaturen:speichern' kandidatur.id %}"{% else %}"{% url 'kandidaturen:erstellen' %}"{% endif %} method="post">
+{% csrf_token %}
+<div>
+  <div class="row">
+    <div  class="col s12">
+      <h3>Kandidatur {% if kandidatur %}bearbeiten{% else %}erstellen{% endif %}</h3>
+      <br />
+    </div>
+
+    <!-- Name & Vorname-->
+    <div class="row">
+      <div class="input-field col s12 m4 l3">
+        <input id="vorname" name="vorname" type="text" class="validate" {% if kandidatur %}value="{{kandidatur.vorname}}"{% endif %}>
+          <label for="vorname">Vorname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="nachname" name="nachname" type="text" class="validate" {% if kandidatur %}value="{{kandidatur.name}}"{% endif %}>
+        <label for="nachname">Nachname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="spitzname" name="spitzname" type="text" class="validate" {% if kandidatur.spitzname %}value="{{kandidatur.spitzname}}"{% endif %}>
+        <label for="spitzname">Spitzname</label>
+      </div>
+    </div>
+
+
+    <!-- Wahldatum -->
+    <div class="row">
+      <div class="input-field col l2 m4">
+        <input id="wahldatum" name="wahldatum" type="text" class="datepicker" {% if kandidatur.wahldatum %}value="{{kandidatur.wahldatum|date:'d.m.Y'}}"{% endif %}>
+          <label id="wahldatum_label" for="wahldatum">Wahldatum</label>
+      </div>
+    </div>
+    
+    <!-- Beschlussnummer -->
+    <div class="row">
+      <div class="input-field col s12 m4 l3">
+        <input id="beschlussnummer" name="beschlussnummer" type="text" class="validate" {% if kandidatur.beschlussnummer %}value="{{kandidatur.beschlussnummer}}"{% endif %}>
+          <label for="beschlussnummer">Beschlussnummer</label>
+      </div>
+    </div>
+
+    <!--Aemter-->
+    <div class="row">
+      <div class="col s12">
+        <h5>Funktionen </h5>
+        <br />
+        <div id="div_aemter">
+        {% if kandidatur %}
+          {% for kandidaturamt in kandidatur.kandidaturamt_set.all %}
+          {% with kandidaturamt.funktion as funktion %}
+          {% with forloop.counter as amtid %}
+            {% include 'kandidaturen/aemter.html' %}
+          {% endwith %}
+          {% endwith %}
+          {% endfor %}
+        {% else %}
+          {% with 1 as amtid %}
+          {% include 'kandidaturen/aemter.html' %}
+          {% endwith %}
+        {% endif %}
+        
+      </div>
+        <!-- Button (weiteres Amt hinzufuegen) -->
+          <div class="col s12">
+            <a id="addAmt" data-url="{% url 'kandidaturen:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Funktion hinzufügen</a>
+          </div>
+      </div>
+    </div>
+
+    <!--E-Mails-->
+    <div class="row">
+      <div class="col s12">
+        <h5>E-Mail-Adressen</h5>
+        <br />
+        <div id="div_emails">
+        {% if kandidatur %}
+          {% for email in kandidatur.kandidaturmail_set.all %}
+            {% include 'kandidaturen/email.html' %}
+          {% endfor %}
+        {% else %}
+          {% with 1 as emailid %}
+          {% include 'kandidaturen/email.html' %}
+          {% endwith %}
+        {% endif %}
+      </div>
+        <!-- Button - E-Mail hinzufuegen -->
+        <div class="row">
+          <div class="col s12">
+            {% if forloop.last or kandidatur.emails is None %}
+              <a id="addEmailBtn" data-url="{% url 'kandidaturen:email_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>E-Mail hinzufügen</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons: Hinzufuegen, Abbrechen -->
+    <div class="row">
+        <div class="col s12">
+          <a id="save_button" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
+          <a href="/kandidaturen" class="waves-effect waves-light btn-large grey lighten-2 black-text">Abbrechen</a>
+        </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<!-- Modal für Löschbestätigung von Ämtern-->
+<div id="modal-delete-amt" class="modal">
+  <div class="modal-content">
+    <h4>Hinweis</h4>
+    <p>Die Löschfunktion dient nur zum Entfernen fehlerhaft gespeicherter Funktionen und entfernt diese endgülitg.<br>Fortfahren?</p>
+  </div>
+  <div class="modal-footer">
+    <a id="delamtconfirm" data-url="{% url 'kandidaturen:amt_loeschen' %}" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+    <a class="left modal-action modal-close waves-effect waves-red btn-flat ">Abbrechen</a>
+  </div>
+</div>
+
+<style>
+  a.space{
+    margin-right:20px;
+  }
+
+  /* fehlende oder fehlerhafte Eingaben => Textfeld oder Dropdown wird rot markiert */
+  .row .input-field .invalid_input {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important
+  }
+
+  .invalid_input .select-wrapper input.select-dropdown{
+    border-bottom-color: red !important;
+  }
+
+  /* gelber Date Picker */
+  .datepicker-date-display, .datepicker-table td.is-selected, .month-next:focus, .month-prev:focus{
+    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #ffc107;
+  }
+  .year-text{
+    color: rgba(0,0,0,0.7) !important;
+  }
+  .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .datepicker-table td.is-today {
+    color: #be5500;
+  }
+
+  .datepicker-day-button:focus{
+    background-color: rgba(255, 193, 7, 0.5);
+  }
+</style>
+
+<script>
+  var referat_bez;
+    var amt_num = {% if kandidatur %}{{kandidatur.kandidaturamt_set.count}}{% else %}1{% endif %};
+    var email_num = {% if kandidatur %}{{kandidatur.kandidaturmail_set.count}}{% else %}1{% endif %};
+  $(document).ready(function(){
+  // Selects und Date Picker initialisieren, Event Listener für Dropdowns hinzufügen
+  initSelect();
+  initDatePicker();
+  addReferatEventListener();
+  addBereichEventListener();
+
+  // Speicherbutton geklickt
+  $("#save_button").click(function(){
+    var valid_input = true;
+    // Prüfen, ob Vor- und Nachname angegeben sind und ob sie Zahlen enthalten
+    if ($("#vorname").val()=="" || /\d/.test($("#vorname").val())){
+      $("#vorname").addClass("invalid_input");
+      addInputEventListener("vorname");
+      valid_input = false;
+      console.log("vorname fehlt");
+    } else $("#vorname").removeClass("invalid_input");
+    if ($("#nachname").val()=="" || /\d/.test($("#nachname").val())){
+      $("#nachname").addClass("invalid_input");
+      addInputEventListener("nachname");
+      console.log("name fehlt");
+      valid_input = false;
+    }
+    if($("#wahldatum").val()==""){
+      $("#wahldatum").addClass("invalid_input");
+      addDateInputEventListener("wahldatum");
+      valid_input = false;
+      console.log("Wahldatum fehlt");
+    }
+    // Prüfen, ob alle E-Mail- und Amtfelder ausgefüllt sind
+    console.log("anzahl emails: " + email_num.toString());
+    for (var i=1; i<=email_num; i++){
+      var email = $("#email"+i.toString()).val();
+      if (isEmail(email)==false) {
+        $("#email" + i.toString()).addClass("invalid_input");
+        addInputEventListener("email" + i.toString());
+        console.log("ungueltige email");
+        valid_input=false;
+      }
+    }
+    for (var i=1; i<=amt_num; i++){
+      // Select für Amt existiert nocht nicht (weil kein Organisationseinheit oder Bereich ausgewählt wurde) => rot markieren
+      if (!$("#selectamt"+i.toString()).length){
+        console.log("selectamt" + i.toString());
+        // Dropdown für Bereich existiert => rot markieren, ansonsten Dropdown für Organisationseinheit rot markieren
+        if ($("#selectbereich" + i.toString()).length){
+          console.log("Bereich wurde nicht ausgewählt")
+          $("#div_selectbereich"+i.toString()).addClass("invalid_input");
+          addDropdownEventListener("selectbereich" + i.toString());
+        } else {
+          $("#div_selectreferat" + i.toString()).addClass("invalid_input");
+          console.log("Organisationseinheit wurde nicht ausgewählt");
+          addDropdownEventListener("selectreferat" + i.toString());
+        }
+        console.log("Kein Bereich oder Organisationseinheit ausgewahelt");
+        valid_input = false;
+      }
+      // Organisationseinheit und Bereich, aber kein Amt ausgewählt => Amt rot markieren
+      if ($("#selectamt" + i.toString() + " option:selected").prop("disabled")==true){
+        console.log("Ein Amt wurde nicht ausgewählt");
+        valid_input = false;
+        $("#div_selectamt" + i.toString()).addClass("invalid_input");
+        addDropdownEventListener("selectamt" + i.toString());
+      }
+
+    }
+    // bei gueltigen Eingaben Daten an Server schicken
+    if (valid_input) {
+      $('#mitgliedForm').submit();
+    }
+    else {
+        window.scrollTo(0,0);
+    }
+  });
+
+    // Amt hinzufuegen
+    $("#addAmt").click(function(){
+      amt_num++;
+      var url = $("#addAmt").attr("data-url");
+      // Request an Server, dass dieser HTML fuer Organisationseinheit-Dropdown senden moege
+      $.ajax({
+        url: url,
+        success: function(data){
+          // Einfuegen des HTML-Codes
+          $("#div_aemter").append(data);
+          initSelect();
+          initDatePicker(amt_num);
+          addReferatEventListener();
+        }
+      });
+    });
+
+    // E-Mail hinzufuegen
+    $("#addEmailBtn").click(function(){
+      var url = $("#addEmailBtn").attr("data-url");
+      $.ajax({
+        url: url,
+        success: function(data){
+          $("#div_emails").append(data);
+          email_num++;
+        }
+      });
+    });
+
+
+    // Triggern eines change Events, falls nach erneutem Laden noch
+    // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
+    if ($('#selectreferat').val()){
+      $('#selectreferat').trigger("change");
+    }
+  });
+
+  // Event Listener falls ein anderes Organisationseinheit ausgewaehlt wird
+  // Laden neuer Unterbereiche, Entfernen des Amt-Dropdowns
+  function addReferatEventListener(){
+    $('select[name^=selectreferat]').change(function(event){
+        referat_id = $(this).val();
+        var url = $('#' + event.target.id).attr("data-url");
+        var num = event.target.id.substr(13);
+
+        $.ajax({
+            url: url,
+            data: {
+            organisationseinheit: referat_id,
+            amtnum: num,
+            },
+            success: function(data){
+              // 
+              $("#div_selectbereich" + num).html(data);
+              $("#div_selectamt" + num).empty();
+              initSelect();
+              // Listener fuer Select Bereich (zeigt Select Amt an)
+              addBereichEventListener();
+            }
+        });
+        return false;
+    })
+  }
+
+  // Event Listener falls ein anderer Bereich ausgewaehlt wird
+  // Laden neuer Aemter
+  function addBereichEventListener(){
+    $('select[name^=selectbereich]').change(function(event){
+      var selectnum = this.id.substr(13);
+      referat_id = $("#selectreferat" + selectnum).val();
+      bereich_id = $(this).val();
+      var url = $("#" + event.target.id).attr("data-url");
+      var num = event.target.id.substr(13);
+      $.ajax({
+          url: url,
+          data: {
+          bereich: bereich_id,
+          organisationseinheit: referat_id,
+          amtnum: num,
+          },
+          success: function(data){
+            $("#div_selectamt" + num).html(data);
+            initSelect();
+          }
+      });
+      return false;
+    })
+  }
+
+  // Farbe des der Amt-Selects wird wieder auf Standardeinstellung zurückgesetzt
+  function addDropdownEventListener(id){
+    $('#' + id).change(function(event){
+      $("#div_" + id).removeClass("invalid_input");
+    });
+  }
+
+  // zum Zurücksetzen auf Standardfarbe
+  function addInputEventListener(id){
+    $('#' + id).on("input", function(event){
+      // Prüfen, ob Feld leer ist oder eine ungültige E-Mail enthält
+      if ($("#"+id).val()=="" ||
+          ($("#"+id).attr("type")=="email" && !isEmail( $("#" + id).val() ) ) ){
+        $("#" + id).addClass("invalid_input");
+      } else {
+        $("#" + id).removeClass("invalid_input");
+      }
+    });
+  }
+
+  // zum Zurücksetzen auf Standardfarbe
+  function addDateInputEventListener(id){
+    $('#' + id).on("change", function(event){
+      console.log(event.target.id);
+      // Prüfen, ob Datum leer ist
+      if ($("#"+id).val()== "" ){
+        $("#" + id).addClass("invalid_input");
+      } else {
+        $("#" + id).removeClass("invalid_input");
+      }
+    });
+  }
+
+  // prüft, ob String eine gültige E-Mail-Adresse ist
+  function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+
+    // Amt löschen Button
+    $(document).on("click", '.amtdelbtn', function(){
+      amtid = this.id.substr(10);
+      // prüfen, ob Funktion bereits in DB gespeichert wurde, wenn ja Modal öffnen
+      var saved = parseInt($("#" + this.id).attr("data-saved"));
+      if (saved==1){
+        //Modal öffnen 
+        var modal = $("#modal-delete-amt");
+        var instance = M.Modal.getInstance(modal);
+        $("#delamtconfirm").attr("data-amtid", amtid);
+        instance.open();
+      } else {
+        amt_loeschen(amtid);
+      }
+    });
+
+    // Löschen im Modal bestaetigt
+    $('#delamtconfirm').click(function(){
+      var amtid = $('#delamtconfirm').attr("data-amtid");
+      amt_loeschen(amtid);
+    });
+
+    function amt_loeschen(amtid){
+      var url = "{% url 'kandidaturen:amt_loeschen' %}";
+      $("#funktion" + amtid).remove();
+
+      // Veraendern von ids, for- und label-Attributen
+
+      var ids = ["funktion", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl"];
+      for (var i=parseInt(amtid)+1; i<=amt_num; i++){
+        // Dekrementieren der ID-Nummer, die eine höhere Nummer als das gelöschte Element haben
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+      }
+
+      amt_num--;
+
+      $.ajax({
+          url: url,
+      });
+    };
+
+    // E-Mail löschen
+    $(document).on("click", '.emaildelbtn', function(){
+      var url = $("#" + this.id).attr("data-url");
+      emailid = this.id.substr(11);
+      $("#div_email" + emailid).remove();
+      var ids = ["div_email", "email", "emaildelbtn", "emaillabel"];
+      for (var i=parseInt(emailid)+1; i<=email_num; i++){
+        $("#emaillabel" + i).attr("for", "email" + (i-1).toString())
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+
+      }
+      email_num--;
+      // Server melden, dass E-Mail geloescht wurde
+      $.ajax({
+          url: url,
+      });
+    });
+
+  function initSelect(){
+    var elems = document.querySelectorAll('select');
+    var options;
+    var instances = M.FormSelect.init(elems, options);
+  }
+    // Date Picker initialisieren
+  function initDatePicker(){
+    var init_settings = {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', firstDay: 1, showClearBtn: true, i18n: {
+                months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+                monthsShort: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
+                weekdays: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                weekdaysShort: ["So", "Mo","Di", "Mi", "Do", "Fr", "Sa"],
+                weekdaysAbbrev: ["S", "M","D", "M", "D", "F", "S"],
+                today: 'heute',
+                clear: 'löschen',
+                cancel: 'abbrechen'
+            }
+            
+    };
+
+    var wahldatum_datepicker = document.getElementById("wahldatum");
+    M.Datepicker.init(wahldatum_datepicker, init_settings);
+    console.log("datepicker init");
+  }
+
+  // Initialisieren des Modals
+  var elems = document.querySelectorAll('.modal');
+  var instance = M.Modal.init(elems, {dismissible: true});
+</script>
+
+{% endblock %}

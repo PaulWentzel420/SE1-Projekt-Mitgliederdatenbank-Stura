@@ -1,0 +1,15 @@
+<p><b>Checkliste: </b>{{entry.checkliste_id}} 
+    (aktuell {{latestMitglied.vorname}} {{latestMitglied.name}}{% if latestFunktion %} - {{latestOrganisationseinheit.bezeichnung}} {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestFunktion.bezeichnung}}{% endif %}{% if historicalCheckliste %}, damals 
+        {{historicalMitglied.vorname}} {{historicalMitglied.name}}{% if historicalFunktion %} - {{historicalOrganisationseinheit.bezeichnung}} {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}{{historicalFunktion.bezeichnung}}{% endif %}{% endif %})</p>
+<p><b>Aufgabe: </b>{{entry.aufgabe_id}} (aktuell {{latestAufgabe.bezeichnung}}, damals {{historicalAufgabe.bezeichnung}})</p>
+<p><b>Abgehakt: </b>{% if entry.abgehakt == True %}Ja{% else %}Nein{% endif %}</p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Checkliste: </b>{{entry.prev_record.checkliste_id}} 
+        (aktuell {{latestMitgliedAlt.vorname}} {{latestMitgliedAlt.name}}{% if latestFunktionAlt %} - {{latestOrganisationseinheitAlt.bezeichnung}} {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}{{latestFunktionAlt.bezeichnung}}{% endif %}{% if historicalChecklisteAlt %}, damals 
+            {{historicalMitgliedAlt.vorname}} {{historicalMitgliedAlt.name}}{% if historicalFunktionAlt %} - {{historicalOrganisationseinheitAlt.bezeichnung}} {% if historicalUnterbereichAlt %}{{historicalUnterbereichAlt.bezeichnung}} {% endif %}{{historicalFunktionAlt.bezeichnung}}{% endif %}{% endif %})</p>
+    <p><b>Aufgabe: </b>{{entry.prev_record.aufgabe_id}} (aktuell {{latestAufgabeAlt.bezeichnung}}, damals {{historicalAufgabeAlt.bezeichnung}})</p>
+    <p><b>Abgehakt: </b>{% if entry.prev_record.abgehakt == True %}Ja{% else %}Nein{% endif %}</p>
+{% endif %}

@@ -1,0 +1,66 @@
+<p><b>Nutzer-ID: </b> {{entry.id}}</p>
+<p><b>Nutzername: </b> {{entry.username}}</p>
+{% if entry.last_name %}<p><b>Nachname: </b> {{entry.last_name}}</p>{% endif %}
+{% if entry.first_name %}<p><b>Vorname: </b> {{entry.first_name}}</p>{% endif %}
+{% if entry.email %}<p><b>E-Mail-Adresse: </b> {{entry.email}}</p>{% endif %}
+
+<p>
+  <b>Aktiv: </b>
+  {% if entry.is_active == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>
+<p>
+  <b>Mitarbeiter: </b>
+  {% if entry.is_staff == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>
+<p>
+  <b>Admin: </b>
+  {% if entry.is_superuser == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>
+
+
+{% if entry.history_type == "~" %}
+  <br />
+  <h5>Alter Datensatz</h5>
+  <p><b>Nutzer-ID: </b> {{entry.prev_record.id}}</p>
+  <p><b>Nutzername: </b> {{entry.prev_record.username}}</p>
+  {% if entry.prev_record.last_name %}<p><b>Nachname: </b> {{entry.prev_record.last_name}}</p>{% endif %}
+  {% if entry.prev_record.first_name %}<p><b>Vorname: </b> {{entry.prev_record.first_name}}</p>{% endif %}
+  {% if entry.prev_record.email %}<p><b>E-Mail-Adresse: </b> {{entry.prev_record.email}}</p>{% endif %}
+
+  <p>
+    <b>Aktiv: </b>
+    {% if entry.prev_record.is_active == True %}
+    Ja
+    {% else %}
+    Nein
+    {% endif %}
+  </p>
+  <p>
+    <b>Mitarbeiter: </b>
+    {% if entry.prev_record.is_staff == True %}
+    Ja
+    {% else %}
+    Nein
+    {% endif %}
+  </p>
+  <p>
+    <b>Admin: </b>
+    {% if entry.prev_record.is_superuser == True %}
+    Ja
+    {% else %}
+    Nein
+    {% endif %}
+  </p>
+{% endif %}

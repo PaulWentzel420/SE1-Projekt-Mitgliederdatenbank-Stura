@@ -1,0 +1,16 @@
+<div id="mitgliederTab" class="col s12">
+  <ul class="tabs secondary-tabs">
+    <li class="tab col s4"><a class="tab-link active" data-tab="Mitglied" href="#mitgliederStammdatenTab">Stammdaten</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="MitgliedMail" href="#mitgliederMailsTab">E-Mail-Adressen</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="MitgliedAmt" href="#mitgliederAemterTab">Zuordnung Mitglied-Funktion</a></li>
+  </ul>
+  <div id="mitgliederStammdatenTab">
+    {% include 'historie/row.html' with data=mitglieder %}
+  </div>
+  <div id="mitgliederMailsTab">
+    {% include 'historie/row.html' with data=mitgliederMails %}
+  </div>
+  <div id="mitgliederAemterTab">
+    {% include 'historie/row.html' with data=mitgliederAemter %}
+  </div>
+</div>

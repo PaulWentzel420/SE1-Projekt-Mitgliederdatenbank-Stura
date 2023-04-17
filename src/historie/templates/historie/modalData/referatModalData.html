@@ -1,0 +1,9 @@
+<p><b>Organisationseinheit-ID: </b> {{entry.id}}</p>
+<p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Organisationseinheit-ID: </b> {{entry.prev_record.id}}</p>
+    <p><b>Bezeichnung: </b> {{entry.prev_record.bezeichnung}}</p>
+{% endif %}

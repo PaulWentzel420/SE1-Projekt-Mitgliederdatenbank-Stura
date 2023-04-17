@@ -1,0 +1,64 @@
+{% load t_historie.to_class_name %}
+
+{% if entry|to_class_name == "HistoricalMitglied" %}
+Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalMitgliedMail" %}
+E-Mail-Adresse zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalMitgliedAmt" %}
+Zuordnung von Funktion {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
+{% if latestUnterbereich.bezeichnung %}{{latestUnterbereich.bezeichnung}} {% endif %}
+{{latestReferat.bezeichnung}})
+zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalKandidatur" %}
+Kandidatur {{entry.id}} ({{entry.vorname}} {{entry.name}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalKandidaturMail" %}
+E-Mail-Adresse zu Kandidatur {{entry.kandidatur_id}} ({{latestKandidatur.vorname}} {{latestKandidatur.name}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalKandidaturAmt" %}
+Zuordnung von Funktion {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
+{% if latestUnterbereich.bezeichnung %}{{latestUnterbereich.bezeichnung}} {% endif %}
+{{latestReferat.bezeichnung}})
+zu Kandidatur {{entry.kandidatur_id}} ({{latestKandidatur.vorname}} {{latestKandidatur.name}})
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalOrganisationseinheit" %}
+Organisationseinheit {{entry.id}} ({{entry.bezeichnung}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalUnterbereich" %}
+Unterbereich {{entry.id}} ({{entry.bezeichnung}}) zu Organisationseinheit {{entry.organisationseinheit_id}} ({{latestReferat.bezeichnung}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalFunktion" %}
+Funktion {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
+{{entry.organisationseinheit_id}} ({{latestReferat.bezeichnung}}){% if entry.unterbereich_id %}, Unterbereich
+{{entry.unterbereich_id}} ({{latestUnterbereich.bezeichnung}}){% endif %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalRecht" %}
+Recht {{entry.id}} ({{entry.bezeichnung}})
+{% endif %}
+{% if entry|to_class_name == "HistoricalFunktionRecht" %}
+Recht {{entry.recht_id}} ({{latestRecht.bezeichnung}}) zu Funktion {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
+{% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestReferat.bezeichnung}})
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalCheckliste" %}
+Checkliste {{entry.id}} ({{latestMitglied.vorname}} {{latestMitglied.name}}{% if entry.amt_id %} - {{latestOrganisationseinheit.bezeichnung}} {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestFunktion.bezeichnung}}{% endif %})
+{% endif %}
+{% if entry|to_class_name == "HistoricalChecklisteAufgabe" %}
+Aufgabe {{entry.aufgabe_id}} ({{latestAufgabe.bezeichnung}}) auf Checkliste {{entry.checkliste_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}}{% if latestCheckliste.amt_id %} - {{latestOrganisationseinheit.bezeichnung}} {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestFunktion.bezeichnung}}{% endif %})
+{% endif %}
+{% if entry|to_class_name == "HistoricalChecklisteRecht" %}
+Recht {{entry.recht_id}} ({{latestRecht.bezeichnung}}) auf Checkliste {{entry.checkliste_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}}{% if latestCheckliste.amt_id %} - {{latestOrganisationseinheit.bezeichnung}} {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestFunktion.bezeichnung}}{% endif %})
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalUser" %}
+Nutzer {{entry.id}} ({{entry.username}})
+{% endif %}
+
+{% if entry.history_type == "+" %}hinzugefügt{% endif %}
+{% if entry.history_type == "~" %}geändert{% endif %}
+{% if entry.history_type == "-" %}gelöscht{% endif %}

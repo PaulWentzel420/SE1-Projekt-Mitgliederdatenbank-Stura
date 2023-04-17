@@ -1,0 +1,10 @@
+{% if emailid %}
+  {% with emailid as id %}
+    {% include 'mitglieder/email_input.html' %}
+  {% endwith %}
+{% else %}
+  {% with forloop.counter as id %}
+    {% include 'mitglieder/email_input.html' %}
+  {% endwith %}
+{% endif %}
+

@@ -1,0 +1,179 @@
+{% load t_historie.to_class_name %}
+{% load t_historie.get_associated_data	%}
+
+<p>
+    <ul class="collection">
+        {% for entry in data %}
+            {% if entry|to_class_name == "HistoricalMitgliedMail" or entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalKandidaturMail" or entry|to_class_name == "HistoricalKandidaturAmt" or entry|to_class_name == "HistoricalCheckliste" %}
+                {% get_associated_data "Mitglied" "latest" entry.mitglied_id None as latestMitglied %}
+                {% get_associated_data "Mitglied" "historical" entry.mitglied_id entry.history_date as historicalMitglied %}
+
+                {% get_associated_data "Kandidatur" "latest" entry.kandidatur_id None as latestKandidatur %}
+                {% get_associated_data "Kandidatur" "historical" entry.kandidatur_id entry.history_date as historicalKandidatur %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Mitglied" "latest" entry.prev_record.mitglied_id None as latestMitgliedAlt %}
+                    {% get_associated_data "Mitglied" "historical" entry.prev_record.mitglied_id entry.history_date as historicalMitgliedAlt %}
+                    
+                    {% get_associated_data "Kandidatur" "latest" entry.prev_record.kandidatur_id None as latestKandidaturAlt %}
+                    {% get_associated_data "Kandidatur" "historical" entry.prev_record.kandidatur_id entry.history_date as historicalKandidaturAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalKandidaturAmt" or entry|to_class_name == "HistoricalFunktionRecht" %}
+                {% get_associated_data "Funktion" "latest" entry.funktion_id None as latestAmt %}
+                {% get_associated_data "Funktion" "historical" entry.funktion_id entry.history_date as historicalAmt %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Funktion" "latest" entry.prev_record.funktion_id None as latestAmtAlt %}
+                    {% get_associated_data "Funktion" "historical" entry.prev_record.funktion_id entry.history_date as historicalAmtAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalKandidaturAmt" or entry|to_class_name == "HistoricalFunktionRecht" %}
+                {% get_associated_data "Organisationseinheit" "latest" latestAmt.organisationseinheit_id None as latestReferat %}
+                {% get_associated_data "Organisationseinheit" "historical" historicalAmt.organisationseinheit_id entry.history_date as historicalReferat %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Organisationseinheit" "latest" latestAmtAlt.organisationseinheit_id None as latestReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" historicalAmtAlt.organisationseinheit_id entry.history_date as historicalReferatAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalKandidaturAmt" or entry|to_class_name == "HistoricalFunktionRecht" %}
+                {% get_associated_data "Unterbereich" "latest" latestAmt.unterbereich_id None as latestUnterbereich %}
+                {% get_associated_data "Unterbereich" "historical" historicalAmt.unterbereich_id entry.history_date as historicalUnterbereich %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Unterbereich" "latest" latestAmtAlt.unterbereich_id None as latestUnterbereichAlt %}
+                    {% get_associated_data "Unterbereich" "historical" historicalAmtAlt.unterbereich_id entry.history_date as historicalUnterbereichAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalFunktion" or entry|to_class_name == "HistoricalUnterbereich" %}
+                {% get_associated_data "Organisationseinheit" "latest" entry.organisationseinheit_id None as latestReferat %}
+                {% get_associated_data "Organisationseinheit" "historical" entry.organisationseinheit_id entry.history_date as historicalReferat %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Organisationseinheit" "latest" entry.prev_record.organisationseinheit_id None as latestReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" entry.prev_record.organisationseinheit_id entry.history_date as historicalReferatAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalFunktion" %}
+                {% get_associated_data "Unterbereich" "latest" entry.unterbereich_id None as latestUnterbereich %}
+                {% get_associated_data "Unterbereich" "historical" entry.unterbereich_id entry.history_date as historicalUnterbereich %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Unterbereich" "latest" entry.prev_record.unterbereich_id None as latestUnterbereichAlt %}
+                    {% get_associated_data "Unterbereich" "historical" entry.prev_record.unterbereich_id entry.history_date as historicalUnterbereichAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalFunktionRecht" %}
+                {% get_associated_data "Recht" "latest" entry.recht_id None as latestRecht %}
+                {% get_associated_data "Recht" "historical" entry.recht_id entry.history_date as historicalRecht %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Recht" "latest" entry.prev_record.recht_id None as latestRechtAlt %}
+                    {% get_associated_data "Recht" "historical" entry.prev_record.recht_id entry.history_date as historicalRechtAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalCheckliste" %}
+                {% get_associated_data "MitgliedAmt" "latest" entry.amt_id None as latestMitgliedAmt %}
+                {% get_associated_data "MitgliedAmt" "historical" entry.amt_id entry.history_date as historicalMitgliedAmt %}
+
+                {% get_associated_data "Funktion" "latest" latestMitgliedAmt.funktion_id None as latestFunktion %}
+                {% get_associated_data "Funktion" "historical" historicalMitgliedAmt.funktion_id entry.history_date as historicalFunktion %}
+
+                {% get_associated_data "Unterbereich" "latest" latestFunktion.unterbereich_id None as latestUnterbereich %}
+                {% get_associated_data "Unterbereich" "historical" historicalFunktion.unterbereich_id entry.history_date as historicalUnterbereich %}
+
+                {% get_associated_data "Organisationseinheit" "latest" latestFunktion.organisationseinheit_id None as latestOrganisationseinheit %}
+                {% get_associated_data "Organisationseinheit" "historical" historicalFunktion.organisationseinheit_id entry.history_date as historicalOrganisationseinheit %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "MitgliedAmt" "latest" entry.prev_record.amt_id None as latestMitgliedAmtAlt %}
+                    {% get_associated_data "MitgliedAmt" "historical" entry.prev_record.amt_id entry.history_date as historicalMitgliedAmtAlt %}
+
+                    {% get_associated_data "Funktion" "latest" latestMitgliedAmtAlt.funktion_id None as latestFunktionAlt %}
+                    {% get_associated_data "Funktion" "historical" historicalMitgliedAmtAlt.funktion_id entry.history_date as historicalFunktionAlt %}
+
+                    {% get_associated_data "Unterbereich" "latest" latestFunktionAlt.unterbereich_id None as latestUnterbereichAlt %}
+                    {% get_associated_data "Unterbereich" "historical" historicalFunktionAlt.unterbereich_id entry.history_date as historicalUnterbereichAlt %}
+
+                    {% get_associated_data "Organisationseinheit" "latest" latestFunktionAlt.organisationseinheit_id None as latestOrganisationseinheitAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" historicalFunktionAlt.organisationseinheit_id entry.history_date as historicalOrganisationseinheitAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalChecklisteAufgabe" or entry|to_class_name == "HistoricalChecklisteRecht" %}
+                {% get_associated_data "Checkliste" "latest" entry.checkliste_id None as latestCheckliste %}
+                {% get_associated_data "Checkliste" "historical" entry.checkliste_id entry.history_date as historicalCheckliste %}
+
+                {% get_associated_data "Mitglied" "latest" latestCheckliste.mitglied_id None as latestMitglied %}
+                {% get_associated_data "Mitglied" "historical" historicalCheckliste.mitglied_id entry.history_date as historicalMitglied %}
+
+                {% get_associated_data "MitgliedAmt" "latest" latestCheckliste.amt_id None as latestMitgliedAmt %}
+                {% get_associated_data "MitgliedAmt" "historical" historicalCheckliste.amt_id entry.history_date as historicalMitgliedAmt %}
+
+                {% get_associated_data "Funktion" "latest" latestMitgliedAmt.funktion_id None as latestFunktion %}
+                {% get_associated_data "Funktion" "historical" historicalMitgliedAmt.funktion_id entry.history_date as historicalFunktion %}
+
+                {% get_associated_data "Unterbereich" "latest" latestFunktion.unterbereich_id None as latestUnterbereich %}
+                {% get_associated_data "Unterbereich" "historical" historicalFunktion.unterbereich_id entry.history_date as historicalUnterbereich %}
+
+                {% get_associated_data "Organisationseinheit" "latest" latestFunktion.organisationseinheit_id None as latestOrganisationseinheit %}
+                {% get_associated_data "Organisationseinheit" "historical" historicalFunktion.organisationseinheit_id entry.history_date as historicalOrganisationseinheit %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Checkliste" "latest" entry.prev_record.checkliste_id None as latestChecklisteAlt %}
+                    {% get_associated_data "Checkliste" "historical" entry.prev_record.checkliste_id entry.history_date as historicalChecklisteAlt %}
+
+                    {% get_associated_data "Mitglied" "latest" latestChecklisteAlt.mitglied_id None as latestMitgliedAlt %}
+                    {% get_associated_data "Mitglied" "historical" historicalChecklisteAlt.mitglied_id entry.history_date as historicalMitgliedAlt %}
+
+                    {% get_associated_data "MitgliedAmt" "latest" latestChecklisteAlt.amt_id None as latestMitgliedAmtAlt %}
+                    {% get_associated_data "MitgliedAmt" "historical" historicalChecklisteAlt.amt_id entry.history_date as historicalMitgliedAmtAlt %}
+
+                    {% get_associated_data "Funktion" "latest" latestMitgliedAmtAlt.funktion_id None as latestFunktionAlt %}
+                    {% get_associated_data "Funktion" "historical" historicalMitgliedAmtAlt.funktion_id entry.history_date as historicalFunktionAlt %}
+
+                    {% get_associated_data "Unterbereich" "latest" latestFunktionAlt.unterbereich_id None as latestUnterbereichAlt %}
+                    {% get_associated_data "Unterbereich" "historical" historicalFunktionAlt.unterbereich_id entry.history_date as historicalUnterbereichAlt %}
+
+                    {% get_associated_data "Organisationseinheit" "latest" latestFunktionAlt.organisationseinheit_id None as latestOrganisationseinheitAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" historicalFunktionAlt.organisationseinheit_id entry.history_date as historicalOrganisationseinheitAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalChecklisteAufgabe" %}
+                {% get_associated_data "Aufgabe" "latest" entry.aufgabe_id None as latestAufgabe %}
+                {% get_associated_data "Aufgabe" "historical" entry.aufgabe_id entry.history_date as historicalAufgabe %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Aufgabe" "latest" entry.prev_record.aufgabe_id None as latestAufgabeAlt %}
+                    {% get_associated_data "Aufgabe" "historical" entry.prev_record.aufgabe_id entry.history_date as historicalAufgabeAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% if entry|to_class_name == "HistoricalChecklisteRecht" %}
+                {% get_associated_data "Recht" "latest" entry.recht_id None as latestRecht %}
+                {% get_associated_data "Recht" "historical" entry.recht_id entry.history_date as historicalRecht %}
+
+                {% if entry.history_type == "~" %}
+                    {% get_associated_data "Recht" "latest" entry.prev_record.recht_id None as latestRechtAlt %}
+                    {% get_associated_data "Recht" "historical" entry.prev_record.recht_id entry.history_date as historicalRechtAlt %}
+                {% endif %}
+            {% endif %}
+
+            {% include 'historie/rowContent.html' %}
+
+        {% empty %}
+            {% include 'historie/_noResultsRow.html' %}
+        {% endfor %}
+    </ul>
+</p>
+
+{% include 'historie/tabs/_pagination.html' %}

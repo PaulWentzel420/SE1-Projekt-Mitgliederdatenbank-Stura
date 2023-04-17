@@ -1,0 +1,114 @@
+{% load mitglieder_extras %}
+<div class="col s12">
+    <table class="highlight">
+        <thead>
+            <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Funktionen</th>
+            <th class="hide-on-small-only">E-Mails</th>
+            {% if request.user.is_superuser %}
+            <th class="hide-on-med-and-down">Telefon</th>
+            {% endif %}
+            <th></th><th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for entry in data %}
+                <!-- Zeile -->
+                <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
+                    <td>                  
+                    {% if request.user.is_superuser %}
+                        <!-- Checkbox -->
+                        <form method="post" style="margin-bottom: 0px; margin-top: 4px; padding-left: 7px; padding-right: 7px;">
+                            {% csrf_token %}
+                            <label for="chk-{{entry.id}}">
+                                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
+                                <span style="padding-left: 7px; padding-right: 7px;"></span>
+                            </label>
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if request.user.is_superuser %}
+                            <!-- Attention symbol-->
+                            {% if not entry.admission_data_complete %}
+                                <i class="material-icons red-text">priority_high</i>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
+                    <td class="mitglied-{{entry.id}}">
+                        {% if entry.curr_funktion_first %}
+                        <ul style="margin-bottom: 0px">
+                            <li>{{entry.curr_funktion_first}}</li>
+                            {% if entry.curr_funktion_count > 1 %}
+                                <li>...</li>
+                            {% endif %}
+                        </ul>
+                        {% else %}-
+                        {% endif %}
+                    </td>
+                    <td class="mitglied-{{entry.id}} hide-on-small-only">
+                        {% if entry.mitgliedmail_set.all %}
+                        <ul style="margin-bottom: 0px">
+                            <li>{{entry.mitgliedmail_set.first.email}}</li>
+                            {% if entry.mitgliedmail_set.all.count > 1 %}
+                                <li>...</li>
+                            {% endif %}
+                        </ul>
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    {% if request.user.is_superuser %}
+                    <td class="mitglied-{{entry.id}} hide-on-med-and-down">
+                        {{entry.tel_mobil|default:'-'}}
+                    </td>
+                    {% endif %}
+                    
+                    <td>
+                        {% if entry.mitgliedmail_set.all %}
+                        <!-- email button -->
+                        <a href="mailto:{{entry.mitgliedmail_set.first.email}}"><i class="material-icons black-text">email</i></a>
+                        {% endif %}
+                    </td>
+                    
+                    {% if request.user.is_superuser %}
+                    <!-- edit button (pencil) -->
+                    <td>
+                        <a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+<div class="col s12 center-align">
+    <ul class="pagination">
+    {% if data.has_previous %}
+        <li class="waves-effect"><a class="page-link" data-page="1">1</a></li>
+        {% if data.number > 3 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.previous_page_number|add:-1 }}">{{ data.previous_page_number|add:-1 }}</a></li>
+        {% endif %}
+        {% if data.number != 2 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.previous_page_number }}">{{ data.previous_page_number }}</a></li>
+        {% endif %}
+    {% endif %}
+    <li class="active" style="background-color: #ffc107"><a class="page-link">{{ data.number }}</a></li>
+    {% if data.has_next %}
+        {% if data.number != data.paginator.num_pages|add:-1 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.next_page_number }}">{{ data.next_page_number }}</a></li>
+        {% endif %}
+        {% if data.number < data.paginator.num_pages|add:-2 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.next_page_number|add:1 }}">{{ data.next_page_number|add:1 }}</a></li>
+        {% endif %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.paginator.num_pages }}">{{ data.paginator.num_pages }}</a></li>
+    {% endif %}
+    </ul>
+</div>

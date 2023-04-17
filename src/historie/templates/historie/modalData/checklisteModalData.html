@@ -1,0 +1,33 @@
+<p><b>Checklisten-ID: </b>{{entry.id}}</p>
+<p><b>Mitglied: </b> 
+    {{entry.mitglied_id}} 
+    (aktuell {{latestMitglied.vorname}} {{latestMitglied.name}}, 
+    damals {{historicalMitglied.vorname}} {{historicalMitglied.name}})</p>
+{% if latestFunktion %}<p><b>Funktion: </b>
+    {{entry.funktion_id}}
+    (aktuell {{latestFunktion.bezeichnung}} 
+        {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
+        {{latestOrganisationseinheit.bezeichnung}}{% if historicalFunktion %}, damals 
+        {{historicalFunktion.bezeichnung}} 
+        {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}
+        {{historicalOrganisationseinheit.bezeichnung}}{% endif %})
+    </p>{% endif %}
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Checklisten-ID: </b>{{entry.prev_record.id}}</p>
+    <p><b>Mitglied: </b> 
+        {{entry.prev_record.mitglied_id}} 
+        (aktuell {{latestMitgliedAlt.vorname}} {{latestMitgliedAlt.name}}, 
+        damals {{historicalMitgliedAlt.vorname}} {{historicalMitgliedAlt.name}})</p>
+    {% if latestFunktionAlt %}<p><b>Funktion: </b>
+        {{entry.prev_record.funktion_id}}
+        (aktuell {{latestFunktionAlt.bezeichnung}} 
+            {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}
+            {{latestOrganisationseinheitAlt.bezeichnung}}{% if historicalFunktionAlt %}, damals 
+            {{historicalFunktionAlt.bezeichnung}} 
+            {% if historicalUnterbereichAlt %}{{historicalUnterbereichAlt.bezeichnung}} {% endif %}
+            {{historicalOrganisationseinheitAlt.bezeichnung}}{% endif %})
+        </p>{% endif %}
+{% endif %}

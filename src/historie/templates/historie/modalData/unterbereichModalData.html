@@ -1,0 +1,18 @@
+<p><b>Unterbereich-ID: </b> {{entry.id}}</p>
+<p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
+
+<p><b>Organisationseinheit: </b> {{entry.organisationseinheit_id}}
+    (aktuell {{latestReferat.bezeichnung}}, damals {{historicalReferat.bezeichnung}})
+</p>
+
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Unterbereich-ID: </b> {{entry.prev_record.id}}</p>
+    <p><b>Bezeichnung: </b> {{entry.prev_record.bezeichnung}}</p>
+
+    <p><b>Organisationseinheit: </b> {{entry.prev_record.organisationseinheit_id}}
+        (aktuell {{latestReferatAlt.bezeichnung}}, damals {{historicalReferatAlt.bezeichnung}})
+    </p>
+{% endif %}

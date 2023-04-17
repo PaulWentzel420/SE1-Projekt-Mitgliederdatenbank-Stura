@@ -1,0 +1,24 @@
+<div id="aemterTab" class="col s12">
+  <ul class="tabs secondary-tabs">
+    <li class="tab col s3"><a class="tab-link active" data-tab="Organisationseinheit" href="#referateTab">Organisationseinheiten</a></li>
+    <li class="tab col s2"><a class="tab-link" data-tab="Unterbereich" href="#unterbereicheTab">Unterbereiche</a></li>
+    <li class="tab col s2"><a class="tab-link" data-tab="Amt" href="#aemterTab2">Funktionen</a></li>
+    <li class="tab col s2"><a class="tab-link" data-tab="Recht" href="#rechteTab">Rechte</a></li>
+    <li class="tab col s3"><a class="tab-link" data-tab="AmtRecht" href="#aemterRechteTab">Zuordnung Funktion-Recht</a></li>
+  </ul>
+  <div id="referateTab">
+    {% include 'historie/row.html' with data=referate %}
+  </div>
+  <div id="unterbereicheTab">
+    {% include 'historie/row.html' with data=unterbereiche %}
+  </div>
+  <div id="aemterTab2">
+    {% include 'historie/row.html' with data=aemter %}
+  </div>
+  <div id="rechteTab">
+    {% include 'historie/row.html' with data=rechte %}
+  </div>
+  <div id="aemterRechteTab">
+    {% include 'historie/row.html' with data=aemterRechte %}
+  </div>
+</div>

@@ -1,0 +1,84 @@
+nav ul li a {
+  color: black !important;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  margin-top: 20px;
+  padding-top: 0px !important;
+}
+
+/* label color */
+ .input-field label {
+   color: #000 !important;
+ }
+ /* label focus color */
+ .input-field input]:focus + label {
+   color: #000 !important;
+ }
+ /* label underline focus color */
+ .input-field input:focus {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+
+ /* valid color */
+ .input-field input.valid {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+ /* invalid color */
+ .input-field input.invalid {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+ /* icon prefix focus color */
+ .input-field .prefix.active {
+   color: #000 !important;
+ }
+
+.btn-amber, .btn-amber:hover {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.dropdown-content li > span {
+  color: #000;
+}
+
+.secondary-content {
+  color: #000000;
+}
+
+.tabs .tab a {
+  color: #000000;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #000000;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: transparent;
+}
+
+.tabs .indicator {
+  background-color: #ffc107;
+}
+
+.secondary-tabs .indicator {
+  background-color: #9e9e9e;
+}
+
+.historie-collection-item:hover {
+  cursor: pointer;
+}

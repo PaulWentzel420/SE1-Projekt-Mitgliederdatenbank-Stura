@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col s12 m12 l6">
+    <h3>Historie</h3>
+    <span id="selectedTab" style="display: none;">Mitglied</span>
+  </div>
+
+  <div class="col s12">
+    {% csrf_token %}
+    <div class="input-field inline" style="margin-top: 27px">
+      <input class="validate" type="search" name="search" id="search" data-url="{% url 'historie:fetch_entries' %}">
+      <label for="search">Suchen...</label>
+    </div>
+    <a class="btn-floating waves-effect waves-light amber" id="searchButton">
+      <i class="material-icons black-text">search</i>
+    </a>
+  </div>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s2"><a class="tab-link active" data-tab="Mitglied" id="MitgliedTab" href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s2"><a class="tab-link" data-tab="Kandidatur" id="KandidaturenTab" href="#kandidaturenTab">Kandidaturen</a></li>
+      <li class="tab col s2"><a class="tab-link" data-tab="Organisationseinheit" id="AmtTab" href="#aemterTab">Funktionen</a></li>
+      <li class="tab col s2"><a class="tab-link" data-tab="Checkliste" id="ChecklisteTab" href="#checklistenTab">Checklisten</a></li>
+      <li class="tab col s3"><a class="tab-link" data-tab="User" href="#nutzerTab">Systemnutzer</a></li>
+    </ul>
+  </div>
+  {% include 'historie/tabs/mitgliederTab.html' %}
+  {% include 'historie/tabs/kandidaturenTab.html' %}
+  {% include 'historie/tabs/aemterTab.html' %}
+  <!-- For some reason Django couldn't find the template, so the code for the Checklisten tab lives here now -->
+  <div id="checklistenTab" class="col s12">
+    <ul class="tabs secondary-tabs">
+        <li class="tab col s4"><a class="tab-link active" data-tab="Checkliste" href="#checklistenTab2">Checklisten</a></li>
+        <li class="tab col s4"><a class="tab-link" data-tab="ChecklisteAufgabe" href="#checklistenAufgabenTab">Aufgaben</a></li>
+        <li class="tab col s4"><a class="tab-link" data-tab="ChecklisteRecht" href="#checklistenRechteTab">Rechte</a></li>
+    </ul>
+    <div id="checklistenTab2">
+        {% include 'historie/row.html' with data=checklisten %}
+    </div>
+    <div id ="checklistenAufgabenTab">
+        {% include 'historie/row.html' with data=checklistenAufgaben %}
+    </div>
+    <div id="checklistenRechteTab">
+        {% include 'historie/row.html' with data=checklistenRechte %}
+    </div>
+  </div>
+  {% include 'historie/tabs/nutzerTab.html' %}  
+</div>
+
+<script>
+  var page = 1;
+
+  $(document).ready(function() {
+    // Initialize tabs
+    var el = document.querySelectorAll('.tabs');
+    var options;
+    var instance = M.Tabs.init(el, options);
+
+    // Initialize modals
+    var elems = document.querySelectorAll('.modal');
+    var options;
+    var instances = M.Modal.init(elems, options);
+
+
+    // Register event handlers
+    $(".tab-link").on("click", function(event) {
+      var selectedTab = $(event.target).attr("data-tab");
+
+      // Update target on top tabs accordingly
+      if(selectedTab == "Mitglied" || selectedTab == "MitgliedMail" || selectedTab == "MitgliedAmt")
+        $("#MitgliedTab").attr("data-tab", selectedTab);
+      if(selectedTab == "Organisationseinheit" || selectedTab == "Unterbereich" || selectedTab == "Amt" || selectedTab == "Recht" || selectedTab == "AmtRecht")
+        $("#AmtTab").attr("data-tab", selectedTab);
+
+      // Reset search before switching tabs to avoid confusion
+      $("#search").val("");
+      $("label[for='search']").removeClass("active");
+      page = 1;
+
+      $("#selectedTab").text(selectedTab);
+      fetchEntries();
+    });
+
+    $(".page-link").on("click", function(event) {
+      page = $(event.target).attr("data-page");
+      fetchEntries();
+    });
+
+    $("#searchButton").on("click", function(event) {
+      page = 1;
+      fetchEntries();
+    });
+
+    function fetchEntries() {
+      var search = $("#search").val();
+      var url = $("#search").attr("data-url");
+      var tab = $("#selectedTab").text();
+
+      $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+          search: search,
+          page: page,
+          tab: tab
+        },
+        success: function(data) {
+          // Update displayed data
+          switch(tab) {
+            case "Mitglied":
+              $("#mitgliederStammdatenTab").html(data);
+              break;
+            case "MitgliedMail":
+              $("#mitgliederMailsTab").html(data);
+              break;
+            case "MitgliedAmt":
+              $("#mitgliederAemterTab").html(data);
+              break;
+            case "Kandidatur":
+              $("#kandidaturenStammdatenTab").html(data);
+              break;
+            case "KandidaturMail":
+              $("#kandidaturenMailsTab").html(data);
+              break;
+            case "KandidaturAmt":
+              $("#kandidaturenAemterTab").html(data);
+              break;
+            case "Organisationseinheit":
+              $("#referateTab").html(data);
+              break;
+            case "Unterbereich":
+              $("#unterbereicheTab").html(data);
+              break;
+            case "Amt":
+              $("#aemterTab2").html(data);
+              break;
+            case "Recht":
+              $("#rechteTab").html(data);
+              break;
+            case "AmtRecht":
+              $("#aemterRechteTab").html(data);
+              break;
+            case "User":
+              $("#nutzerTab").html(data);
+              break;
+            case "Checkliste":
+              $("#checklistenTab2").html(data);
+              break;
+            case "ChecklisteAufgabe":
+              $("#checklistenAufgabenTab").html(data);
+              break;
+            case "ChecklisteRecht":
+              $("#checklistenRechteTab").html(data);
+              break;
+          }
+
+          // Unbind old listeners to prevent multi-firing of events
+          $(".page-link").off("click");
+
+          // Re-add event listener
+          $(".page-link").on("click", function(event) {
+            page = $(event.target).attr("data-page");
+            fetchEntries();
+          });
+
+          // Re-initialize modals
+          var elems = document.querySelectorAll('.modal');
+          var options;
+          var instances = M.Modal.init(elems, options);
+        }
+      });
+    }
+  });
+</script>
+
+{% endblock %}

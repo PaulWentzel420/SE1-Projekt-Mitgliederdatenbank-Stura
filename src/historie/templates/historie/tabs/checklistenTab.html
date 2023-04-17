@@ -1,0 +1,16 @@
+<div id="checklistenTab" class="col s12">
+    <ul class="tabs secondary-tabs">
+        <li class="tab col s4"><a class="tab-link active" data-tab="Checkliste" href="#checklistenTab2">Checklisten</a></li>
+        <li class="tab col s4"><a class="tab-link" data-tab="ChecklisteAufgabe" href="#checklistenAufgabenTab">Aufgaben</a></li>
+        <li class="tab col s4"><a class="tab-link" data-tab="ChecklisteRecht" href="#checklistenRechteTab">Rechte</a></li>
+    </ul>
+    <div id="checklistenTab2">
+        {% include 'historie/row.html' with data=checklisten %}
+    </div>
+    <div id ="checklistenAufgabenTab">
+        {% include 'historie/row.html' with data=checklistenAufgaben %}
+    </div>
+    <div id="checklistenRechteTab">
+        {% include 'historie/row.html' with data=checklistenRechte %}
+    </div>
+</div>

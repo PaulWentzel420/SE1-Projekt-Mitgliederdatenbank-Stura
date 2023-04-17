@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col s12">
+    <h3>Funktionen</h3>
+  </div>
+
+  <div class="col s12">
+    <ul class="collapsible">
+      <!-- List all referats as collapsibles -->
+      {% for organisationseinheit in referate %}
+        <li>
+          <div class="collapsible-header grey lighten-2">{{organisationseinheit.bezeichnung}}</div>
+          <div class="collapsible-body">
+            <table name="department_table">
+              <tbody>
+                <!-- List all departments with their persons in office -->
+                {% for funktion in aemter %}
+                  {% if funktion.organisationseinheit.id == organisationseinheit.id and not funktion.unterbereich %}
+                    {% include "./department_row.html" %}
+                  {% endif %}
+                {% endfor %}
+              </tbody>
+            </table>
+
+            <ul class="collapsible">
+              <!-- List all sub-categories assigned to the organisationseinheit as collapsibles -->
+              {% for unterbereich in unterbereiche %}
+                {% if unterbereich.organisationseinheit.id == organisationseinheit.id %}
+                  <li>
+                    <div class="collapsible-header grey lighten-2">{{unterbereich.bezeichnung}}</div>
+                    <div class="collapsible-body">
+                      <table name="department_table">
+                        <tbody>
+                          <!-- List all departments assigned to the sub-category with their persons in office -->
+                          {% for funktion in aemter %}
+                            {% if funktion.unterbereich.id == unterbereich.id %}
+                              {% include "./department_row.html" %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col s12 center-align">
+    <ul class="pagination">
+      {% if referate.has_previous %}
+        <li class="waves-effect"><a class="page-link" href="?page=1">1</a></li>
+        {% if referate.number > 3 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.previous_page_number|add:-1 }}">{{ referate.previous_page_number|add:-1 }}</a></li>
+        {% endif %}
+        {% if referate.number != 2 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.previous_page_number }}">{{ referate.previous_page_number }}</a></li>
+        {% endif %}
+      {% endif %}
+      <li class="active" style="background-color: #ffc107"><a class="page-link">{{ referate.number }}</a></li>
+      {% if referate.has_next %}
+        {% if referate.number != referate.paginator.num_pages|add:-1 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.next_page_number }}">{{ referate.next_page_number }}</a></li>
+        {% endif %}
+        {% if referate.number < referate.paginator.num_pages|add:-2 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.next_page_number|add:1 }}">{{ referate.next_page_number|add:1 }}</a></li>
+        {% endif %}
+        <li class="waves-effect"><a class="page-link" href="?page={{ referate.paginator.num_pages }}">{{ referate.paginator.num_pages }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+
+
+<style>
+  table {
+    table-layout: fixed;
+  }
+  td {
+    vertical-align: top;
+  }
+
+  tr.last-row{
+    border-bottom: 0px;
+  }
+</style>
+
+
+<script>
+  /*
+    Marks last row of the given table for the Materialize framework.
+  */
+  function modify_last_line(table) {
+    let last_row = table.rows[table.rows.length - 1];
+    last_row.classList.add("last-row");
+  }
+
+  /*
+    Removes the line after the last row of any table.
+  */
+  function pretify_tables() {
+    let department_tables = document.getElementsByTagName("table");
+    for (let i = 0; i < department_tables.length; i++) {
+      modify_last_line(department_tables[i]);
+    }
+  }
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var options;
+    var instances = M.Collapsible.init(elems, options);
+  });
+  pretify_tables();
+</script>
+
+{% endblock %}

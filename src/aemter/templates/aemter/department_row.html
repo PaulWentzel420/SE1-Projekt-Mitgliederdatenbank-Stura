@@ -1,0 +1,24 @@
+
+<tr>
+    <td>
+        {{funktion.bezeichnung}}
+    </td>
+    <td>
+        <!-- Filter people that aren't assigned to the department -->
+        {% for mitglied in mitglieder %}
+            {% if mitglied.funktion.id == funktion.id %}
+                {{mitglied.mitglied.vorname}} {{mitglied.mitglied.name}}<br/>
+            {% endif %}
+        {% endfor %}
+        <p>
+        <!-- Filter prev_people that are assigned to the department previously -->
+        {% for prev_mitglied in prev_mitglieder %}
+            {% if prev_mitglied.funktion.id == funktion.id %}
+                  (
+                  {{prev_mitglied.mitglied.vorname}} {{prev_mitglied.mitglied.name}}
+                  )
+            {% endif %}
+        {% endfor %}
+        </p>
+    </td>
+</tr>

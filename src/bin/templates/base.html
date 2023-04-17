@@ -1,0 +1,102 @@
+<head>
+    {% load static %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="{% static "materialize.js" %}"></script>
+    <script src="{% static "jquery.min.js" %}"></script>
+
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="{% static "materialIcons.css" %}">
+
+    <!--Global style sheet-->
+    <link rel="stylesheet" type="text/css" href="{% static "materialize.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+
+    <!-- Correct scaling on hiDPI mobile screens-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'favicon.svg' %}"/>
+</head>
+
+<body>
+    {% if messages %}
+         {% for message in messages %}
+           <script>M.toast({html: "{{message}}", classes: 'amber black-text rounded', displayLength: 3000});</script>
+         {% endfor %}
+    {% endif %}
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey lighten-2">
+                {% if request.user.is_authenticated %}
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+                {% endif %}
+                <div class="container">
+                    <a class="brand-logo black-text" style="white-space: nowrap">
+                        {% load static %}
+                        <img src="{% static "logo.png" %}" height="48px" align="left" class="hide-on-small-only"/>
+                        <img src="{% static "logo.png" %}" height="40px" align="left" class="hide-on-med-and-up"/>
+                        <br />
+                        <span class="hide-on-small-only" style="font-size: 15px; position: absolute; top: 16px; left: 9px">Mitgliederverwaltung</span>
+                        <span class="hide-on-med-and-up" style="font-size: 13px; position: absolute; top: 14px; left: 6px">Mitgliederverwaltung</span>
+                    </a>
+                    {% if request.user.is_authenticated %}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                      {% if request.user.is_superuser %}
+                        <li><a href="/kandidaturen">Kandidaturen</a></li>
+                      {% endif %}
+                        <li><a href="/mitglieder">Mitglieder</a></li>
+                        <li><a href="/aemter">Funktionen</a></li>
+                        <li><a href="/checklisten">Checklisten</a></li>
+                        {% if request.user.is_superuser %}
+                        <li><a href="/admin/historie"><i class="material-icons">history</i></a></li>
+                        <li><a href="/admin"><i class="material-icons">security</i></a></li>
+                        {% endif %}
+                        <li><a href="/logout"><i class="material-icons">exit_to_app</i></a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+      </div>
+      {% if request.user.is_authenticated %}
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/kandidaturen"><i class="material-icons">person_add</i>Kandidaturen</a></li>
+        <li><a href="/mitglieder"><i class="material-icons">people</i>Mitglieder</a></li>
+        <li><a href="/aemter"><i class="material-icons">school</i>Funktionen</a></li>
+        <li><a href="/checklisten"><i class="material-icons">done_all</i>Checklisten</a></li>
+        {% if request.user.is_superuser %}
+        <li><a href="/admin/historie"><i class="material-icons">history</i>Historie</a></li>
+        <li><a href="/admin"><i class="material-icons">security</i>Admin-Bereich</a></li>
+        {% endif %}
+        <li><a href="/logout"><i class="material-icons">exit_to_app</i>Abmelden</a></li>
+      </ul>
+      {% endif %}
+    </header>
+
+    <main>
+      <div class="container">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="footer-copyright grey lighten-2">
+        <div class="container black-text">
+          © 2021 StuRa HTW Dresden
+          <a class="right" target="_blank" rel="noopener noreferrer" href="https://mribrgr.github.io/StuRa-Mitgliederdatenbank/"><i class="material-icons right black-text">description</i></a>
+          <a class="right" target="_blank" rel="noopener noreferrer" href="https://github.com/ManuelaZiesche/SE-RE-I4" style="margin-left: 12px"><img src="{% static 'GitHub-Mark-32px.png'%}" width="22px" height="22px"></a>
+          <a class="black-text right" target="_blank" rel="noopener noreferrer" href="https://stura.htw-dresden.de/impressum">Datenschutz/Impressum</a>       
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var options;
+          var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
+</body>

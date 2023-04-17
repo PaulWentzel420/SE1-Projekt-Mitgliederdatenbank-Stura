@@ -1,0 +1,28 @@
+<p><b>Funktion-ID: </b> {{entry.id}}</p>
+<p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
+{% if entry.workload %}<p><b>Workload: </b> {{entry.workload}}</p>{% endif %}
+
+<p><b>Organisationseinheit: </b> {{entry.organisationseinheit_id}}
+    (aktuell {{latestReferat.bezeichnung}}, damals {{historicalReferat.bezeichnung}})
+</p>
+
+{% if entry.unterbereich_id %}<p><b>Unterbereich: </b>{{entry.unterbereich_id}} 
+    (aktuell {{latestUnterbereich.bezeichnung}}, damals {{historicalUnterbereich.bezeichnung}})
+</p>{% endif %}
+
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Funktion-ID: </b> {{entry.prev_record.id}}</p>
+    <p><b>Bezeichnung: </b> {{entry.prev_record.bezeichnung}}</p>
+    {% if entry.prev_record.workload %}<p><b>Workload: </b> {{entry.prev_record.workload}}</p>{% endif %}
+
+    <p><b>Organisationseinheit: </b> {{entry.prev_record.organisationseinheit_id}}
+        (aktuell {{latestReferatAlt.bezeichnung}}, damals {{historicalReferatAlt.bezeichnung}})
+    </p>
+
+    {% if entry.prev_record.unterbereich_id %}<p><b>Unterbereich: </b>{{entry.prev_record.unterbereich_id}} 
+        (aktuell {{latestUnterbereichAlt.bezeichnung}}, damals {{historicalUnterbereichAlt.bezeichnung}})
+    </p>{% endif %}
+{% endif %}

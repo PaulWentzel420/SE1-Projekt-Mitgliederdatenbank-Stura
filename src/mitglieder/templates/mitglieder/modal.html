@@ -1,0 +1,54 @@
+<div class="modal-content">
+    <h3>{{mitglied.vorname}} {% if mitglied.spitzname %}"{{mitglied.spitzname}}"{% endif %} {{mitglied.name}}</h3>
+    <div>
+        <br />
+        <p><b>Mitglieds-ID:</b> {{mitglied.id}}</p>
+        {% if mitglied.mitgliedamt_set.all %}
+        <p><b>Ämter:</b>
+            {% if curr_funktionen %}
+                <ul>
+                    {% for mitgliedamt in curr_funktionen %}
+                        <li>{{mitgliedamt.funktion}} (seit {{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekanntem Datum"}})</li>
+                    {% endfor %}
+                </ul>
+            {% else %}-
+            {% endif %}
+        </p>
+        <p><b>Ehemalige Ämter:</b>
+            {% if prev_funktionen %}
+                <ul>
+                    {% for mitgliedamt in prev_funktionen %}
+                        <li>{{mitgliedamt.funktion}} ({{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekannt"}} - {{mitgliedamt.amtszeit_ende|date:'d.m.Y'|default:"heute"}})</li>
+                    {% endfor %}
+                </ul>
+            {% else %}-
+            {% endif %}
+        </p>
+        {% endif %}
+        <br />
+        {% if request.user.is_superuser %}
+            {% if mitglied.strasse or mitglied.hausnr or mitglied.plz or mitglied.ort %}
+                <h5>Anschrift</h5>
+                <p>{% if mitglied.strasse %}{{mitglied.strasse}}{% endif %} {% if mitglied.hausnr %}{{mitglied.hausnr}}{% endif %}</p>
+                <p>{% if mitglied.plz %}{{mitglied.plz}}{% endif %} {% if mitglied.ort %}{{mitglied.ort}}{% endif %}</p>
+                <br />
+            {% endif %}
+        {% endif %}
+        <h5>Kontaktdaten</h5>
+        {% if request.user.is_superuser %}
+        {% if mitglied.tel_mobil %}<p><b>Telefon:</b> {{mitglied.tel_mobil}}</p>{% endif %}
+        {% endif %}
+        {% if mitglied.mitgliedmail_set.all %}
+        <p><b>E-Mails:</b>
+            <ul>
+            {% for mail in mitglied.mitgliedmail_set.all %}
+            <li>{{mail.email}}</li>
+            {% endfor %}
+            </ul>
+        </p>
+        {% endif %}
+    </div>
+</div>
+<div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
+</div>

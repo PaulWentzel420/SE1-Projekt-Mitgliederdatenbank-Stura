@@ -1,0 +1,21 @@
+<p><b>Funktion: </b> {{entry.funktion_id}}
+(aktuell {{latestAmt.bezeichnung}} 
+        {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
+        {{latestReferat.bezeichnung}}, damals {{historicalAmt.bezeichnung}} 
+        {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}
+        {{historicalReferat.bezeichnung}})</p>
+<p><b>Recht: </b> {{entry.recht_id}}
+    (aktuell {{latestRecht.bezeichnung}}, damals {{historicalRecht.bezeichnung}})</p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Funktion: </b> {{entry.prev_record.funktion_id}}
+    (aktuell {{latestAmtAlt.bezeichnung}} 
+            {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}
+            {{latestReferatAlt.bezeichnung}}, damals {{historicalAmtAlt.bezeichnung}} 
+            {% if historicalUnterbereichAlt %}{{historicalUnterbereichAlt.bezeichnung}} {% endif %}
+            {{historicalReferatAlt.bezeichnung}})</p>
+    <p><b>Recht: </b> {{entry.prev_record.recht_id}}
+        (aktuell {{latestRechtAlt.bezeichnung}}, damals {{historicalRechtAlt.bezeichnung}})</p>
+{% endif %}

@@ -1,0 +1,6 @@
+django
+django-simple-history
+simplejson
+selenium
+sphinx
+sphinx_rtd_theme

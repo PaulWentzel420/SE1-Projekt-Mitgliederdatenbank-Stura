@@ -1,0 +1,588 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form id="mitgliedForm" action={% if mitglied %}"{% url 'mitglieder:speichern' mitglied.id %}"{% else %}"{% url 'mitglieder:erstellen' %}"{% endif %} method="post">
+{% csrf_token %}
+<div>
+  <div class="row">
+    <div  class="col s12">
+      <h3>Mitglied {% if mitglied %}bearbeiten{% else %}erstellen{% endif %}</h3>
+      <br />
+    </div>
+
+    <!-- Name & Vorname-->
+    <div class="row">
+      <div class="input-field col s12 m4 l3">
+        <input id="vorname" name="vorname" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
+          <label for="vorname">Vorname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="nachname" name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.name}}"{% endif %}>
+        <label for="nachname">Nachname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="spitzname" name="spitzname" type="text" class="validate" {% if mitglied.spitzname %}value="{{mitglied.spitzname}}"{% endif %}>
+        <label for="spitzname">Spitzname</label>
+      </div>
+    </div>
+
+    <!--Aemter-->
+    <div class="row">
+      <div class="col s12">
+        <h5>Funktionen </h5>
+        <br />
+        <div id="div_aemter">
+        {% if mitglied %}
+          {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
+          {% with mitgliedamt.funktion as funktion %}
+          {% with forloop.counter as amtid %}
+            {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
+          {% endwith %}
+          {% endfor %}
+        {% else %}
+          {% with 1 as amtid %}
+          {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
+        {% endif %}
+        
+      </div>
+        <!-- Button (weiteres Amt hinzufuegen) -->
+          <div class="col s12">
+            <a id="addAmt" data-url="{% url 'mitglieder:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Funktion hinzufügen</a>
+          </div>
+      </div>
+    </div>
+
+    <!--E-Mails-->
+    <div class="row">
+      <div class="col s12">
+        <h5>E-Mail-Adressen</h5>
+        <br />
+        <div id="div_emails">
+        {% if mitglied %}
+          {% for email in mitglied.mitgliedmail_set.all %}
+            {% include 'mitglieder/email.html' %}
+          {% endfor %}
+        {% else %}
+          {% with 1 as emailid %}
+          {% include 'mitglieder/email.html' %}
+          {% endwith %}
+        {% endif %}
+      </div>
+        <!-- Button - E-Mail hinzufuegen -->
+        <div class="row">
+          <div class="col s12">
+            {% if forloop.last or mitglied.emails is None %}
+              <a id="addEmailBtn" data-url="{% url 'mitglieder:email_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>E-Mail hinzufügen</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adresse -->
+    <div class="row">
+      <div class="col s12">
+        <h5>Anschrift und Kontaktdaten</h5>
+        <br />
+      </div>
+      <div class="input-field col s9 m5 l4">
+        <input id="strasse" name="strasse" type="text" class="validate" {% if mitglied.strasse %}value="{{mitglied.strasse}}"{% endif %}>
+        <label for="strasse">Straße</label>
+      </div>
+      <div class="input-field col s3 m3 l2">
+        <input id="hausnr" name="hausnr" type="text" class=" validate" {% if mitglied.hausnr %}value="{{mitglied.hausnr}}"{% endif %}>
+        <label for="hausnr">Hausnummer</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 m3 l2">
+        <input id="plz" name="plz" type="text" class="validate" {% if mitglied.plz %}value="{{mitglied.plz}}"{% endif %}>
+        <label for="plz">Postleitzahl</label>
+      </div>
+      <div class="input-field col s8 m5 l4">
+        <input id="ort" name="ort" type="text" class="validate" {% if mitglied.ort %}value="{{mitglied.ort}}"{% endif %}>
+        <label for="ort">Ort</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m8 l6">
+        <input id="telefon_mobil" name="telefon_mobil" type="text" class="validate" {% if mitglied.tel_mobil %}value="{{mitglied.tel_mobil}}"{% endif %}>
+        <label for="telefon_mobil">Telefon (mobil)</label>
+      </div>
+    
+    <div class="col s12">
+      <label style="color:#000" for="chk5-{{entry.id}}">
+        <input type="checkbox" name="tel_weitergabe"  id="chk5-{{entry.id}}" {% if mitglied.tel_weitergabe %}checked{% endif %}/>
+        <span>Telefonnummer im Notfall weitergeben an andere Mitglieder</span>
+      </label>
+    </div>
+  </div>
+
+
+    <!-- Checkliste für neu hinzugefügte Mitglieder -->
+    <div class="row">
+      <div class="col s12">
+        <h5>Checkliste</h5>
+        <br />
+      </div>
+
+      <div class="col s12">
+        <label style="color:#000" for="chk1-{{entry.id}}">
+          <input type="checkbox" name="wahl_angenommen"  id="chk1-{{entry.id}}" {% if mitglied.wahl_angenommen %}checked{% endif %}/>
+          <span>Wahl angenommen</span>
+        </label>
+      </div>
+
+      <div class="col s12">
+        <label style="color:#000" for="chk2-{{entry.id}}">
+          <input type="checkbox" name="kenntnis_ordn" id="chk2-{{entry.id}}" {% if mitglied.kenntnis_ordn %}checked{% endif %}/>
+          <span>Kenntnisnahme der Ordnungen</span>
+        </label>
+      </div>
+
+      <div class="col s12">
+        <label style="color:#000" for="chk3-{{entry.id}}">
+          <input type="checkbox" name="verpfl_datengeheimnis" id="chk3-{{entry.id}}" {% if mitglied.verpfl_datengeheimnis %}checked{% endif %}/>
+          <span>Verpflichtung auf das Datengeheimnis</span>
+        </label>
+      </div>
+
+      <div class="col s12">
+        <label style="color:#000" for="chk4-{{entry.id}}">
+          <input type="checkbox" name="stammdatenblatt" id="chk4-{{entry.id}}" {% if mitglied.stammdatenblatt %}checked{% endif %}/>
+          <span>Stammdatenblatt</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Dateiuploadfeld -->
+
+    <!-- noch keine Funktionalität zum Dateiupload vorhanden
+
+    <div class="row">
+      <div class="file-field input-field col s12 m12 l9">
+        <div class="btn btn-amber" style="border-radius: 7%;">
+          <span>
+            <i class="material-icons">file_upload</i>
+          </span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Lade eine oder mehrere Dateien hoch">
+        </div>
+      </div>
+    </div>
+
+    -->
+
+    <!-- Buttons: Hinzufuegen, Abbrechen -->
+    <div class="row">
+        <div class="col s12">
+          <a id="save_button" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
+          <a href="/mitglieder" class="waves-effect waves-light btn-large grey lighten-2 black-text">Abbrechen</a>
+        </div>
+    </div>
+
+  </div>
+</div>
+</form>
+
+<!-- Modal für Löschbestätigung von Ämtern-->
+<div id="modal-delete-amt" class="modal">
+  <div class="modal-content">
+    <h4>Hinweis</h4>
+    <p>Die Löschfunktion dient nur zum Entfernen fehlerhaft gespeicherter Funktionen und entfernt diese endgülitg.<br>Fortfahren?</p>
+  </div>
+  <div class="modal-footer">
+    <a id="delamtconfirm" data-url="{% url 'mitglieder:amt_loeschen' %}" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+    <a class="left modal-action modal-close waves-effect waves-red btn-flat ">Abbrechen</a>
+  </div>
+</div>
+
+<!-- Modal für Max-Members in einer Funktion erreicht-->
+<div id="modal-max-members" class="modal">
+  <div class="modal-content">
+      <h4>Hinweis</h4>
+      <p>Die folgende/n Funktion/en hat/ben das Limit für die maximale Mitgliederanzahl erreicht.</p>
+      <ul id="list-max-members"></ul>
+  </div>
+  <div class="modal-footer">
+    <a id="confirm-max-members" class="left modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+  </div>
+</div>
+
+<style>
+  a.space{
+    margin-right:20px;
+  }
+
+  /* fehlende oder fehlerhafte Eingaben => Textfeld oder Dropdown wird rot markiert */
+  .row .input-field .invalid_input {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important
+  }
+
+  .invalid_input .select-wrapper input.select-dropdown{
+    border-bottom-color: red !important;
+  }
+
+  /* gelber Date Picker */
+  .datepicker-date-display, .datepicker-table td.is-selected, .month-next:focus, .month-prev:focus{
+    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #ffc107;
+  }
+  .year-text{
+    color: rgba(0,0,0,0.7) !important;
+  }
+  .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .datepicker-table td.is-today {
+    color: #be5500;
+  }
+
+  .datepicker-day-button:focus{
+    background-color: rgba(255, 193, 7, 0.5);
+  }
+</style>
+
+<script>
+  var referat_bez;
+    var amt_num = {% if mitglied %}{{mitglied.mitgliedamt_set.count}}{% else %}1{% endif %};
+    var email_num = {% if mitglied %}{{mitglied.mitgliedmail_set.count}}{% else %}1{% endif %};
+  $(document).ready(function(){
+  // Selects und Date Picker initialisieren, Event Listener für Dropdowns hinzufügen
+  initSelect();
+  for (var i=1; i<=amt_num; i++) initDatePicker(i);
+  addReferatEventListener();
+  addBereichEventListener();
+
+  // Speicherbutton geklickt
+  $("#save_button").click(function(){
+    var valid_input = true;
+    // Prüfen, ob Vor- und Nachname angegeben sind und ob sie Zahlen enthalten
+    if ($("#vorname").val()=="" || /\d/.test($("#vorname").val())){
+      $("#vorname").addClass("invalid_input");
+      addInputEventListener("vorname");
+      valid_input = false;
+      console.log("vorname fehlt");
+    } else $("#vorname").removeClass("invalid_input");
+    if ($("#nachname").val()=="" || /\d/.test($("#nachname").val())){
+      $("#nachname").addClass("invalid_input");
+      addInputEventListener("nachname");
+      console.log("name fehlt");
+      valid_input = false;
+    }
+    // Prüfen, ob alle E-Mail- und Amtfelder ausgefüllt sind
+    console.log("anzahl emails: " + email_num.toString());
+    for (var i=1; i<=email_num; i++){
+      var email = $("#email"+i.toString()).val();
+      if (isEmail(email)==false) {
+        $("#email" + i.toString()).addClass("invalid_input");
+        addInputEventListener("email" + i.toString());
+        console.log("ungueltige email");
+        valid_input=false;
+      }
+    }
+    for (var i=1; i<=amt_num; i++){
+      // Select für Amt existiert nocht nicht (weil kein Organisationseinheit oder Bereich ausgewählt wurde) => rot markieren
+      if (!$("#selectamt"+i.toString()).length){
+        console.log("selectamt" + i.toString());
+        // Dropdown für Bereich existiert => rot markieren, ansonsten Dropdown für Organisationseinheit rot markieren
+        if ($("#selectbereich" + i.toString()).length){
+          console.log("Bereich wurde nicht ausgewaehlt")
+          $("#div_selectbereich"+i.toString()).addClass("invalid_input");
+          addDropdownEventListener("selectbereich" + i.toString());
+        } else {
+          $("#div_selectreferat" + i.toString()).addClass("invalid_input");
+          console.log("Organisationseinheit wurde nicht ausgewaehlt");
+          addDropdownEventListener("selectreferat" + i.toString());
+        }
+        console.log("Kein Bereich oder Organisationseinheit ausgewahelt");
+        valid_input = false;
+      }
+      // Organisationseinheit und Bereich, aber kein Amt ausgewählt => Amt rot markieren
+      if ($("#selectamt" + i.toString() + " option:selected").prop("disabled")==true){
+        console.log("Ein Amt wurde nicht ausgewaehlt");
+        valid_input = false;
+        $("#div_selectamt" + i.toString()).addClass("invalid_input");
+        addDropdownEventListener("selectamt" + i.toString());
+      }
+
+    }
+    // bei gueltigen Eingaben Daten an Server schicken
+    if (valid_input) {
+        // check if MaxMembers is reached
+        $.ajax({
+          type: "POST",
+          {% if mitglied %}
+              url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=mitglied.id %}",
+              {% else %}
+              url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=0 %}",
+          {% endif %}
+          data: $('#mitgliedForm').serialize(),
+
+          success: function(data){
+            var ret = data['isValid'];
+            if(ret == true) {
+                $('#mitgliedForm').submit();
+            }
+            else {
+                window.scrollTo(0,0);
+                var modal = $("#modal-max-members");
+                var instance = M.Modal.getInstance(modal);
+                $("#list-max-members").html("");
+                var funktionen = data['funktion'];
+                console.log(funktionen);
+                funktionen.forEach(function appendtolist(currval) {
+                    $("#list-max-members").append("<li>" + currval + "</li>");
+                });
+                instance.open();
+            }
+          }
+        });
+    }
+    else {
+        window.scrollTo(0,0);
+    }
+  });
+
+    // Amt hinzufuegen
+    $("#addAmt").click(function(){
+      amt_num++;
+      var url = $("#addAmt").attr("data-url");
+      // Request an Server, dass dieser HTML fuer Organisationseinheit-Dropdown senden moege
+      $.ajax({
+        url: url,
+        success: function(data){
+          // Einfuegen des HTML-Codes
+          $("#div_aemter").append(data);
+          initSelect();
+          initDatePicker(amt_num);
+          addReferatEventListener();
+        }
+      });
+    });
+
+    // E-Mail hinzufuegen
+    $("#addEmailBtn").click(function(){
+      var url = $("#addEmailBtn").attr("data-url");
+      $.ajax({
+        url: url,
+        success: function(data){
+          $("#div_emails").append(data);
+          email_num++;
+        }
+      });
+    });
+
+
+    // Triggern eines change Events, falls nach erneutem Laden noch
+    // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
+    if ($('#selectreferat').val()){
+      $('#selectreferat').trigger("change");
+    }
+  });
+
+  // Event Listener falls ein anderes Organisationseinheit ausgewaehlt wird
+  // Laden neuer Unterbereiche, Entfernen des Amt-Dropdowns
+  function addReferatEventListener(){
+    $('select[name^=selectreferat]').change(function(event){
+        referat_id = $(this).val();
+        var url = $('#' + event.target.id).attr("data-url");
+        var num = event.target.id.substr(13);
+
+        $.ajax({
+            url: url,
+            data: {
+            organisationseinheit: referat_id,
+            amtnum: num,
+            },
+            success: function(data){
+              // 
+              $("#div_selectbereich" + num).html(data);
+              $("#div_selectamt" + num).empty();
+              initSelect();
+              // Listener fuer Select Bereich (zeigt Select Amt an)
+              addBereichEventListener();
+            }
+        });
+        return false;
+    })
+  }
+
+  // Event Listener falls ein anderer Bereich ausgewaehlt wird
+  // Laden neuer Aemter
+  function addBereichEventListener(){
+    $('select[name^=selectbereich]').change(function(event){
+      var selectnum = this.id.substr(13);
+      referat_id = $("#selectreferat" + selectnum).val();
+      bereich_id = $(this).val();
+      var url = $("#" + event.target.id).attr("data-url");
+      var num = event.target.id.substr(13);
+      $.ajax({
+          url: url,
+          data: {
+          bereich: bereich_id,
+          organisationseinheit: referat_id,
+          amtnum: num,
+          },
+          success: function(data){
+            $("#div_selectamt" + num).html(data);
+            initSelect();
+          }
+      });
+      return false;
+    })
+  }
+
+  // Farbe des der Amt-Selects wird wieder auf Standardeinstellung zurueckgesetzt
+  function addDropdownEventListener(id){
+    $('#' + id).change(function(event){
+      $("#div_" + id).removeClass("invalid_input");
+    });
+  }
+
+  // zum Zuruecksetzen auf Standardfarbe
+  function addInputEventListener(id){
+    $('#' + id).on("input", function(event){
+      // Pruefen, ob Feld leer ist oder eine ungueltige E-Mail enthaelt
+      if ($("#"+id).val()=="" ||
+          ($("#"+id).attr("type")=="email" && !isEmail( $("#" + id).val() ) ) ){
+        $("#" + id).addClass("invalid_input");
+      } else {
+        $("#" + id).removeClass("invalid_input");
+      }
+    });
+  }
+
+  // prueft, ob String eine gueltige E-Mail-Adresse ist
+  function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+
+    // Amt loeschen Button
+    $(document).on("click", '.amtdelbtn', function(){
+      amtid = this.id.substr(10);
+      // pruefen, ob Funktion bereits in DB gespeichert wurde, wenn ja Modal oeffnen
+      var saved = parseInt($("#" + this.id).attr("data-saved"));
+      if (saved==1){
+        //Modal oeffnen 
+        var modal = $("#modal-delete-amt");
+        var instance = M.Modal.getInstance(modal);
+        $("#delamtconfirm").attr("data-amtid", amtid);
+        instance.open();
+      } else {
+        amt_loeschen(amtid);
+      }
+    });
+
+    // Loeschen im Modal bestaetigt
+    $('#delamtconfirm').click(function(){
+      var amtid = $('#delamtconfirm').attr("data-amtid");
+      amt_loeschen(amtid);
+    });
+
+    function amt_loeschen(amtid){
+      var url = "{% url 'mitglieder:amt_loeschen' %}";
+      $("#funktion" + amtid).remove();
+
+      // Veraendern von ids, for- und label-Attributen
+      var ids = ["funktion", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
+      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label",
+      "beginn_kandidaturs_label", "ende_kandidaturs_label"];
+      var forLabel = ["beginn_kandidatur", "ende_kandidatur", "beginn_kandidaturs", "ende_kandidaturs"]
+      for (var i=parseInt(amtid)+1; i<=amt_num; i++){
+        // Dekrementieren der ID-Nummer, die eine hoehere Nummer als das geloeschte Element haben
+        forLabel.forEach(function(item){
+          var id = item + "_label" +  i.toString();
+          var newattr = item + (i-1).toString();
+          $("#" + id).attr("for", newattr);
+        });
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+      }
+
+      amt_num--;
+
+      $.ajax({
+          url: url,
+      });
+    };
+
+    // E-Mail loeschen
+    $(document).on("click", '.emaildelbtn', function(){
+      var url = $("#" + this.id).attr("data-url");
+      emailid = this.id.substr(11);
+      $("#div_email" + emailid).remove();
+      var ids = ["div_email", "email", "emaildelbtn", "emaillabel"];
+      for (var i=parseInt(emailid)+1; i<=email_num; i++){
+        $("#emaillabel" + i).attr("for", "email" + (i-1).toString())
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+
+      }
+      email_num--;
+      // Server melden, dass E-Mail geloescht wurde
+      $.ajax({
+          url: url,
+      });
+    });
+
+  function initSelect(){
+    var elems = document.querySelectorAll('select');
+    var options;
+    var instances = M.FormSelect.init(elems, options);
+  }
+    // Date Picker initialisieren
+  function initDatePicker(amtid){
+    var beginn_datepicker = document.querySelectorAll('#beginn_kandidatur' + amtid);
+    var ende_datepicker = document.querySelectorAll('#ende_kandidatur' + amtid);
+    var init_settings = {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', firstDay: 1, showClearBtn: true, i18n: {
+                months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+                monthsShort: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
+                weekdays: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+                weekdaysShort: ["So", "Mo","Di", "Mi", "Do", "Fr", "Sa"],
+                weekdaysAbbrev: ["S", "M","D", "M", "D", "F", "S"],
+                today: 'heute',
+                clear: 'löschen',
+                cancel: 'abbrechen'
+            },
+            onSelect: function(selectedDate) {
+              var instance = M.Datepicker.getInstance($('#ende_kandidatur' + amtid));
+              instance.options.minDate = new Date(selectedDate);
+            }
+    };
+    M.Datepicker.init(beginn_datepicker, init_settings);
+    delete init_settings['onSelect'];
+    init_settings['onSelect'] = function(selectedDate){
+      var instance = M.Datepicker.getInstance($('#beginn_kandidatur' + amtid));
+      instance.options.maxDate = new Date(selectedDate);
+    };
+    // wenn Datepicker fuer Beginn Datum enthalt, dieses Datum als Minimum fuer das Ende der Amtszeit festlegen
+    var datum_beginn = $("#beginn_kandidatur" + amtid).val();
+    // dd.mm.yyyy -> mm/dd/yyyy
+    var dd = datum_beginn.substr(0,2);
+    var mm = datum_beginn.substr(3,2);
+    var yyyy = datum_beginn.substr(6,4);
+    datum_beginn = mm + '\/' + dd + '\/' + yyyy;
+    init_settings['minDate'] = new Date(datum_beginn);
+    M.Datepicker.init(ende_datepicker, init_settings);
+  }
+
+  // Initialisieren des Modals
+  var elems = document.querySelectorAll('.modal');
+  var instance = M.Modal.init(elems, {dismissible: true});
+</script>
+
+
+{% endblock %}

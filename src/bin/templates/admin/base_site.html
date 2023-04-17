@@ -1,0 +1,11 @@
+<!-- The path and name for this file should be "templates/admin/base_site.html". -->
+<!-- It overrides the original admin template and will be picked up by all of its children. -->
+<!-- This template override has been verified for Django 1.11 and 2.0. -->
+
+{% extends "admin/base_site.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static 'favicon.svg' %}" />
+{% endblock %}

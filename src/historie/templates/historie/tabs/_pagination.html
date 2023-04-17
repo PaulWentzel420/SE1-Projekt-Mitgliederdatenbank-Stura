@@ -1,0 +1,23 @@
+<div class="center-align">
+    <ul class="pagination">
+    {% if data.has_previous %}
+        <li class="waves-effect"><a class="page-link" data-page="1">1</a></li>
+        {% if data.number > 3 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.previous_page_number|add:-1 }}">{{ data.previous_page_number|add:-1 }}</a></li>
+        {% endif %}
+        {% if data.number != 2 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.previous_page_number }}">{{ data.previous_page_number }}</a></li>
+        {% endif %}
+    {% endif %}
+    <li class="active" style="background-color: #ffc107"><a class="page-link">{{ data.number }}</a></li>
+    {% if data.has_next %}
+        {% if data.number != data.paginator.num_pages|add:-1 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.next_page_number }}">{{ data.next_page_number }}</a></li>
+        {% endif %}
+        {% if data.number < data.paginator.num_pages|add:-2 %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.next_page_number|add:1 }}">{{ data.next_page_number|add:1 }}</a></li>
+        {% endif %}
+        <li class="waves-effect"><a class="page-link" data-page="{{ data.paginator.num_pages }}">{{ data.paginator.num_pages }}</a></li>
+    {% endif %}
+    </ul>
+</div>

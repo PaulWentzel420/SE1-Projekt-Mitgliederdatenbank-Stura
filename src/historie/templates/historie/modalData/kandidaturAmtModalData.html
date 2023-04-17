@@ -1,0 +1,31 @@
+<p><b>Kandidatur: </b> 
+    {{entry.kandidatur_id}} 
+    (aktuell {{latestKandidatur.vorname}} {{latestKandidatur.name}}, 
+    damals {{historicalKandidatur.vorname}} {{historicalKandidatur.name}})</p>
+<p><b>Funktion: </b>
+    {{entry.funktion_id}}
+    (aktuell {{latestAmt.bezeichnung}} 
+        {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
+        {{latestReferat.bezeichnung}}{% if historicalAmt %}, damals 
+        {{historicalAmt.bezeichnung}} 
+        {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}
+        {{historicalReferat.bezeichnung}}{% endif %})
+    </p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Kandidatur: </b> 
+        {{entry.prev_record.kandidatur_id}} 
+        (aktuell {{latestKandidaturAlt.vorname}} {{latestKandidaturAlt.name}}, 
+        damals {{historicalKandidaturAlt.vorname}} {{historicalKandidaturAlt.name}})</p>
+    <p><b>Funktion: </b>
+        {{entry.prev_record.funktion_id}}
+        (aktuell {{latestAmtAlt.bezeichnung}} 
+            {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}
+            {{latestReferatAlt.bezeichnung}}{% if historicalAmtAlt %}, damals 
+            {{historicalAmtAlt.bezeichnung}} 
+            {% if historicalUnterbereichAlt %}{{historicalUnterbereichAlt.bezeichnung}} {% endif %}
+            {{historicalReferatAlt.bezeichnung}}{% endif %})
+        </p>
+{% endif %}

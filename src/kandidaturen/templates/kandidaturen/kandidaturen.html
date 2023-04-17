@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Top Menu -->
+    <div>
+        <div class="row">
+          <div class="col s12">
+            <h3>Kandidaturen</h3>
+          </div>
+          <div class="col s12">
+              <!-- Serch Entry -->
+              <div class="input-field inline" style="margin-top: 27px">
+                  <input data-url="{% url 'kandidaturen:suchen' %}" class="validate" type="text" id="search">
+                  <label for="search">Suchen...</label>
+              </div>
+
+              <!-- Search Button -->
+              <a id="searchbtn" class="btn-floating waves-effect waves-light amber">
+                <i class="material-icons black-text">search</i>
+              </a>
+              <div class="right hide-on-med-and-down" style="margin-top: 29px">
+                <a href="/kandidaturen/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
+                <a id="delbtnl" class="delmitglieder disabled waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+              </div>
+              <div class="right hide-on-large-only" style="margin-top: 29px">
+                <a href="/kandidaturen/erstellen" class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">add</i></a>
+                <a id="delbtns" class="delmitglieder disabled btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="notification" class="row"></div>
+
+    <!-- Erstellen der Kandidaturenliste -->
+    <div>
+      <div class="row" id="tbody">
+        {% include 'kandidaturen/row.html' %}
+      </div>
+    </div>
+
+    <!-- Modal für Kandidatur -->
+    <div id="modal" class="modal"></div>
+
+    <!-- Modal für Aufnahmebestätigung von einer Kandidatur -->
+    <div id="modal-delete" class="modal">
+      <div class="modal-content">
+        <h4>Kandidaturen löschen</h4>
+        <p id="bestaetigungsfrage">Sollen folgende Kandidaturen wirklich endgültig gelöscht werden?</p>
+        <ul id="mitglieder-modal-delete">
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <a id="delmitgliederconfirm" data-url="{% url 'kandidaturen:kandidaturen_loeschen' %}" href="#!" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+        <a href="#!" class="left modal-action modal-close waves-effect waves-red btn-flat ">Nein</a>
+     </div>
+    </div>
+
+    <!-- Modal für Aufnahmebestätigung von einer Kandidatur -->
+    <div id="modal-admission" class="modal">
+      <div class="modal-content">
+        <h4>Kandidatur aufnehmen</h4>
+        <p id="bestaetigungsfrage">Soll folgende Kandidatur wirklich als Mitglied aufgenommen werden?</p>
+        <ul id="kandidaturen-modal-admission">
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <a id="admissionkandidaturconfirm" data-url="{% url 'kandidaturen:kandidatur_aufnehmen' %}" href="#!" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+        <a href="#!" class="left modal-action modal-close waves-effect waves-red btn-flat ">Nein</a>
+     </div>
+    </div>
+  
+
+    <style>
+        tr:hover {
+            cursor:pointer;
+        }
+    </style>
+
+    <script>
+      var selectedcheckboxes_num = 0;
+      var page = 0;
+
+      $(document).ready(function(){
+        // Initalisieren des Modals
+        var elems = document.querySelectorAll('.modal');
+        var instance = M.Modal.init(elems, {dismissible: true});
+
+        addCheckboxEventListeners();
+        addRowEventListeners();
+
+        // Kandidaturensuche ueber Button
+        $("#searchbtn").click(function(event){
+          page = 1;
+          search();
+        });
+
+        // Neue Suche bei Seitenwechsel triggern
+        $(".page-link").on("click", function(event){
+          page = $(event.target).attr('data-page');
+          search();
+        });
+
+
+        // Kandidaturensuche ueber Enter-Taste
+        $("#search").keyup("enterKey", function(e){
+          if (e.keyCode == 13) {
+            page = 1;
+            search();
+          } 
+        });
+        
+        function search(){
+          search_string = $("#search").val();
+          var url = $("#search").attr('data-url');
+
+          $.ajax({
+            type: 'GET',
+            url: url,
+            data: {
+              search_string: search_string,
+              page: page
+            },
+            success: function(data){
+              // Speichern der Ids von ueber Checkboxen ausgewaehlten Kandidaturen
+              mitgliederids=[];
+              $('input[type=checkbox]').each(function () {
+                if (this.checked){
+                  var mitgliedid = this.id.substr(4);
+                  mitgliederids.push(mitgliedid); 
+                }
+              });
+              // Aktualisierung der Mitgliedertabelle auf Basis der Suche
+              $("#tbody").html(data);
+              // Hinzufuegen von Event Listenern zum Oeffnen des Modals und Auswaehlen von Mitgliedern
+              addRowEventListeners();
+              addCheckboxEventListeners();
+              // Auswaehlen aller Mitglieder, die vor Suche ausgewaehlt waren und angezeigt werden
+              selectedcheckboxes_num = 0;
+              for (mitgliedid of mitgliederids){
+                if($("#chk-" + mitgliedid).length) selectedcheckboxes_num++;
+                $("#chk-" + mitgliedid).prop('checked', true);
+              }
+
+              // Re-add event Listener
+              $(".page-link").on("click", function(event){
+                page = $(event.target).attr('data-page');
+                search();
+              });
+            }
+          });
+        }
+
+        // Anklicken eines Eintrags fuehrt zum Oeffnen des Modals
+        function addRowEventListeners(){
+          $('[class^="mitglied-"]').click(function(event){
+          event = event.target;
+          do {
+            event = event.parentNode;
+          } while (event.tagName!="TR");
+          kandidaturid = event.id.substr(2);
+          url = event.getAttribute('data-url');
+
+          $.ajax({
+            type: 'GET',
+            url: url,
+            data: {
+              kandidaturid: JSON.stringify(kandidaturid),
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function(data){
+              var modal = $("#modal");
+              modal.html(data);
+
+              //Modal oeffnen 
+              var instance = M.Modal.getInstance(modal)
+              instance.open();
+            }
+          });
+        })
+        }
+
+        // Speichern der Anzahl der selektierten Checkboxen, um den Loeschbutton bei 0 Selektionieren zu deaktivieren
+        function addCheckboxEventListeners(){
+        $('input[type=checkbox').click(function(){
+          if (this.checked){
+            selectedcheckboxes_num++;
+            if (selectedcheckboxes_num==1){
+              $("#delbtnl").removeClass("disabled");
+              $("#delbtns").removeClass("disabled");
+            }
+          } else{
+            selectedcheckboxes_num--;
+            if (selectedcheckboxes_num==0){
+              $("#delbtnl").addClass("disabled");
+              $("#delbtns").addClass("disabled");
+            }
+          }
+        });
+        }
+
+        // Bestaetigung, dass Kandidaturen geloescht werden sollen über Öffnen eines Modals
+        $('.delmitglieder').click(function(event){
+          var modal = $("#modal-delete");
+          var instance = M.Modal.getInstance(modal)
+          $("#mitglieder-modal-delete").html("");
+          $('input[type=checkbox]').each(function() {
+            if (this.checked){
+              var mitgliedid = this.id.substr(4);
+              var mitgliedname = $("#mitgliedname-"+mitgliedid).text();
+              $("#mitglieder-modal-delete").append("<li>" + mitgliedname + "</li>")
+            }
+          });
+          if (selectedcheckboxes_num==1){
+            $("#bestaetigungsfrage").html("Soll folgende Kandidatur wirklich endgültig gelöscht werden?");
+          } else{
+            $("#bestaetigungsfrage").html("Sollen folgende Kandidaturen wirklich endgültig gelöscht werden?");
+          }
+          instance.open();
+        });
+
+
+        // Bestaetigung, dass Kandidaturen aufgenommen werden sollen über Öffnen eines Modals
+        $('.admitkandidaturen').click(function(event){
+          var modal = $("#modal-admission");
+          var instance = M.Modal.getInstance(modal)
+          $("#kandidaturen-modal-admission").html("");
+
+          var kandidaturid = this.id.substr(4);
+          var kandidaturname = $("#mitgliedname-"+kandidaturid).text();
+          $("#kandidaturen-modal-admission").append("<li>" + kandidaturname + "</li>");
+          $("#admissionkandidaturconfirm").attr('kandidatur-id', kandidaturid);
+
+          instance.open();
+        });
+
+
+        // Kandidatur(en) loeschen
+        $('#delmitgliederconfirm').click(function(){
+          var url = $("#"+this.id).attr('data-url');
+          var kandidaturenids = [];
+          $('input[type=checkbox]').each(function () {
+            if (this.checked){
+              this.checked = false;
+              var kandidaturid = this.id.substr(4);
+              $("#tr" + kandidaturid).remove();
+              kandidaturenids.push(kandidaturid); 
+            }
+          });
+          
+          $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+              kandidaturen:JSON.stringify(kandidaturenids),
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function(data){
+              // Meldung, dass Kandidaturen erfolgreich geloescht wurden
+              $("#notification").html("Kandidaturen wurden erfolgreich gelöscht");
+              selectedcheckboxes_num=0;
+              // Deaktivieren des Loeschbuttonss
+              $("#delbtnl").addClass("disabled");
+              $("#delbtns").addClass("disabled");
+            }
+          });
+        });
+
+
+
+        // Kandidatur aufnehmen
+        $('#admissionkandidaturconfirm').click(function(){
+          var url = $("#"+this.id).attr('data-url');
+          var kandidaturid = $("#"+this.id).attr('kandidatur-id');
+          $("#tr" + kandidaturid).remove();
+
+          $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+              kandidatur: kandidaturid,
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function(data){
+              // Meldung, dass Kandidatur erfolgreich aufgenommen wurde
+              $("#notification").html("Kandidatur wurde erfolgreich aufgenommen");
+            }
+          });
+        });
+
+
+
+
+
+      });
+    </script>
+{% endblock %}

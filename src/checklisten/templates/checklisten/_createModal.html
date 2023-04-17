@@ -1,0 +1,79 @@
+<div id="createModal" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h4>Checkliste erstellen</h4>
+                <br />
+            </div>                      
+            <form method="POST" action="/checklisten/erstellen">
+                {% csrf_token %}
+                <div class="input-field col l6 m12 s12">
+                    <select id="mitgliedSelect" name="mitgliedSelect" required onChange="populateFunktionSelect();">
+                        <option value="" disabled selected>Bitte auswählen</option>
+                        {% for mitglied in mitglieder %}
+                            <option value="{{mitglied.id}}">{{mitglied.vorname}}{% if mitglied.spitzname %}"{{mitglied.spitzname}}" {% endif %}{{mitglied.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Mitglied</label>
+                </div>
+                <div class="input-field col l6 m12 s12">
+                    <select id="funktionSelect" name="funktionSelect" onChange="updateGeneralTasksCheckbox();">
+                        <option value="-1" selected>Keine</option>
+                    </select>
+                    <label>Funktion</label>
+                </div>
+                <div class="col s12">
+                    <label>
+                        <input type="checkbox" id="generalTasksCheckbox" name="generalTasksCheckbox" class="filled-in checkbox-amber" checked="checked" disabled />
+                        <span class="black-text">Allgemeine Aufgaben zur Liste hinzufügen</span>
+                    </label>
+                </div>
+                <div class="col s12">
+                    <br />
+                    <button class="btn waves-effect waves-light amber black-text" type="submit">Erstellen</button>
+                    <a class="modal-close waves-effect waves-light btn-flat">Abbrechen</a>
+                </div>     
+            </form>         
+        </div>
+    </div>
+</div>
+
+<script>
+    function populateFunktionSelect() {
+        // Clear previous options
+        var funktionSelect = document.getElementById("funktionSelect");
+        var length = funktionSelect.options.length - 1;
+        for(i = length; i >= 1; i--) {
+            funktionSelect.remove(i);
+        }
+
+        // Fetch new options
+        var mitglied_id = document.getElementById("mitgliedSelect").value;
+        $.ajax({
+            type: 'GET',
+            url: '/checklisten/get_funktionen',
+            data: {
+                mitglied_id: mitglied_id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function(data) {
+                // Add options to select and re-initialize the select object
+                $("#funktionSelect").append(data);
+                M.FormSelect.init(funktionSelect, null);
+            }
+        });    
+    }
+
+    function updateGeneralTasksCheckbox() {
+        var funktionSelect = document.getElementById("funktionSelect");
+        var generalTasksCheckbox = document.getElementById("generalTasksCheckbox");
+        // Force check and disable general tasks checkbox to prevent empty checklists
+        if(funktionSelect.value == "-1") {
+            generalTasksCheckbox.checked = true;
+            generalTasksCheckbox.disabled = true;
+        }
+        else {
+            generalTasksCheckbox.disabled = false;
+        }
+    }
+</script>

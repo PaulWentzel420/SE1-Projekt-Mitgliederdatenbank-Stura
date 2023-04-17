@@ -1,0 +1,37 @@
+{% load t_historie.to_class_name %}
+
+<div id="modal{{entry|to_class_name}}{{entry.history_id}}" class="modal">
+  <div class="modal-content">
+    <h4>
+      {% include 'historie/_titleBuilder.html' %}
+    </h4>
+    <div>
+      <br />
+      <p><b>Zeitpunkt: </b> {{ entry.history_date|date:'d.m.Y H:i' }}</p>
+      <p><b>Nutzer: </b> {{ entry.history_user }}</p>
+      <br />
+      <h5>
+        {% if entry.history_type == "+" %}Hinzugefügter{% endif %}
+        {% if entry.history_type == "-" %}Gelöschter{% endif %}
+        {% if entry.history_type == "~" %}Neuer{% endif %}
+        Datensatz
+      </h5>
+      {% include 'historie/_modalDataIncludes.html' %}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect btn-flat">Schliessen</a>
+  </div>
+</div>
+
+<li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry|to_class_name}}{{entry.history_id}}">
+  <a class="secondary-content">
+    <i class="material-icons">
+      {% if entry.history_type == "+" %}add{% endif %}
+      {% if entry.history_type == "~" %}edit{% endif %}
+      {% if entry.history_type == "-" %}delete{% endif %}
+    </i>
+  </a>
+  {{ entry.history_date|date:'d.m.Y H:i' }} –
+  {% include 'historie/_titleBuilder.html' %}
+</li>

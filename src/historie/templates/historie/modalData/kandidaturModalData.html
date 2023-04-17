@@ -1,0 +1,18 @@
+<p><b>Mitglieds-ID:</b> {{entry.id}}</p>
+<p><b>Name: </b> {{entry.name}}</p>
+<p><b>Vorname: </b> {{entry.vorname}}</p>
+{% if entry.spitzname %}<p><b>Spitzname: </b> {{entry.spitzname}}</p>{% endif %}
+{% if entry.wahldatum %}<p><b>Wahldatum:</b> {{entry.wahldatum|date:'d.m.Y'}}</p>{% endif %}
+{% if entry.beschlussnummer %}<p><b>Beschlussnummer:</b> {{entry.beschlussnummer}}</p>{% endif %}
+
+
+{% if entry.history_type == "~" %}
+  <br />
+  <h5>Alter Datensatz</h5>
+  <p><b>Kandidatur-ID:</b> {{entry.id}}</p>
+  <p><b>Name: </b> {{entry.prev_record.name}}</p>
+  <p><b>Vorname: </b> {{entry.prev_record.vorname}}</p>
+  {% if entry.prev_record.spitzname %}<p><b>Spitzname: </b> {{entry.prev_record.spitzname}}</p>{% endif %}
+  {% if entry.prev_record.wahldatum %}<p><b>Wahldatum:</b> {{entry.prev_record.wahldatum}}</p>{% endif %}
+  {% if entry.prev_record.beschlussnummer %}<p><b>Beschlussnummer:</b> {{entry.prev_record.beschlussnummer}}</p>{% endif %}
+{% endif %}

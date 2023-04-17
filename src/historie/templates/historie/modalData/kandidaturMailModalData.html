@@ -1,0 +1,9 @@
+<p><b>Kandidatur: </b>{{entry.kandidatur_id}} (aktuell {{latestKandidatur.vorname}} {{latestKandidatur.name}}, damals {{historicalKandidatur.vorname}} {{historicalKandidatur.name}})</p>
+<p><b>E-Mail-Adresse: </b>{{entry.email}}</p>
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Kandidatur: </b>{{entry.prev_record.kandidatur_id}} (aktuell {{latestKandidaturAlt.vorname}} {{latestKandidaturAlt.name}}, damals {{historicalKandidaturAlt.vorname}} {{historicalKandidaturAlt.name}})</p>
+    <p><b>E-Mail-Adresse: </b> {{entry.prev_record.email}}</p>
+{% endif %}

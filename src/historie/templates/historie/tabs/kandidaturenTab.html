@@ -1,0 +1,16 @@
+<div id="kandidaturenTab" class="col s12">
+  <ul class="tabs secondary-tabs">
+    <li class="tab col s4"><a class="tab-link active" data-tab="Kandidatur" href="#kandidaturenStammdatenTab">Stammdaten</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="KandidaturMail" href="#kandidaturenMailsTab">E-Mail-Adressen</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="KandidaturAmt" href="#kandidaturenAemterTab">Zuordnung Kandidatur-Funktion</a></li>
+  </ul>
+  <div id="kandidaturenStammdatenTab">
+    {% include 'historie/row.html' with data=kandidaturen %}
+  </div>
+  <div id="kandidaturenMailsTab">
+    {% include 'historie/row.html' with data=kandidaturenMails %}
+  </div>
+  <div id="kandidaturenAemterTab">
+    {% include 'historie/row.html' with data=kandidaturenAemter %}
+  </div>
+</div>
