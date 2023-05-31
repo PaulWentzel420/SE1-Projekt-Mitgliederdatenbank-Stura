@@ -1,13 +1,13 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC09 Stimmberechtigung ausgeben
+== Use-Case: UC08 Checkliste erstellen
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Es sollen alle stimmberechtigten Mitglieder ausgegeben werden.
+Es soll eine Checkliste erstellt werden, die ausgibt, welche Berechtigungen den Mitgliedern noch übergeben werden müssen (z.B. Schlüssel, Websitegruppen etc.).
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder wollen sich über die Stimmberechtigung informieren.
+Die StuRa-Mitglieder wollen sich über zu übergebende Berechtigungen informieren.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -16,9 +16,9 @@ Die StuRa-Mitglieder wollen sich über die Stimmberechtigung informieren.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button.
-2. Der User betätigt den "Stimmberechtigung"-Button.
-3. Der Use Case gibt alle stimmberechtigten Mitglieder aus.
+1. Der Use Case beginnt bei Neuanlage oder Änderung eines Miglieds.
+2. Es wird eine Checkliste generiert, die zeigt welche Berechtigungen dem Mitlied noch übergeben werden müssen bzw. welche bereits erledigt sind.
+3. Der User kann sich die Checkliste ausgeben lassen mit einem Klick auf den "Checkliste"-Button.
 4. Der Use Case endet.
 
 //=== Alternative Abläufe
