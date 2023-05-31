@@ -6,20 +6,19 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Allgemeine Informationen
-Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure und deren Abläufe vorgestellt.
+Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure und deren Abläufe vorgestellt. Da ein bereits vorhandenes Projekt weiterentwickelt wird, wurden auch Use Cases identifiziert, die bereits implementiert wurden. Dementsprechend werden einige dieser bereits implementierten Use Cases weiterentwickelt sowie neue Use Cases hinzugefügt.
 
 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases 
-* *UC01*: Mitglied anlegen
-* *UC02*: Mitglied löschen
-* *UC03*: Mitgliederdaten bearbeiten
-* *UC04*: Mitwirkungsdauer von Mitgliedern ausgeben
-* *UC05*: Historie ausgeben (alle Änderungen)
-* *UC06*: Logdateien ausgeben
-* *UC07*: Daten importieren
-* *UC08*: Daten exportieren
-* *UC09*: Stimmberechtigung ausgeben
+* *UC01*: Mitglied anlegen (bereits vorhanden - wird weiterentwickelt)
+* *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden)
+* *UC03*: Mitwirkungsdauer von Mitgliedern ausgeben (neu)   (?)
+* *UC04*: Historie ausgeben (bereits vorhanden - wird weiterentwickelt)
+* *UC05*: Logdateien ausgeben (neu)   (?)
+* *UC06*: Daten importieren (bereits vorhanden)
+* *UC07*: Daten exportieren (bereits vorhanden)
+* *UC08*: Checkliste erstellen (neu)
 
 
 == Use Case Diagramm
