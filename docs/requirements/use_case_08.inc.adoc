@@ -7,7 +7,7 @@
 Es soll eine Checkliste erstellt werden, die ausgibt, welche Berechtigungen den Mitgliedern noch übergeben werden müssen (z.B. Schlüssel, Websitegruppen etc.).
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder wollen sich über zu übergebende Berechtigungen informieren.
+Die StuRa-Mitglieder wollen sich über zu übergebenden Berechtigungen informieren.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
