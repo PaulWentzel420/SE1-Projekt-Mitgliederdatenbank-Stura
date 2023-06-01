@@ -13,12 +13,11 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 // Liste aller identifizierten Use Cases 
 * *UC01*: Mitglied anlegen (bereits vorhanden - wird weiterentwickelt)
 * *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden)
-* *UC03*: Mitwirkungsdauer von Mitgliedern ausgeben (neu)   (?)
-* *UC04*: Historie ausgeben (bereits vorhanden - wird weiterentwickelt)
-* *UC05*: Logdateien ausgeben (neu)   (?)
-* *UC06*: Daten importieren (bereits vorhanden)
-* *UC07*: Daten exportieren (bereits vorhanden)
-* *UC08*: Checkliste erstellen (neu)
+* *UC03*: Historie ausgeben (bereits vorhanden - wird weiterentwickelt)
+* *UC04*: Logdateien erstellen (bereits vorhanden)  
+* *UC05*: Daten importieren (bereits vorhanden)
+* *UC06*: Daten exportieren (bereits vorhanden)
+* *UC07*: Checkliste erstellen (neu)
 
 
 == Use Case Diagramm
