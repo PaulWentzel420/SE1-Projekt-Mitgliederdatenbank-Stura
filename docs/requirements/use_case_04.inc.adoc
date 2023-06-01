@@ -1,13 +1,13 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: UC05 Logdateien ausgeben
+== Use-Case: UC04 Logdateien erstellen
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
 Es sollen die Protokolldateien ausgegeben werden, um einen Einblick in die Netzwerkereignisse zu erhalten.
 
 === Kurzbeschreibung der Akteure
-Die StuRa-Mitglieder wollen die Logdateien ausgeben um sich einen Überblick über aufgetretene Ereignisse, einen Prozess-Status oder Transaktionen zu verschaffen.
+Die StuRa-Mitglieder wollen Logdateien erstellen um sich einen Überblick über aufgetretene Ereignisse, einen Prozess-Status oder Transaktionen zu verschaffen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -17,10 +17,9 @@ Die StuRa-Mitglieder wollen die Logdateien ausgeben um sich einen Überblick üb
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-1. Der Use Case beginnt mit einem Klick auf den "Datenverwaltung"-Button.
-2. Der User betätigt den "Logdateien"-Button.
-3. Das System gibt die Protokolldateien aus.
-4. Der Use Case endet.
+1. Der Use Case beginnt automatisch bei Benutzung des Systems.
+2. Aktionen und Prozesse werden protokolliert.
+3. Der Use Case endet.
 
 //=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
