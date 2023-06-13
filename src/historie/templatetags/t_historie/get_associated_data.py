@@ -1,6 +1,5 @@
 from django import template
 
-from kandidaturen.models import Kandidatur, KandidaturAmt, KandidaturMail
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, FunktionRecht
 from checklisten.models import Checkliste, ChecklisteAufgabe, ChecklisteRecht, Aufgabe
@@ -37,9 +36,6 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
     if(desiredInfo == "Mitglied"): foreignClass = Mitglied
     if(desiredInfo == "MitgliedAmt"): foreignClass = MitgliedAmt
     if(desiredInfo == "MitgliedMail"): foreignClass = MitgliedMail
-    if(desiredInfo == "Kandidatur"): foreignClass = Kandidatur
-    if(desiredInfo == "KandidaturAmt"): foreignClass = KandidaturAmt
-    if(desiredInfo == "KandidaturMail"): foreignClass = KandidaturMail
     if(desiredInfo == "Funktion"): foreignClass = Funktion
     if(desiredInfo == "Unterbereich"): foreignClass = Unterbereich
     if(desiredInfo == "Organisationseinheit"): foreignClass = Organisationseinheit
