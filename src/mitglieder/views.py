@@ -7,7 +7,8 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
-from aemter.models import Funktion, Organisationseinheit, Unterbereich
+from checklisten.models import Checkliste, ChecklisteAufgabe, ChecklisteRecht, Aufgabe
+from aemter.models import Funktion, Organisationseinheit, Unterbereich, FunktionRecht
 import datetime
 import simplejson, json
 # string splitting
@@ -119,6 +120,11 @@ def erstellen(request):
         ort = request.POST['ort']
         telefon_mobil = request.POST['telefon_mobil']
 
+        if getValue(request, 'auto_checkliste') == 'on':
+            auto_checkliste = True
+        else:
+            auto_checkliste = False
+
         if getValue(request, 'wahl_angenommen') == 'on':
             wahl_angenommen = True
         else:
@@ -145,8 +151,13 @@ def erstellen(request):
             tel_weitergabe = False
 
         mitglied = Mitglied(name=nachname, vorname=vorname, spitzname=spitzname, strasse=strasse, hausnr=hausnr, plz=plz, ort=ort, tel_mobil=telefon_mobil, tel_weitergabe=tel_weitergabe,
-                         wahl_angenommen=wahl_angenommen, kenntnis_ordn=kenntnis_ordn, verpfl_datengeheimnis=verpfl_datengeheimnis, stammdatenblatt=stammdatenblatt)
+                         auto_checkliste=auto_checkliste, wahl_angenommen=wahl_angenommen, kenntnis_ordn=kenntnis_ordn, verpfl_datengeheimnis=verpfl_datengeheimnis, stammdatenblatt=stammdatenblatt)
         mitglied.save()
+
+        # Checkliste automatisch erstellen
+        if auto_checkliste:
+            checkliste = Checkliste(mitglied=mitglied)
+            checkliste.save()
 
         # E-Mail
         for i in range(1, emailnum+1):
@@ -171,6 +182,8 @@ def erstellen(request):
 
             mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
+
+
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:

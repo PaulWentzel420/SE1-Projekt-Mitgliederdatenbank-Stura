@@ -131,28 +131,35 @@
 
       <div class="col s12">
         <label style="color:#000" for="chk1-{{entry.id}}">
-          <input type="checkbox" name="wahl_angenommen"  id="chk1-{{entry.id}}" {% if mitglied.wahl_angenommen %}checked{% endif %}/>
-          <span>Wahl angenommen</span>
+          <input type="checkbox" name="auto_checkliste"  id="chk1-{{entry.id}}" {% if mitglied.wahl_angenommen %}checked{% endif %}/>
+          <span>Checkliste erstellen</span>
         </label>
       </div>
 
       <div class="col s12">
         <label style="color:#000" for="chk2-{{entry.id}}">
-          <input type="checkbox" name="kenntnis_ordn" id="chk2-{{entry.id}}" {% if mitglied.kenntnis_ordn %}checked{% endif %}/>
-          <span>Kenntnisnahme der Ordnungen</span>
+          <input type="checkbox" name="wahl_angenommen"  id="chk2-{{entry.id}}" {% if mitglied.wahl_angenommen %}checked{% endif %}/>
+          <span>Wahl angenommen</span>
         </label>
       </div>
 
       <div class="col s12">
         <label style="color:#000" for="chk3-{{entry.id}}">
-          <input type="checkbox" name="verpfl_datengeheimnis" id="chk3-{{entry.id}}" {% if mitglied.verpfl_datengeheimnis %}checked{% endif %}/>
-          <span>Verpflichtung auf das Datengeheimnis</span>
+          <input type="checkbox" name="kenntnis_ordn" id="chk3-{{entry.id}}" {% if mitglied.kenntnis_ordn %}checked{% endif %}/>
+          <span>Kenntnisnahme der Ordnungen</span>
         </label>
       </div>
 
       <div class="col s12">
         <label style="color:#000" for="chk4-{{entry.id}}">
-          <input type="checkbox" name="stammdatenblatt" id="chk4-{{entry.id}}" {% if mitglied.stammdatenblatt %}checked{% endif %}/>
+          <input type="checkbox" name="verpfl_datengeheimnis" id="chk4-{{entry.id}}" {% if mitglied.verpfl_datengeheimnis %}checked{% endif %}/>
+          <span>Verpflichtung auf das Datengeheimnis</span>
+        </label>
+      </div>
+
+      <div class="col s12">
+        <label style="color:#000" for="chk5-{{entry.id}}">
+          <input type="checkbox" name="stammdatenblatt" id="chk5-{{entry.id}}" {% if mitglied.stammdatenblatt %}checked{% endif %}/>
           <span>Stammdatenblatt</span>
         </label>
       </div>

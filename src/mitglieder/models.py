@@ -36,6 +36,7 @@ class Mitglied(models.Model):
     tel_mobil = models.CharField(max_length=15, null=True)
     tel_weitergabe = models.BooleanField(default=False, null=False)
 
+    auto_checkliste = models.BooleanField(default=True, null=False)
     wahl_angenommen = models.BooleanField(default=False, null=False)
     kenntnis_ordn = models.BooleanField(default=False, null=False)
     verpfl_datengeheimnis = models.BooleanField(default=False, null=False)
