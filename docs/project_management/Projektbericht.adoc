@@ -20,7 +20,7 @@ Zu Beginn des Semesters in SE II hatten wir einerseits mit dem Verlust von Teamm
 Zu Beginn des Projektes bestand unser Team aus 7 Mitgliedern (SE I). 
 Geplant war das Ausscheiden des Wirtschaftsingenieurs zu SE II, leider wurde das Team jedoch außerdem von der Wirtschaftsinformatikstudentin Dang Tam Hao Nguyen verlassen. Aufgrund dessen war eine neue Einteilung der Rollen vonnöten. Dies wird in der Rollenverteilung aufgezeigt.
 
-=== Kommunikation und eingesetzte Tools
+==== Kommunikation und eingesetzte Tools
 
 Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöchentlichen Termin für Meetings festzulegen. Als Zeitpunkt haben wir hierfür donnerstags, 11 Uhr gewählt. Auf Empfehlung von anderen Projektgruppen hatten wir von nun an vor, diese Treffen in Präsenz durchzuführen, um unsere Kommunikation zu verbessern. Im vergangenen Semester fanden unsere Meetings größtenteils online, über Discord, statt. Dies hat die Gesprächsbeteiligung der Mitglieder teilweise eingeschränkt. Nichtsdestotrotz wurden zusätzliche Meetings zu spezifischen Themen oder z.B. zur Kommunikation mit dem Coach auch weiterhin über Discord fortgeführt. Des Weiteren wurde Whatsapp zur Übermittlung von Informationen und Fragen außerhalb der Meetings verwendet.
 
