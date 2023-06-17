@@ -1,0 +1,27 @@
+= Projektbericht: {project-name}
+include::../_includes/default-attributes.inc.adoc[]
+
+== Mitgliederdatenbank StuRa (I6)
+
+== Projektplanung
+
+=== Ausgangssituation in SE II
+=== Aufgabenstellung und Auftraggeber
+
+Im Rahmen unserer studentischen Projektarbeit im Modul "Software Engineering" stellt der StuRa unseren Auftraggeber dar. Der StuRa ist eine Teilkörperschaft öffentlichen Rechts, in dem große Mitgliederzahlen mit hoher Fluktuation verwaltet werden müssen. Diese Organisation läuft bislang über eine Tabelle, die der heutigen Zeit schlichtweg nicht gerecht wird. Unsere Aufgabe als Projektteam I6 war es, eine webbasierte Datenbank zu erstellen, in der die relevanten Informationen (Personen, Ämter, Amtszeiten…) gespeichert sind. 
+
+=== Situation zum Semesterbeginn
+
+Gegen Ende des vorherigen Semesters kam es in unserem Projekt zu Problemen. So erfuhren wir erst Schritt für Schritt im Laufe des Semesters, dass es bereits vor uns eine Gruppe gab, die am selben Projekt wie wir gearbeitet hat. Aufgrund dessen wollten wir natürlich herausfinden, warum die Lösung der vorherigen Gruppe nicht umgesetzt wurde, um aus deren Fehlern zu lernen und die Wünsche des StuRa in unserem Projekt besser umzusetzen. Leider zog sich dieser Prozess über mehrere Wochen hinweg und schlussendlich wurde uns von unserer Ansprechpartnerin im StuRa mitgeteilt, dass sie leider keine Antwort auf unsere Frage finden konnte. Uns wurde weiterhin vermittelt, dass es sich bei dem Projekt der vorherigen Gruppe um eine solide Anwendung handle, auf der wir aufbauen sollten. Somit mussten wir unsere bisherigen Pläne zur Lösung des Projektes gewissermaßen über den Haufen werfen und uns in die bestehende Anwendung einlesen, um mit dieser weiterarbeiten zu können. Infolgedessen war es unvermeidbar, dass die Motivation in unserem Team sank. 
+Zu Beginn des Semesters in SE II hatten wir einerseits mit dem Verlust von Teammitgliedern zu kämpfen, wobei unser größtes Problem jedoch darstellte, herauszufinden inwieweit wir noch Verbesserungen am bestehenden System durchführen können beziehungsweise genug Eigenanteil in die Anwendung zu investieren.
+
+=== Teamaufstellung
+
+Zu Beginn des Projektes bestand unser Team aus 7 Mitgliedern (SE I). 
+Geplant war das Ausscheiden des Wirtschaftsingenieurs zu SE II, leider wurde das Team jedoch außerdem von der Wirtschaftsinformatikstudentin Dang Tam Hao Nguyen verlassen. Aufgrund dessen war eine neue Einteilung der Rollen vonnöten. Dies wird in der Rollenverteilung aufgezeigt.
+
+=== Kommunikation und eingesetzte Tools
+
+Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöchentlichen Termin für Meetings festzulegen. Als Zeitpunkt haben wir hierfür donnerstags, 11 Uhr gewählt. Auf Empfehlung von anderen Projektgruppen hatten wir von nun an vor, diese Treffen in Präsenz durchzuführen, um unsere Kommunikation zu verbessern. Im vergangenen Semester fanden unsere Meetings größtenteils online, über Discord, statt. Dies hat die Gesprächsbeteiligung der Mitglieder teilweise eingeschränkt. Nichtsdestotrotz wurden zusätzliche Meetings zu spezifischen Themen oder z.B. zur Kommunikation mit dem Coach auch weiterhin über Discord fortgeführt. Des Weiteren wurde Whatsapp zur Übermittlung von Informationen und Fragen außerhalb der Meetings verwendet.
+
+Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringende Fragen oder Informationen werden per Mail oder über Discord vermittelt.
