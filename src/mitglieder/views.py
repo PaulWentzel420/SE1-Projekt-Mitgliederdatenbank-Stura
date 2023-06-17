@@ -154,11 +154,6 @@ def erstellen(request):
                          auto_checkliste=auto_checkliste, wahl_angenommen=wahl_angenommen, kenntnis_ordn=kenntnis_ordn, verpfl_datengeheimnis=verpfl_datengeheimnis, stammdatenblatt=stammdatenblatt)
         mitglied.save()
 
-        # Checkliste automatisch erstellen
-        if auto_checkliste:
-            checkliste = Checkliste(mitglied=mitglied)
-            checkliste.save()
-
         # E-Mail
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
@@ -180,10 +175,10 @@ def erstellen(request):
             else:
                 amtszeit_ende = None
 
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
-            mitgliedamt.save()
-
-
+            mitgliedamt = MitgliedAmt.objects.create(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
+            
+            if auto_checkliste:
+                        Checkliste.objects.create(mitglied=mitglied, amt=mitgliedamt)
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
