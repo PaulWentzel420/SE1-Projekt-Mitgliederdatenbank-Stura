@@ -174,7 +174,11 @@ def erstellen(request):
             mitgliedamt = MitgliedAmt.objects.create(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             
             if auto_checkliste:
-                        Checkliste.objects.create(mitglied=mitglied, amt=mitgliedamt)
+                checkliste = Checkliste.objects.create(mitglied=mitglied, amt=mitgliedamt)
+                for task in Aufgabe.objects.all():
+                    aufgabe = ChecklisteAufgabe(checkliste=checkliste, aufgabe=task)
+                    aufgabe.save()
+    
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
