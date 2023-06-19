@@ -29,10 +29,6 @@ def addMitglied(self):
         entNachname = self.browser.find_element_by_name('nachname')
         entSpitzname = self.browser.find_element_by_name('spitzname')
 
-        entStrasse = self.browser.find_element_by_name('strasse')
-        entHausnr = self.browser.find_element_by_name('hausnr')
-        entPlz = self.browser.find_element_by_name('plz')
-        entOrt = self.browser.find_element_by_name('ort')
         entTelefon_mobil = self.browser.find_element_by_name('telefon_mobil')
 
         # Buttons
@@ -77,10 +73,6 @@ def addMitglied(self):
     entEmail2.send_keys('Hans.Peter@web.de')
 
     # Einfügen der restlichen Daten der Form
-    entStrasse.send_keys('Straße der Freiheit')
-    entHausnr.send_keys('24')
-    entPlz.send_keys('01561')
-    entOrt.send_keys('Ebersbach')
     entTelefon_mobil.send_keys('0362594833')
 
     # Speichern der Daten
@@ -134,10 +126,6 @@ def addMitgliedWithParameters(self,
         self.browser.find_element_by_name('nachname').send_keys(nachname)
         self.browser.find_element_by_name('spitzname').send_keys(spitzname)
 
-        entStrasse = self.browser.find_element_by_name('strasse')
-        entHausnr = self.browser.find_element_by_name('hausnr')
-        entPlz = self.browser.find_element_by_name('plz')
-        entOrt = self.browser.find_element_by_name('ort')
         entTelefon_mobil = self.browser.find_element_by_name('telefon_mobil')
 
         # Buttons
@@ -177,10 +165,6 @@ def addMitgliedWithParameters(self,
     entEmail2.send_keys(vorname + "." + nachname + "@web.de")
 
     # Einfügen der restlichen Daten der Form
-    entStrasse.send_keys('Straße der Freiheit')
-    entHausnr.send_keys('24')
-    entPlz.send_keys('01561')
-    entOrt.send_keys('Ebersbach')
     entTelefon_mobil.send_keys('0362594833')
 
     # Speichern der Daten

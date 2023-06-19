@@ -131,11 +131,6 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_name(
             'email1').send_keys('sxxxxx@htw-dresden.de')
         self.browser.find_element_by_name(
-            'strasse').send_keys('Straße der Freiheit')
-        self.browser.find_element_by_name('hausnr').send_keys('24')
-        self.browser.find_element_by_name('plz').send_keys('01561')
-        self.browser.find_element_by_name('ort').send_keys('Ebersbach')
-        self.browser.find_element_by_name(
             'telefon_mobil').send_keys('0362594833')
 
         # Speichern

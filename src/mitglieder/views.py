@@ -114,10 +114,6 @@ def erstellen(request):
         vorname = request.POST['vorname']
         nachname = request.POST['nachname']
         spitzname = request.POST['spitzname']
-        strasse = request.POST['strasse']
-        hausnr = request.POST['hausnr']
-        plz = request.POST['plz']
-        ort = request.POST['ort']
         telefon_mobil = request.POST['telefon_mobil']
 
         if getValue(request, 'auto_checkliste') == 'on':
@@ -150,7 +146,7 @@ def erstellen(request):
         else:
             tel_weitergabe = False
 
-        mitglied = Mitglied(name=nachname, vorname=vorname, spitzname=spitzname, strasse=strasse, hausnr=hausnr, plz=plz, ort=ort, tel_mobil=telefon_mobil, tel_weitergabe=tel_weitergabe,
+        mitglied = Mitglied(name=nachname, vorname=vorname, spitzname=spitzname, tel_mobil=telefon_mobil, tel_weitergabe=tel_weitergabe,
                          auto_checkliste=auto_checkliste, wahl_angenommen=wahl_angenommen, kenntnis_ordn=kenntnis_ordn, verpfl_datengeheimnis=verpfl_datengeheimnis, stammdatenblatt=stammdatenblatt)
         mitglied.save()
 
@@ -255,10 +251,6 @@ def speichern(request, mitglied_id):
         mitglied.vorname = getValue(request, 'vorname')
         mitglied.name = getValue(request, 'nachname')
         mitglied.spitzname = getValue(request, 'spitzname')
-        mitglied.strasse = getValue(request, 'strasse')
-        mitglied.hausnr = getValue(request, 'hausnr')
-        mitglied.plz = getValue(request, 'plz')
-        mitglied.ort = getValue(request, 'ort')
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
 
         if getValue(request, 'wahl_angenommen') == 'on':

@@ -26,14 +26,6 @@
         </p>
         {% endif %}
         <br />
-        {% if request.user.is_superuser %}
-            {% if mitglied.strasse or mitglied.hausnr or mitglied.plz or mitglied.ort %}
-                <h5>Anschrift</h5>
-                <p>{% if mitglied.strasse %}{{mitglied.strasse}}{% endif %} {% if mitglied.hausnr %}{{mitglied.hausnr}}{% endif %}</p>
-                <p>{% if mitglied.plz %}{{mitglied.plz}}{% endif %} {% if mitglied.ort %}{{mitglied.ort}}{% endif %}</p>
-                <br />
-            {% endif %}
-        {% endif %}
         <h5>Kontaktdaten</h5>
         {% if request.user.is_superuser %}
         {% if mitglied.tel_mobil %}<p><b>Telefon:</b> {{mitglied.tel_mobil}}</p>{% endif %}

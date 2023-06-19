@@ -1,10 +1,4 @@
 <p><b>Mitglieds-ID:</b> {{entry.id}}</p>
-{% if entry.strasse or entry.hausnr or entry.plz or entry.ort %}
-<p>
-  <b>Anschrift: </b>{% if entry.strasse %}{{entry.strasse}}{% endif %} {% if entry.hausnr %}{{entry.hausnr}}{% endif %},
-  {% if entry.plz %}{{entry.plz}}{% endif %} {% if entry.ort %}{{entry.ort}}{% endif %}
-</p>
-{% endif %}
 <p><b>Name: </b> {{entry.name}}</p>
 <p><b>Vorname: </b> {{entry.vorname}}</p>
 {% if entry.spitzname %}<p><b>Spitzname: </b> {{entry.spitzname}}</p>{% endif %}
@@ -15,12 +9,6 @@
   <br />
   <h5>Alter Datensatz</h5>
   <p><b>Mitglieds-ID:</b> {{entry.id}}</p>
-  {% if entry.prev_record.strasse or entry.prev_record.hausnr or entry.prev_record.plz or entry.prev_record.ort %}
-  <p>
-    <b>Anschrift: </b>{% if entry.prev_record.strasse %}{{entry.prev_record.strasse}}{% endif %} {% if entry.prev_record.hausnr %}{{entry.prev_record.hausnr}}{% endif %},
-    {% if entry.prev_record.plz %}{{entry.prev_record.plz}}{% endif %} {% if entry.prev_record.ort %}{{entry.prev_record.ort}}{% endif %}
-  </p>
-  {% endif %}
   <p><b>Name: </b> {{entry.prev_record.name}}</p>
   <p><b>Vorname: </b> {{entry.prev_record.vorname}}</p>
   {% if entry.prev_record.spitzname %}<p><b>Spitzname: </b> {{entry.prev_record.spitzname}}</p>{% endif %}
