@@ -114,6 +114,5 @@ Das System wird auf dem Server des StuRa gehostet. Der Einrichtungsprozess und B
 -	Iterative Planung ist wichtig, um gut voranzukommen 
 -	Zuverlässigkeit der Teammitglieder ist wichtig um ein gutes/produktives Teamklima zu schaffen
 
-
 *Software Engineering 2*
 
