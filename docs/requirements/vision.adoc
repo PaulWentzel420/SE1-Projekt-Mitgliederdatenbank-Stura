@@ -127,11 +127,11 @@ Beispiel Produkt:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 
 
-[%header, cols="4,1,1"]
+[%header, cols="4,1"]
 |===
-| Anforderung | Priorität | Geplantes Release
-| Einfache und intuitive Bedienbarkeit | hoch | 
-| System nur online nutzbar | hoch |
-| System muss auf Windows, Linux und gängigen Browsern nutzbar sein | hoch |
-| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel |
+| Anforderung | Priorität 
+| Einfache und intuitive Bedienbarkeit | hoch 
+| System nur online nutzbar | hoch 
+| System muss auf Windows, Linux und gängigen Browsern nutzbar sein | hoch 
+| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel 
 |===
