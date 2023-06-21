@@ -119,7 +119,7 @@ Beispiel Produkt:
 | Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | von Auftraggeber nicht mehr gewünscht
 | Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Bearbeitungshistorie anzeigen zu lassen. | bereits von Vorgänger implementiert
 | Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | Import von Vorgänger ermöglicht, Export nicht
-| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | 
+| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | von Auftraggeber nicht mehr gewünscht
 |===
 
 
