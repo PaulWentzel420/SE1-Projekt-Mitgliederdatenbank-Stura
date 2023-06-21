@@ -44,6 +44,8 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
+*Software Engineering 1*
+
 [%header, cols="1,3a,2"]
 |===
 | Iteration
@@ -72,12 +74,28 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 | 14.01.2023-27.01.2023
 |===
 
+*Software Engineering 2*
+
+[%header, cols="1,3a,2"]
+|===
+| Iteration
+| Primary objectives +
+(risks and use case scenarios)
+| Scheduled start or milestone
+
+| | |
+| | |
+| | |
+
+|===
+
 === Ziele
-  1. Kurzfristig:
+1. Kurzfristig:
 	- Wöchentliche Meetings im Team und regelmäßige Absprachen mit dem Auftraggeber
 		- Aufgaben werden in iterativen Zyklen vergeben und abgearbeitet
 2. Langfristig
-	- Entwicklung einer funktionalen Software, für den Prozess der Mitgliederverwaltung des StuRa
+	- Entwicklung bzw. Anpassung der Vorgängersoftware, für den Prozess der Mitgliederverwaltung des StuRa
+	- Deployment der Mitgliederdatenbank
 
 
 == Deployment
