@@ -25,14 +25,16 @@ include::../_includes/default-attributes.inc.adoc[]
 
 *Testablauf*
 
-Das Formular "Mitglied hinzufügen" wird ausgefüllt und die Nutzereingaben werden überprüft
+Das Formular "Mitglied hinzufügen" wird ausgefüllt und die Nutzereingaben werden auf Vollständigkeit sowie Korrektheit überprüft.
+
 . Es werden korrekte Mitgliederdaten eingegeben
 . Es werden inkorrekte Mitgliederdaten eingegeben
 . Es werden verpflichtende Mitgliederdaten nicht eingegeben
+. 
 
 *Testobjekt*
 
-Prototyp
+Aktuelle Testinstanz
 
 *Eingabedaten*
 
@@ -40,4 +42,39 @@ Prototyp
 . inkorrekte Mitglieder
 . Pflichtfeld wird leer gelassen
 
+// Bild aktualisieren!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+image::1.png[]
+
+=== Test Case 02
+
+*Vorbedingung*
+
+. Siehe <<vb>>
+. Eine Checkliste für das Mitglied soll automatisch angelegt werden
+. Formular "Mitglied hinzufügen" ist geöffnet
+. Es wird eine Funktion bzw. ein Amt für das Mitglied festgelegt
+
+*Testablauf*
+
+Das Formular "Mitglied hinzufügen" ist bereits ausgefüllt und die Checkbox 'Checkliste erstellen' ausgewählt. Dies soll bereits automatisch ohne Nutzerinteraktion der Fall sein.
+Anschließend wird überprüft, ob die Checkliste erzeugt wurde und zudem die erwarteten Werte (Aufgaben sowie Rechte) beinhaltet.
+
+. Die Mitgliederdaten werden korrekt eingegeben
+. Es wird dem Mitglied eine Funktion zugewiesen
+. Die Checkbox 'Checkliste erstellen' ist ohne Nutzerinteraktion ausgewählt
+. Absenden des Formulars
+. Überprüfung ob die Checkliste erstellt wurde
+. Überprüfung ob die Checkliste mit den erwarteten Werten übereinstimmt
+
+*Testobjekt*
+
+Aktuelle Testinstanz
+
+*Eingabedaten*
+
+. korrekte Mitgliederdaten
+. Funktion zugewiesen
+. Checkbox ausgewählt (Standardwert)
+
+// Bild aktualisieren!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 image::1.png[]
