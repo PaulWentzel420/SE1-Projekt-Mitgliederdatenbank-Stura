@@ -44,4 +44,3 @@ Georg: +
 | project_plan.adoc |
 |===
 
-project_plan.adoc -> lessons learned
