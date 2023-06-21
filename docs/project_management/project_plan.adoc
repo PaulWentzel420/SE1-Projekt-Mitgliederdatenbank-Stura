@@ -101,11 +101,17 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
-Das System wird auf dem Server des StuRa laufen. Die Software wird nach Fertigstellung an ausgewählte verantwortliche Personen weitergegeben um diese zu in ihr System zu integrieren. Der Einrichtungsprozess und Bedienung der Software wird vor der Übergabe geklärt, damit eine reibungslose Umstellung und nachfolgender Einsatz der Software möglich ist.
+Das System wird auf dem Server des StuRa gehostet. Der Einrichtungsprozess und Bedienung der Software wird vor der Übergabe geklärt, damit eine reibungslose Umstellung und nachfolgender Einsatz der Software möglich ist. Unser Hauptziel ist, dass unsere Softwarelösung aktiv im StuRa eingesetzt wird und nicht wie in den Vorjahren nach Fertigstellung nicht genutzt wird.
 
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
 
+*Software Engineering 1*
+
 -	Kommunikation in regelmäßigen Abständen mit den Stakeholdern und im Team ist sehr wichtig
 -	Iterative Planung ist wichtig, um gut voranzukommen 
 -	Zuverlässigkeit der Teammitglieder ist wichtig um ein gutes/produktives Teamklima zu schaffen
+
+
+*Software Engineering 2*
+

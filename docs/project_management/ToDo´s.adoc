@@ -1,0 +1,47 @@
+Paul: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Collin: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Nathalie: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Lennart: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Georg: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe
+| project_plan.adoc | lessons learned SE2 anpassen
+| project_plan.adoc | Projektorganisation ausführlicher beschreiben
+| project_plan.adoc |
+|===
+
+project_plan.adoc -> lessons learned
