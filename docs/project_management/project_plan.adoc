@@ -18,7 +18,7 @@ Die Projektarbeit gliedert sich in verschiedene Inhaltsbereiche. Jeder Bereich w
 
 
 Projekt Management: +
-Tony Heinz Hörnig (SE1)
+Tony Heinz Hörnig (SE1) +
 Georg Schicker (SE2)
 
 Analyst: +
@@ -33,7 +33,7 @@ Collin Neumann +
 Paul Wentzel
 
 Tester: +
-Georg Schicker
+Georg Schicker +
 Paul Wentzel
 
 == Praktiken und Bewertung
