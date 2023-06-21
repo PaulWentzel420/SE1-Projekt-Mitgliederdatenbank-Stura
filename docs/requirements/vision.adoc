@@ -101,7 +101,7 @@ Beispiel Produkt:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind ändert sich vorerst nicht.
-. Die Bearbeitungszeit soll schnell gehen. Hierfür werden je nach Datenumfang 2-10 Minuten geschätzt
+. Die Bearbeitungszeit soll schnell gehen. Hierfür werden je nach Datenumfang 0-2 Minuten geschätzt
 . Das Produkt soll an jedem Computer verwendbar und intuitiv bedienbar sein.
 . Als Systemplattformen werden Windows und Linux eingesetzt.
 //. Es soll eine Benutzung von Antragsgrün über das Pordukt möglich sein.
