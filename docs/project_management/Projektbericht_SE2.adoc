@@ -25,3 +25,25 @@ Geplant war das Ausscheiden des Wirtschaftsingenieurs zu SE II, leider wurde das
 Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöchentlichen Termin für Meetings festzulegen. Als Zeitpunkt haben wir hierfür donnerstags, 11 Uhr gewählt. Auf Empfehlung von anderen Projektgruppen hatten wir von nun an vor, diese Treffen in Präsenz durchzuführen, um unsere Kommunikation zu verbessern. Im vergangenen Semester fanden unsere Meetings größtenteils online, über Discord, statt. Dies hat die Gesprächsbeteiligung der Mitglieder teilweise eingeschränkt. Nichtsdestotrotz wurden zusätzliche Meetings zu spezifischen Themen oder z.B. zur Kommunikation mit dem Coach auch weiterhin über Discord fortgeführt. Des Weiteren wurde Whatsapp zur Übermittlung von Informationen und Fragen außerhalb der Meetings verwendet.
 
 Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringende Fragen oder Informationen werden per Mail oder über Discord vermittelt.
+
+== Projektdurchführung
+
+== Projektergebnisse
+
+=== Reflexion der Teammitglieder
+
+==== Nathalie Kästner
+
+Im Rahmen unserer studentischen Projektarbeit beschäftigte sich unsere Gruppe mit der Erstellung einer Mitgliederdatenbank für den StuRa. Schon im ersten Semester des Software Engineering Moduls war mir klar, dass dieses Projekt anspruchsvoller, zeitaufwändiger und komplexer sein würde als alle bisherigen Aufgaben. Hierbei handelte es sich um das erste Mal, dass ich ein Projekt dieser Größenordnung bewältigte, welches sich über so einen langen Zeitraum erstreckte und von so vielzähligen Faktoren abhängig war. 
+
+Leider war unser Start in die Projektarbeit eher holprig. Im Verlauf der letzten zwei Semester hatten wir mit vielerlei Problemen zu kämpfen, wenn es um unsere Projektarbeit ging.
+
+Infolgedessen ist mir bewusst geworden, wie wichtig ausführliche und regelmäßige Kommunikation sowohl mit Kunden als auch den eigenen Teammitgliedern ist. Durch fehlende Kommunikation und unklare Aussagen wurde bei uns im Team viel Zeit verschwendet, was im Endeffekt zu Frustration und schwindender Motivation führte. So traten vor allem bei der Kommunikation mit dem StuRa immer wieder Probleme auf, beispielsweise durch langes Warten auf eine Rückmeldung, Unklarheiten bezüglich des Projektes der Vorgängergruppe oder Ähnliches. Des Weiteren benötigt man ein gewisses Maß an Flexibilität, da Anforderungen an die Software teilweise recht kurzfristig geäußert werden. So hatten wir über einen längeren Zeitpunkt Probleme damit, herauszufinden, inwieweit wir das Projekt der Vorgänger sinnvoll und mit genug Eigenanteil ergänzen können. 
+
+Zukünftig sollte man also von Anfang an Treffen in regelmäßigen Abständen mit dem Kunden vereinbaren und einen festen Termin für diesen ansetzen, um eine effektive Kommunikation aufrecht erhalten zu können. 
+
+Teilweise empfand ich die ausführliche Dokumentation als sehr mühselig, da ich unsere Beweggründe und Gedanken hinter unseren Schritten natürlich einfach nachvollziehen konnte. Nichtsdestotrotz wurde mir bewusst, dass eine umfassende Dokumentation dazu beiträgt, das Verständnis, die Wartbarkeit, die Zusammenarbeit, die Fehlerbehebung und den Wissenstransfer zu verbessern. Somit spielt sie eine wichtige Rolle bei der Entwicklung qualitativ hochwertiger und langlebiger Softwarelösungen. In Zukunft werde ich somit weiterhin auf eine ausführliche Dokumentation von Projekten setzen, um einen geregelten Arbeitsfluss und eine gute Verständlichkeit zu gewährleisten.
+
+Zusammenfassend lässt sich sagen, dass dieses Projekt mein Wissen und meine Fähigkeiten in verschiedensten Bereichen verbessert hat und ich viel lernen konnte. Die Zusammenarbeit mit seinen Kommilitonen und die Tatsache, dass man Verantwortung nicht nur für sich selbst, sondern auch für sein Team übernehmen musste, war zwar herausfordernd, allerdings stellt dies auch eine lehrreiche Erfahrung für den späteren Berufsalltag dar. Obwohl wir, wie bereits erwähnt, mit allerlei Problemen zu kämpfen hatten, haben wir das Projekt nicht aufgegeben. 
+
+Schlussendlich hat dieses Projekt mir geholfen, erlernte Kompetenzen zu erweitern und mir wichtige Lektionen für das Vorgehen bei Projektarbeiten beschert, welche ich in Zukunft mit Sicherheit anwenden werde. Aufgrund dessen bin ich dankbar für all die Erfahrungen, die ich sammeln durfte und all das Gelernte.
