@@ -95,7 +95,7 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 		- Aufgaben werden in iterativen Zyklen vergeben und abgearbeitet
 2. Langfristig
 	- Entwicklung bzw. Anpassung der Vorgängersoftware, für den Prozess der Mitgliederverwaltung des StuRa
-	- Deployment der Mitgliederdatenbank
+	- Deployment der Mitgliederdatenbank und aktive Nutzung durch den StuRa
 
 
 == Deployment
