@@ -7,6 +7,7 @@
 
 {% if request.user.is_superuser %}
   {% include 'checklisten/_deleteModal.html' %}
+  {% include 'checklisten/_doneModal.html' %}
   {% include 'checklisten/_createModal.html' %}
 {% endif %}
 
@@ -47,7 +48,7 @@
       </div>
       {% if request.user.is_superuser %}
       <div class="card-action">
-        <a href="#deleteModal" class="black-text modal-trigger" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">delete</i></a>
+        <a href="#deleteModal" id="deleteModalLink{{entry.id}}" class="black-text modal-trigger" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">delete</i></a>
         <a href="#doneModal" id="doneModalLink{{entry.id}}" class="black-text modal-trigger" style="display: none;" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">done_all</i></a>
 
       </div>
@@ -146,11 +147,15 @@
   }
 
   var doneModalLink = document.querySelector('#doneModalLink' + checklisteId);
+  var deleteModalLink = document.querySelector('#deleteModalLink' + checklisteId);
 
   if (alleAusgewaehlt) {
     doneModalLink.style.display = '';
+    deleteModalLink.style.display = 'none';
   } else {
     doneModalLink.style.display = 'none';
+    deleteModalLink.style.display = '';
+
   }
 }
 
