@@ -1,5 +1,5 @@
 // --- 1. Projektthema -------------------------
-= Anforderungsspezifikation: {project-name}
+= Betriebsdokumentation: {project-name}
 // --- 2. Teammitglieder -----------------------
 Paul Wentzel <s83970@htw-dresden.de>; Georg Schicker <s83938@htw-dresden.de>; Nathalie Kästner <s83816@htw-dresden.de>; Collin Neumann <s84599@htw-dresden.de>; Lennart Bronke <s83778@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
@@ -40,66 +40,24 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 :imagesdir: {docs-requirements}/images
 
-// Vision
-include::{docs-requirements}/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Use Case Model (inkludiert selbst die einzelnen usecase_spec_x.adoc Dateien)
-include::{docs-requirements}/use-case_model.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// System-wide Requirements
-include::{docs-requirements}/system-wide_requirements.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Glossar
-[#glossary]
-include::{docs-requirements}/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Domänenmodell
-include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
+== Systemeinrichtung
 
-// --- Projektdokumentation ---
-= Projektdokumentation
-* Projektplan
-* Risikoliste
-* Iteration Plan (für zwei ausgewählte Iterationen)
+=== Anforderungen
 
-:imagesdir: {docs-project-management}/images
+=== Grundkonfiguration
 
-// Projektplan
-include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Risikoliste
-include::{docs-project-management}/risk_list.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 1
-include::{docs-project-management}/iteration_plan_01.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 2
-include::{docs-project-management}/iteration_plan_02.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 3
-//include::{docs-project-management}/iteration_plan_03.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
+=== Django-Projekt einrichten
 
-// --- Entwurfsdokumentation ---
-= Entwurfsdokumentation
-* Architektur-Notizbuch
-* Test Cases
-* Design
+=== Apache2 konfigurieren
 
-// Architektur-Notizbuch
-:imagesdir: {docs-architecture}/images
-include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Test Cases
-:imagesdir: {docs-test}/images
-include::{docs-test}/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Design
-:imagesdir: {docs-development}/images
-//include::{docs-development}/design.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
+=== Berechtigungen einrichten
 
-// ---------------------------------------------
+== Datensicherung unter Linux
 
-:imagesdir: {imagesdir-reset}/images
+=== Backup erstellen
+
+=== Backup wiederherstellen
+
+== Update durchführen
+
+== Fehlerberichte
