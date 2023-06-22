@@ -178,6 +178,10 @@ def erstellen(request):
                 for task in Aufgabe.objects.all():
                     aufgabe = ChecklisteAufgabe(checkliste=checkliste, aufgabe=task)
                     aufgabe.save()
+                for funktion_recht in FunktionRecht.objects.filter(funktion=funktion):
+                    perm = funktion_recht.recht
+                    recht = ChecklisteRecht(checkliste=checkliste, recht=perm)
+                    recht.save()
     
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
