@@ -22,7 +22,7 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 
 == Use Case Diagramm
 
-image::use-case-diagram.png[]
+image::use-case-model.png[]
 
 <<<
 include::use_case_01.inc.adoc[]
