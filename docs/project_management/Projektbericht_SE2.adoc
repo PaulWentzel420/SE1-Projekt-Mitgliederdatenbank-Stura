@@ -86,6 +86,14 @@ In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem uner
 
 == Projektergebnisse
 
+=== Webanwendung läuft
+
+//Bissl Text einfügen
+
+=== Checklisten lassen sich automatisch erstellen
+
+//Bissl Text einfügen
+
 === Reflexionen der Teammitglieder
 
 ==== Nathalie Kästner
