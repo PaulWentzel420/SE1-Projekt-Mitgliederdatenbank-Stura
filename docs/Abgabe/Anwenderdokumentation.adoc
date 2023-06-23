@@ -44,7 +44,14 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 === Zweck
 
+Die vorliegende Web-Anwendung dient der Verwaltung der Mitglieder des Studentenrates der HTW Dresden. Diese ermöglicht es, Mitglieder übersichtlich zu listen und zu bearbeiten, neue Mitglieder einfach anzulegen und über entsprechende Berechtigungen der Mitglieder zu informieren. +
+Ziel der Anwendung ist es, die bisherige unübersichtliche Organisation über Excel-Tabellen zu ersetzen und die Verwaltung der Mitglieder zeiteffizienter und intuitiver zu gestalten.
+
 === Funktionsumfang
+
+Während unserer Projektarbeit haben wir ein bereits vorhandenes System weiterentwickelt. Hierbei wurden neue Funktionen einerseits ergänzt und bereits vorhandene Funktionen erweitert beziehungsweise je nach Bedarf auch entfernt. +
+So wurde die von unseren Vorgängern zuvor implementierte Verwaltung von Kandidaturen nun wieder entfernt, da diese vom Auftraggeber nicht mehr gewünscht wurde. +
+Des Weiteren wird nun bei der Neuanlage oder Bearbeitung eines Mitglieds automatisch eine Checkliste erstellt, welche Berechtigung diesem entsprechend seines Amtes noch zu vergeben sind (Schlüssel, Websitegruppen etc.).
 
 == Aufbau der Benuzeroberfläche am Beispiel des Tabs "Mitglieder"
 
