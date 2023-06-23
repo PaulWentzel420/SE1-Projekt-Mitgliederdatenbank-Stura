@@ -26,11 +26,63 @@ Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöc
 
 Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringende Fragen oder Informationen werden per Mail oder über Discord vermittelt.
 
-Link für Projektbreicht-Durchführung:
-https://docs.google.com/document/d/1uaieOV2yZk4By89Ri2hLSlirGhE9Wqv-ppyEcvQ9df8/edit?usp=sharing
-
 
 == Projektdurchführung
+
+==== Start ins neue Semester Iteration 5 (20.03 - 02.04)
+===== Ziele: 
+  -
+  -
+  -
+
+===== Auswahl eines neuen Teamkaptains
+Nach dem vorausgesehenen Ausscheiden unseres bisherigen Teamkapitäns Toni Hörnig standen wir vor der wichtigen Aufgabe, eine geeignete Nachfolge zu finden. Die Auswahl eines neuen Teamkapitäns hat nicht nur Auswirkungen auf die unmittelbare Teamdynamik und die Verteilung der Verantwortlichkeiten, sondern auch auf den Fortschritt und die Zeitpläne unseres Softwareentwicklungsprojekts. Die Nachfolgesuche war eine Mischung aus Teamdiskussionen und Bewertungen der Fachkenntnisse sowie der Führungsqualitäten der potenziellen Kandidaten. Letzendlich haben wir uns für Georg Schicker entschieden, da er bereits gezeigt hat, dass er bereit und fähig ist, die Anforderungen zu erfüllen, und wir haben uns bemüht, ihn in seiner neuen Rolle zu unterstützen.
+
+===== Analyse des Vorgängerprojektes
+Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief in die Entwicklung unseres eigenen eingetaucht waren, stellte unser Team vor eine erhebliche Herausforderung. Emotional war es schwierig, die Begeisterung und das Engagement, die wir in unser eigenes Projekt investiert hatten, loszulassen und uns auf die Aufgabe der Fortführung der Arbeit eines anderen Teams zu konzentrieren. Darüber hinaus brachte dieser Wechsel logistische Herausforderungen mit sich, da wir uns auf die Analyse und das Verständnis des übernommenen Projekts, dessen Ziele, Entwicklungsstadium und potenzielle Hürden konzentrieren mussten. Die Kommunikation des Stakeholders, der diese bedeutende Änderung erst spät bekannt gab, hatte einen beträchtlichen Einfluss auf die Moral des Teams und auf unsere anfängliche Fähigkeit, uns auf das neue Projekt einzustellen. Nichtsdestotrotz haben wir uns zusammengeschlossen und uns auf die neue Aufgabe konzentriert, indem wir unsere Ressourcen neu organisiert und eine gründliche Analyse des vorhandenen Projekts durchgeführt haben. 
+
+==== Iteration 6 (03.04 - 16.04)
+===== Ziele: 
+  -
+  -
+  -
+
+
+==== Iteration 7 (17.04 - 30.04)
+===== Ziele: 
+  -
+  -
+  -
+
+
+==== Iteration 8 (01.05 - 14.05)
+===== Ziele: 
+  -
+  -
+  -
+
+===== Unerwarteter Weggang eines Teammitglieds
+In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem unerwarteten Ausscheiden eines geschätzten Teammitglieds konfrontiert. Dieser unvorhergesehene Weggang führte zu einer spürbaren Veränderung in der Teamdynamik und zu einer vorübergehenden Umverteilung der Verantwortlichkeiten. Aufgrund ihrer spezifischen Fachkompetenz und ihres Engagements, waren die Folgen des Weggangs sofort spürbar. Die dadurch entstandene Lücke zwang uns, sich schnell anzupassen und neue Verantwortlichkeiten zu übernehmen, um den reibungslosen Ablauf des Projekts zu gewährleisten. Es ist wichtig anzumerken, dass der Wegfall des Teammitglieds kurzfristig zu einer Verschiebung unserer Projektzeitlinie geführt hat. Wir haben uns an die neue Situation angepasst und uns mit intensivem Engagement und kollektiver Anstrengung darum bemüht, die Auswirkungen dieser unerwarteten Änderung zu minimieren und das Projekt wieder auf Kurs zu bringen.
+
+==== Iteration 9 (15.05 - 28.05)
+===== Ziele: 
+  -
+  -
+  -
+
+==== Iteration 10 (29.05 - 11.06)
+===== Ziele: 
+  -
+  -
+  -
+
+
+==== Iteration 11 (12.06 - 25.06)
+===== Ziele: 
+  -
+  -
+  -
+
 
 == Projektergebnisse
 
