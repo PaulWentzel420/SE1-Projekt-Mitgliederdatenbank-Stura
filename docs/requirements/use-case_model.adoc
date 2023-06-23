@@ -12,7 +12,7 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases 
 * *UC01*: Mitglied anlegen (bereits vorhanden - wird weiterentwickelt)
-* *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden)
+* *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden - wird weiterentwickelt)
 * *UC03*: Historie ausgeben (bereits vorhanden - wird weiterentwickelt)
 * *UC04*: Logdateien erstellen (bereits vorhanden)  
 * *UC05*: Daten importieren (bereits vorhanden)
