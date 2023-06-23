@@ -34,7 +34,7 @@ https://docs.google.com/document/d/1uaieOV2yZk4By89Ri2hLSlirGhE9Wqv-ppyEcvQ9df8/
 
 == Projektergebnisse
 
-=== Reflexion der Teammitglieder
+=== Reflexionen der Teammitglieder
 
 ==== Nathalie Kästner
 
@@ -51,3 +51,13 @@ Teilweise empfand ich die ausführliche Dokumentation als sehr mühselig, da ich
 Zusammenfassend lässt sich sagen, dass dieses Projekt mein Wissen und meine Fähigkeiten in verschiedensten Bereichen verbessert hat und ich viel lernen konnte. Die Zusammenarbeit mit seinen Kommilitonen und die Tatsache, dass man Verantwortung nicht nur für sich selbst, sondern auch für sein Team übernehmen musste, war zwar herausfordernd, allerdings stellt dies auch eine lehrreiche Erfahrung für den späteren Berufsalltag dar. Obwohl wir, wie bereits erwähnt, mit allerlei Problemen zu kämpfen hatten, haben wir das Projekt nicht aufgegeben. 
 
 Schlussendlich hat dieses Projekt mir geholfen, erlernte Kompetenzen zu erweitern und mir wichtige Lektionen für das Vorgehen bei Projektarbeiten beschert, welche ich in Zukunft mit Sicherheit anwenden werde. Aufgrund dessen bin ich dankbar für all die Erfahrungen, die ich sammeln durfte und all das Gelernte.
+
+==== Paul Wentzel
+
+Im Rahmen des Software Engineering Moduls haben wir uns mit der Erstellung einer Mitgliederdatenbank für den StuRa beschäftigt. Dieses Projekt war für mich das erste Projekt dieser Größenordnung und hat mir gezeigt, wie wichtig es ist, sich von Anfang an mit der Planung und Organisation eines Projektes zu beschäftigen. +
+Diese Erfahrung war für mich sowohl herausfordernd als auch bereichernd. Das Projekt gestaltete sich nicht immer einfach, besonders aufgrund der Verluste von zwei Teammitgliedern und der Tatsache, dass wir das Projekt zu lange aufgeschoben hatten. Ebenfalls war auf unseren Auftraggeber nicht immer verlass. Erst im 2. Semester des Projektes wurde klar, dass wir das Vorgängerprojekt übernehmen sollten, was uns nochmals viel Motivation kostete. Unser Auftraggeber war auch teilweise wochenlang nicht erreichbar. Dennoch konnten wir uns erfolgreich durch diese Schwierigkeiten kämpfen. +
+Eine wichtige Erkenntnis, die ich während des Projekts gewonnen habe, ist die Bedeutsamkeit von Dokumentation. Anfangs habe ich die Notwendigkeit und den Detailgrad der Dokumentation oft in Frage gestellt. Jedoch wurde mir im Laufe des Projekts klar, dass eine gründliche Dokumentation von entscheidender Bedeutung ist, insbesondere wenn es darum geht, das Projekt auch für zukünftige Entwickler verständlich zu machen. Diese Erfahrung hat meinen Blick für die Hintergründe von Kundenanforderungen geschärft und mich auf schwierigere Kundensituationen vorbereitet. +
+Ein weiterer wichtiger Aspekt, den ich während des Projekts gelernt habe, ist die Bedeutung eines gut funktionierenden Teams, was bei uns leider nicht wirklich der Fall war. Trotz des Verlusts von Teammitgliedern konnten wir uns aufeinander verlassen und erfolgreich zusammenarbeiten. Wir haben gelernt, wie wichtig klare Absprachen sind und wie wir Probleme gemeinsam lösen können, anstatt nach Schuldigen zu suchen. +
+Das Projekt hat meine Kenntnisse und Fähigkeiten in verschiedenen Bereichen erweitert. Ich habe mich intensiv mit neuen Programmiersprachen und Frameworks auseinandergesetzt und konnte meine Kenntnisse in der Webentwicklung vertiefen. +
+Obwohl das Projekt viel Zeit und Aufwand erforderte, bin ich stolz auf das, was wir noch gegen Ende aus dem Projekt gemacht haben. Wir haben uns den Herausforderungen gestellt und konnten uns als Team weiterentwickeln. +
+Die Erfahrungen und das erworbene Wissen aus diesem Projekt werden mir auch in Zukunft von Nutzen sein. Ich bin zufrieden mit meiner Leistung und dankbar für die Möglichkeit, an diesem Projekt teilgenommen zu haben, trotz der Schwierigkeiten, die wir überwinden mussten.
