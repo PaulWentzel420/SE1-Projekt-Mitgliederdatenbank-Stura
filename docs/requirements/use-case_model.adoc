@@ -21,6 +21,7 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 
 Bereits vorhandene Use Cases sind im Use Case Diagram grau hinterlegt, vorhandene Use Cases, welche weiterentwickelt wurden mit rot und neue Use Cases mit dunkelrot.
 
+:imagesdir: images
 == Use Case Diagramm
 
 image::use-case-model.png[]
