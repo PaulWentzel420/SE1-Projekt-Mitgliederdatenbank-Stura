@@ -118,7 +118,7 @@ Kürzlich hinzugefügte Mitglieder sind in der Übersicht mit einem roten Ausruf
 
 image::8.png[]
 
-Um das Mitglied zu bearbeiten, muss man wie gehabt das *Bearbeitungs-Ico*n am Ende der Zeile auswählen. Folglich öffnet sich die Eingabemaske, in der Informationen geändert oder ergänzt werden können.
+Um das Mitglied zu bearbeiten, muss man wie gehabt das *Bearbeitungs-Icon* am Ende der Zeile auswählen. Folglich öffnet sich die Eingabemaske, in der Informationen geändert oder ergänzt werden können.
 
 Ein weiterer Teil der Eingabemaske ist ebenfalls eine *Checkliste*, die über Anforderungen an das Mitglied aufklärt. Diese kann vom Admin bearbeitet werden. Dementsprechend können erbrachte Leistungen durch einen Haken in der entsprechenden Checkbox markiert werden.
 
