@@ -94,7 +94,7 @@ Der im Rahmen der  Lehrveranstaltung vorgestellte Open Unified Process wird als 
 === Ziele
 1. Kurzfristig:
 	- Wöchentliche Meetings im Team und regelmäßige Absprachen mit dem Auftraggeber
-		- Aufgaben werden in iterativen Zyklen vergeben und abgearbeitet
+	- Aufgaben werden in iterativen Zyklen vergeben und abgearbeitet
 2. Langfristig
 	- Entwicklung bzw. Anpassung der Vorgängersoftware, für den Prozess der Mitgliederverwaltung des StuRa
 	- Deployment der Mitgliederdatenbank und aktive Nutzung durch den StuRa
