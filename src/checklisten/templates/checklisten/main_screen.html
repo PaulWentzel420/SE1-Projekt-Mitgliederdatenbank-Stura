@@ -7,6 +7,7 @@
 
 {% if request.user.is_superuser %}
   {% include 'checklisten/_deleteModal.html' %}
+  {% include 'checklisten/_doneModal.html' %}
   {% include 'checklisten/_createModal.html' %}
 {% endif %}
 
@@ -25,7 +26,7 @@
           {% for task in entry.id|get_tasks %}
             <p class="truncate">
               <label>
-                <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{task.id}}, 'Aufgabe');" {% if task.abgehakt %}checked="checked"{% endif %} />
+                <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{task.id}}, 'Aufgabe'); checkAlleCheckboxen({{entry.id}});" {% if task.abgehakt %}checked="checked"{% endif %} />
                 <span class="black-text">{{task.aufgabe.bezeichnung}}</span>
               </label>
             </p>
@@ -35,7 +36,7 @@
             {% for perm in entry.id|get_perms %}
               <p class="truncate">
                 <label>
-                  <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{perm.id}}, 'Recht');" {%if perm.abgehakt %}checked="checked"{% endif %} />
+                  <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{perm.id}}, 'Recht'); checkAlleCheckboxen({{entry.id}});" {%if perm.abgehakt %}checked="checked"{% endif %} />
                   <span class="black-text">{{perm.recht.bezeichnung}}</span>
                 </label>
               </p>
@@ -47,7 +48,9 @@
       </div>
       {% if request.user.is_superuser %}
       <div class="card-action">
-        <a href="#deleteModal" class="black-text modal-trigger" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">delete</i></a>
+        <a href="#deleteModal" id="deleteModalLink{{entry.id}}" class="black-text modal-trigger" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">delete</i></a>
+        <a href="#doneModal" id="doneModalLink{{entry.id}}" class="black-text modal-trigger" style="display: none;" onclick="updateDeleteModal({{entry.id}});"><i class="material-icons">done_all</i></a>
+
       </div>
       {% endif %}
     </div>
@@ -75,6 +78,25 @@
     var selectElems = document.querySelectorAll('select');
     var selectInstances = M.FormSelect.init(selectElems, null);
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+  // Initialize modals and selects
+  var modalElems = document.querySelectorAll('.modal');
+  var modalInstances = M.Modal.init(modalElems, null);
+
+  var selectElems = document.querySelectorAll('select');
+  var selectInstances = M.FormSelect.init(selectElems, null);
+
+  // IDs der Checklisten holen
+  var checklisteIds = [...document.querySelectorAll('.col.l4.m6.s12')].map(function(element) {
+    return element.id.replace('checkliste', '');
+  });
+  // Rufe checkAlleCheckboxen für jedes Modal auf
+  checklisteIds.forEach(function(checklisteId) {
+    checkAlleCheckboxen(checklisteId);
+  });
+});
+
 
   // POST task completion to backend
   function abhaken(task_id, task_type) {
@@ -112,5 +134,31 @@
     // Set the Checkliste ID that should be deleted
     $("#deleteModal").attr("data-checkliste", checkliste_id);
   }
+
+  function checkAlleCheckboxen(checklisteId) {
+  var checkboxen = document.querySelectorAll('#checkliste' + checklisteId + ' input[type="checkbox"]');
+  var alleAusgewaehlt = true;
+
+  for (var i = 0; i < checkboxen.length; i++) {
+    if (!checkboxen[i].checked) {
+      alleAusgewaehlt = false;
+      break;
+    }
+  }
+
+  var doneModalLink = document.querySelector('#doneModalLink' + checklisteId);
+  var deleteModalLink = document.querySelector('#deleteModalLink' + checklisteId);
+
+  if (alleAusgewaehlt) {
+    doneModalLink.style.display = '';
+    deleteModalLink.style.display = 'none';
+  } else {
+    doneModalLink.style.display = 'none';
+    deleteModalLink.style.display = '';
+
+  }
+}
+
+
 </script>
 {% endblock %}

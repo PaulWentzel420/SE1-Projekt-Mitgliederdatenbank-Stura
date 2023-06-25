@@ -1,0 +1,125 @@
+= Projektbericht: {project-name}
+include::../_includes/default-attributes.inc.adoc[]
+
+== Mitgliederdatenbank StuRa (I6)
+
+== Projektplanung
+
+=== Ausgangssituation in SE II
+==== Aufgabenstellung und Auftraggeber
+
+Im Rahmen unserer studentischen Projektarbeit im Modul "Software Engineering" stellt der StuRa unseren Auftraggeber dar. Der StuRa ist eine Teilkörperschaft öffentlichen Rechts, in dem große Mitgliederzahlen mit hoher Fluktuation verwaltet werden müssen. Diese Organisation läuft bislang über eine Tabelle, die der heutigen Zeit schlichtweg nicht gerecht wird. Unsere Aufgabe als Projektteam I6 war es, eine webbasierte Datenbank zu erstellen, in der die relevanten Informationen (Personen, Ämter, Amtszeiten…) gespeichert sind. 
+
+==== Situation zum Semesterbeginn
+
+Gegen Ende des vorherigen Semesters kam es in unserem Projekt zu Problemen. So erfuhren wir erst Schritt für Schritt im Laufe des Semesters, dass es bereits vor uns eine Gruppe gab, die am selben Projekt wie wir gearbeitet hat. Aufgrund dessen wollten wir natürlich herausfinden, warum die Lösung der vorherigen Gruppe nicht umgesetzt wurde, um aus deren Fehlern zu lernen und die Wünsche des StuRa in unserem Projekt besser umzusetzen. Leider zog sich dieser Prozess über mehrere Wochen hinweg und schlussendlich wurde uns von unserer Ansprechpartnerin im StuRa mitgeteilt, dass sie leider keine Antwort auf unsere Frage finden konnte. Uns wurde weiterhin vermittelt, dass es sich bei dem Projekt der vorherigen Gruppe um eine solide Anwendung handle, auf der wir aufbauen sollten. Somit mussten wir unsere bisherigen Pläne zur Lösung des Projektes gewissermaßen über den Haufen werfen und uns in die bestehende Anwendung einlesen, um mit dieser weiterarbeiten zu können. Infolgedessen war es unvermeidbar, dass die Motivation in unserem Team sank. 
+Zu Beginn des Semesters in SE II hatten wir einerseits mit dem Verlust von Teammitgliedern zu kämpfen, wobei unser größtes Problem jedoch darstellte, herauszufinden inwieweit wir noch Verbesserungen am bestehenden System durchführen können beziehungsweise genug Eigenanteil in die Anwendung zu investieren.
+
+==== Teamaufstellung
+
+Zu Beginn des Projektes bestand unser Team aus 7 Mitgliedern (SE I). 
+Geplant war das Ausscheiden des Wirtschaftsingenieurs zu SE II, leider wurde das Team jedoch außerdem von der Wirtschaftsinformatikstudentin Dang Tam Hao Nguyen verlassen. Aufgrund dessen war eine neue Einteilung der Rollen vonnöten. Dies wird in der Rollenverteilung aufgezeigt.
+
+==== Kommunikation und eingesetzte Tools
+
+Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöchentlichen Termin für Meetings festzulegen. Als Zeitpunkt haben wir hierfür donnerstags, 11 Uhr gewählt. Auf Empfehlung von anderen Projektgruppen hatten wir von nun an vor, diese Treffen in Präsenz durchzuführen, um unsere Kommunikation zu verbessern. Im vergangenen Semester fanden unsere Meetings größtenteils online, über Discord, statt. Dies hat die Gesprächsbeteiligung der Mitglieder teilweise eingeschränkt. Nichtsdestotrotz wurden zusätzliche Meetings zu spezifischen Themen oder z.B. zur Kommunikation mit dem Coach auch weiterhin über Discord fortgeführt. Des Weiteren wurde Whatsapp zur Übermittlung von Informationen und Fragen außerhalb der Meetings verwendet.
+
+Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringende Fragen oder Informationen werden per Mail oder über Discord vermittelt.
+
+
+== Projektdurchführung
+
+==== Start ins neue Semester Iteration 5 (20.03 - 02.04)
+===== Ziele: 
+  - Auswahl eines neuen Teamkaptains
+  - Analyse des Vorgängerprojektes
+
+===== Auswahl eines neuen Teamkaptains
+Nach dem vorausgesehenen Ausscheiden unseres bisherigen Teamkapitäns Toni Hörnig standen wir vor der wichtigen Aufgabe, eine geeignete Nachfolge zu finden. Die Auswahl eines neuen Teamkapitäns hat nicht nur Auswirkungen auf die unmittelbare Teamdynamik und die Verteilung der Verantwortlichkeiten, sondern auch auf den Fortschritt und die Zeitpläne unseres Softwareentwicklungsprojekts. Die Nachfolgesuche war eine Mischung aus Teamdiskussionen und Bewertungen der Fachkenntnisse sowie der Führungsqualitäten der potenziellen Kandidaten. Letzendlich haben wir uns für Georg Schicker entschieden, da er bereits gezeigt hat, dass er bereit und fähig ist, die Anforderungen zu erfüllen, und wir haben uns bemüht, ihn in seiner neuen Rolle zu unterstützen.
+
+===== Analyse des Vorgängerprojektes
+Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief in die Entwicklung unseres eigenen eingetaucht waren, stellte unser Team vor eine erhebliche Herausforderung. Emotional war es schwierig, die Begeisterung und das Engagement, die wir in unser eigenes Projekt investiert hatten, loszulassen und uns auf die Aufgabe der Fortführung der Arbeit eines anderen Teams zu konzentrieren. Darüber hinaus brachte dieser Wechsel logistische Herausforderungen mit sich, da wir uns auf die Analyse und das Verständnis des übernommenen Projekts, dessen Ziele, Entwicklungsstadium und potenzielle Hürden konzentrieren mussten. Die Kommunikation des Stakeholders, der diese bedeutende Änderung erst spät bekannt gab, hatte einen beträchtlichen Einfluss auf die Moral des Teams und auf unsere anfängliche Fähigkeit, uns auf das neue Projekt einzustellen. Nichtsdestotrotz haben wir uns zusammengeschlossen und uns auf die neue Aufgabe konzentriert, indem wir unsere Ressourcen neu organisiert und eine gründliche Analyse des vorhandenen Projekts durchgeführt haben. 
+
+==== Iteration 6 (03.04 - 16.04)
+===== Ziele: 
+  - Neue Anforderungen und Erweiterungen mit StuRa (in Bezug auf übernahme des Projekts) klären
+  - Erweiterungen für Use Case 01 und 02 planen
+  - Testinstanz erstellen
+
+
+
+==== Iteration 7 (17.04 - 30.04)
+===== Ziele: 
+  - Use Case 01 und 02 weiter entwickeln
+  - Manuelle Tests für UC 01 und 02 durchführen
+
+===== Manuelle Tests durchfürhen
+Nach der sorgfältiger Analyse der Anforderungen der implementierten Anwendungsfälle haben wir präzise Testfälle und -szenarien erstellt.  Die Herausforderung bestand darin, die Testfälle so vollständig und genau wie möglich zu gestalten, um sicherzustellen, dass das Endprodukt die Anforderungen erfüllt und Fehler minimiert werden.
+
+
+==== Iteration 8 (01.05 - 14.05)
+===== Ziele: 
+  - Erweiterung für Use Case 03 planen
+
+
+===== Unerwarteter Weggang eines Teammitglieds
+In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem unerwarteten Ausscheiden eines geschätzten Teammitglieds konfrontiert. Dieser unvorhergesehene Weggang führte zu einer spürbaren Veränderung in der Teamdynamik und zu einer vorübergehenden Umverteilung der Verantwortlichkeiten. Aufgrund ihrer spezifischen Fachkompetenz und ihres Engagements, waren die Folgen des Weggangs sofort spürbar. Die dadurch entstandene Lücke zwang uns, sich schnell anzupassen und neue Verantwortlichkeiten zu übernehmen, um den reibungslosen Ablauf des Projekts zu gewährleisten. Es ist wichtig anzumerken, dass der Wegfall des Teammitglieds kurzfristig zu einer Verschiebung unserer Projektzeitlinie geführt hat. Wir haben uns an die neue Situation angepasst und uns mit intensivem Engagement und kollektiver Anstrengung darum bemüht, die Auswirkungen dieser unerwarteten Änderung zu minimieren und das Projekt wieder auf Kurs zu bringen.
+
+==== Iteration 9 (15.05 - 28.05)
+===== Ziele: 
+  - Use Case 03 weiter entwickeln
+  - Use Case 06 und 07 planen
+  - Weiteres Testen (UC 01, 02 und neu UC 03)
+
+==== Iteration 10 (29.05 - 11.06)
+===== Ziele: 
+  - Manuelle Tests für UC 01 und 02 durchfürhen
+  - Entwicklung von UC 07
+
+
+==== Iteration 11 (12.06 - 25.06)
+===== Ziele: 
+  - Weiteres Testen, hauptsächlich von UC 07
+  - Deployment der Sofware
+
+
+== Projektergebnisse
+
+=== Webanwendung läuft
+
+Insgesamt lässt sich sagen, dass die allgemeine Problematik des Kunden durch unsere Anwendung behoben werden konnte. Die zuvor mühsame, zeitaufwendige Verwaltung der Mitglieder über Tabellen kann nun intuitiv und übersichtlich über die entwickelte Web-Anwendung durchgeführt werden. +
+Bezüglich der Use-Cases lässt sich sagen, dass diese fast alle umgesetzt wurden. Die Datenbank ermöglicht es, Mitglieder, Funktionen und Checklisten mühelos zu verwalten. Des Weiteren wurde die vom Vorgänger implementierte Verwaltung von Kandidaturen wieder entfernt, da dies vom Auftraggeber nicht mehr gewünscht wurde. Der einzige Use-Case, der unerfüllt blieb, stellt die Funktionalität des Exports von Daten dar. Dieser wurde jedoch von Anfang an mit einer niedrigen Priorität versehen und wurde im Laufe des Projektes auch nicht mehr vom Auftraggeber als zwingend notwendige Anforderung gesehen. Infolgedessen wurde dieses Feature aus zeitlichen Gründen nicht mehr realisiert. +
+Das Domänenmodell sowie einige Use-Cases änderten sich geringfügig im Laufe der Projektarbeit, vor allem da nun ein bereits vorhandenes System weiterentwickelt wurde und sich die Anforderungen der Stakeholder teilweise änderten. +
+Des Weiteren konnten die in der Anforderungsanalyse festgelegten Qualitätsanforderungen erfüllt werden.
+
+=== Checklisten lassen sich automatisch erstellen
+
+Im Gegensatz zum anfänglichen Entwicklungsstand besitzt die Anwendung nun die Funktionalität, Checklisten automatisch zu erstellen. Diese werden bei Neuanlage oder Änderung eines Mitglieds vom System generiert.
+
+=== Reflexionen der Teammitglieder
+
+==== Nathalie Kästner
+
+Im Rahmen unserer studentischen Projektarbeit beschäftigte sich unsere Gruppe mit der Erstellung einer Mitgliederdatenbank für den StuRa. Schon im ersten Semester des Software Engineering Moduls war mir klar, dass dieses Projekt anspruchsvoller, zeitaufwändiger und komplexer sein würde als alle bisherigen Aufgaben. Hierbei handelte es sich um das erste Mal, dass ich ein Projekt dieser Größenordnung bewältigte, welches sich über so einen langen Zeitraum erstreckte und von so vielzähligen Faktoren abhängig war. +
+Leider war unser Start in die Projektarbeit eher holprig. Im Verlauf der letzten zwei Semester hatten wir mit vielerlei Problemen zu kämpfen, wenn es um unsere Projektarbeit ging. +
+Infolgedessen ist mir bewusst geworden, wie wichtig ausführliche und regelmäßige Kommunikation sowohl mit Kunden als auch den eigenen Teammitgliedern ist. Durch fehlende Kommunikation und unklare Aussagen wurde bei uns im Team viel Zeit verschwendet, was im Endeffekt zu Frustration und schwindender Motivation führte. So traten vor allem bei der Kommunikation mit dem StuRa immer wieder Probleme auf, beispielsweise durch langes Warten auf eine Rückmeldung, Unklarheiten bezüglich des Projektes der Vorgängergruppe oder Ähnliches. Des Weiteren benötigt man ein gewisses Maß an Flexibilität, da Anforderungen an die Software teilweise recht kurzfristig geäußert werden. So hatten wir über einen längeren Zeitpunkt Probleme damit, herauszufinden, inwieweit wir das Projekt der Vorgänger sinnvoll und mit genug Eigenanteil ergänzen können.  +
+Zukünftig sollte man also von Anfang an Treffen in regelmäßigen Abständen mit dem Kunden vereinbaren und einen festen Termin für diesen ansetzen, um eine effektive Kommunikation aufrecht erhalten zu können. +
+Teilweise empfand ich die ausführliche Dokumentation als sehr mühselig, da ich unsere Beweggründe und Gedanken hinter unseren Schritten natürlich einfach nachvollziehen konnte. Nichtsdestotrotz wurde mir bewusst, dass eine umfassende Dokumentation dazu beiträgt, das Verständnis, die Wartbarkeit, die Zusammenarbeit, die Fehlerbehebung und den Wissenstransfer zu verbessern. Somit spielt sie eine wichtige Rolle bei der Entwicklung qualitativ hochwertiger und langlebiger Softwarelösungen. In Zukunft werde ich somit weiterhin auf eine ausführliche Dokumentation von Projekten setzen, um einen geregelten Arbeitsfluss und eine gute Verständlichkeit zu gewährleisten. +
+Zusammenfassend lässt sich sagen, dass dieses Projekt mein Wissen und meine Fähigkeiten in verschiedensten Bereichen verbessert hat und ich viel lernen konnte. Die Zusammenarbeit mit seinen Kommilitonen und die Tatsache, dass man Verantwortung nicht nur für sich selbst, sondern auch für sein Team übernehmen musste, war zwar herausfordernd, allerdings stellt dies auch eine lehrreiche Erfahrung für den späteren Berufsalltag dar. Obwohl wir, wie bereits erwähnt, mit allerlei Problemen zu kämpfen hatten, haben wir das Projekt nicht aufgegeben. +
+Schlussendlich hat dieses Projekt mir geholfen, erlernte Kompetenzen zu erweitern und mir wichtige Lektionen für das Vorgehen bei Projektarbeiten beschert, welche ich in Zukunft mit Sicherheit anwenden werde. Aufgrund dessen bin ich dankbar für all die Erfahrungen, die ich sammeln durfte und all das Gelernte.
+
+==== Paul Wentzel
+
+Im Rahmen des Software Engineering Moduls haben wir uns mit der Erstellung einer Mitgliederdatenbank für den StuRa beschäftigt. Dieses Projekt war für mich das erste Projekt dieser Größenordnung und hat mir gezeigt, wie wichtig es ist, sich von Anfang an mit der Planung und Organisation eines Projektes zu beschäftigen. +
+Diese Erfahrung war für mich sowohl herausfordernd als auch bereichernd. Das Projekt gestaltete sich nicht immer einfach, besonders aufgrund der Verluste von zwei Teammitgliedern und der Tatsache, dass wir das Projekt zu lange aufgeschoben hatten. Ebenfalls war auf unseren Auftraggeber nicht immer verlass. Erst im 2. Semester des Projektes wurde klar, dass wir das Vorgängerprojekt übernehmen sollten, was uns nochmals viel Motivation kostete. Unser Auftraggeber war auch teilweise wochenlang nicht erreichbar. Dennoch konnten wir uns erfolgreich durch diese Schwierigkeiten kämpfen. +
+Eine wichtige Erkenntnis, die ich während des Projekts gewonnen habe, ist die Bedeutsamkeit von Dokumentation. Anfangs habe ich die Notwendigkeit und den Detailgrad der Dokumentation oft in Frage gestellt. Jedoch wurde mir im Laufe des Projekts klar, dass eine gründliche Dokumentation von entscheidender Bedeutung ist, insbesondere wenn es darum geht, das Projekt auch für zukünftige Entwickler verständlich zu machen. Diese Erfahrung hat meinen Blick für die Hintergründe von Kundenanforderungen geschärft und mich auf schwierigere Kundensituationen vorbereitet. +
+Ein weiterer wichtiger Aspekt, den ich während des Projekts gelernt habe, ist die Bedeutung eines gut funktionierenden Teams, was bei uns leider nicht wirklich der Fall war. Trotz des Verlusts von Teammitgliedern konnten wir uns aufeinander verlassen und erfolgreich zusammenarbeiten. Wir haben gelernt, wie wichtig klare Absprachen sind und wie wir Probleme gemeinsam lösen können, anstatt nach Schuldigen zu suchen. +
+Das Projekt hat meine Kenntnisse und Fähigkeiten in verschiedenen Bereichen erweitert. Ich habe mich intensiv mit neuen Programmiersprachen und Frameworks auseinandergesetzt und konnte meine Kenntnisse in der Webentwicklung vertiefen. +
+Obwohl das Projekt viel Zeit und Aufwand erforderte, bin ich stolz auf das, was wir noch gegen Ende aus dem Projekt gemacht haben. Wir haben uns den Herausforderungen gestellt und konnten uns als Team weiterentwickeln. +
+Die Erfahrungen und das erworbene Wissen aus diesem Projekt werden mir auch in Zukunft von Nutzen sein. Ich bin zufrieden mit meiner Leistung und dankbar für die Möglichkeit, an diesem Projekt teilgenommen zu haben, trotz der Schwierigkeiten, die wir überwinden mussten.
+
+==== Georg Schicker
+
+==== Collin Neumann
+
+==== Lennart Bronke

@@ -1,0 +1,46 @@
+// --- 1. Projektthema -------------------------
+= Entwurfsdokumentation: {project-name}
+// --- 2. Teammitglieder -----------------------
+Paul Wentzel <s83970@htw-dresden.de>; Georg Schicker <s83938@htw-dresden.de>; Nathalie Kästner <s83816@htw-dresden.de>; Collin Neumann <s84599@htw-dresden.de>; Lennart Bronke <s83778@htw-dresden.de>
+// --- 3. Abgabedatum --------------------------
+26. Juni 2023
+// ---------------------------------------------
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+// ---
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-signifier:
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:!example-caption:
+:experimental:
+// Folders
+:imagesdir-reset: {imagesdir}
+:docs-test2: {docs}/test2
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+<<<
+
+// --- 4. include Pfade anpassen ---------------
+
+// Architektur-Notizbuch
+:imagesdir: {docs-architecture}/images
+include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
+// ---------------------------------------------
+
+:imagesdir: {imagesdir-reset}/images

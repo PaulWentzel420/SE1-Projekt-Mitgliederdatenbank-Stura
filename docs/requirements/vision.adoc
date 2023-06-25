@@ -10,11 +10,6 @@ Ziel dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des
 [comment]
 Dieser Satz benötigt Überarbeitung!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Stakeholder:
-
-* Kunde: StuRa der HTW Dresden
-* Ansprechpartnerin: Elisa Range
-
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
@@ -32,7 +27,7 @@ Siehe <<#glossary, Glossar>>.
 == Positionierung
 
 === Fachliche Motivation
-Der Studierendenrat der HTW Dresden beschäftigt sich mit den Wünschen, Problemen und Anforderungen der Studierenden der HTW. Er arbeitet eng mit der Hochschulleitung und des Studentenwerkes des Landes Sachsen zusammen um die Studienbedinungen zu verbessern. Hierfür fallen zahlreiche Arbeiten an, welche durch eine entsprechende Anzahl von Mitgliedern im StuRa bearbeitet werden müssen. Zur Zeit sind 205 Mitglieder (Stand 19.12.2022) im StuRa tätig. Hierfür existiert eine Excel-Tabelle, die die Mitglieder listet und zusätzlich Informationen über ihre Position im StuRa beinhaltet. Bei dieser Zahl an Angehörigen verliert man schnell den Überblick und eine ordentliche Organisation ist nahezu unmöglich.
+Der Studierendenrat der HTW Dresden beschäftigt sich mit den Wünschen, Problemen und Anforderungen der Studierenden der HTW. Er arbeitet eng mit der Hochschulleitung und des Studentenwerkes des Landes Sachsen zusammen um die Studienbedingungen zu verbessern. Hierfür fallen zahlreiche Arbeiten an, welche durch eine entsprechende Anzahl von Mitgliedern im StuRa bearbeitet werden müssen. Zur Zeit sind 205 Mitglieder (Stand 19.12.2022) im StuRa tätig. Hierfür existiert eine Excel-Tabelle, die die Mitglieder listet und zusätzlich Informationen über ihre Position im StuRa beinhaltet. Bei dieser Zahl an Angehörigen verliert man schnell den Überblick und eine ordentliche Organisation ist nahezu unmöglich.
 
 Dieses Projekt beschäftigt sich mit den angesprochenen Problemen. Hierfür soll ein hauseigenes System entwickelt werden, welches es ermöglicht alle Mitglieder übersichtlich zu listen und zu bearbeiten, neue Mitglieder einfach anzulegen und ausgeschiedene zu entfernen. Außerdem sollen Arbeitsaufgaben im System verteilt werden können.
 
@@ -106,7 +101,7 @@ Beispiel Produkt:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind ändert sich vorerst nicht.
-. Die Bearbeitungszeit soll schnell gehen. Hierfür werden je nach Datenumfang 2-10 Minuten geschätzt
+. Die Bearbeitungszeit soll schnell gehen. Hierfür werden je nach Datenumfang 0-2 Minuten geschätzt
 . Das Produkt soll an jedem Computer verwendbar und intuitiv bedienbar sein.
 . Als Systemplattformen werden Windows und Linux eingesetzt.
 //. Es soll eine Benutzung von Antragsgrün über das Pordukt möglich sein.
@@ -119,12 +114,12 @@ Beispiel Produkt:
 
 [%header, cols="4,1,4,1"]
 |===
-| Bedarf | Priorität | Features | Geplantes Release
-| einfache Verwaltung der Mitglieder | hoch | Eigener Button für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | 
-| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | 
-| Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Beabreitungshistorie anzeigen zu lassen. | 
-| Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | 
-| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | 
+| Bedarf | Priorität | Features | Bemerkungen
+| einfache Verwaltung der Mitglieder | hoch | Eigener Button für "Mitglieder", in dem ein bestehendes Mitglied bearbeitet werden kann. Hier sollen auch neue Mitglieder angelegt bzw. gelöscht werden können. | bereits von Vorgänger implementiert
+| Ausgabe der Mitwirkungsdauer von Mitgliedern | mittel | Es soll ein eigener Button "Mitwirkungsdauer" entstehen. Hier können von allen oder nur bestimmten Mitgliedern die Mitwirkungsdauer eingesehen werden. | von Auftraggeber nicht mehr gewünscht
+| Ausgabe der Bearbeitungshistorie | niedrig | Eigener Button der es Admins ermöglicht, die Bearbeitungshistorie anzeigen zu lassen. | bereits von Vorgänger implementiert
+| Daten im- und exportieren | niedrig | Es muss möglich sein, vorhandene Daten in die Mitgliederdatenbank aufzunehmen und auch wieder in bestimmten Formaten auszugeben | Import von Vorgänger ermöglicht, Export nicht
+| Ausgabe von Stimmberechtigungen | mittel | Es sollte möglich sein, dass über einen eigenen Button alle stimmberechtigten StuRa-Mitglieder in einer Liste aufgelistet werden | von Auftraggeber nicht mehr gewünscht
 |===
 
 
@@ -132,11 +127,11 @@ Beispiel Produkt:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 
 
-[%header, cols="4,1,1"]
+[%header, cols="4,1"]
 |===
-| Anforderung | Priorität | Geplantes Release
-| Einfache und intuitive Bedienbarkeit | hoch | 
-| System nur online nutzbar | hoch |
-| System muss auf Windows, Linux und gängigen Browsern nutzbar sein | hoch |
-| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel |
+| Anforderung | Priorität 
+| Einfache und intuitive Bedienbarkeit | hoch 
+| System nur online nutzbar | hoch 
+| System muss auf Windows, Linux und gängigen Browsern nutzbar sein | hoch 
+| Unterteilung in Handlungsmöglichkeiten -> Admin, untergeordneter User, Betrachter | mittel 
 |===

@@ -12,17 +12,19 @@ Im nachfolgenden Abschnitt werden alle identifizierten Use Cases, deren Akteure 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases 
 * *UC01*: Mitglied anlegen (bereits vorhanden - wird weiterentwickelt)
-* *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden)
+* *UC02*: Mitgliederdaten bearbeiten (bereits vorhanden - wird weiterentwickelt)
 * *UC03*: Historie ausgeben (bereits vorhanden - wird weiterentwickelt)
 * *UC04*: Logdateien erstellen (bereits vorhanden)  
 * *UC05*: Daten importieren (bereits vorhanden)
-* *UC06*: Daten exportieren (bereits vorhanden)
+* *UC06*: Daten exportieren (neu)
 * *UC07*: Checkliste erstellen (neu)
 
+Bereits vorhandene Use Cases sind im Use Case Diagram grau hinterlegt, vorhandene Use Cases, welche weiterentwickelt wurden mit rot und neue Use Cases mit dunkelrot.
 
+:imagesdir: images
 == Use Case Diagramm
 
-image::use-case-diagram.png[]
+image::use-case-model.png[]
 
 <<<
 include::use_case_01.inc.adoc[]
@@ -45,11 +47,6 @@ include::use_case_06.inc.adoc[]
 <<<
 include::use_case_07.inc.adoc[]
 
-<<<
-include::use_case_08.inc.adoc[]
-
-<<<
-include::use_case_09.inc.adoc[]
 
 == Wireframes
 

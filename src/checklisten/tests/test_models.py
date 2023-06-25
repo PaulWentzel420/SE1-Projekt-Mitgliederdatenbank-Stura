@@ -10,10 +10,6 @@ class TestModels(TestCase):
             name="Peter",
             vorname="Hans",
             spitzname="Hansi",
-            strasse="Straße der Freiheit",
-            hausnr="1",
-            plz="01642",
-            ort="Adelsdorf",
             tel_mobil="0352075199"
         )
 

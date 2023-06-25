@@ -1,0 +1,57 @@
+Paul: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Collin: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe
+| test_cases.adoc | Mitglied erstellen Test, Checkliste automatisch erstellen Test, Checkliste löschen Test 
+| a.adoc | a
+|===
+
+Nathalie: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Lennart: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe |
+| |
+| |
+|===
+
+Georg: +
+
+[%header, cols="1,3"]
+|===
+| Dokument | Aufgabe
+| project_plan.adoc | lessons learned SE2 anpassen
+| project_plan.adoc | Projektorganisation ausführlicher beschreiben
+| risks.csv | Anpassung Risiken aus SE1 
+|===
+
+*Änderungen und Erweiterungen*
+
+Use-Case-Diagramm -> Farben nicht eindeutig +
+Risikoplanung +
+Probleme und Lösungen mit in den Projektbericht zu den Iterationen
+
+*Rückfragen Manu:*
+
+- werden Risiken in Risklist direkt angepasst? Risiken aus SE1 werden in SE2 anders bewertet
+- was ist Teil des projektberichtes? Was wird aus SE1 übernommen?
+

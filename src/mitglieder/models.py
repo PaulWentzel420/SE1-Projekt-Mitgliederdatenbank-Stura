@@ -13,10 +13,6 @@ class Mitglied(models.Model):
     * name: Nachname des Mitglieds. Darf nicht null sein.
     * vorname: Vorname des Mitglieds. Darf nicht null sein.
     * spitzname: Spitzname des Mitglieds. Kann null sein.
-    * strasse: Straße des Mitglieds. Kann null sein.
-    * hausnr: Hausnummer des Mitglieds. Kann null sein.
-    * plz: Postleitzahl des Mitglieds. Kann null sein.
-    * ort: Ort des Mitglieds. Kann null sein.
     * tel_mobil: Telefonnummer des Mitglieds. Kann null sein.
 
     * tel_weitergabe: Stellt dar, ob die Telefonnummer des Mitglieds im Notfall weitergegeben werden darf. Standard ist False.
@@ -29,10 +25,6 @@ class Mitglied(models.Model):
     name = models.CharField(max_length=50, null=False)
     vorname = models.CharField(max_length=50, null=False)
     spitzname = models.CharField(max_length=50, null=True)
-    strasse = models.CharField(max_length=50, null=True)
-    hausnr = models.CharField(null=True, max_length=10)
-    plz = models.CharField(max_length=5, null=True)
-    ort = models.CharField(max_length=50, null=True)
     tel_mobil = models.CharField(max_length=15, null=True)
     tel_weitergabe = models.BooleanField(default=False, null=False)
 

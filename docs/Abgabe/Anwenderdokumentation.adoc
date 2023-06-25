@@ -1,0 +1,187 @@
+// --- 1. Projektthema -------------------------
+= Anwenderdokumentation: {project-name}
+// --- 2. Teammitglieder -----------------------
+Paul Wentzel <s83970@htw-dresden.de>; Georg Schicker <s83938@htw-dresden.de>; Nathalie Kästner <s83816@htw-dresden.de>; Collin Neumann <s84599@htw-dresden.de>; Lennart Bronke <s83778@htw-dresden.de>
+// --- 3. Abgabedatum --------------------------
+26. Juni 2023
+// ---------------------------------------------
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+// ---
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-signifier:
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:!example-caption:
+:experimental:
+// Folders
+:imagesdir-reset: {imagesdir}
+:docs-test2: {docs}/test2
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+<<<
+
+// --- 4. include Pfade anpassen ---------------
+
+:imagesdir: images
+
+== Einführung
+
+=== Zweck
+
+Die vorliegende Web-Anwendung dient der Verwaltung der Mitglieder des Studentenrates der HTW Dresden. Diese ermöglicht es, Mitglieder übersichtlich zu listen und zu bearbeiten, neue Mitglieder einfach anzulegen und über entsprechende Berechtigungen der Mitglieder zu informieren. +
+Ziel der Anwendung ist es, die bisherige unübersichtliche Organisation über Excel-Tabellen zu ersetzen und die Verwaltung der Mitglieder zeiteffizienter und intuitiver zu gestalten.
+
+=== Funktionsumfang
+
+Während unserer Projektarbeit haben wir ein bereits vorhandenes System weiterentwickelt. Hierbei wurden neue Funktionen einerseits ergänzt und bereits vorhandene Funktionen erweitert beziehungsweise je nach Bedarf auch entfernt. +
+So wurde die von unseren Vorgängern zuvor implementierte Verwaltung von Kandidaturen nun wieder entfernt, da diese vom Auftraggeber nicht mehr gewünscht wurde. +
+Des Weiteren wird nun bei der Neuanlage oder Bearbeitung eines Mitglieds automatisch eine Checkliste erstellt, welche Berechtigung diesem entsprechend seines Amtes noch zu vergeben sind (Schlüssel, Websitegruppen etc.).
+
+== Aufbau der Benuzeroberfläche am Beispiel des Tabs "Mitglieder"
+
+Mit Hilfe der Datenbank sollen die Mitglieder des StuRa verwaltet werden. Auf diese kann durch die Auswahl des zugehörigen Reiters [*A*] zugegriffen werden. +
+Nach Auswahl des Reiters gibt eine Übersicht [*B*] einen Überblick über alle eingetragenen Personen. +
+Durch das Suchfeld [*C*] ist man in der Lage, nach bestimmten Mitgliedern namentlich zu suchen und diese bei Bedarf mit der Checkbox [*H*] auszuwählen. +
+Außerdem hat der Nutzer die Möglichkeit, Datensätze neu hinzuzufügen [*D*], zu bearbeiten [*E*] oder zu löschen [*F*]. +
+Mittels des Mail-Icons [*G*] können E-Mails direkt an den gewünschten Empfänger versendet werden.
+
+image::1.png[]
+
+== Nutzung als Admin
+
+* Admins besitzen uneingeschränkten Zugriff auf die Anwendung
+
+=== Vorbedingungen
+
+* es besteht eine stabile Internetverbindung
+* Admin muss im Online-Tool angemeldet sein
+
+=== Mitglieder verwalten
+
+* der Tab “Mitglieder” muss ausgewählt worden sein
+
+image::2.png[]
+
+==== Mitglied anlegen
+
+Um ein neues Mitglied anzulegen, muss der “*HINZUFÜGEN*”-Button betätigt werden. Dieser befindet sich über der Übersicht der bereits eingetragenen Mitglieder.
+
+image::3.png[]
+
+Dadurch öffnet sich eine leere Eingabemaske, in welche die Angaben des Mitglieds eingetragen werden. Zum Abspeichern des neuen Mitglieds muss der “*SPEICHERN*”-Button betätigt werden.
+
+image::4.png[]
+
+Infolgedessen schließt sich die Eingabemaske und das neu angelegte Mitglied erscheint in der Übersicht.
+
+Für den Fall, dass nicht alle benötigten Daten angegeben wurden, schlägt die Speicherung des Mitglieds fehl und der Admin wird durch eine rote Hinterlegung auf die fehlenden Angaben hingewiesen.
+
+image::5.png[]
+
+==== Mitglied bearbeiten
+
+Soll ein bereits vorhandenes Mitglied bearbeitet werden, so muss dieses zuerst entweder über das Suchfeld oder händisch aus der Übersicht herausgesucht werden. Daraufhin öffnet man mit einem Klick auf das *Bearbeitungs-Icon*, welches sich am Ende der Zeile befindet, die Eingabemaske mit den Daten des Mitglieds.
+
+image::6.png[]
+
+Folglich können nun Änderungen an den bestehenden Daten durchgeführt werden. Wurden diese erfolgreich eingetragen, können sie durch Betätigung des “*SPEICHERN*”-Buttons abgespeichert werden. Dieser befindet sich am Ende der Seite.
+
+==== Mitglied löschen
+
+Möchte der Admin ein bestehendes Mitglied löschen, so muss dieses zuerst herausgesucht werden. Daraufhin muss das Mitglied über die *Checkbox* ausgewählt werden. Infolgedessen ist es ihm nun möglich, den “*ENTFERNEN*”-Button auszuwählen. Dieser befindet sich neben dem “HINZUFÜGEN”-Button. Durch Betätigung des “*ENTFERNEN*”-Buttons wird das ausgewählte Mitglied aus der Datenbank und somit aus der Übersicht entfernt. Dem Benutzer wird eine entsprechende Meldung ausgegeben.
+
+image::7.png[]
+
+=== Checklisten verwalten
+
+==== Checkliste für ein einzelnes Mitglied 
+
+* der Tab “Mitglieder” muss ausgewählt worden sein
+
+Kürzlich hinzugefügte Mitglieder sind in der Übersicht mit einem roten Ausrufezeichen versehen, welches darauf aufmerksam macht, dass bestimmte Leistungen noch erbracht werden müssen.
+
+image::8.png[]
+
+Um das Mitglied zu bearbeiten, muss man wie gehabt das *Bearbeitungs-Icon* am Ende der Zeile auswählen. Folglich öffnet sich die Eingabemaske, in der Informationen geändert oder ergänzt werden können.
+
+Ein weiterer Teil der Eingabemaske ist ebenfalls eine *Checkliste*, die über Anforderungen an das Mitglied aufklärt. Diese kann vom Admin bearbeitet werden. Dementsprechend können erbrachte Leistungen durch einen Haken in der entsprechenden Checkbox markiert werden.
+
+image::9.png[]
+
+Durch die Betätigung des “*SPEICHERN*”-Buttons werden alle Änderungen in die Datenbank übernommen.
+
+==== Alle Checklisten
+
+* der Tab “Checklisten” muss ausgewählt worden sein
+
+image::10.png[]
+
+Hier erhält man eine Übersicht über alle Checklisten und somit über alle offenen Anforderungen. Checklisten werden bei Neuanlage oder Änderung eines Mitglieds automatisch generiert.
+
+image::11.png[]
+
+=== Mitglieder per Mail kontaktieren
+
+* der Tab “Mitglieder” muss ausgewählt worden sein
+
+-> siehe <<Direkte Kontaktierung>>
+
+== Nutzung als User
+
+* User besitzen eingeschränkten Zugriff auf die Anwendung
+
+=== Vorbedingungen
+
+* es besteht eine stabile Internetverbindung
+* User muss im Online-Tool angemeldet sein
+
+=== Mitglieder per Mail kontaktieren
+
+* der Tab “Mitglieder” muss ausgewählt worden sein
+
+==== Indirekte Kontaktierung
+
+Um ein Mitglied indirekt zu kontaktieren, muss dieses zuerst in der Übersicht herausgesucht werden. Hierdurch ist es dem User einerseits möglich, den Namen und die Funktion des Mitglieds einzusehen, aber auch dessen E-Mail-Adresse. Diese kann verwendet werden, um mit dem Mitglied in Kontakt zu treten.
+
+image::12.png[]
+
+==== Direkte Kontaktierung
+
+Für eine direkte Kontaktierung muss das Mitglied ebenfalls zuerst in der Übersicht herausgesucht werden. Nun öffnet sich durch einen Klick auf das Mail-Icon, welches sich am Ende der Zeile befindet, das bevorzugte Mail-Programm. Hierbei befindet sich die angegebene E-Mail-Adresse bereits in der Empfängerzeile der zu schreibenden Mail.
+
+image::13.png[]
+
+=== Mitglieder per Telefon kontaktieren
+
+* der Tab “Mitglieder” muss ausgewählt worden sein
+
+Um ein Mitglied per Telefon zu kontaktieren, muss dieses zuerst in der Übersicht herausgesucht werden. Wenn vorhanden, wird hier neben dem Namen, der Funktion und der Mail-Adresse auch die Telefonnummer des Mitglieds angezeigt. Diese kann verwendet werden, um das Mitglied telefonisch zu kontaktieren.
+
+image::14.png[]
+
+== Allgemeine Hinweise
+
+* rot unterstrichene Felder weisen darauf hin, dass noch nicht alle geforderten Angaben eingetragen wurden
+* Hinweise über den Erfolg einer Neuanlegung/Löschung werden textuell ausgegeben
+
+== Weiterführende Dokumentation
+
+In diesem Dokument werden nur die aktualisierten Features (Stand 2023) aufgezeigt. Die tiefgründige Anwendungsdokumentation über bereits vorhandene, unveränderte Features ist zu finden unter: +
+https://mribrgr.github.io/StuRa-Mitgliederdatenbank/index.html#document-masterUserDoc
+

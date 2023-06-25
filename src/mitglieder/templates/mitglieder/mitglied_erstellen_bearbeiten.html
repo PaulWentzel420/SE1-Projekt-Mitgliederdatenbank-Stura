@@ -82,31 +82,7 @@
       </div>
     </div>
 
-    <!-- Adresse -->
-    <div class="row">
-      <div class="col s12">
-        <h5>Anschrift und Kontaktdaten</h5>
-        <br />
-      </div>
-      <div class="input-field col s9 m5 l4">
-        <input id="strasse" name="strasse" type="text" class="validate" {% if mitglied.strasse %}value="{{mitglied.strasse}}"{% endif %}>
-        <label for="strasse">Straße</label>
-      </div>
-      <div class="input-field col s3 m3 l2">
-        <input id="hausnr" name="hausnr" type="text" class=" validate" {% if mitglied.hausnr %}value="{{mitglied.hausnr}}"{% endif %}>
-        <label for="hausnr">Hausnummer</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s4 m3 l2">
-        <input id="plz" name="plz" type="text" class="validate" {% if mitglied.plz %}value="{{mitglied.plz}}"{% endif %}>
-        <label for="plz">Postleitzahl</label>
-      </div>
-      <div class="input-field col s8 m5 l4">
-        <input id="ort" name="ort" type="text" class="validate" {% if mitglied.ort %}value="{{mitglied.ort}}"{% endif %}>
-        <label for="ort">Ort</label>
-      </div>
-    </div>
+    
     <div class="row">
       <div class="input-field col s12 m8 l6">
         <input id="telefon_mobil" name="telefon_mobil" type="text" class="validate" {% if mitglied.tel_mobil %}value="{{mitglied.tel_mobil}}"{% endif %}>
@@ -131,7 +107,7 @@
 
       <div class="col s12">
         <label style="color:#000" for="chk1-{{entry.id}}">
-          <input type="checkbox" name="auto_checkliste"  id="chk1-{{entry.id}}" {% if mitglied.auto_checkliste %}checked{% endif %}/>
+          <input type="checkbox" checked="checked" name="auto_checkliste"  id="chk1-{{entry.id}}" {% if mitglied.auto_checkliste %}checked{% endif %}/>
           <span>Checkliste erstellen</span>
         </label>
       </div>
