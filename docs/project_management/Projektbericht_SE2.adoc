@@ -88,11 +88,17 @@ In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem uner
 
 === Webanwendung läuft
 
-//Bissl Text einfügen
+Insgesamt lässt sich sagen, dass die allgemeine Problematik des Kunden durch unsere Anwendung behoben werden konnte. Die zuvor mühsame, zeitaufwendige Verwaltung der Mitglieder über Tabellen kann nun intuitiv und übersichtlich über die entwickelte Web-Anwendung durchgeführt werden.
+
+Bezüglich der Use-Cases lässt sich sagen, dass diese fast alle umgesetzt wurden. Die Datenbank ermöglicht es, Mitglieder, Funktionen und Checklisten mühelos zu verwalten. Des Weiteren wurde die vom Vorgänger implementierte Verwaltung von Kandidaturen wieder entfernt, da dies vom Auftraggeber nicht mehr gewünscht wurde. Der einzige Use-Case, der unerfüllt blieb, stellt die Funktionalität des Exports von Daten dar. Dieser wurde jedoch von Anfang an mit einer niedrigen Priorität versehen und wurde im Laufe des Projektes auch nicht mehr vom Auftraggeber als zwingend notwendige Anforderung gesehen. Infolgedessen wurde dieses Feature aus zeitlichen Gründen nicht mehr realisiert.
+
+Das Domänenmodell sowie einige Use-Cases änderten sich geringfügig im Laufe der Projektarbeit, vor allem da nun ein bereits vorhandenes System weiterentwickelt wurde und sich die Anforderungen der Stakeholder teilweise änderten.
+
+Des Weiteren konnten die in der Anforderungsanalyse festgelegten Qualitätsanforderungen erfüllt werden.
 
 === Checklisten lassen sich automatisch erstellen
 
-//Bissl Text einfügen
+Im Gegensatz zum anfänglichen Entwicklungsstand besitzt die Anwendung nun die Funktionalität, Checklisten automatisch zu erstellen. Diese werden bei Neuanlage oder Änderung eines Mitglieds vom System generiert.
 
 === Reflexionen der Teammitglieder
 
