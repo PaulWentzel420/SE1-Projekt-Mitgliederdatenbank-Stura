@@ -31,8 +31,8 @@ Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringe
 
 ==== Start ins neue Semester Iteration 5 (20.03 - 02.04)
 ===== Ziele: 
-  -
-  -
+  - Auswahl eines neuen Teamkaptains
+  - Analyse des Vorgängerprojektes
   -
 
 ===== Auswahl eines neuen Teamkaptains
@@ -43,45 +43,46 @@ Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief
 
 ==== Iteration 6 (03.04 - 16.04)
 ===== Ziele: 
-  -
-  -
-  -
+  - Neue Anforderungen und Erweiterungen mit StuRa (in Bezug auf übernahme des Projekts) klären
+  - Erweiterungen für Use Case 01 und 02 planen
+  - Testinstanz erstellen
+
 
 
 ==== Iteration 7 (17.04 - 30.04)
 ===== Ziele: 
-  -
-  -
+  - Use Case 01 und 02 weiter entwickeln
+  - Manuelle Tests für UC 01 und 02 durchfürhen
   -
 
 
 ==== Iteration 8 (01.05 - 14.05)
 ===== Ziele: 
-  -
-  -
-  -
+  - Erweiterung für Use Case 03 planen
+  - 
+  - 
 
 ===== Unerwarteter Weggang eines Teammitglieds
 In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem unerwarteten Ausscheiden eines geschätzten Teammitglieds konfrontiert. Dieser unvorhergesehene Weggang führte zu einer spürbaren Veränderung in der Teamdynamik und zu einer vorübergehenden Umverteilung der Verantwortlichkeiten. Aufgrund ihrer spezifischen Fachkompetenz und ihres Engagements, waren die Folgen des Weggangs sofort spürbar. Die dadurch entstandene Lücke zwang uns, sich schnell anzupassen und neue Verantwortlichkeiten zu übernehmen, um den reibungslosen Ablauf des Projekts zu gewährleisten. Es ist wichtig anzumerken, dass der Wegfall des Teammitglieds kurzfristig zu einer Verschiebung unserer Projektzeitlinie geführt hat. Wir haben uns an die neue Situation angepasst und uns mit intensivem Engagement und kollektiver Anstrengung darum bemüht, die Auswirkungen dieser unerwarteten Änderung zu minimieren und das Projekt wieder auf Kurs zu bringen.
 
 ==== Iteration 9 (15.05 - 28.05)
 ===== Ziele: 
-  -
-  -
-  -
+  - Use Case 03 weiter entwickeln
+  - Use Case 06 und 07 planen
+  - Weiteres Testen (UC 01, 02 und neu UC 03)
 
 ==== Iteration 10 (29.05 - 11.06)
 ===== Ziele: 
-  -
-  -
+  - Manuelle Tests für UC 01 und 02 durchfürhen
+  - Entwicklung von UC 07
   -
 
 
 ==== Iteration 11 (12.06 - 25.06)
 ===== Ziele: 
-  -
-  -
-  -
+  - Weiteres Testen, hauptsächlich von UC 07
+  - 
+  - Deployment der Sofware
 
 
 == Projektergebnisse
