@@ -31,45 +31,49 @@ Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringe
 
 ==== Start ins neue Semester Iteration 5 (20.03 - 02.04)
 ===== Ziele: 
-  - Auswahl eines neuen Teamkaptains
-  - Analyse des Vorgängerprojektes
+  - Auswahl eines neuen Teamleiters
+  - Treff mit Team-Coach zur Auswertung des Beleges aus SE1
 
-===== Auswahl eines neuen Teamkaptains
-Nach dem vorausgesehenen Ausscheiden unseres bisherigen Teamkapitäns Toni Hörnig standen wir vor der wichtigen Aufgabe, eine geeignete Nachfolge zu finden. Die Auswahl eines neuen Teamkapitäns hat nicht nur Auswirkungen auf die unmittelbare Teamdynamik und die Verteilung der Verantwortlichkeiten, sondern auch auf den Fortschritt und die Zeitpläne unseres Softwareentwicklungsprojekts. Die Nachfolgesuche war eine Mischung aus Teamdiskussionen und Bewertungen der Fachkenntnisse sowie der Führungsqualitäten der potenziellen Kandidaten. Letzendlich haben wir uns für Georg Schicker entschieden, da er bereits gezeigt hat, dass er bereit und fähig ist, die Anforderungen zu erfüllen, und wir haben uns bemüht, ihn in seiner neuen Rolle zu unterstützen.
+===== Auswahl eines neuen Teamleiters
+Nach dem vorausgesehenen Ausscheiden unseres bisherigen Teamleiters Toni Hörnig standen wir vor der wichtigen Aufgabe, eine geeignete Nachfolge zu finden. Die Auswahl eines neuen Teamleiters hat nicht nur Auswirkungen auf die unmittelbare Teamdynamik und die Verteilung der Verantwortlichkeiten, sondern auch auf den Fortschritt und die Zeitpläne unseres Softwareentwicklungsprojekts. Die Nachfolgesuche war eine Mischung aus Teamdiskussionen und Bewertungen der Fachkenntnisse sowie der Führungsqualitäten der potenziellen Kandidaten. Letzendlich haben wir uns für Georg Schicker entschieden, da er bereits gezeigt hat, dass er bereit und fähig ist, die Anforderungen zu erfüllen, und wir haben uns bemüht, ihn in seiner neuen Rolle zu unterstützen.
 
-===== Analyse des Vorgängerprojektes
-Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief in die Entwicklung unseres eigenen eingetaucht waren, stellte unser Team vor eine erhebliche Herausforderung. Emotional war es schwierig, die Begeisterung und das Engagement, die wir in unser eigenes Projekt investiert hatten, loszulassen und uns auf die Aufgabe der Fortführung der Arbeit eines anderen Teams zu konzentrieren. Darüber hinaus brachte dieser Wechsel logistische Herausforderungen mit sich, da wir uns auf die Analyse und das Verständnis des übernommenen Projekts, dessen Ziele, Entwicklungsstadium und potenzielle Hürden konzentrieren mussten. Die Kommunikation des Stakeholders, der diese bedeutende Änderung erst spät bekannt gab, hatte einen beträchtlichen Einfluss auf die Moral des Teams und auf unsere anfängliche Fähigkeit, uns auf das neue Projekt einzustellen. Nichtsdestotrotz haben wir uns zusammengeschlossen und uns auf die neue Aufgabe konzentriert, indem wir unsere Ressourcen neu organisiert und eine gründliche Analyse des vorhandenen Projekts durchgeführt haben. 
+===== Auswertung Beleg SE1
+
+Da am Anfang des Semesters zwei unserer Mitglieder an Corona erkrankt waren hat sich die Terminfindung mit unserem Team-Coach Manuela etwas hinausgezögert. Am 29. März konnten wir uns treffen und haben Feedback und Änderungsanregungen zu unserer Abgabe aus Software-Engineering 1 bekommen.
 
 ==== Iteration 6 (03.04 - 16.04)
-===== Ziele: 
-  - Neue Anforderungen und Erweiterungen mit StuRa (in Bezug auf übernahme des Projekts) klären
-  - Erweiterungen für Use Case 01 und 02 planen
-  - Testinstanz erstellen
+===== Ziele:
 
+  - Analyse des Vorgängerprojektes
 
+===== Analyse des Vorgängerprojektes
+Die Übernahme eines bestehenden Projekts, während wir bereits in die Entwicklung unseres eigenen eingetaucht waren, stellte unser Team vor eine erhebliche Herausforderung. Emotional war es schwierig, die Begeisterung und das Engagement, die wir in unser eigenes Projekt investiert hatten, loszulassen und uns auf die Aufgabe der Fortführung der Arbeit eines anderen Teams zu konzentrieren. Darüber hinaus brachte dieser Wechsel logistische Herausforderungen mit sich, da wir uns auf die Analyse und das Verständnis des übernommenen Projekts, dessen Ziele, Entwicklungsstadium und potenzielle Hürden konzentrieren mussten. Die Kommunikation des Stakeholders, der diese bedeutende Änderung erst spät bekannt gab, hatte einen beträchtlichen Einfluss auf die Moral des Teams und auf unsere anfängliche Fähigkeit, uns auf das neue Projekt einzustellen. Nichtsdestotrotz haben wir uns zusammengeschlossen und uns auf die neue Aufgabe konzentriert, indem wir unsere Ressourcen neu organisiert und eine gründliche Analyse des vorhandenen Projekts durchgeführt haben. 
 
 ==== Iteration 7 (17.04 - 30.04)
-===== Ziele: 
-  - Use Case 01 und 02 weiter entwickeln
-  - Manuelle Tests für UC 01 und 02 durchführen
+===== Ziele:
 
-===== Manuelle Tests durchfürhen
-Nach der sorgfältiger Analyse der Anforderungen der implementierten Anwendungsfälle haben wir präzise Testfälle und -szenarien erstellt.  Die Herausforderung bestand darin, die Testfälle so vollständig und genau wie möglich zu gestalten, um sicherzustellen, dass das Endprodukt die Anforderungen erfüllt und Fehler minimiert werden.
+- Analyse des Vorgängerprojektes
 
+===== Analyse des Vorgängerprojektes
+Die Übernahme des Vorgängerprojektes hat uns vor weitere Hürden gestellt. Die Teammotivation hat unter der Übernahme des Vorgängerprojektes stark gelitten, da wir kein Ziel mehr vor Augen hatten. Auch hat sich die Analyse des Vorgängerprojekts als zeitaufwändiger herausgestellt als erwartet. Auch ist im Team noch nicht klar wie wir die Dokumentation angehen sollen, da wir nun alles von unseren Vorgängern übernehmen und nur Anpassungen vornehmen.
 
 ==== Iteration 8 (01.05 - 14.05)
 ===== Ziele: 
-  - Erweiterung für Use Case 03 planen
 
+  - Testinstanz erstellen
+  - Neue Anforderungen und Erweiterungen mit StuRa (in Bezug auf übernahme des Projekts) klären
 
 ===== Unerwarteter Weggang eines Teammitglieds
 In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem unerwarteten Ausscheiden eines geschätzten Teammitglieds konfrontiert. Dieser unvorhergesehene Weggang führte zu einer spürbaren Veränderung in der Teamdynamik und zu einer vorübergehenden Umverteilung der Verantwortlichkeiten. Aufgrund ihrer spezifischen Fachkompetenz und ihres Engagements, waren die Folgen des Weggangs sofort spürbar. Die dadurch entstandene Lücke zwang uns, sich schnell anzupassen und neue Verantwortlichkeiten zu übernehmen, um den reibungslosen Ablauf des Projekts zu gewährleisten. Es ist wichtig anzumerken, dass der Wegfall des Teammitglieds kurzfristig zu einer Verschiebung unserer Projektzeitlinie geführt hat. Wir haben uns an die neue Situation angepasst und uns mit intensivem Engagement und kollektiver Anstrengung darum bemüht, die Auswirkungen dieser unerwarteten Änderung zu minimieren und das Projekt wieder auf Kurs zu bringen.
 
 ==== Iteration 9 (15.05 - 28.05)
 ===== Ziele: 
-  - Use Case 03 weiter entwickeln
-  - Use Case 06 und 07 planen
-  - Weiteres Testen (UC 01, 02 und neu UC 03)
+
+  - Manuelle Tests durchführen
+  - Einarbeitung der vom StuRa gewünschten Änderungen
+
+===== Manuelle Tests durchfürhen
+Nach der sorgfältiger Analyse der Anforderungen der implementierten Anwendungsfälle haben wir präzise Testfälle und -szenarien erstellt. Die Herausforderung bestand darin, die Testfälle so vollständig und genau wie möglich zu gestalten, um sicherzustellen, dass das Endprodukt die Anforderungen erfüllt und Fehler minimiert werden. Des Weiteren haben wir uns mit den von unseren Vorgängernerstellten Tests auseinandergesetzt.
 
 ==== Iteration 10 (29.05 - 11.06)
 ===== Ziele: 
@@ -80,8 +84,22 @@ In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem uner
 ==== Iteration 11 (12.06 - 25.06)
 ===== Ziele: 
   - Weiteres Testen, hauptsächlich von UC 07
-  - Deployment der Sofware
+  - Planung Deplyoment
 
+===== Deplyoment
+Da wir für die entgültige Fertigstellung von UC 07 noch Zuarbeiten des StuRas fehlten ist ein termingerechtes Deployment nicht mehr realistisch. Deshalb haben wir bei Prof. Anke eine Verschiebung des Deployment-Termins angefragt.
+
+// nicht genutzte Iterationspunkte:   
+//  - Use Case 06 und 07 planen
+//  - Weiteres Testen (UC 01, 02 und neu UC 03)
+//  - Use Case 01 und 02 weiter entwickeln
+//  - Erweiterung für Use Case 03 planen
+//  - Erweiterungen für Use Case 01 und 02 planen
+
+== Probleme
+
+Im Laufe unseres Projektes wurden wir vor einige Probleme gestellt. So war die Arbeit mit unserem Auftraggeber, wie schon in SE1, nicht immer leicht. Die Unklarheiten über die Nutzung des Vorgängerprojektes und damit zusammenhängend die Ungewissheit warum das damalige Projekt nicht genutzt wurde hat der allgemeinen Motivation im Team geschadet. Erst in der zweiten Hälfte des Semesters hatten wir wieder ein echtes Ziel vor Augen. +
+Auch war das Ausscheiden eines unserer Teammitglieder ein angefallenes Problem. Wir haben uns erst spät an unseren Coach gewendet, da wir, im Nachhinein naiv, daran festgehlaten haben, dass sich das Teammitglied nochmal meldet und weiter an usnerem Software-Projekt arbeiten wird. Wir wollten das Teammitglied nicht in Schweirigkeiten bringen, was sich im Nachhinein als die falsche Herangehensweise herausgestellt hat.
 
 == Projektergebnisse
 
@@ -119,6 +137,9 @@ Obwohl das Projekt viel Zeit und Aufwand erforderte, bin ich stolz auf das, was 
 Die Erfahrungen und das erworbene Wissen aus diesem Projekt werden mir auch in Zukunft von Nutzen sein. Ich bin zufrieden mit meiner Leistung und dankbar für die Möglichkeit, an diesem Projekt teilgenommen zu haben, trotz der Schwierigkeiten, die wir überwinden mussten.
 
 ==== Georg Schicker
+
+Im Zuge des Moduls Software Engineering 1 und 2 haben wir an einer Mitgliederdatenbank für den StuRa der HTW-Dresden gearbeitet. +
+Die Arbeit am unserem Software-Projekt hat sich für mich als deutlich problematischer herausgestellt als vorher erwartet. Im Laufe des Moduls Software Engineering 2 hatte ich mit Überforderung und ungenügender Motivation zu kämpfen, da wir das das Projekt unsere Vorgängergruppe übernommen haben und sich somit alle Überlegungen aus dem vorhergehenden Semester als "sinnlos" angefühlt haben. 
 
 ==== Collin Neumann
 
