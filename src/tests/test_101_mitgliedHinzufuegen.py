@@ -103,16 +103,13 @@ def test(daten, driver):
 
             if not zugang_elemente and not recht_elemente:
                 print('Berechtigungen: Keine')
-            else:
-                print('Berechtigungen:')
-
+            
             rechte = []
 
             if zugang_elemente:
                 for zugang_element in zugang_elemente:
                     berechtigung = zugang_element.text.strip()
                     rechte.append(berechtigung)
-                    print(berechtigung)
             
             recht_elemente = card.find_all('span', string=lambda string: string and string.startswith('Schlüssel'))
 
@@ -121,17 +118,18 @@ def test(daten, driver):
                 for recht_element in recht_elemente:
                     recht = recht_element.text.strip()
                     rechte.append(recht)
-                    print(recht)
 
+            for i, recht in enumerate(rechte, start=1):
+                print(f'Berechtigung{i}: {recht}')
             ergebnis = Daten(position, rechte, voller_name=name)
             
             # Wir vergleichen das Ergebnis mit unseren Erwartungen (Beispieldaten)
-
             if ergebnis.voller_name == daten.voller_name and ergebnis.position ==  daten.position and sorted(ergebnis.rechte) == sorted(daten.rechte):
-                print(f'Test für {name} erfolgreich')
+                print(f'\nTest für {name} erfolgreich')
                 return True
             else:
-                print(f'Test für {name} NICHT erfolgreich')
+                print(f'\nTest für {name} NICHT erfolgreich\n')
+
                 # Wenn der Test fehlschlägt geben wir alle relevanten Daten aus um manuell zu check was schiefgelaufen ist
                 print(f'Daten:\n{daten}')
                 print(f'Ergebnis:\n{ergebnis}')
