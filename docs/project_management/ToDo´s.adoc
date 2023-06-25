@@ -39,7 +39,6 @@ Georg: +
 [%header, cols="1,3"]
 |===
 | Dokument | Aufgabe
-| project_plan.adoc | lessons learned SE2 anpassen
 | project_plan.adoc | Projektorganisation ausführlicher beschreiben
 | risks.csv | Anpassung Risiken aus SE1 
 |===
