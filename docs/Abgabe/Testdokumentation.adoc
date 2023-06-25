@@ -40,15 +40,33 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 == Testkonzept
 
+Diese Testdokumentation konzentriert sich auf die Überprüfung der Funktionalitäten und Usability der Website, die wir im Rahmen des Projekts übernommen und weiterentwickelt haben. Unsere Tests ergänzen die bereits durchgeführten Unit- und Integrationstests unserer Vorgänger.
+
+*Folgende Testmethoden/-verfahren wurden eingesetzt:*
+
+* Funktionstests (automatisiert)
+** Einzelne Funktionen der Website wurden mit praxisnahen Beispieldatensätzen überprüft, um sicherzustellen, dass das Ergebnis den Anforderungen bzw. Erwartungen des Stakeholders entspricht
+* Akzeptanztest
+** Im Rahmen eines Akzeptanztests überprüften die Stakeholder, ob das Projekt Ihre Erwartungen erfüllt
+
+Unser Hauptziel war eine einwandfrei funktionierende Website, die den funktionalen Anforderungen entspricht und eine optimale Benutzererfahrung bietet.
+
+Bei den Funktionstests entschieden wir uns für eine automatisierte Methode, um menschliche Fehler wie zum Beispiel fehlerhafte Benutzereingaben zu vermeiden. Zudem würde der Zeitaufwand von manuellen Tests die Implementierung eines automatisieren Tests übersteigen, da wir von den Stakeholdern eine größere Menge an Beispieldaten zur Verfügung gestellt bekommen haben.
+
 == Testdokumentation
+
+*Testfallbeschreibung*
+
+Die Testfälle werden tabellerisch sowie 
 
 == Ergebnisse der Testdurchführung
 
-=== Test Cases zu <Use-Case 0x> - <Use-Case-Name>
+=== Test Case zu Use Case 07 - Checkliste erstellen
 
 ==== Allgemeine Informationen
 
-==== <UC-Funktion>
+
+==== Checkliste anlegen
 
 ==== ...
 
