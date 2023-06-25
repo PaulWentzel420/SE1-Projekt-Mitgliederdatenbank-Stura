@@ -41,10 +41,16 @@ Georg: +
 | Dokument | Aufgabe
 | project_plan.adoc | lessons learned SE2 anpassen
 | project_plan.adoc | Projektorganisation ausführlicher beschreiben
-| risks.csv | Anpassung Risiken aus SE1
+| risks.csv | Anpassung Risiken aus SE1 
 |===
 
-Rückfragen Manu:
+*Änderungen und Erweiterungen*
+
+Use-Case-Diagramm -> Farben nicht eindeutig +
+Risikoplanung +
+Probleme und Lösungen mit in den Projektbericht zu den Iterationen
+
+*Rückfragen Manu:*
 
 - werden Risiken in Risklist direkt angepasst? Risiken aus SE1 werden in SE2 anders bewertet
 - was ist Teil des projektberichtes? Was wird aus SE1 übernommen?

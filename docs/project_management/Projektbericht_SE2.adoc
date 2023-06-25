@@ -51,7 +51,7 @@ Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief
 ==== Iteration 7 (17.04 - 30.04)
 ===== Ziele: 
   - Use Case 01 und 02 weiter entwickeln
-  - Manuelle Tests für UC 01 und 02 durchfürhen
+  - Manuelle Tests für UC 01 und 02 durchführen
 
 ===== Manuelle Tests durchfürhen
 Nach der sorgfältiger Analyse der Anforderungen der implementierten Anwendungsfälle haben wir präzise Testfälle und -szenarien erstellt.  Die Herausforderung bestand darin, die Testfälle so vollständig und genau wie möglich zu gestalten, um sicherzustellen, dass das Endprodukt die Anforderungen erfüllt und Fehler minimiert werden.
