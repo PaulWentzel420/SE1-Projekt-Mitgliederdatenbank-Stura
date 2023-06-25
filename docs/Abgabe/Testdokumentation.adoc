@@ -51,28 +51,102 @@ Diese Testdokumentation konzentriert sich auf die Überprüfung der Funktionalit
 
 Unser Hauptziel war eine einwandfrei funktionierende Website, die den funktionalen Anforderungen entspricht und eine optimale Benutzererfahrung bietet.
 
-Bei den Funktionstests entschieden wir uns für eine automatisierte Methode, um menschliche Fehler wie zum Beispiel fehlerhafte Benutzereingaben zu vermeiden. Zudem würde der Zeitaufwand von manuellen Tests die Implementierung eines automatisieren Tests übersteigen, da wir von den Stakeholdern eine größere Menge an Beispieldaten zur Verfügung gestellt bekommen haben.
+Bei den Funktionstests entschieden wir uns für eine automatisierte Methode, um menschliche Fehler wie zum Beispiel fehlerhafte Benutzereingaben zu vermeiden. Zudem würde der Zeitaufwand von manuellen Tests die Implementierung eines automatisieren Tests übersteigen, da wir die Tests öfter anpassen möchten.
 
 == Testdokumentation
 
 *Testfallbeschreibung*
 
-Die Testfälle werden tabellerisch sowie 
+Die Testfälle werden tabellerisch und gegebenenfalls mithilfe einer detaillierten Logdatei beschrieben. Jeder Testfall wird mit einer Testfallnummer, Vorbedingungen, Eingabedaten, den Schritten zur Durchführung des Tests sowie dem erwarteten Ergebnis dokumentiert.
+
+Da der Tester gleichzeitig auch eine Rolle als Entwickler einnimmt, werden entdeckte Fehler sofort analysiert und behoben. Dies erzeugt zwar einen erhöhten Aufwand für eine Person, verspricht dafür jedoch einen idealen Workflow ohne längere Wartezeiten.
+
+Person, welche getestet hat: Collin Neumann (Test sowie Entwicklung)
 
 == Ergebnisse der Testdurchführung
 
-=== Test Case zu Use Case 07 - Checkliste erstellen
+Unsere Testergebnisse waren im 1. Durchlauf bis auf eine Ausnahme erfolgreich. Der Grund für den Fehlschlag war, dass ein Mitglied einen Umlaut im Nachnamen hatte, der im E-Mail-Feld zu einer Fehlermeldung führte, welcher das Hinzufügen des Mitglieds verhinderte. Wir interpretieren den Fehlschlag jedoch als nicht schwerwiegend, da dieser im Falle eines manuellen Tests nicht passiert wäre (die Fehlermeldung ist für Benutzer eindeutig).
+
+Der zweite Testlauf war durchweg erfolgreich. 
+
+Rückwirkend betrachtet erachten wir die automatisierte Lösung als eine gute Wahl, da diese mittels einer Logdatei eine leichte Dokumentierung ermöglichte.
+----
+Name:  Paul Wentzel
+Position:  Service/Buchhaltung (Angestellte)
+Berechtigung1: Zugang: Schleuse
+Berechtigung2: Schlüssel4
+
+Test für Paul Wentzel erfolgreich
+#############################################
+Name:  Georg Schicker
+Position:  Mitglied Ausschuss Finanzielles (Ausschüsse des StuRa)
+Berechtigung1: Zugang: Schleuse
+Berechtigung2: Schlüssel5
+Berechtigung3: Schlüssel6
+
+Test für Georg Schicker erfolgreich
+#############################################
+Name:  Collin Neumann
+Position:  Leitung Beauftragung Datenschutz (Beauftragte des StuRa)
+Berechtigung1: Zugang: Schleuse
+Berechtigung2: Schlüssel8
+
+Test für Collin Neumann erfolgreich
+#############################################
+Name:  Nathalie Kaestner
+Position:  studentische Vertretung (Beitrag Projekt eCampus)
+Berechtigung1: Zugang: Schleuse
+
+Test für Nathalie Kaestner erfolgreich
+#############################################
+Name:  Lennart Bronke
+Position:  SprecherIn Sprecherinnen und Sprecher (Fachausschuss Bauingenieurswesen/Architektur)
+Berechtigung1: Zugang: Schleuse
+
+Test für Lennart Bronke erfolgreich
+#############################################
+Name:  Collina Neumannski
+Position:  SprecherIn Sprecherinnen und Sprecher (Fachausschuss Design)
+Berechtigung1: Zugang: Schleuse
+
+Test für Collina Neumannski erfolgreich
+#############################################
+Durchgeführte Tests: 6
+Erfolgreiche Tests: 6
+Fehlgeschlagene Tests: 0
+----
+
+=== Test Case zu Use Case 01 und 07 - Mitglied sowie Checkliste erstellen
 
 ==== Allgemeine Informationen
 
+Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt (Berechtigungen) überprüfen. Dies geschieht in Verbindung mit dem Anlegen eines Mitglieds, da das Erstellen der Checkliste dies vorraussetzt.
 
-==== Checkliste anlegen
+==== Mitglied anlegen
 
-==== ...
+*Ziel:* Erfolgreiche Erstellung eines neuen Mitglieds
 
-=== ...
+*Beschreibung:* Der Anwender möchte ein neues Mitglied in die Datenbank aufnehmen
+
+*Vorbedingungen*:
+
+* Position ist noch nicht vollständig belegt
+
+==== Checkliste überprüfen
+
+*Ziel:* Überprüfung ob die Checkliste beim Anlegen des Mitglieds automatisch erstellt wurde
+
+*Beschreibung:* Der Anwender möchte überprüfen ob für das erstellte Mitglied automatisch eine Checkliste mit passendem Inhalt (Berechtigungen) erzeugt wurde.
+
+*Vorbedingungen*:
+
+* Mitglied war noch nicht vorhanden
+* 'Checkliste erstellen' wurde 
+
+==== Berechtigungen überprüfen
 
 === Akzeptanztests
+Protokoll vom XX.06.2023 Schriftführer: Georg Schicker
 
 ==== Allgemeine Aufgaben
 
