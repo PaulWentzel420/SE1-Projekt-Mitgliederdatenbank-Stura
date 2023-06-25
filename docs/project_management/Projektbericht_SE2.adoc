@@ -33,7 +33,6 @@ Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringe
 ===== Ziele: 
   - Auswahl eines neuen Teamkaptains
   - Analyse des Vorgängerprojektes
-  -
 
 ===== Auswahl eines neuen Teamkaptains
 Nach dem vorausgesehenen Ausscheiden unseres bisherigen Teamkapitäns Toni Hörnig standen wir vor der wichtigen Aufgabe, eine geeignete Nachfolge zu finden. Die Auswahl eines neuen Teamkapitäns hat nicht nur Auswirkungen auf die unmittelbare Teamdynamik und die Verteilung der Verantwortlichkeiten, sondern auch auf den Fortschritt und die Zeitpläne unseres Softwareentwicklungsprojekts. Die Nachfolgesuche war eine Mischung aus Teamdiskussionen und Bewertungen der Fachkenntnisse sowie der Führungsqualitäten der potenziellen Kandidaten. Letzendlich haben wir uns für Georg Schicker entschieden, da er bereits gezeigt hat, dass er bereit und fähig ist, die Anforderungen zu erfüllen, und wir haben uns bemüht, ihn in seiner neuen Rolle zu unterstützen.
@@ -53,14 +52,13 @@ Die plötzliche Übernahme eines bestehenden Projekts, während wir bereits tief
 ===== Ziele: 
   - Use Case 01 und 02 weiter entwickeln
   - Manuelle Tests für UC 01 und 02 durchfürhen
-  -
+
 
 
 ==== Iteration 8 (01.05 - 14.05)
 ===== Ziele: 
   - Erweiterung für Use Case 03 planen
-  - 
-  - 
+
 
 ===== Unerwarteter Weggang eines Teammitglieds
 In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem unerwarteten Ausscheiden eines geschätzten Teammitglieds konfrontiert. Dieser unvorhergesehene Weggang führte zu einer spürbaren Veränderung in der Teamdynamik und zu einer vorübergehenden Umverteilung der Verantwortlichkeiten. Aufgrund ihrer spezifischen Fachkompetenz und ihres Engagements, waren die Folgen des Weggangs sofort spürbar. Die dadurch entstandene Lücke zwang uns, sich schnell anzupassen und neue Verantwortlichkeiten zu übernehmen, um den reibungslosen Ablauf des Projekts zu gewährleisten. Es ist wichtig anzumerken, dass der Wegfall des Teammitglieds kurzfristig zu einer Verschiebung unserer Projektzeitlinie geführt hat. Wir haben uns an die neue Situation angepasst und uns mit intensivem Engagement und kollektiver Anstrengung darum bemüht, die Auswirkungen dieser unerwarteten Änderung zu minimieren und das Projekt wieder auf Kurs zu bringen.
@@ -75,13 +73,11 @@ In der 8. Iteration unseres Softwareentwicklungsprojekts wurden wir mit dem uner
 ===== Ziele: 
   - Manuelle Tests für UC 01 und 02 durchfürhen
   - Entwicklung von UC 07
-  -
 
 
 ==== Iteration 11 (12.06 - 25.06)
 ===== Ziele: 
   - Weiteres Testen, hauptsächlich von UC 07
-  - 
   - Deployment der Sofware
 
 
