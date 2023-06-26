@@ -50,6 +50,8 @@ include::use_case_07.inc.adoc[]
 
 == Wireframes
 
+Hierbei handelt es sich um Wireframes für unseren Prototypen aus Software Engineering 1. Im Zuge der Übernahe des Vorgängerprojektes sind diese überflüssig geworden.
+
 .Formular
 image::0.png[]
 .Input-Validierung

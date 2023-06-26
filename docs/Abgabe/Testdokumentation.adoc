@@ -59,9 +59,9 @@ Bei den Funktionstests haben wir uns für eine automatisierte Methode entschiede
 
 Die Testfälle werden tabellerisch und gegebenenfalls mithilfe einer detaillierten Logdatei beschrieben. Jeder Testfall wird mit einer Testfallnummer, Vorbedingungen, Eingabedaten, den Schritten zur Durchführung des Tests sowie dem erwarteten Ergebnis dokumentiert.
 
-Da der Tester gleichzeitig auch eine Rolle als Entwickler einnimmt, werden entdeckte Fehler sofort analysiert und behoben. Dies erzeugt zwar einen erhöhten Aufwand für eine Person, verspricht dafür jedoch einen idealen Workflow ohne längere Wartezeiten.
+Da einer der Tester gleichzeitig auch eine Rolle als Entwickler einnimmt, werden entdeckte Fehler sofort analysiert und behoben. Dies erzeugt zwar einen erhöhten Aufwand für eine Person, verspricht dafür jedoch einen idealen Workflow ohne längere Wartezeiten.
 
-Person, welche getestet hat: Collin Neumann (Test sowie Entwicklung)
+Person, welche getestet haben: Collin Neumann (Test sowie Entwicklung), Georg Schicker (Test)
 
 == Ergebnisse der Testdurchführung
 
@@ -70,6 +70,61 @@ Unsere Testergebnisse waren im 1. Durchlauf bis auf eine Ausnahme erfolgreich. D
 Der zweite Testlauf war durchweg erfolgreich. 
 
 Rückwirkend betrachtet erachten wir die automatisierte Lösung als eine gute Wahl, da diese mittels einer Logdatei eine leichte Dokumentierung ermöglichte.
+
+=== Test Case zu Use Case 01 und 07 - Mitglied sowie Checkliste erstellen
+
+==== Allgemeine Informationen
+
+Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt (Berechtigungen) überprüfen. Dies geschieht in Verbindung mit dem Anlegen eines Mitglieds, da das Erstellen der Checkliste dies vorraussetzt.
+
+==== Mitglied anlegen
+
+*Ziel:* Erfolgreiche Erstellung eines neuen Mitglieds
+
+*Beschreibung:* Der Anwender möchte ein neues Mitglied in die Datenbank aufnehmen
+
+*Vorbedingungen*:
+
+* Position ist noch nicht vollständig belegt
+* Stammdaten sind vollständig und gültig
+
+*Testdaten*:
+
+[%header, cols="1,3,3,3"]
+|===
+|  | Amt |  Vorname | Nachname
+| 1| Service/Buchhaltung (Angestellte) | Paul | Wentzel
+| 2| Mitglied Ausschuss Finanzielles (Ausschüsse des StuRa)| Georg | Schicker
+| 3| Leitung Beauftragung Datenschutz (Beauftragte des StuRa)| Collin | Neumann
+| 4| studentische Vertretung (Beitrag Projekt eCampus)| Nathalie | Kaestner
+| 5| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Bauingenieurswesen/Architektur)| Lennart | Bronke
+| 6| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Design)| Collina | Neumannski
+|===
+
+==== Checkliste überprüfen
+
+*Ziel:* Überprüfung ob die Checkliste beim Anlegen des Mitglieds automatisch erstellt wurde
+
+*Beschreibung:* Der Anwender möchte überprüfen ob für das erstellte Mitglied automatisch eine Checkliste mit passendem Inhalt (Berechtigungen) erzeugt wurde.
+
+*Vorbedingungen*:
+
+* Mitglied war noch nicht vorhanden
+* 'Checkliste erstellen' wurde 
+
+==== Erwartetes Testergebnis
+
+[%header, cols="1,2"]
+|===
+|  | Berechtigung
+| 1| Zugang: Schleuse; Schlüssel4
+| 2| Zugang: Schleuse; Schlüssel5; Schlüssel6
+| 3| Zugang: Schleuse; Schlüssel8
+| 4| Zugang: Schleuse
+| 5| Zugang: Schleuse
+| 6| Zugang: Schleuse
+|===
+
 ----
 Name:  Paul Wentzel
 Position:  Service/Buchhaltung (Angestellte)
@@ -116,65 +171,45 @@ Erfolgreiche Tests: 6
 Fehlgeschlagene Tests: 0
 ----
 
-=== Test Case zu Use Case 01 und 07 - Mitglied sowie Checkliste erstellen
-
-==== Allgemeine Informationen
-
-Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt (Berechtigungen) überprüfen. Dies geschieht in Verbindung mit dem Anlegen eines Mitglieds, da das Erstellen der Checkliste dies vorraussetzt.
-
-==== Mitglied anlegen
-
-*Ziel:* Erfolgreiche Erstellung eines neuen Mitglieds
-
-*Beschreibung:* Der Anwender möchte ein neues Mitglied in die Datenbank aufnehmen
-
-*Vorbedingungen*:
-
-* Position ist noch nicht vollständig belegt
-* Stammdaten sind vollständig und gültig
-
-*Testdaten*
-
-[width="75%"]
-|=======
-|*1* |*2* |*A*
-|3 |4 |B
-|5 |6 |C
-|=======
-
-*Testdaten*:
-
-[%header, cols="1,3,3,3,3"]
-|===
-|  | Amt | Berechtigung | Vorname | Nachname
-| 1| Service/Buchhaltung (Angestellte) | Zugang: Schleuse; Schlüssel4 | |
-| 2| Mitglied Ausschuss Finanzielles (Ausschüsse des StuRa)| Zugang: Schleuse; Schlüssel5; Schlüssel6 | |
-| 3| Leitung Beauftragung Datenschutz (Beauftragte des StuRa)| Zugang: Schleuse; Schlüssel8 | |
-| 4| studentische Vertretung (Beitrag Projekt eCampus)| Zugang: Schleuse; | |
-| 5| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Bauingenieurswesen/Architektur)| Zugang: Schleuse; | |
-| 6| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Design)| Zugang: Schleuse; | |
-|===
-
-==== Checkliste überprüfen
-
-*Ziel:* Überprüfung ob die Checkliste beim Anlegen des Mitglieds automatisch erstellt wurde
-
-*Beschreibung:* Der Anwender möchte überprüfen ob für das erstellte Mitglied automatisch eine Checkliste mit passendem Inhalt (Berechtigungen) erzeugt wurde.
-
-*Vorbedingungen*:
-
-* Mitglied war noch nicht vorhanden
-* 'Checkliste erstellen' wurde 
-
-==== Berechtigungen überprüfen
-
 === Akzeptanztests
 Protokoll vom 17.05.2023 Schriftführer: Georg Schicker
 
-==== Allgemeine Aufgaben
+==== Allgemeine Angaben
+Datum: 17.05.2023
+Teilnehmer: +
+
+* Elli Range (Auftraggeberin)
+* Paul Wentzel (Entwickler)
+* Collin Neumann (Entwickler)
+* Lennart Bronke (Architekt)
+* Nathalie Kaestner (Analystin)
+* Georg Schicker (Projektleiter)
 
 ==== Ablauf
 
+* Aufruf der lokal gehosteten Website
+* Anmeldung auf Testinstanz
+* Test einzelner Funktionen
+** Mitglieder anlegen/löschen
+** Mitgliederdaten im nachhinein bearbeiten
+** Ämter bearbeiten
+** Checklisten
+** Historie
+* freies Testen
+
 ==== Funktionstests
 
+[%header, cols="1,1,2"]
+|===
+| Funktion | Use-Case | Anmerkung
+| Mitglied anlegen | UC01 | angenommen
+| Mitglied löschen | UC02 | angenommen
+| erstelltes Mitglied bearbeiten| UC02 | angenommen
+| Checkliste erstellen | UC07 | abgelehnt, nur sinnvoll nach Einarbeitung von Änderungswünschen
+|===
+
 ==== Hinweise/Wünsche
+* Funktion 'Kandidaturen' entfernen, da bereits durch anderes Projekt abgedeckt
+* Änderungen im Wording
+* Anpassung der Checklistenfunktion, da diese im jetzigen Zustand keine Erleichterung bringt 
+* Verbesserung des Workflows
