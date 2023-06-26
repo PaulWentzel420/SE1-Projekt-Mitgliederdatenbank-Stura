@@ -51,7 +51,7 @@ Diese Testdokumentation konzentriert sich auf die Überprüfung der Funktionalit
 
 Unser Hauptziel war eine einwandfrei funktionierende Website, die den funktionalen Anforderungen entspricht und eine optimale Benutzererfahrung bietet.
 
-Bei den Funktionstests entschieden wir uns für eine automatisierte Methode, um menschliche Fehler wie zum Beispiel fehlerhafte Benutzereingaben zu vermeiden. Zudem würde der Zeitaufwand von manuellen Tests die Implementierung eines automatisieren Tests übersteigen, da wir die Tests öfter anpassen möchten.
+Bei den Funktionstests haben wir uns für eine automatisierte Methode entschieden, um menschliche Fehler, wie zum Beispiel fehlerhafte Benutzereingaben, zu vermeiden. Zudem würde der Zeitaufwand von manuellen Tests die Implementierung eines automatisieren Tests übersteigen, da wir die Tests öfter anpassen möchten.
 
 == Testdokumentation
 
