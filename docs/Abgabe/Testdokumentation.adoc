@@ -132,6 +132,19 @@ Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt
 
 * Position ist noch nicht vollständig belegt
 
+*Testdaten*:
+
+[%header, cols="1,3,3,3,3"]
+|===
+|  | Amt | Berechtigung | Vorname | Nachname
+| 1| Service/Buchhaltung (Angestellte) | Zugang: Schleuse; Schlüssel4 | |
+| 2| Mitglied Ausschuss Finanzielles (Ausschüsse des StuRa)| Zugang: Schleuse; Schlüssel5; Schlüssel6 | |
+| 3| Leitung Beauftragung Datenschutz (Beauftragte des StuRa)| Zugang: Schleuse; Schlüssel8 | |
+| 4| studentische Vertretung (Beitrag Projekt eCampus)| Zugang: Schleuse; | |
+| 5| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Bauingenieurswesen/Architektur)| Zugang: Schleuse; | |
+| 6| SprecherIn Sprecherinnen und Sprecher (Fachausschuss Design)| Zugang: Schleuse; | |
+|===
+
 ==== Checkliste überprüfen
 
 *Ziel:* Überprüfung ob die Checkliste beim Anlegen des Mitglieds automatisch erstellt wurde
@@ -146,7 +159,7 @@ Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt
 ==== Berechtigungen überprüfen
 
 === Akzeptanztests
-Protokoll vom XX.06.2023 Schriftführer: Georg Schicker
+Protokoll vom 17.05.2023 Schriftführer: Georg Schicker
 
 ==== Allgemeine Aufgaben
 
