@@ -83,7 +83,7 @@ Die Übernahme des Vorgängerprojektes hat uns vor weitere Hürden gestellt. Die
   - Testinstanz erstellen
   - Neue Anforderungen und Erweiterungen mit StuRa (in Bezug auf übernahme des Projekts) klären
 
-===== Testinsatanz erstellen
+===== Testinstanz erstellen
 Die Betriebsdokumentation war durch eine neuere Version des Webframeworks Django nicht mehr aktuell, weshlab wir die Anwendung nicht sofort zum laufen gebracht haben. Nachdem einige Anpassungen im Code vorgenommen wurden, konnten wir das Proejkt in einen funktionsfähigen Zustand versetzen.
 
 ===== Treff StuRa
