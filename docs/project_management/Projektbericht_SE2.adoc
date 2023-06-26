@@ -32,7 +32,8 @@ Nathalie Kästner +
 Dang Tam Hao Nguyen (SE1)
 
 Architekt: +
-Lennart Bronke
+Lennart Bronke +
+Paul Wentzel
 
 Entwickler: +
 Collin Neumann +
@@ -40,7 +41,8 @@ Paul Wentzel
 
 Tester: +
 Georg Schicker +
-Paul Wentzel
+Collin Neumann
+
 
 Dennoch mussten wir uns eingestehen, dass unsere Rollenverteilung nur in der Theorie funktionierte. So kam es häufig vor, dass Mitglieder Hilfe von anderen benötigten, oder Aufgaben allein schlichtweg nicht zu bewältigen waren. Auch durch den Wegfall von Teammitgliedern, mussten wir uns besonders in SE II neu strukturieren. Hierbei haben uns jedoch die Gespräche mit den anderen Teams sehr geholfen.
 
@@ -50,10 +52,11 @@ Im Gegensatz zu SE I hielten wir es in SE II für zwingend notwendig, einen wöc
 
 Meetings mit dem Auftraggeber wurden ebenfalls in Präsenz durchgeführt. Dringende Fragen oder Informationen werden per Mail oder über Discord vermittelt.
 
+Wünschenswert wäre die Verwendung von GitHub Issues gewesen, jedoch hat sich Discord als besseres, von allen Teammitgliedern nutzbares, Tool herausgestellt. Im Nachhinein wäre eine vollumfassende Nutzung von GitHub schon zu Beginn des Projektes zielführend gewesen und hätte uns die angefallenen Schwierigkeiten im Projektmanagement erleichtert.
 
 == Projektdurchführung
 
-==== Start ins neue Semester Iteration 5 (20.03 - 02.04)
+==== Iteration 5 (20.03 - 02.04)
 ===== Ziele: 
   - Auswahl eines neuen Teamleiters
   - Treff mit Team-Coach zur Auswertung des Beleges aus SE1
