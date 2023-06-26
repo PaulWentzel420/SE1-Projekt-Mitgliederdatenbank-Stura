@@ -131,6 +131,16 @@ Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt
 *Vorbedingungen*:
 
 * Position ist noch nicht vollständig belegt
+* Stammdaten sind vollständig und gültig
+
+*Testdaten*
+
+[width="75%"]
+|=======
+|*1* |*2* |*A*
+|3 |4 |B
+|5 |6 |C
+|=======
 
 ==== Checkliste überprüfen
 
@@ -146,7 +156,7 @@ Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt
 ==== Berechtigungen überprüfen
 
 === Akzeptanztests
-Protokoll vom XX.06.2023 Schriftführer: Georg Schicker
+Protokoll vom 17.05.2023 Schriftführer: Georg Schicker
 
 ==== Allgemeine Aufgaben
 
