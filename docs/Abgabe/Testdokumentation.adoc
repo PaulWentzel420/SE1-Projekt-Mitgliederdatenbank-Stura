@@ -110,7 +110,7 @@ Dieser Testcase soll das automatische Anlegen einer Checkliste und dessen Inhalt
 *Vorbedingungen*:
 
 * Mitglied war noch nicht vorhanden
-* 'Checkliste erstellen' wurde 
+* 'Checkliste erstellen' wurde ausgewählt
 
 ==== Erwartetes Testergebnis
 
