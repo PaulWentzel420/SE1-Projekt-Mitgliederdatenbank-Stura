@@ -1,0 +1,125 @@
+tests package
+=============
+
+Submodules
+----------
+
+tests.MyFuncAemter module
+-------------------------
+
+.. automodule:: tests.MyFuncAemter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.MyFuncLogin module
+------------------------
+
+.. automodule:: tests.MyFuncLogin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.MyFuncMitglieder module
+-----------------------------
+
+.. automodule:: tests.MyFuncMitglieder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.MyTestCase module
+-----------------------
+
+.. automodule:: tests.MyTestCase
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_001\_admin module
+-----------------------------
+
+.. automodule:: tests.test_001_admin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_002\_user module
+----------------------------
+
+.. automodule:: tests.test_002_user
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_003\_multiuser module
+---------------------------------
+
+.. automodule:: tests.test_003_multiuser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_004\_mitgliedHinzufuegen module
+-------------------------------------------
+
+.. automodule:: tests.test_004_mitgliedHinzufuegen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_005\_mitgliedEntfernen module
+-----------------------------------------
+
+.. automodule:: tests.test_005_mitgliedEntfernen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_006\_mitgliedAendern module
+---------------------------------------
+
+.. automodule:: tests.test_006_mitgliedAendern
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_007\_aemtHinzufuegen module
+---------------------------------------
+
+.. automodule:: tests.test_007_aemtHinzufuegen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_008\_aemtEntfernen module
+-------------------------------------
+
+.. automodule:: tests.test_008_aemtEntfernen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_009\_aemtAendern module
+-----------------------------------
+
+.. automodule:: tests.test_009_aemtAendern
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+tests.test\_101\_mitgliedHinzufuegen module
+-------------------------------------------
+
+.. automodule:: tests.test_101_mitgliedHinzufuegen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

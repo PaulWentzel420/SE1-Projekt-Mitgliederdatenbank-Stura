@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>historie.views &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">historie.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für historie.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
+
+<span class="kn">from</span> <span class="nn">mitglieder.models</span> <span class="kn">import</span> <span class="n">Mitglied</span><span class="p">,</span> <span class="n">MitgliedMail</span><span class="p">,</span> <span class="n">MitgliedAmt</span>
+<span class="kn">from</span> <span class="nn">aemter.models</span> <span class="kn">import</span> <span class="n">Organisationseinheit</span><span class="p">,</span> <span class="n">Unterbereich</span><span class="p">,</span> <span class="n">Funktion</span><span class="p">,</span> <span class="n">Recht</span><span class="p">,</span> <span class="n">FunktionRecht</span>
+<span class="kn">from</span> <span class="nn">checklisten.models</span> <span class="kn">import</span> <span class="n">Checkliste</span><span class="p">,</span> <span class="n">ChecklisteAufgabe</span><span class="p">,</span> <span class="n">ChecklisteRecht</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+
+<div class="viewcode-block" id="list"><a class="viewcode-back" href="../../historie.html#historie.views.list">[Doku]</a><span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View wird aufgerufen, wenn der Nutzer über einen Link erstmalig die Historie aufruft (z.B. aus dem Menü heraus).</span>
+<span class="sd">    </span>
+<span class="sd">    Folgende Aufgaben werden von dieser übernommen:</span>
+
+<span class="sd">    * Bereitstellung von Daten: Es werden alle Historien-Einträge für alle Tabs geholt, anschließend in Seiten je 15 Elemente aufgeteilt und jeweils die erste Seite an die View übergeben.</span>
+<span class="sd">    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</span>
+<span class="sd">    * Rendern des Templates der gesamten Seite.</span>
+
+<span class="sd">    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.</span>
+<span class="sd">    :return: Die gerenderte View.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Access restrictions</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst Admin sein, um diese Seite aufrufen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/mitglieder&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Fetch all entries</span>
+    <span class="n">mitglieder</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">mitgliederMails</span> <span class="o">=</span> <span class="n">MitgliedMail</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">mitgliederAemter</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">referate</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">unterbereiche</span> <span class="o">=</span> <span class="n">Unterbereich</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">aemter</span> <span class="o">=</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">rechte</span> <span class="o">=</span> <span class="n">Recht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">aemterRechte</span> <span class="o">=</span> <span class="n">FunktionRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">checklisten</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">checklistenRechte</span> <span class="o">=</span> <span class="n">ChecklisteRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">checklistenAufgaben</span> <span class="o">=</span> <span class="n">ChecklisteAufgabe</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="c1"># Paginate results</span>
+    <span class="n">page_number</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">mitgliederPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">mitglieder</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">mitgliederMailsPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">mitgliederMails</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">mitgliederAemterPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">mitgliederAemter</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="n">referatePaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">referate</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">unterbereichePaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">unterbereiche</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">aemterPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">aemter</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">rechtePaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">rechte</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">aemterRechtePaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">aemterRechte</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="n">checklistenPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">checklisten</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">checklistenRechtePaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">checklistenRechte</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">checklistenAufgabenPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">checklistenAufgaben</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="n">usersPaginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="c1"># Get first page for each tab</span>
+    <span class="n">mitgliederPage</span> <span class="o">=</span> <span class="n">mitgliederPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">mitgliederMailsPage</span> <span class="o">=</span> <span class="n">mitgliederMailsPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">mitgliederAemterPage</span> <span class="o">=</span> <span class="n">mitgliederAemterPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="n">referatePage</span> <span class="o">=</span> <span class="n">referatePaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">unterbereichePage</span> <span class="o">=</span> <span class="n">unterbereichePaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">aemterPage</span> <span class="o">=</span> <span class="n">aemterPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">rechtePage</span> <span class="o">=</span> <span class="n">rechtePaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">aemterRechtePage</span> <span class="o">=</span> <span class="n">aemterRechtePaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="n">checklistenPage</span> <span class="o">=</span> <span class="n">checklistenPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">checklistenRechtePage</span> <span class="o">=</span> <span class="n">checklistenRechtePaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="n">checklistenAufgabenPage</span> <span class="o">=</span> <span class="n">checklistenAufgabenPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="n">usersPage</span> <span class="o">=</span> <span class="n">usersPaginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+                  <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;historie/list.html&quot;</span><span class="p">,</span>
+                  <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mitglieder&quot;</span><span class="p">:</span> <span class="n">mitgliederPage</span><span class="p">,</span>
+                           <span class="s2">&quot;mitgliederMails&quot;</span><span class="p">:</span> <span class="n">mitgliederMailsPage</span><span class="p">,</span>
+                           <span class="s2">&quot;mitgliederAemter&quot;</span><span class="p">:</span> <span class="n">mitgliederAemterPage</span><span class="p">,</span>
+                           <span class="s2">&quot;referate&quot;</span><span class="p">:</span> <span class="n">referatePage</span><span class="p">,</span>
+                           <span class="s2">&quot;unterbereiche&quot;</span><span class="p">:</span> <span class="n">unterbereichePage</span><span class="p">,</span>
+                           <span class="s2">&quot;aemter&quot;</span><span class="p">:</span> <span class="n">aemterPage</span><span class="p">,</span>
+                           <span class="s2">&quot;rechte&quot;</span><span class="p">:</span> <span class="n">rechtePage</span><span class="p">,</span>
+                           <span class="s2">&quot;aemterRechte&quot;</span><span class="p">:</span> <span class="n">aemterRechtePage</span><span class="p">,</span>
+                           <span class="s2">&quot;checklisten&quot;</span><span class="p">:</span> <span class="n">checklistenPage</span><span class="p">,</span>
+                           <span class="s2">&quot;checklistenRechte&quot;</span><span class="p">:</span> <span class="n">checklistenRechtePage</span><span class="p">,</span>
+                           <span class="s2">&quot;checklistenAufgaben&quot;</span><span class="p">:</span> <span class="n">checklistenAufgabenPage</span><span class="p">,</span>
+                           <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="n">usersPage</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="fetch_entries"><a class="viewcode-back" href="../../historie.html#historie.views.fetch_entries">[Doku]</a><span class="k">def</span> <span class="nf">fetch_entries</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mit dieser View kann eine Liste von Historien-Einträgen mitsamt passender Pagination angefordert werden, welche die Einträge enthält, die...</span>
+
+<span class="sd">    * ...zum angegeben Tab bzw. Model gehören.</span>
+<span class="sd">    * ...in denen die angegebenen Suchbegriffe vorkommen.</span>
+<span class="sd">    * ...zur angeforderten Seite gehören.</span>
+
+<span class="sd">    Folgende Aufgaben werden durch diese übernommen:</span>
+
+<span class="sd">    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</span>
+<span class="sd">    * Bereitstellung von Daten: Die View stellt die gewünschte Seite der Historien-Einträge bereit, welche für das gewünschte Model zu den angegebenen Suchbegriffen gefunden wurden.</span>
+<span class="sd">    * Rendern der Liste mit den passenden Historien-Einträgen und der zugehörigen Pagination.</span>
+
+<span class="sd">    Je nachdem, ob in der `request` Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen</span>
+<span class="sd">    gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:</span>
+<span class="sd">    </span>
+<span class="sd">    * Das gewünschte Model wird dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.</span>
+<span class="sd">    * Hierfür werden die in Django integrierten `Q Objects` verwendet.</span>
+<span class="sd">    * Alle gefundenen Einträge werden in einem QuerySet zusammengefasst, welches anschließend an ``render`` übergeben wird.</span>
+
+<span class="sd">    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat. </span>
+<span class="sd">        Enthält stets die gewünschte Seitenzahl, den Namen des Tabs und damit Models, zu dem das Ergebnis geliefert werden soll und optional Suchbegriffe, nach denen das Model durchsucht werden soll.</span>
+<span class="sd">    :return: Die gerenderte Liste mit den entsprechenden Historien-Einträgen und der zugehörigen Pagination.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Access restrictions</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Get data from request</span>
+    <span class="n">searchterm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">)</span>
+    <span class="n">page_number</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">)</span>
+    <span class="n">selected_tab</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tab&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Get indvidiual search terms</span>
+    <span class="n">searchterms</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">searchterm</span><span class="p">:</span>
+        <span class="n">searchterms</span> <span class="o">=</span> <span class="n">searchterm</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">term</span> <span class="o">=</span> <span class="n">term</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">searchterm</span><span class="p">:</span>
+        <span class="n">searchterms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+    
+    <span class="c1"># Get data for selected tab and search terms</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Mitglied&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;MitgliedMail&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">MitgliedMail</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span>  <span class="n">data</span> <span class="o">|</span> <span class="n">MitgliedMail</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">mitglied__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">email__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;MitgliedAmt&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">mitglied__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+
+  
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Organisationseinheit&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Unterbereich&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Unterbereich</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Unterbereich</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">organisationseinheit__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Amt&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">organisationseinheit__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">unterbereich__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Recht&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Recht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Recht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;AmtRecht&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">FunktionRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">FunktionRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">funktion__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">funktion__unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">recht__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">recht__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;Checkliste&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">mitglied__name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">amt__funktion__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">amt__funktion__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">amt__funktion__organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">amt__funktion__unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;ChecklisteRecht&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">ChecklisteRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">ChecklisteRecht</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">checkliste__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">recht__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">recht__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;ChecklisteAufgabe&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">ChecklisteAufgabe</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">ChecklisteAufgabe</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">checkliste__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">aufgabe__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">aufgabe__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__vorname__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__mitglied__name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__id__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> 
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+                <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">checkliste__amt__funktion__unterbereich__bezeichnung__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">selected_tab</span> <span class="o">==</span> <span class="s2">&quot;User&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">searchterms</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">|</span> <span class="n">User</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">username__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">first_name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">last_name__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">email__icontains</span><span class="o">=</span><span class="n">term</span><span class="p">))</span>
+
+    <span class="c1"># Paginate results</span>
+    <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">data_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+                  <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;historie/row.html&quot;</span><span class="p">,</span>
+                  <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data_page</span><span class="p">})</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

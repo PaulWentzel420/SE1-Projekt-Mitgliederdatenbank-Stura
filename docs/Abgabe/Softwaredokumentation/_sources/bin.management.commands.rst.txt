@@ -1,0 +1,21 @@
+bin.management.commands package
+===============================
+
+Submodules
+----------
+
+bin.management.commands.delete\_old\_historie module
+----------------------------------------------------
+
+.. automodule:: bin.management.commands.delete_old_historie
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: bin.management.commands
+   :members:
+   :undoc-members:
+   :show-inheritance:

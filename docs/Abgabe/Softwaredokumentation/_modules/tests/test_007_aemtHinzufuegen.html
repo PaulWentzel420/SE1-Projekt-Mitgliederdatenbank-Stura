@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tests.test_007_aemtHinzufuegen &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">tests.test_007_aemtHinzufuegen</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für tests.test_007_aemtHinzufuegen</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tests.MyTestCase</span> <span class="kn">import</span> <span class="n">MyTestCase</span>
+<span class="kn">from</span> <span class="nn">tests.MyFuncLogin</span> <span class="kn">import</span> <span class="n">loginAsLukasAdmin</span>
+<span class="kn">from</span> <span class="nn">tests.MyFuncAemter</span> <span class="kn">import</span> <span class="n">createAmt</span><span class="p">,</span> <span class="n">createReferat</span><span class="p">,</span> <span class="n">createUnterbereich</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+
+
+<div class="viewcode-block" id="TestAemtHinzufuegen"><a class="viewcode-back" href="../../tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen">[Doku]</a><span class="k">class</span> <span class="nc">TestAemtHinzufuegen</span><span class="p">(</span><span class="n">MyTestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setup and Teardown functions are specified in</span>
+<span class="sd">        MyTestCase</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser"><a class="viewcode-back" href="../../tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser">[Doku]</a>    <span class="k">def</span> <span class="nf">test_1OrganisationseinheitHinzufuegen_AsSuperuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is a &quot;positive&quot; Systemtest as Blackboxtest.</span>
+<span class="sd">            Here we want to check if you can add a &quot;Organisationseinheit&quot; as Admin.</span>
+
+<span class="sd">            Steps:</span>
+
+<span class="sd">            * login as Admin</span>
+<span class="sd">            * add a &quot;Organisationseinheit&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Login as Admin</span>
+        <span class="n">loginAsLukasAdmin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Hinzufügen eines organisationseinheit</span>
+        <span class="n">organisationseinheit</span> <span class="o">=</span> <span class="s2">&quot;test_referat&quot;</span>
+        <span class="n">createReferat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">)</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser"><a class="viewcode-back" href="../../tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser">[Doku]</a>    <span class="k">def</span> <span class="nf">test_1UnterbereichHinzufuegen_AsSuperuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is a &quot;positive&quot; Systemtest as Blackboxtest.</span>
+<span class="sd">            Here we want to check if you can add a &quot;unterbereich&quot; as Admin.</span>
+
+<span class="sd">            Steps:</span>
+
+<span class="sd">            * login as Admin</span>
+<span class="sd">            * add a &quot;unterbereich&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Login as Admin</span>
+        <span class="n">loginAsLukasAdmin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Hinzufügen eines Unterbereichs</span>
+        <span class="n">organisationseinheit</span> <span class="o">=</span> <span class="s2">&quot;Referat Finanzen&quot;</span>
+        <span class="n">unterbereich</span> <span class="o">=</span> <span class="s2">&quot;test_unterbereich&quot;</span>
+        <span class="n">createUnterbereich</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">,</span> <span class="n">unterbereich</span><span class="p">)</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser"><a class="viewcode-back" href="../../tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser">[Doku]</a>    <span class="k">def</span> <span class="nf">test_1FunktionHinzufuegen_AsSuperuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is a &quot;positive&quot; Systemtest as Blackboxtest.</span>
+<span class="sd">            Here we want to check if you can add a funktion as Admin.</span>
+
+<span class="sd">            Steps:</span>
+
+<span class="sd">            * login as Admin</span>
+<span class="sd">            * add a funktion</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Login as Admin</span>
+        <span class="n">loginAsLukasAdmin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Hinzufügen eines Amtes</span>
+        <span class="n">funktion</span> <span class="o">=</span> <span class="s2">&quot;test_amt&quot;</span>
+        <span class="n">organisationseinheit</span> <span class="o">=</span> <span class="s2">&quot;Referat Finanzen&quot;</span>
+        <span class="n">unterbereich</span> <span class="o">=</span> <span class="s2">&quot;Bereich Buchhaltung&quot;</span>
+        <span class="n">createAmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">,</span> <span class="n">unterbereich</span><span class="p">,</span> <span class="n">funktion</span><span class="p">)</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser"><a class="viewcode-back" href="../../tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser">[Doku]</a>    <span class="k">def</span> <span class="nf">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is a complex &quot;positive&quot; Systemtest as Blackboxtest.</span>
+<span class="sd">            Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.</span>
+<span class="sd">            We also check if we can add a new Member with the new data and if everything is displayed correctly</span>
+<span class="sd">            in &quot;/aemter/&quot;.</span>
+
+<span class="sd">            Steps:</span>
+
+<span class="sd">            * login as Admin</span>
+<span class="sd">            * add a &quot;organisationseinheit&quot;</span>
+<span class="sd">            * add a &quot;unterbereich&quot;</span>
+<span class="sd">            * add a funktion</span>
+<span class="sd">            * create a Member</span>
+<span class="sd">            * navigate to aemteruebersicht &quot;/aemter/&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Login as Admin</span>
+        <span class="n">loginAsLukasAdmin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">organisationseinheit</span> <span class="o">=</span> <span class="s2">&quot;test_referat&quot;</span>
+        <span class="n">unterbereich</span> <span class="o">=</span> <span class="s2">&quot;test_unterbereich&quot;</span>
+        <span class="n">funktion</span> <span class="o">=</span> <span class="s2">&quot;test_amt&quot;</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Erstellen von allen</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">createReferat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="n">createUnterbereich</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">,</span> <span class="n">unterbereich</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="n">createAmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organisationseinheit</span><span class="p">,</span> <span class="n">unterbereich</span><span class="p">,</span> <span class="n">funktion</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Hinzufügen eines Mitglieds mit den Parametern</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># navigieren zu Mitglied hinzufügen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//a[@href=&#39;/mitglieder/erstellen&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c1"># auswahl des Referates, Unterbereices, Amts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//div[@id=&#39;div_selectreferat1&#39;]/div/input&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//span[text()=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">organisationseinheit</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//div[@id=&#39;div_selectbereich1&#39;]/div/div/input&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//span[text()=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">unterbereich</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//div[@id=&#39;div_selectamt1&#39;]/div/div/input&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//span[text()=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">funktion</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c1"># weitere Daten Hinzufügen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;vorname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Hans&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;nachname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Peter&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;spitzname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Hansi&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span>
+            <span class="s1">&#39;email1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;sxxxxx@htw-dresden.de&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span>
+            <span class="s1">&#39;telefon_mobil&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;0362594833&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Speichern</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;save_button&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">current_url</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">live_server_url</span> <span class="o">+</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;mitglieder:homepage&#39;</span><span class="p">),</span>
+                         <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Weiterleitung nicht erfolgt&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//tr[@class=&#39;mitglied&#39;]/td[contains(text(), &#39;Hans Peter&#39;)]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="s2">&quot;Hans Peter&quot;</span><span class="p">,</span>
+            <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Hans Peter wurde nicht angelegt&quot;</span><span class="p">)</span>
+        <span class="n">searchstring</span> <span class="o">=</span> <span class="n">funktion</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">unterbereich</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">organisationseinheit</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+                <span class="s2">&quot;//tr[@class=&#39;mitglied&#39;]/td/ul/li[contains(text(), &#39;</span><span class="si">%s</span><span class="s2">&#39;)]&quot;</span> <span class="o">%</span>
+                <span class="n">searchstring</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="n">searchstring</span><span class="p">,</span>
+            <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Funktion wurde nicht richtig zugewiesen&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Schauen in der Ämter Übersicht ob alles angezeigt wird</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># navigieren zur Ämterübersicht</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/aemter&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c1"># zu seite 3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;?page=3&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c1"># öffnen der collabseables</span>
+        <span class="n">searchstring</span> <span class="o">=</span> <span class="n">organisationseinheit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//div[text()=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">searchstring</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">searchstring</span> <span class="o">=</span> <span class="n">unterbereich</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//div[text()=&#39;</span><span class="si">%s</span><span class="s2">&#39;]&quot;</span> <span class="o">%</span> <span class="n">searchstring</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c1"># überprüfen ob Funktion da ist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+                <span class="s2">&quot;//tr/td[contains(text(), &#39;</span><span class="si">%s</span><span class="s2">&#39;)]&quot;</span> <span class="o">%</span>
+                <span class="n">funktion</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="n">funktion</span><span class="p">,</span>
+            <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Funktion ist nicht in Übersicht Ämter vorhanden&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        TODO: Schauen ob Person richtig einem Funktion zugeordnet wurde</span>
+<span class="sd">        self.assertEqual(self.browser.find_element_by_xpath(&quot;//tr/td[contains(text(), &#39;Hans Peter\n&#39;)]&quot;).text,</span>
+<span class="sd">                            &quot;Hans Peter&quot;,</span>
+<span class="sd">                            msg=&quot;Hans Peter wurde nicht richtig dem Funktion hinzugefügt&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

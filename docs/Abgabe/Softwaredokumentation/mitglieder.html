@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mitglieder package &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="mitglieder.migrations package" href="mitglieder.migrations.html" />
+    <link rel="prev" title="manage module" href="manage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aemter.html">aemter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html">checklisten package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mitglieder package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html">mitglieder.migrations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.templatetags.html">mitglieder.templatetags package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html">mitglieder.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder.apps">mitglieder.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.apps.MitgliederConfig"><code class="docutils literal notranslate"><span class="pre">MitgliederConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder.funktions">mitglieder.funktions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.funktions.getValue"><code class="docutils literal notranslate"><span class="pre">getValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.funktions.is_past_due"><code class="docutils literal notranslate"><span class="pre">is_past_due()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder.models">mitglieder.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.HistoricalMitglied"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.HistoricalMitgliedAmt"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.HistoricalMitgliedMail"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.Mitglied"><code class="docutils literal notranslate"><span class="pre">Mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.MitgliedAmt"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.models.MitgliedMail"><code class="docutils literal notranslate"><span class="pre">MitgliedMail</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder.urls">mitglieder.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder.views">mitglieder.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.bereiche_laden"><code class="docutils literal notranslate"><span class="pre">bereiche_laden()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.email_html_laden"><code class="docutils literal notranslate"><span class="pre">email_html_laden()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.email_loeschen"><code class="docutils literal notranslate"><span class="pre">email_loeschen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.erstellen"><code class="docutils literal notranslate"><span class="pre">erstellen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.funktion_loeschen"><code class="docutils literal notranslate"><span class="pre">funktion_loeschen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.funktionen_html_laden"><code class="docutils literal notranslate"><span class="pre">funktionen_html_laden()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.funktionen_laden"><code class="docutils literal notranslate"><span class="pre">funktionen_laden()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.funktionen_max_member_ueberpruefen"><code class="docutils literal notranslate"><span class="pre">funktionen_max_member_ueberpruefen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.main_screen"><code class="docutils literal notranslate"><span class="pre">main_screen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.mitgliedBearbeitenView"><code class="docutils literal notranslate"><span class="pre">mitgliedBearbeitenView()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.mitgliedErstellenView"><code class="docutils literal notranslate"><span class="pre">mitgliedErstellenView()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.mitglied_laden"><code class="docutils literal notranslate"><span class="pre">mitglied_laden()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.mitglieder_loeschen"><code class="docutils literal notranslate"><span class="pre">mitglieder_loeschen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.speichern"><code class="docutils literal notranslate"><span class="pre">speichern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder.views.suchen"><code class="docutils literal notranslate"><span class="pre">suchen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-mitglieder">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">mitglieder package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mitglieder.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mitglieder-package">
+<h1>mitglieder package<a class="headerlink" href="#mitglieder-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mitglieder.migrations.html">mitglieder.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0001_initial">mitglieder.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0002_auto_20210615_1904">mitglieder.migrations.0002_auto_20210615_1904 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0002_auto_20210615_1904.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0002_auto_20210615_1904.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0002_auto_20210615_1904.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0003_auto_20210620_1913">mitglieder.migrations.0003_auto_20210620_1913 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0003_auto_20210620_1913.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0003_auto_20210620_1913.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder.migrations.0003_auto_20210620_1913.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#mitglieder-migrations-0004-alter-historicalmitglied-options-and-more-module">mitglieder.migrations.0004_alter_historicalmitglied_options_and_more module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mitglieder.templatetags.html">mitglieder.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.templatetags.html#module-mitglieder.templatetags.mitglieder_extras">mitglieder.templatetags.mitglieder_extras module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.templatetags.html#mitglieder.templatetags.mitglieder_extras.amtszeit_ende_isnull"><code class="docutils literal notranslate"><span class="pre">amtszeit_ende_isnull()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.templatetags.html#module-mitglieder.templatetags">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mitglieder.tests.html">mitglieder.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_apps">mitglieder.tests.test_apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_apps.ReportsConfigTest"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_apps.ReportsConfigTest.test_apps"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest.test_apps()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_models">mitglieder.tests.test_models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_models.TestModels"><code class="docutils literal notranslate"><span class="pre">TestModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_models.TestModels.setUp"><code class="docutils literal notranslate"><span class="pre">TestModels.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_models.TestModels.test_mitgliedAmt_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_mitgliedAmt_toString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_models.TestModels.test_mitgliedMail_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_mitgliedMail_toString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_models.TestModels.test_mitglied_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_mitglied_toString()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_urls">mitglieder.tests.test_urls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls"><code class="docutils literal notranslate"><span class="pre">TestUrls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_aemter_html_laden_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_aemter_html_laden_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_aemter_laden_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_aemter_laden_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_amt_loeschen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_amt_loeschen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_bereiche_laden_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_bereiche_laden_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_email_html_laden_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_email_html_laden_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_email_loeschen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_email_loeschen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_erstellen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_erstellen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_funktionen_max_member_ueberpruefen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_funktionen_max_member_ueberpruefen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_main_screen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_main_screen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_mitgliedBearbeitenView_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_mitgliedBearbeitenView_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_mitgliedErstellenView_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_mitgliedErstellenView_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_mitglied_laden_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_mitglied_laden_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_mitglieder_loeschen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_mitglieder_loeschen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_speichern_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_speichern_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_urls.TestUrls.test_suchen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_suchen_url_resolves()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_views">mitglieder.tests.test_views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_views.TestViews"><code class="docutils literal notranslate"><span class="pre">TestViews</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_views.TestViews.setUp"><code class="docutils literal notranslate"><span class="pre">TestViews.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_views.TestViews.test_bearbeitenView_GET"><code class="docutils literal notranslate"><span class="pre">TestViews.test_bearbeitenView_GET()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_views.TestViews.test_erstellenView_GET"><code class="docutils literal notranslate"><span class="pre">TestViews.test_erstellenView_GET()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#mitglieder.tests.test_views.TestViews.test_main_GET"><code class="docutils literal notranslate"><span class="pre">TestViews.test_main_GET()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mitglieder.apps">
+<span id="mitglieder-apps-module"></span><h2>mitglieder.apps module<a class="headerlink" href="#module-mitglieder.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.apps.MitgliederConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.apps.</span></span><span class="sig-name descname"><span class="pre">MitgliederConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/apps.html#MitgliederConfig"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.apps.MitgliederConfig" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.apps.MitgliederConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitglieder'</span></em><a class="headerlink" href="#mitglieder.apps.MitgliederConfig.name" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mitglieder.funktions">
+<span id="mitglieder-funktions-module"></span><h2>mitglieder.funktions module<a class="headerlink" href="#module-mitglieder.funktions" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.funktions.getValue">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.funktions.</span></span><span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/funktions.html#getValue"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.funktions.getValue" title="Link zu dieser Definition"></a></dt>
+<dd><p>Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entnehmen des Attributs</p></li>
+<li><p>Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Eine POST-Request.</p></li>
+<li><p><strong>attr</strong> – Das Attribut, das aus Request entnommen werden soll.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.funktions.is_past_due">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.funktions.</span></span><span class="sig-name descname"><span class="pre">is_past_due</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/funktions.html#is_past_due"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.funktions.is_past_due" title="Link zu dieser Definition"></a></dt>
+<dd><p>Prüft, ob date2 hinter date1 liegt.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date1</strong> – Erstes Datum</p></li>
+<li><p><strong>date2</strong> – Zweites Datum</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>True, wenn date2 später als date1 ist. False, wenn nicht oder wenn eines der beiden Attribute None ist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mitglieder.models">
+<span id="mitglieder-models-module"></span><h2>mitglieder.models module<a class="headerlink" href="#module-mitglieder.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalMitglied</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vorname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spitzname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tel_mobil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tel_weitergabe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_checkliste</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wahl_angenommen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kenntnis_ordn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verpfl_datengeheimnis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stammdatenblatt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.auto_checkliste">
+<span class="sig-name descname"><span class="pre">auto_checkliste</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.auto_checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#mitglieder.models.Mitglied" title="mitglieder.models.Mitglied"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mitglied</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.kenntnis_ordn">
+<span class="sig-name descname"><span class="pre">kenntnis_ordn</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.kenntnis_ordn" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.name" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.spitzname">
+<span class="sig-name descname"><span class="pre">spitzname</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.spitzname" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.stammdatenblatt">
+<span class="sig-name descname"><span class="pre">stammdatenblatt</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.stammdatenblatt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.tel_mobil">
+<span class="sig-name descname"><span class="pre">tel_mobil</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.tel_mobil" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.tel_weitergabe">
+<span class="sig-name descname"><span class="pre">tel_weitergabe</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.tel_weitergabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">name&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">vorname&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">spitzname&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">tel_mobil&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">tel_weitergabe&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">auto_checkliste&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">wahl_angenommen&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">kenntnis_ordn&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">verpfl_datengeheimnis&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">stammdatenblatt&gt;]</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.verpfl_datengeheimnis">
+<span class="sig-name descname"><span class="pre">verpfl_datengeheimnis</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.verpfl_datengeheimnis" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.vorname">
+<span class="sig-name descname"><span class="pre">vorname</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.vorname" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitglied.wahl_angenommen">
+<span class="sig-name descname"><span class="pre">wahl_angenommen</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitglied.wahl_angenommen" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalMitgliedAmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amtszeit_beginn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amtszeit_ende</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funktion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.amtszeit_beginn">
+<span class="sig-name descname"><span class="pre">amtszeit_beginn</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.amtszeit_beginn" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.amtszeit_ende">
+<span class="sig-name descname"><span class="pre">amtszeit_ende</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.amtszeit_ende" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.funktion">
+<span class="sig-name descname"><span class="pre">funktion</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.funktion" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.funktion_id">
+<span class="sig-name descname"><span class="pre">funktion_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.funktion_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#mitglieder.models.MitgliedAmt" title="mitglieder.models.MitgliedAmt"><code class="xref py py-class docutils literal notranslate"><span class="pre">MitgliedAmt</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedAmt.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">mitglied&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">funktion&gt;,</span> <span class="pre">&lt;django.db.models.fields.DateField:</span> <span class="pre">amtszeit_beginn&gt;,</span> <span class="pre">&lt;django.db.models.fields.DateField:</span> <span class="pre">amtszeit_ende&gt;]</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedAmt.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalMitgliedMail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.email" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#mitglieder.models.MitgliedMail" title="mitglieder.models.MitgliedMail"><code class="xref py py-class docutils literal notranslate"><span class="pre">MitgliedMail</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.HistoricalMitgliedMail.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">mitglied&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">email&gt;]</span></em><a class="headerlink" href="#mitglieder.models.HistoricalMitgliedMail.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">Mitglied</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#Mitglied"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.Mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell Mitglied</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>name: Nachname des Mitglieds. Darf nicht null sein.</p></li>
+<li><p>vorname: Vorname des Mitglieds. Darf nicht null sein.</p></li>
+<li><p>spitzname: Spitzname des Mitglieds. Kann null sein.</p></li>
+<li><p>tel_mobil: Telefonnummer des Mitglieds. Kann null sein.</p></li>
+<li><p>tel_weitergabe: Stellt dar, ob die Telefonnummer des Mitglieds im Notfall weitergegeben werden darf. Standard ist False.</p></li>
+<li><p>wahl_angenommen: Stellt dar, ob das Mitglied die Wahl bereits angenommen hat. Standard ist False.</p></li>
+<li><p>kenntnis_ordn: Stellt dar, ob das Mitglied die Kenntnis der Ordnungen bereits eingereicht hat. Standard ist False.</p></li>
+<li><p>verpfl_datengeheimnis: Stellt dar, ob das Mitglied die Verpflichtung zum Datengeheimnis bereits akzeptiert hat. Standard ist False.</p></li>
+<li><p>stammdatenblatt: Stellt dar, ob das Mitglied das Stammdatenblatt bereits eingereicht hat. Standard ist False.</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.admission_data_complete">
+<span class="sig-name descname"><span class="pre">admission_data_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#Mitglied.admission_data_complete"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.Mitglied.admission_data_complete" title="Link zu dieser Definition"></a></dt>
+<dd><p>Funktion, die prüft, ob alle Daten für die Aufnahme als Mitglied vorhanden sind.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.auto_checkliste">
+<span class="sig-name descname"><span class="pre">auto_checkliste</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.auto_checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.checkliste_set">
+<span class="sig-name descname"><span class="pre">checkliste_set</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.checkliste_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.curr_funktion_count">
+<span class="sig-name descname"><span class="pre">curr_funktion_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#Mitglied.curr_funktion_count"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.Mitglied.curr_funktion_count" title="Link zu dieser Definition"></a></dt>
+<dd><p>Funktion, die die Anzahl der derzeitigen Funktionen des Mitglieds zurückgibt.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.curr_funktion_first">
+<span class="sig-name descname"><span class="pre">curr_funktion_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#Mitglied.curr_funktion_first"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.Mitglied.curr_funktion_first" title="Link zu dieser Definition"></a></dt>
+<dd><p>Funktion, die die erste Funktion des Mitglieds zurückgibt
+oder None wenn das Mitglied keine Funktion innehat.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.Mitglied.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.kenntnis_ordn">
+<span class="sig-name descname"><span class="pre">kenntnis_ordn</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.kenntnis_ordn" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.mitgliedamt_set">
+<span class="sig-name descname"><span class="pre">mitgliedamt_set</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.mitgliedamt_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.mitgliedmail_set">
+<span class="sig-name descname"><span class="pre">mitgliedmail_set</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.mitgliedmail_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.name" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.Mitglied.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.Mitglied.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.spitzname">
+<span class="sig-name descname"><span class="pre">spitzname</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.spitzname" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.stammdatenblatt">
+<span class="sig-name descname"><span class="pre">stammdatenblatt</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.stammdatenblatt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.tel_mobil">
+<span class="sig-name descname"><span class="pre">tel_mobil</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.tel_mobil" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.tel_weitergabe">
+<span class="sig-name descname"><span class="pre">tel_weitergabe</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.tel_weitergabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.verpfl_datengeheimnis">
+<span class="sig-name descname"><span class="pre">verpfl_datengeheimnis</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.verpfl_datengeheimnis" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.vorname">
+<span class="sig-name descname"><span class="pre">vorname</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.vorname" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.Mitglied.wahl_angenommen">
+<span class="sig-name descname"><span class="pre">wahl_angenommen</span></span><a class="headerlink" href="#mitglieder.models.Mitglied.wahl_angenommen" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">MitgliedAmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#MitgliedAmt"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.MitgliedAmt" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell Zuordnung Mitglied-Amt</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>mitglied: Referenziert eine Mitglied. Darf nicht null sein.</p></li>
+<li><p>funktion: Referenziert eine Funktion. Darf nicht null sein.</p></li>
+<li><p>amtszeit_beginn: Datum des Beginns der Amtszeit. Kann null sein.</p></li>
+<li><p>amtszeit_ende: Datum des Endes der Amtszeit. Kann null sein.</p></li>
+<li><p>history</p></li>
+</ul>
+<p>Es ist zu beachten, dass diese Zuordnung gelöscht wird, wenn das Mitglied oder die Funktion gelöscht wird. (Cascade)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.amtszeit_beginn">
+<span class="sig-name descname"><span class="pre">amtszeit_beginn</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.amtszeit_beginn" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.amtszeit_ende">
+<span class="sig-name descname"><span class="pre">amtszeit_ende</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.amtszeit_ende" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.checkliste_set">
+<span class="sig-name descname"><span class="pre">checkliste_set</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.checkliste_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.funktion">
+<span class="sig-name descname"><span class="pre">funktion</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.funktion" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.funktion_id">
+<span class="sig-name descname"><span class="pre">funktion_id</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.funktion_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.MitgliedAmt.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.MitgliedAmt.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedAmt.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.MitgliedAmt.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mitglieder.models.</span></span><span class="sig-name descname"><span class="pre">MitgliedMail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/models.html#MitgliedMail"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.models.MitgliedMail" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell Zuordnung Mitglied-Mail</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>mitglied: Referenziert ein Mitglied. Darf nicht null sein.</p></li>
+<li><p>email: Eine E-Mail-Adresse des Mitglieds. Darf nicht null sein.</p></li>
+<li><p>history</p></li>
+</ul>
+<p>Es ist zu beachten, dass diese Zuordnung gelöscht wird, wenn das Mitglied gelöscht wird. (Cascade)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.email" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.MitgliedMail.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#mitglieder.models.MitgliedMail.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mitglieder.models.MitgliedMail.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mitglieder.models.MitgliedMail.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.models.MitgliedMail.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mitglieder.urls">
+<span id="mitglieder-urls-module"></span><h2>mitglieder.urls module<a class="headerlink" href="#module-mitglieder.urls" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mitglieder.views">
+<span id="mitglieder-views-module"></span><h2>mitglieder.views module<a class="headerlink" href="#module-mitglieder.views" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.bereiche_laden">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">bereiche_laden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#bereiche_laden"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.bereiche_laden" title="Link zu dieser Definition"></a></dt>
+<dd><p>Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.email_html_laden">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">email_html_laden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#email_html_laden"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.email_html_laden" title="Link zu dieser Definition"></a></dt>
+<dd><p>Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Rendern des Formulars</p></li>
+<li><p>Erfassen der Anzahl der E-Mails eines Mitglieds</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.email_loeschen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">email_loeschen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#email_loeschen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.email_loeschen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der E-Mails</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.erstellen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">erstellen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#erstellen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.erstellen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Speichert ein neues Mitglied in der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.</p></li>
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.funktion_loeschen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">funktion_loeschen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#funktion_loeschen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.funktion_loeschen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der Ämter</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.funktionen_html_laden">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">funktionen_html_laden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#funktionen_html_laden"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.funktionen_html_laden" title="Link zu dieser Definition"></a></dt>
+<dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Das gerenderte Formular.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.funktionen_laden">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">funktionen_laden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#funktionen_laden"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.funktionen_laden" title="Link zu dieser Definition"></a></dt>
+<dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.funktionen_max_member_ueberpruefen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">funktionen_max_member_ueberpruefen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#funktionen_max_member_ueberpruefen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.funktionen_max_member_ueberpruefen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Überprüft, ob die maximale Anzahl an Mitgliedern in einer Funktion bereits erreicht ist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p></li>
+<li><p><strong>mitglied_id</strong> – Die Id des Mitglieds, das bearbeitet wird.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eine JsonResponse, die als Key ‚is_valid‘ enthält, und als Wert entweder True oder False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.main_screen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">main_screen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#main_screen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.main_screen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Zeigt eine Tabelle mit Migliedern an und ermöglicht die Suche nach Mitgliedern mit bestimmten Namen.
+Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie das Wechseln zur View zum Erstellen oder zum Bearbeiten ermöglicht.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die View holt sämtliche Mitglieder-Einträge aus der Datenbank und stellt diese als Kontext bereit.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können Mitglieder erstellen, bearbeiten und löschen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.mitgliedBearbeitenView">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">mitgliedBearbeitenView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#mitgliedBearbeitenView"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.mitgliedBearbeitenView" title="Link zu dieser Definition"></a></dt>
+<dd><p>View zum Bearbeiten eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Bereitstellung der Daten: Die View holt Attribute eines Mitglieds aus der Datenbank und zeigt diese an.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p></li>
+<li><p><strong>mitglied_id</strong> – Id des Mitglieds, das bearbeitet werden soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.mitgliedErstellenView">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">mitgliedErstellenView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#mitgliedErstellenView"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.mitgliedErstellenView" title="Link zu dieser Definition"></a></dt>
+<dd><p>View zum Erstellen eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.mitglied_laden">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">mitglied_laden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#mitglied_laden"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.mitglied_laden" title="Link zu dieser Definition"></a></dt>
+<dd><p>Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.mitglieder_loeschen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">mitglieder_loeschen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#mitglieder_loeschen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.mitglieder_loeschen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Löscht ausgewählte Mitglieder aus der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.speichern">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">speichern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#speichern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.speichern" title="Link zu dieser Definition"></a></dt>
+<dd><p>Speichert ein bearbeitetes Mitglied in der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden
+und anschließend alle Ämter und E-Mails aus request gespeichert werden.</p></li>
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p></li>
+<li><p><strong>mitglied_id</strong> – Die Id des Mitglieds, das bearbeitet wurde.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mitglieder.views.suchen">
+<span class="sig-prename descclassname"><span class="pre">mitglieder.views.</span></span><span class="sig-name descname"><span class="pre">suchen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitglieder/views.html#suchen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#mitglieder.views.suchen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe
+im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Sucheingabe.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Das gerenderte Templates mit den gefunden Mitgliedern.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mitglieder">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mitglieder" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manage.html" class="btn btn-neutral float-left" title="manage module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="mitglieder.migrations.html" class="btn btn-neutral float-right" title="mitglieder.migrations package" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mitglieder.views &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">mitglieder.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für mitglieder.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span><span class="p">,</span> <span class="n">JsonResponse</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">user_passes_test</span>
+<span class="kn">from</span> <span class="nn">django.db.models.functions</span> <span class="kn">import</span> <span class="n">Lower</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Mitglied</span><span class="p">,</span> <span class="n">MitgliedAmt</span><span class="p">,</span> <span class="n">MitgliedMail</span>
+<span class="kn">from</span> <span class="nn">checklisten.models</span> <span class="kn">import</span> <span class="n">Checkliste</span><span class="p">,</span> <span class="n">ChecklisteAufgabe</span><span class="p">,</span> <span class="n">ChecklisteRecht</span><span class="p">,</span> <span class="n">Aufgabe</span>
+<span class="kn">from</span> <span class="nn">aemter.models</span> <span class="kn">import</span> <span class="n">Funktion</span><span class="p">,</span> <span class="n">Organisationseinheit</span><span class="p">,</span> <span class="n">Unterbereich</span><span class="p">,</span> <span class="n">FunktionRecht</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">simplejson</span><span class="o">,</span> <span class="nn">json</span>
+<span class="c1"># string splitting</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<span class="kn">from</span> <span class="nn">.funktions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Anzahl der Aemter bzw. E-Mails die gespeichert werden muessen</span>
+<span class="n">aemternum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">emailnum</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<div class="viewcode-block" id="main_screen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.main_screen">[Doku]</a><span class="k">def</span> <span class="nf">main_screen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Zeigt eine Tabelle mit Migliedern an und ermöglicht die Suche nach Mitgliedern mit bestimmten Namen.</span>
+<span class="sd">    Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie das Wechseln zur View zum Erstellen oder zum Bearbeiten ermöglicht.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Die View holt sämtliche Mitglieder-Einträge aus der Datenbank und stellt diese als Kontext bereit.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur Admins können Mitglieder erstellen, bearbeiten und löschen.</span>
+
+<span class="sd">    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.</span>
+<span class="sd">    :return: Die gerenderte View.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Paginate data</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">Lower</span><span class="p">(</span><span class="s1">&#39;vorname&#39;</span><span class="p">),</span> <span class="n">Lower</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+
+    <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="c1"># Show 15 entries per page</span>
+    <span class="n">queryset_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Get entries for the first page</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;mitglieder/mitglieder.html&quot;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">queryset_page</span>
+                 <span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="mitgliedErstellenView"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.mitgliedErstellenView">[Doku]</a><span class="nd">@user_passes_test</span><span class="p">(</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">,</span> <span class="n">login_url</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mitgliedErstellenView</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    View zum Erstellen eines Mitglieds.</span>
+
+<span class="sd">    Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.</span>
+
+<span class="sd">    Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der</span>
+<span class="sd">    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Speichern des Mitglieds in der Datenbank</span>
+
+<span class="sd">    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.</span>
+<span class="sd">    :return: Die gerenderte View.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="c1"># beim Erstellen existiert anfangs jeweils ein Feld fuer Funktion und E-Mail</span>
+    <span class="k">global</span> <span class="n">aemternum</span><span class="p">,</span> <span class="n">emailnum</span>
+    <span class="n">aemternum</span> <span class="o">=</span> <span class="n">emailnum</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># Laden aller Referate</span>
+    <span class="n">referate</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;bezeichnung&#39;</span><span class="p">)</span>
+    <span class="c1"># Anzahl von E-Mails, Aemtern sowie Referate werden an Frontend gesendet</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;mitglieder/mitglied_erstellen_bearbeiten.html&quot;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;referate&#39;</span><span class="p">:</span><span class="n">referate</span><span class="p">,</span> <span class="s1">&#39;amtid&#39;</span><span class="p">:</span> <span class="n">aemternum</span><span class="p">,</span> <span class="s1">&#39;emailid&#39;</span><span class="p">:</span> <span class="n">emailnum</span>
+                 <span class="p">})</span></div>
+
+
+<span class="c1"># Mitglied erstellen</span>
+<div class="viewcode-block" id="erstellen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.erstellen">[Doku]</a><span class="k">def</span> <span class="nf">erstellen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Speichert ein neues Mitglied in der Datenbank.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.</span>
+<span class="sd">    * Weiterleitung zur Mitgliederanischt.</span>
+<span class="sd">    * Rechteeinschränkung: Nur Admins können die Funktion auslösen.</span>
+
+<span class="sd">    :param request: Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</span>
+<span class="sd">    :return: Weiterleitung zur Mitgliederansicht.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">aemternum</span><span class="p">,</span> <span class="n">emailnum</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># Mitglied</span>
+        <span class="n">vorname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;vorname&#39;</span><span class="p">]</span>
+        <span class="n">nachname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;nachname&#39;</span><span class="p">]</span>
+        <span class="n">spitzname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;spitzname&#39;</span><span class="p">]</span>
+        <span class="n">telefon_mobil</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;telefon_mobil&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;auto_checkliste&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">auto_checkliste</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">auto_checkliste</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;wahl_angenommen&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">wahl_angenommen</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">wahl_angenommen</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;kenntnis_ordn&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">kenntnis_ordn</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kenntnis_ordn</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;verpfl_datengeheimnis&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">verpfl_datengeheimnis</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">verpfl_datengeheimnis</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;stammdatenblatt&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">stammdatenblatt</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stammdatenblatt</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;tel_weitergabe&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">tel_weitergabe</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tel_weitergabe</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">mitglied</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">nachname</span><span class="p">,</span> <span class="n">vorname</span><span class="o">=</span><span class="n">vorname</span><span class="p">,</span> <span class="n">spitzname</span><span class="o">=</span><span class="n">spitzname</span><span class="p">,</span> <span class="n">tel_mobil</span><span class="o">=</span><span class="n">telefon_mobil</span><span class="p">,</span> <span class="n">tel_weitergabe</span><span class="o">=</span><span class="n">tel_weitergabe</span><span class="p">,</span>
+                         <span class="n">auto_checkliste</span><span class="o">=</span><span class="n">auto_checkliste</span><span class="p">,</span> <span class="n">wahl_angenommen</span><span class="o">=</span><span class="n">wahl_angenommen</span><span class="p">,</span> <span class="n">kenntnis_ordn</span><span class="o">=</span><span class="n">kenntnis_ordn</span><span class="p">,</span> <span class="n">verpfl_datengeheimnis</span><span class="o">=</span><span class="n">verpfl_datengeheimnis</span><span class="p">,</span> <span class="n">stammdatenblatt</span><span class="o">=</span><span class="n">stammdatenblatt</span><span class="p">)</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># E-Mail</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">emailnum</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">mitgliedmail</span> <span class="o">=</span> <span class="n">MitgliedMail</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">)</span>
+            <span class="n">mitgliedmail</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># Funktion</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">aemternum</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">amt_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;selectamt&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">funktion</span> <span class="o">=</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">amt_id</span><span class="p">)</span>
+            <span class="n">amtszeit_beginn_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;beginn_kandidatur&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">amtszeit_beginn_str</span><span class="p">:</span>
+                <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_beginn_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">amtszeit_ende_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;ende_kandidatur&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">amtszeit_ende_str</span><span class="p">:</span>
+                <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_ende_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">mitgliedamt</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">funktion</span><span class="o">=</span><span class="n">funktion</span><span class="p">,</span> <span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">,</span> <span class="n">amtszeit_beginn</span><span class="o">=</span><span class="n">amtszeit_beginn</span><span class="p">,</span> <span class="n">amtszeit_ende</span><span class="o">=</span><span class="n">amtszeit_ende</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">auto_checkliste</span><span class="p">:</span>
+                <span class="n">checkliste</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">,</span> <span class="n">amt</span><span class="o">=</span><span class="n">mitgliedamt</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">Aufgabe</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                    <span class="n">aufgabe</span> <span class="o">=</span> <span class="n">ChecklisteAufgabe</span><span class="p">(</span><span class="n">checkliste</span><span class="o">=</span><span class="n">checkliste</span><span class="p">,</span> <span class="n">aufgabe</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+                    <span class="n">aufgabe</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">funktion_recht</span> <span class="ow">in</span> <span class="n">FunktionRecht</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">funktion</span><span class="o">=</span><span class="n">funktion</span><span class="p">):</span>
+                    <span class="n">perm</span> <span class="o">=</span> <span class="n">funktion_recht</span><span class="o">.</span><span class="n">recht</span>
+                    <span class="n">recht</span> <span class="o">=</span> <span class="n">ChecklisteRecht</span><span class="p">(</span><span class="n">checkliste</span><span class="o">=</span><span class="n">checkliste</span><span class="p">,</span> <span class="n">recht</span><span class="o">=</span><span class="n">perm</span><span class="p">)</span>
+                    <span class="n">recht</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    
+
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;mitglieder:homepage&#39;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s1">&#39;/mitglieder/erstellen&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="mitgliedBearbeitenView"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.mitgliedBearbeitenView">[Doku]</a><span class="nd">@user_passes_test</span><span class="p">(</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">,</span> <span class="n">login_url</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mitgliedBearbeitenView</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">mitglied_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    View zum Bearbeiten eines Mitglieds.</span>
+
+<span class="sd">    Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.</span>
+
+<span class="sd">    Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der</span>
+<span class="sd">    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</span>
+<span class="sd">    * Bereitstellung der Daten: Die View holt Attribute eines Mitglieds aus der Datenbank und zeigt diese an.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Speichern des Mitglieds in der Datenbank</span>
+
+<span class="sd">    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.</span>
+<span class="sd">    :param mitglied_id: Id des Mitglieds, das bearbeitet werden soll</span>
+<span class="sd">    :return: Die gerenderte View.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">aemternum</span><span class="p">,</span> <span class="n">emailnum</span>
+
+    <span class="n">mitglied</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">)</span>
+    <span class="n">aemternum</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">emailnum</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedmail_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">referate</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;bezeichnung&#39;</span><span class="p">)</span>
+    <span class="n">curr_funktionen</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">amtszeit_ende__isnull</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">prev_funktionen</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">amtszeit_ende__isnull</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;mitglieder/mitglied_erstellen_bearbeiten.html&quot;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;mitglied&#39;</span><span class="p">:</span> <span class="n">mitglied</span><span class="p">,</span>
+            <span class="s1">&#39;curr_funktionen&#39;</span><span class="p">:</span> <span class="n">curr_funktionen</span><span class="p">,</span>
+            <span class="s1">&#39;prev_funktionen&#39;</span><span class="p">:</span> <span class="n">prev_funktionen</span><span class="p">,</span>
+            <span class="s1">&#39;referate&#39;</span><span class="p">:</span> <span class="n">referate</span>
+                 <span class="p">})</span></div>
+
+
+<span class="c1"># bearbeitetes Mitglied speichern</span>
+<div class="viewcode-block" id="speichern"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.speichern">[Doku]</a><span class="k">def</span> <span class="nf">speichern</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">mitglied_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Speichert ein bearbeitetes Mitglied in der Datenbank.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden</span>
+<span class="sd">      und anschließend alle Ämter und E-Mails aus request gespeichert werden.</span>
+<span class="sd">    * Weiterleitung zur Mitgliederanischt.</span>
+<span class="sd">    * Rechteeinschränkung: Nur Admins können die Funktion auslösen.</span>
+
+<span class="sd">    :param request: Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</span>
+<span class="sd">    :param mitglied_id: Die Id des Mitglieds, das bearbeitet wurde.</span>
+<span class="sd">    :return: Weiterleitung zur Mitgliederansicht.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">mitglied</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">)</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">vorname</span> <span class="o">=</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;vorname&#39;</span><span class="p">)</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nachname&#39;</span><span class="p">)</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">spitzname</span> <span class="o">=</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;spitzname&#39;</span><span class="p">)</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">tel_mobil</span> <span class="o">=</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;telefon_mobil&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;wahl_angenommen&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">wahl_angenommen</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">wahl_angenommen</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;kenntnis_ordn&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">kenntnis_ordn</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">kenntnis_ordn</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;verpfl_datengeheimnis&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">verpfl_datengeheimnis</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">verpfl_datengeheimnis</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;stammdatenblatt&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">stammdatenblatt</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">stammdatenblatt</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;tel_weitergabe&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">tel_weitergabe</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mitglied</span><span class="o">.</span><span class="n">tel_weitergabe</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># alle Aemter des Mitglieds loeschen</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">aemternum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">amt_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;selectamt&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">funktion</span> <span class="o">=</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">amt_id</span><span class="p">)</span>
+            <span class="c1"># Beginn und Ende Amtszeit</span>
+            <span class="n">amtszeit_beginn_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;beginn_kandidatur&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">amtszeit_beginn_str</span><span class="p">:</span>
+                <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_beginn_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">amtszeit_ende_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;ende_kandidatur&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">amtszeit_ende_str</span><span class="p">:</span>
+                <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_ende_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">mitgliedamt</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="p">(</span><span class="n">funktion</span><span class="o">=</span><span class="n">funktion</span><span class="p">,</span> <span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">,</span> <span class="n">amtszeit_beginn</span><span class="o">=</span><span class="n">amtszeit_beginn</span><span class="p">,</span>
+                                      <span class="n">amtszeit_ende</span><span class="o">=</span><span class="n">amtszeit_ende</span><span class="p">)</span>
+            <span class="n">mitgliedamt</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># alle Mails loeschen und im Formular angegebene Mails angeben</span>
+        <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedmail_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">emailnum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;email&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">mitgliedmail</span> <span class="o">=</span> <span class="n">MitgliedMail</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">)</span>
+            <span class="n">mitgliedmail</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;mitglieder:homepage&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="mitglied_laden"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.mitglied_laden">[Doku]</a><span class="k">def</span> <span class="nf">mitglied_laden</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.</span>
+<span class="sd">    :return: Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="c1"># Extrahieren der Mitglied-Id aus der GET-Request</span>
+    <span class="n">mitglied_id</span> <span class="o">=</span> <span class="n">simplejson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mitgliedid&#39;</span><span class="p">))</span>
+    <span class="c1"># Daten zum Mitglied mit dieser Id an Frontend senden</span>
+    <span class="n">mitglied</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">)</span>
+    <span class="n">curr_funktionen</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span>\
+        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">amtszeit_ende__isnull</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">amtszeit_ende__gte</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()))</span>
+    <span class="n">prev_funktionen</span> <span class="o">=</span> <span class="n">mitglied</span><span class="o">.</span><span class="n">mitgliedamt_set</span>\
+        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">amtszeit_ende__isnull</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">amtszeit_ende__lt</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;mitglieder/modal.html&#39;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;mitglied&#39;</span><span class="p">:</span> <span class="n">mitglied</span><span class="p">,</span>
+            <span class="s1">&#39;curr_funktionen&#39;</span><span class="p">:</span> <span class="n">curr_funktionen</span><span class="p">,</span>
+            <span class="s1">&#39;prev_funktionen&#39;</span><span class="p">:</span> <span class="n">prev_funktionen</span>
+        <span class="p">})</span></div>
+
+
+<span class="c1"># Entfernen von Mitgliedern aus der Datenbank</span>
+<div class="viewcode-block" id="mitglieder_loeschen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.mitglieder_loeschen">[Doku]</a><span class="k">def</span> <span class="nf">mitglieder_loeschen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Löscht ausgewählte Mitglieder aus der Datenbank.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen</span>
+<span class="sd">    :return: HTTP Response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="c1"># Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank</span>
+    <span class="n">mitgliederids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mitglieder&#39;</span><span class="p">)</span>
+    <span class="n">mitgliederids</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">mitgliederids</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mitgliedid</span> <span class="ow">in</span> <span class="n">mitgliederids</span><span class="p">:</span>
+        <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">mitgliedid</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+
+<span class="c1"># Unterbereiche eines Referats an das Frontend senden</span>
+<div class="viewcode-block" id="bereiche_laden"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.bereiche_laden">[Doku]</a><span class="k">def</span> <span class="nf">bereiche_laden</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.</span>
+<span class="sd">    :return: Das gerenderte Dropdown.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">aemternum</span>
+    <span class="n">referat_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;organisationseinheit&#39;</span><span class="p">)</span>
+    <span class="n">amtnum</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;amtnum&#39;</span><span class="p">)</span>
+    <span class="n">bereiche</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">referat_id</span><span class="p">)</span><span class="o">.</span><span class="n">unterbereich_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">funktionen_ohne_unterbereich_count</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">referat_id</span><span class="p">)</span><span class="o">.</span><span class="n">funktionen_ohne_unterbereich_count</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;mitglieder/bereich_dropdown_list_options.html&#39;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;bereiche&#39;</span><span class="p">:</span> <span class="n">bereiche</span><span class="p">,</span>
+            <span class="s1">&#39;amtid&#39;</span><span class="p">:</span> <span class="n">amtnum</span><span class="p">,</span>
+            <span class="s1">&#39;funktionen_ohne_unterbereich_count&#39;</span><span class="p">:</span> <span class="n">funktionen_ohne_unterbereich_count</span>
+        <span class="p">})</span></div>
+
+
+<span class="c1"># Aemter eines Bereichs an das Frontend senden</span>
+<div class="viewcode-block" id="funktionen_laden"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.funktionen_laden">[Doku]</a><span class="k">def</span> <span class="nf">funktionen_laden</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</span>
+<span class="sd">    :return: Das gerenderte Dropdown.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">aemternum</span>
+    <span class="n">bereich_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bereich&#39;</span><span class="p">)</span>
+    <span class="n">amtnum</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;amtnum&#39;</span><span class="p">)</span>
+    <span class="c1"># als Bereich wurde &quot;keiner&quot; gewaehlt =&gt; nur Aemter des Referats ohne Bereich werden geladen</span>
+    <span class="k">if</span> <span class="n">bereich_id</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">:</span>
+        <span class="n">referat_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;organisationseinheit&#39;</span><span class="p">)</span>
+        <span class="n">aemter</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">referat_id</span><span class="p">)</span><span class="o">.</span><span class="n">funktion_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">aemter</span> <span class="o">=</span> <span class="n">aemter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">unterbereich__isnull</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Laden aller Aemter fuer gewaehlten Unterbereich</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">aemter</span> <span class="o">=</span> <span class="n">Unterbereich</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">bereich_id</span><span class="p">)</span><span class="o">.</span><span class="n">funktion_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="c1"># print(bereich_id)</span>
+        <span class="c1"># print(aemter)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;mitglieder/amt_dropdown_list_options.html&#39;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;aemter&#39;</span><span class="p">:</span> <span class="n">aemter</span><span class="p">,</span>
+            <span class="s1">&#39;amtid&#39;</span><span class="p">:</span> <span class="n">amtnum</span>
+        <span class="p">})</span></div>
+
+
+<span class="c1"># Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)</span>
+<div class="viewcode-block" id="funktionen_html_laden"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.funktionen_html_laden">[Doku]</a><span class="k">def</span> <span class="nf">funktionen_html_laden</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</span>
+<span class="sd">    :return: Das gerenderte Formular.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">aemternum</span>
+    <span class="n">aemternum</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">referate</span> <span class="o">=</span> <span class="n">Organisationseinheit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;bezeichnung&#39;</span><span class="p">)</span>
+    <span class="c1"># Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;mitglieder/aemter.html&#39;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;referate&#39;</span><span class="p">:</span> <span class="n">referate</span><span class="p">,</span>
+            <span class="s1">&#39;amtid&#39;</span><span class="p">:</span> <span class="n">aemternum</span>
+        <span class="p">})</span></div>
+
+
+<span class="c1"># Überprüfen ob Max-Members in einer Funktion schon erreicht ist</span>
+<div class="viewcode-block" id="funktionen_max_member_ueberpruefen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.funktionen_max_member_ueberpruefen">[Doku]</a><span class="k">def</span> <span class="nf">funktionen_max_member_ueberpruefen</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">mitglied_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Überprüft, ob die maximale Anzahl an Mitgliedern in einer Funktion bereits erreicht ist.</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</span>
+<span class="sd">    :param mitglied_id: Die Id des Mitglieds, das bearbeitet wird.</span>
+<span class="sd">    :return: Eine JsonResponse, die als Key &#39;is_valid&#39; enthält, und als Wert entweder True oder False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="n">funktion</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">list_funktion</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">retbool</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+    <span class="c1"># Funktion</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">aemternum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">amt_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;selectamt&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+        <span class="n">funktion</span> <span class="o">=</span> <span class="n">Funktion</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">amt_id</span><span class="p">)</span>
+        <span class="n">amtszeit_beginn_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;beginn_kandidatur&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">amtszeit_beginn_str</span><span class="p">:</span>
+            <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_beginn_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">amtszeit_beginn</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">amtszeit_ende_str</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;ende_kandidatur&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">amtszeit_ende_str</span><span class="p">:</span>
+            <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">amtszeit_ende_str</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">amtszeit_ende</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Check Max Members</span>
+        <span class="k">if</span> <span class="n">funktion</span><span class="o">.</span><span class="n">max_members</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">0</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="c1"># Maximale Member der Funktion sind begrenzt</span>
+            <span class="n">mitglieder_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">ma</span> <span class="ow">in</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">funktion</span><span class="o">=</span><span class="n">funktion</span><span class="p">):</span>
+                <span class="c1"># Kein selbstzählen</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">mitglied_id</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">mitglied</span> <span class="o">==</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">):</span>
+                        <span class="k">continue</span>
+                <span class="c1"># Mitglieder ohne Datum zählen mit rein</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_beginn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_ende</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">mitglieder_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># Mitglieder ohne Enddatum, aber Anfangsdatum &lt;= derzeitiges Datum zählen mit rein</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_beginn</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_ende</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">mitglieder_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">is_past_due</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_beginn</span><span class="p">,</span> <span class="n">amtszeit_beginn</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_past_due</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_beginn</span><span class="p">,</span> <span class="n">amtszeit_ende</span><span class="p">))</span> \
+                        <span class="ow">and</span> <span class="p">(</span>
+                        <span class="n">is_past_due</span><span class="p">(</span><span class="n">amtszeit_beginn</span><span class="p">,</span> <span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_ende</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_past_due</span><span class="p">(</span><span class="n">amtszeit_ende</span><span class="p">,</span> <span class="n">ma</span><span class="o">.</span><span class="n">amtszeit_ende</span><span class="p">)):</span>
+                    <span class="n">mitglieder_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">funktion</span><span class="o">.</span><span class="n">max_members</span> <span class="o">&lt;=</span> <span class="n">mitglieder_count</span><span class="p">:</span>
+                <span class="n">list_funktion</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">funktion</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">list_funktion</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">JsonResponse</span><span class="p">({</span><span class="s1">&#39;isValid&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">JsonResponse</span><span class="p">({</span><span class="s1">&#39;isValid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;funktion&#39;</span><span class="p">:</span> <span class="n">list_funktion</span><span class="p">})</span></div>
+
+
+<span class="c1"># Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)</span>
+<div class="viewcode-block" id="funktion_loeschen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.funktion_loeschen">[Doku]</a><span class="k">def</span> <span class="nf">funktion_loeschen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Erfassen der Anzahl der Ämter</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</span>
+<span class="sd">    :return: HTTP Response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">aemternum</span>
+    <span class="n">aemternum</span><span class="o">-=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+
+<span class="c1"># Formular fur eine E-Mail hinzufuegen (Mitglied erstellen/bearbeiten)</span>
+<div class="viewcode-block" id="email_html_laden"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.email_html_laden">[Doku]</a><span class="k">def</span> <span class="nf">email_html_laden</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Rendern des Formulars</span>
+<span class="sd">    * Erfassen der Anzahl der E-Mails eines Mitglieds</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</span>
+<span class="sd">    :return: HTTP Response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">emailnum</span>
+    <span class="n">emailnum</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;mitglieder/email.html&#39;</span><span class="p">,</span>
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;emailid&#39;</span><span class="p">:</span> <span class="n">emailnum</span>
+        <span class="p">})</span></div>
+
+
+<span class="c1"># Formular fur eine E-Mail loeschen (Mitglied erstellen/bearbeiten)</span>
+<div class="viewcode-block" id="email_loeschen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.email_loeschen">[Doku]</a><span class="k">def</span> <span class="nf">email_loeschen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Erfassen der Anzahl der E-Mails</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</span>
+<span class="sd">    :return: HTTP Response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">emailnum</span>
+    <span class="n">emailnum</span><span class="o">-=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+
+<span class="c1"># Suche in der Mitgliederanzeige</span>
+<div class="viewcode-block" id="suchen"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.views.suchen">[Doku]</a><span class="k">def</span> <span class="nf">suchen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe</span>
+<span class="sd">      im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</span>
+<span class="sd">    * Rendern des Templates</span>
+<span class="sd">    * Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.</span>
+
+<span class="sd">    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Sucheingabe.</span>
+<span class="sd">    :return: Das gerenderte Templates mit den gefunden Mitgliedern.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="n">search_string</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;search_string&#39;</span><span class="p">)</span>
+    <span class="n">page_number</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Trennzeichen: &quot;, &quot;, &quot;,&quot; oder &quot; &quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, |,| &#39;</span><span class="p">,</span> <span class="n">search_string</span><span class="p">)</span>
+    <span class="c1"># leere Strings aus Liste entfernen</span>
+    <span class="n">search_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">t</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">search_tokens</span><span class="p">:</span>
+        <span class="c1"># Paginate data</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;vorname&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="c1"># Show 15 entries per page</span>
+        <span class="n">queryset_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span> <span class="c1"># Get entries for that page</span>
+
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+                  <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;mitglieder/row.html&quot;</span><span class="p">,</span>
+                  <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">queryset_page</span><span class="p">})</span>
+
+    <span class="c1"># Hinzufuegen aller Mitglieder zum QuerySet, deren Vor- oder Nachnamen ein Token enthalten</span>
+    <span class="n">matches</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">search_tokens</span><span class="p">:</span>
+        <span class="n">mitglieder_name_matches</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+        <span class="n">mitglieder_vorname_matches</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">vorname__icontains</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+        <span class="c1"># Speichern, wie viele Matches es fuer jedes Mitglied gibt</span>
+        <span class="k">for</span> <span class="n">queryset</span> <span class="ow">in</span> <span class="n">mitglieder_name_matches</span><span class="p">,</span> <span class="n">mitglieder_vorname_matches</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">queryset</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+                    <span class="n">matches</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">matches</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+
+    <span class="c1"># Mitglieder-Ids nach Anzahl der Matches sortieren</span>
+    <span class="n">matches_sorted</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])}</span>
+    <span class="c1"># Mitgliederliste fuellen</span>
+    <span class="n">mitglieder_matches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">mitglied</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pk</span> <span class="p">:</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mitid</span> <span class="ow">in</span> <span class="n">matches_sorted</span> <span class="p">:</span>
+        <span class="c1"># print(str(mitid) + &quot; &quot; + str(matches[mitid]))</span>
+        <span class="c1"># print(mitglied(mitid))</span>
+        <span class="n">mitglieder_matches</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mitglied</span><span class="p">(</span><span class="n">mitid</span><span class="p">))</span>
+
+    <span class="c1"># Paginate data</span>
+    <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">mitglieder_matches</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="c1"># Show 15 entries per page</span>
+    <span class="n">mitglieder_matches_page</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span> <span class="c1"># Get entries for that page</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span>
+                  <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;mitglieder/row.html&quot;</span><span class="p">,</span>
+                  <span class="n">context</span><span class="o">=</span><span class="p">{</span>
+                      <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mitglieder_matches_page</span>
+                  <span class="p">})</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aemter package &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="aemter.migrations package" href="aemter.migrations.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">aemter package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aemter.migrations.html">aemter.migrations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html">aemter.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-admin-module">aemter.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-aemter.apps">aemter.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aemter.apps.AemterConfig"><code class="docutils literal notranslate"><span class="pre">AemterConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-models-module">aemter.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-urls-module">aemter.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-views-module">aemter.views module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-aemter">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html">checklisten package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html">mitglieder package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">aemter package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aemter.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aemter-package">
+<h1>aemter package<a class="headerlink" href="#aemter-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aemter.migrations.html">aemter.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aemter.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.migrations.html#aemter-migrations-0001-initial-module">aemter.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.migrations.html#aemter-migrations-0002-alter-historicalfunktion-options-and-more-module">aemter.migrations.0002_alter_historicalfunktion_options_and_more module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.migrations.html#module-aemter.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aemter.tests.html">aemter.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#module-aemter.tests.test_apps">aemter.tests.test_apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aemter.tests.html#aemter.tests.test_apps.ReportsConfigTest"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#aemter.tests.test_apps.ReportsConfigTest.test_apps"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest.test_apps()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-models-module">aemter.tests.test_models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-urls-module">aemter.tests.test_urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-views-module">aemter.tests.test_views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.tests.html#module-aemter.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="aemter-admin-module">
+<h2>aemter.admin module<a class="headerlink" href="#aemter-admin-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-aemter.apps">
+<span id="aemter-apps-module"></span><h2>aemter.apps module<a class="headerlink" href="#module-aemter.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aemter.apps.AemterConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aemter.apps.</span></span><span class="sig-name descname"><span class="pre">AemterConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aemter/apps.html#AemterConfig"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#aemter.apps.AemterConfig" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aemter.apps.AemterConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'aemter'</span></em><a class="headerlink" href="#aemter.apps.AemterConfig.name" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aemter.apps.AemterConfig.ready">
+<span class="sig-name descname"><span class="pre">ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aemter/apps.html#AemterConfig.ready"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#aemter.apps.AemterConfig.ready" title="Link zu dieser Definition"></a></dt>
+<dd><p>Override this method in subclasses to run code when Django starts.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aemter.apps.AemterConfig.verbose_name">
+<span class="sig-name descname"><span class="pre">verbose_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Funktionen'</span></em><a class="headerlink" href="#aemter.apps.AemterConfig.verbose_name" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="aemter-models-module">
+<h2>aemter.models module<a class="headerlink" href="#aemter-models-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="aemter-urls-module">
+<h2>aemter.urls module<a class="headerlink" href="#aemter-urls-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="aemter-views-module">
+<h2>aemter.views module<a class="headerlink" href="#aemter-views-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-aemter">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aemter" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="aemter.migrations.html" class="btn btn-neutral float-right" title="aemter.migrations package" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

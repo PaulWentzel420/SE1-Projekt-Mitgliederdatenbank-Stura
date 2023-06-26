@@ -1,0 +1,53 @@
+bin package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   bin.management
+
+Submodules
+----------
+
+bin.asgi module
+---------------
+
+.. automodule:: bin.asgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bin.settings module
+-------------------
+
+.. automodule:: bin.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bin.urls module
+---------------
+
+.. automodule:: bin.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bin.wsgi module
+---------------
+
+.. automodule:: bin.wsgi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: bin
+   :members:
+   :undoc-members:
+   :show-inheritance:

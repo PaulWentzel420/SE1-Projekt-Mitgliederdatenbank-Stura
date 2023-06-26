@@ -1,0 +1,37 @@
+login.tests package
+===================
+
+Submodules
+----------
+
+login.tests.test\_apps module
+-----------------------------
+
+.. automodule:: login.tests.test_apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+login.tests.test\_urls module
+-----------------------------
+
+.. automodule:: login.tests.test_urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+login.tests.test\_views module
+------------------------------
+
+.. automodule:: login.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: login.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

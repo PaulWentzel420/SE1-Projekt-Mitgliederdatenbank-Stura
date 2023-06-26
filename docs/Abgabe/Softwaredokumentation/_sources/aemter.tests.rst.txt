@@ -1,0 +1,45 @@
+aemter.tests package
+====================
+
+Submodules
+----------
+
+aemter.tests.test\_apps module
+------------------------------
+
+.. automodule:: aemter.tests.test_apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.tests.test\_models module
+--------------------------------
+
+.. automodule:: aemter.tests.test_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.tests.test\_urls module
+------------------------------
+
+.. automodule:: aemter.tests.test_urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.tests.test\_views module
+-------------------------------
+
+.. automodule:: aemter.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aemter.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

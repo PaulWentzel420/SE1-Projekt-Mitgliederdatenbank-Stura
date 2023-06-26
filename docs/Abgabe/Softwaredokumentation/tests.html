@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tests package &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="mitglieder.tests package" href="mitglieder.tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aemter.html">aemter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html">checklisten package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html">mitglieder package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tests package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.MyFuncAemter">tests.MyFuncAemter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncAemter.createAmt"><code class="docutils literal notranslate"><span class="pre">createAmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncAemter.createReferat"><code class="docutils literal notranslate"><span class="pre">createReferat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncAemter.createUnterbereich"><code class="docutils literal notranslate"><span class="pre">createUnterbereich()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.MyFuncLogin">tests.MyFuncLogin module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncLogin.loginAsLukasAdmin"><code class="docutils literal notranslate"><span class="pre">loginAsLukasAdmin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncLogin.loginAsLukasUser"><code class="docutils literal notranslate"><span class="pre">loginAsLukasUser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.MyFuncMitglieder">tests.MyFuncMitglieder module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncMitglieder.addMitglied"><code class="docutils literal notranslate"><span class="pre">addMitglied()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyFuncMitglieder.addMitgliedWithParameters"><code class="docutils literal notranslate"><span class="pre">addMitgliedWithParameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.MyTestCase">tests.MyTestCase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.MyTestCase.MyTestCase"><code class="docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_001_admin">tests.test_001_admin module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_001_admin.TestAdmin"><code class="docutils literal notranslate"><span class="pre">TestAdmin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_002_user">tests.test_002_user module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_002_user.TestUser"><code class="docutils literal notranslate"><span class="pre">TestUser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_003_multiuser">tests.test_003_multiuser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_004_mitgliedHinzufuegen">tests.test_004_mitgliedHinzufuegen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen"><code class="docutils literal notranslate"><span class="pre">TestMitgliedHinzufuegen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_005_mitgliedEntfernen">tests.test_005_mitgliedEntfernen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen"><code class="docutils literal notranslate"><span class="pre">TestMitgliedEntfernen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_006_mitgliedAendern">tests.test_006_mitgliedAendern module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_006_mitgliedAendern.TestMitgliedAendern"><code class="docutils literal notranslate"><span class="pre">TestMitgliedAendern</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_007_aemtHinzufuegen">tests.test_007_aemtHinzufuegen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_008_aemtEntfernen">tests.test_008_aemtEntfernen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen"><code class="docutils literal notranslate"><span class="pre">TestAemtEntfernen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_009_aemtAendern">tests.test_009_aemtAendern module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tests.test_009_aemtAendern.TestAemtAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tests-test-101-mitgliedhinzufuegen-module">tests.test_101_mitgliedHinzufuegen module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">tests package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tests.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tests-package">
+<h1>tests package<a class="headerlink" href="#tests-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-tests.MyFuncAemter">
+<span id="tests-myfuncaemter-module"></span><h2>tests.MyFuncAemter module<a class="headerlink" href="#module-tests.MyFuncAemter" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncAemter.createAmt">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncAemter.</span></span><span class="sig-name descname"><span class="pre">createAmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisationseinheit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unterbereich</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funktion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncAemter.html#createAmt"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncAemter.createAmt" title="Link zu dieser Definition"></a></dt>
+<dd><p>Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem das Funktion zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
+<li><p><strong>funktion</strong> (<em>string</em>) – Angabe des Namens, der das neue Funktion erhalten soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncAemter.createReferat">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncAemter.</span></span><span class="sig-name descname"><span class="pre">createReferat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisationseinheit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncAemter.html#createReferat"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncAemter.createReferat" title="Link zu dieser Definition"></a></dt>
+<dd><p>Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncAemter.createUnterbereich">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncAemter.</span></span><span class="sig-name descname"><span class="pre">createUnterbereich</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisationseinheit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unterbereich</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncAemter.html#createUnterbereich"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncAemter.createUnterbereich" title="Link zu dieser Definition"></a></dt>
+<dd><p>Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-tests.MyFuncLogin">
+<span id="tests-myfunclogin-module"></span><h2>tests.MyFuncLogin module<a class="headerlink" href="#module-tests.MyFuncLogin" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncLogin.loginAsLukasAdmin">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncLogin.</span></span><span class="sig-name descname"><span class="pre">loginAsLukasAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncLogin.html#loginAsLukasAdmin"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncLogin.loginAsLukasAdmin" title="Link zu dieser Definition"></a></dt>
+<dd><p>Opens a Browser instance and login as admin with the account testlukasadmin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncLogin.loginAsLukasUser">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncLogin.</span></span><span class="sig-name descname"><span class="pre">loginAsLukasUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncLogin.html#loginAsLukasUser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncLogin.loginAsLukasUser" title="Link zu dieser Definition"></a></dt>
+<dd><p>Opens a Browser instance and login as user with the account testlukas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-tests.MyFuncMitglieder">
+<span id="tests-myfuncmitglieder-module"></span><h2>tests.MyFuncMitglieder module<a class="headerlink" href="#module-tests.MyFuncMitglieder" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncMitglieder.addMitglied">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncMitglieder.</span></span><span class="sig-name descname"><span class="pre">addMitglied</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncMitglieder.html#addMitglied"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncMitglieder.addMitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Add a member with default parameters over the „mitglieder/erstellen“ view.
+You need to be on the „mitglieder/“ site to call this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tests.MyFuncMitglieder.addMitgliedWithParameters">
+<span class="sig-prename descclassname"><span class="pre">tests.MyFuncMitglieder.</span></span><span class="sig-name descname"><span class="pre">addMitgliedWithParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vorname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nachname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spitzname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyFuncMitglieder.html#addMitgliedWithParameters"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyFuncMitglieder.addMitgliedWithParameters" title="Link zu dieser Definition"></a></dt>
+<dd><p>Add a member with default parameters over the „mitglieder/erstellen“ view.
+You can change firstname, lastname and username.
+You need to be on the „mitglieder/“ site to call this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>vorname</strong> (<em>string</em>) – Firstname of the Member, that you want to create.</p></li>
+<li><p><strong>nachname</strong> (<em>string</em>) – Lastname of the Member, that you want to create.</p></li>
+<li><p><strong>spitzname</strong> (<em>string</em>) – Username of the Member, that you want to create.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-tests.MyTestCase">
+<span id="tests-mytestcase-module"></span><h2>tests.MyTestCase module<a class="headerlink" href="#module-tests.MyTestCase" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.MyTestCase.MyTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.MyTestCase.</span></span><span class="sig-name descname"><span class="pre">MyTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyTestCase.html#MyTestCase"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyTestCase.MyTestCase" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StaticLiveServerTestCase</span></code></p>
+<p>Setup and Teardown funktions are specified here.
+The following Testcases inherit from this class.</p>
+<p>All testcases inheriting from this class are testing the User Interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.MyTestCase.MyTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyTestCase.html#MyTestCase.setUp"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyTestCase.MyTestCase.setUp" title="Link zu dieser Definition"></a></dt>
+<dd><p>This function is called before every testcase.</p>
+<p>It sets up the webdriver and creates 1 admin and 1 user.
+You can adjust the webdriver by changing the <em>options</em> parameter.
+The Importscripts from the folder <em>importscripts</em> are also called here.</p>
+<p>The Webdriver Instance is stored in <strong>self.browser</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.MyTestCase.MyTestCase.tearDown">
+<span class="sig-name descname"><span class="pre">tearDown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/MyTestCase.html#MyTestCase.tearDown"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.MyTestCase.MyTestCase.tearDown" title="Link zu dieser Definition"></a></dt>
+<dd><p>This function is called after every testcase.</p>
+<p>The Webdriver Instance that is stored in <strong>self.browser</strong> will be closed.
+:param self:
+:type self:
+:return: No return Value</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_001_admin">
+<span id="tests-test-001-admin-module"></span><h2>tests.test_001_admin module<a class="headerlink" href="#module-tests.test_001_admin" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_001_admin.TestAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_001_admin.</span></span><span class="sig-name descname"><span class="pre">TestAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_001_admin.html#TestAdmin"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_001_admin.TestAdmin" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_001_admin.TestAdmin.test_login_superuser">
+<span class="sig-name descname"><span class="pre">test_login_superuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_001_admin.html#TestAdmin.test_login_superuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_001_admin.TestAdmin.test_login_superuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can login as Admin and all sites are displayed correctly.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_002_user">
+<span id="tests-test-002-user-module"></span><h2>tests.test_002_user module<a class="headerlink" href="#module-tests.test_002_user" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_002_user.TestUser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_002_user.</span></span><span class="sig-name descname"><span class="pre">TestUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_002_user.html#TestUser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_002_user.TestUser" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_002_user.TestUser.test_login_user">
+<span class="sig-name descname"><span class="pre">test_login_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_002_user.html#TestUser.test_login_user"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_002_user.TestUser.test_login_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can login as User and all sites are displayed correctly.
+But that you can not reach Admin-only content.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_003_multiuser">
+<span id="tests-test-003-multiuser-module"></span><h2>tests.test_003_multiuser module<a class="headerlink" href="#module-tests.test_003_multiuser" title="Permalink to this heading"></a></h2>
+<p>TODO: under Construction</p>
+</section>
+<section id="module-tests.test_004_mitgliedHinzufuegen">
+<span id="tests-test-004-mitgliedhinzufuegen-module"></span><h2>tests.test_004_mitgliedHinzufuegen module<a class="headerlink" href="#module-tests.test_004_mitgliedHinzufuegen" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_004_mitgliedHinzufuegen.</span></span><span class="sig-name descname"><span class="pre">TestMitgliedHinzufuegen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_004_mitgliedHinzufuegen.html#TestMitgliedHinzufuegen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufugen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1MitgliedHinzufügen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_004_mitgliedHinzufuegen.html#TestMitgliedHinzufuegen.test_1MitgliedHinzufügen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufugen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a new Member as Admin and if the
+Member is displayed correctly in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufugen_AsSuperuser_lookAsUser">
+<span class="sig-name descname"><span class="pre">test_50MitgliederHinzufügen_AsSuperuser_lookAsUser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_004_mitgliedHinzufuegen.html#TestMitgliedHinzufuegen.test_50MitgliederHinzufügen_AsSuperuser_lookAsUser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufugen_AsSuperuser_lookAsUser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a complex „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a multiple new Members (50) as Admin and if the
+Member is displayed correctly in the table.
+We also want to check if the Pagination is working correctly.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member (as loop)</p></li>
+<li><p>check Pagination</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_005_mitgliedEntfernen">
+<span id="tests-test-005-mitgliedentfernen-module"></span><h2>tests.test_005_mitgliedEntfernen module<a class="headerlink" href="#module-tests.test_005_mitgliedEntfernen" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_005_mitgliedEntfernen.</span></span><span class="sig-name descname"><span class="pre">TestMitgliedEntfernen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_005_mitgliedEntfernen.html#TestMitgliedEntfernen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1MitgliedEntfernen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_005_mitgliedEntfernen.html#TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can delete a new Member as Admin and if the
+Member is deleted correctly in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+<li><p>delete Member</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_006_mitgliedAendern">
+<span id="tests-test-006-mitgliedaendern-module"></span><h2>tests.test_006_mitgliedAendern module<a class="headerlink" href="#module-tests.test_006_mitgliedAendern" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_006_mitgliedAendern.TestMitgliedAendern">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_006_mitgliedAendern.</span></span><span class="sig-name descname"><span class="pre">TestMitgliedAendern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_006_mitgliedAendern.html#TestMitgliedAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_006_mitgliedAendern.TestMitgliedAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_006_mitgliedAendern.TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1MitgliedAendern_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_006_mitgliedAendern.html#TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_006_mitgliedAendern.TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change information of a Member as Admin and if the
+Member is changed correctly in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+<li><p>change Member Data</p></li>
+<li><p>check if everything is correct displayed</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_007_aemtHinzufuegen">
+<span id="tests-test-007-aemthinzufuegen-module"></span><h2>tests.test_007_aemtHinzufuegen module<a class="headerlink" href="#module-tests.test_007_aemtHinzufuegen" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_007_aemtHinzufuegen.</span></span><span class="sig-name descname"><span class="pre">TestAemtHinzufuegen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_007_aemtHinzufuegen.html#TestAemtHinzufuegen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1FunktionHinzufuegen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_007_aemtHinzufuegen.html#TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a funktion as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a funktion</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1OrganisationseinheitHinzufuegen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_007_aemtHinzufuegen.html#TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a „Organisationseinheit“ as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a „Organisationseinheit“</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1UnterbereichHinzufuegen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_007_aemtHinzufuegen.html#TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a „unterbereich“ as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a „unterbereich“</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_007_aemtHinzufuegen.html#TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a complex „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.
+We also check if we can add a new Member with the new data and if everything is displayed correctly
+in „/aemter/“.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a „organisationseinheit“</p></li>
+<li><p>add a „unterbereich“</p></li>
+<li><p>add a funktion</p></li>
+<li><p>create a Member</p></li>
+<li><p>navigate to aemteruebersicht „/aemter/“</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_008_aemtEntfernen">
+<span id="tests-test-008-aemtentfernen-module"></span><h2>tests.test_008_aemtEntfernen module<a class="headerlink" href="#module-tests.test_008_aemtEntfernen" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_008_aemtEntfernen.TestAemtEntfernen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_008_aemtEntfernen.</span></span><span class="sig-name descname"><span class="pre">TestAemtEntfernen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_008_aemtEntfernen.html#TestAemtEntfernen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1AemtEntfernen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_008_aemtEntfernen.html#TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can delete a funktion as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a funktion</p></li>
+<li><p>delete the funktion</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1ReferatEntfernen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_008_aemtEntfernen.html#TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can delete a „Organisationseinheit“ as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a „Organisationseinheit“</p></li>
+<li><p>delete the „Organisationseinheit“</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser">
+<span class="sig-name descname"><span class="pre">test_1UnterbereichEntfernen_AsSuperuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_008_aemtEntfernen.html#TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can delete a „unterbereich“ as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a „unterbereich“</p></li>
+<li><p>delete the „unterbereich“</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tests.test_009_aemtAendern">
+<span id="tests-test-009-aemtaendern-module"></span><h2>tests.test_009_aemtAendern module<a class="headerlink" href="#module-tests.test_009_aemtAendern" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_009_aemtAendern.</span></span><span class="sig-name descname"><span class="pre">TestAemtAendern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tests.MyTestCase.MyTestCase" title="tests.MyTestCase.MyTestCase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyTestCase</span></code></a></p>
+<p>Setup and Teardown functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1AmtBezeichnungAendern">
+<span class="sig-name descname"><span class="pre">test_1AmtBezeichnungAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1AmtBezeichnungAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtBezeichnungAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change information of a funktion as Admin.
+We change the name of the funktion by appending a „_1“.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1AmtReferatAendern">
+<span class="sig-name descname"><span class="pre">test_1AmtReferatAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1AmtReferatAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtReferatAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change the „organisationseinheit“ of a funktion as Admin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1AmtWorkloadAendern">
+<span class="sig-name descname"><span class="pre">test_1AmtWorkloadAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1AmtWorkloadAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtWorkloadAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change the workload of a funktion as Admin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1OrganisationseinheitBezeichnungAendern">
+<span class="sig-name descname"><span class="pre">test_1OrganisationseinheitBezeichnungAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1OrganisationseinheitBezeichnungAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1OrganisationseinheitBezeichnungAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change information of a „organisationseinheit“ as Admin.
+We change the name of the „organisationseinheit“ by appending a „_1“.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichBezeichnungAendern">
+<span class="sig-name descname"><span class="pre">test_1UnterbereichBezeichnungAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1UnterbereichBezeichnungAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichBezeichnungAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change information of a „unterbereich“ as Admin.
+We change the name of the „unterbereich“ by appending a „_1“.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichReferatAendern">
+<span class="sig-name descname"><span class="pre">test_1UnterbereichReferatAendern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_009_aemtAendern.html#TestAemtAendern.test_1UnterbereichReferatAendern"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichReferatAendern" title="Link zu dieser Definition"></a></dt>
+<dd><p>This is a „positive“ Systemtest as Blackboxtest.
+Here we want to check if you can change the „organisationseinheit“ of a „unterbereich“ as Admin.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="tests-test-101-mitgliedhinzufuegen-module">
+<h2>tests.test_101_mitgliedHinzufuegen module<a class="headerlink" href="#tests-test-101-mitgliedhinzufuegen-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mitglieder.tests.html" class="btn btn-neutral float-left" title="mitglieder.tests package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+checklisten.tests package
+=========================
+
+Submodules
+----------
+
+checklisten.tests.test\_apps module
+-----------------------------------
+
+.. automodule:: checklisten.tests.test_apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.tests.test\_models module
+-------------------------------------
+
+.. automodule:: checklisten.tests.test_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.tests.test\_urls module
+-----------------------------------
+
+.. automodule:: checklisten.tests.test_urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.tests.test\_views module
+------------------------------------
+
+.. automodule:: checklisten.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: checklisten.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>checklisten.migrations package &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="checklisten.tests package" href="checklisten.tests.html" />
+    <link rel="prev" title="checklisten package" href="checklisten.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aemter.html">aemter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="checklisten.html">checklisten package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="checklisten.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">checklisten.migrations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html">checklisten.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten.admin">checklisten.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten.apps">checklisten.apps module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten.models">checklisten.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten.urls">checklisten.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten.views">checklisten.views module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#module-checklisten">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html">mitglieder package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="checklisten.html">checklisten package</a></li>
+      <li class="breadcrumb-item active">checklisten.migrations package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/checklisten.migrations.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="checklisten-migrations-package">
+<h1>checklisten.migrations package<a class="headerlink" href="#checklisten-migrations-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-checklisten.migrations.0001_initial">
+<span id="checklisten-migrations-0001-initial-module"></span><h2>checklisten.migrations.0001_initial module<a class="headerlink" href="#module-checklisten.migrations.0001_initial" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.migrations.0001_initial.Migration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.migrations.0001_initial.</span></span><span class="sig-name descname"><span class="pre">Migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/migrations/0001_initial.html#Migration"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.migrations.0001_initial.Migration" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Migration</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.migrations.0001_initial.Migration.dependencies">
+<span class="sig-name descname"><span class="pre">dependencies</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('auth',</span> <span class="pre">'__first__'),</span> <span class="pre">('mitglieder',</span> <span class="pre">'0001_initial'),</span> <span class="pre">('aemter',</span> <span class="pre">'0001_initial')]</span></em><a class="headerlink" href="#checklisten.migrations.0001_initial.Migration.dependencies" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.migrations.0001_initial.Migration.initial">
+<span class="sig-name descname"><span class="pre">initial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#checklisten.migrations.0001_initial.Migration.initial" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.migrations.0001_initial.Migration.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;CreateModel</span>&#160; <span class="pre">name='Aufgabe',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('bezeichnung',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'Aufgabe',</span> <span class="pre">'verbose_name_plural':</span> <span class="pre">'Aufgaben'}&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Checkliste',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('amt',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('mitglied',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'Checkliste',</span> <span class="pre">'verbose_name_plural':</span> <span class="pre">'Checklisten'}&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='HistoricalChecklisteRecht',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.IntegerField&gt;),</span> <span class="pre">('abgehakt',</span> <span class="pre">&lt;django.db.models.fields.BooleanField&gt;),</span> <span class="pre">('history_id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('history_date',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('history_change_reason',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_type',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('checkliste',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('history_user',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('recht',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'historical</span> <span class="pre">Zuordnung</span> <span class="pre">Checkliste-Recht',</span> <span class="pre">'ordering':</span> <span class="pre">('-history_date',</span> <span class="pre">'-history_id'),</span> <span class="pre">'get_latest_by':</span> <span class="pre">'history_date'},</span> <span class="pre">bases=(&lt;class</span> <span class="pre">'simple_history.models.HistoricalChanges'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.base.Model'&gt;)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='HistoricalChecklisteAufgabe',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.IntegerField&gt;),</span> <span class="pre">('abgehakt',</span> <span class="pre">&lt;django.db.models.fields.BooleanField&gt;),</span> <span class="pre">('history_id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('history_date',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('history_change_reason',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_type',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('aufgabe',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('checkliste',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('history_user',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'historical</span> <span class="pre">Zuordnung</span> <span class="pre">Checkliste-Aufgabe',</span> <span class="pre">'ordering':</span> <span class="pre">('-history_date',</span> <span class="pre">'-history_id'),</span> <span class="pre">'get_latest_by':</span> <span class="pre">'history_date'},</span> <span class="pre">bases=(&lt;class</span> <span class="pre">'simple_history.models.HistoricalChanges'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.base.Model'&gt;)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='HistoricalCheckliste',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.IntegerField&gt;),</span> <span class="pre">('history_id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('history_date',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('history_change_reason',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_type',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('amt',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('history_user',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('mitglied',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'historical</span> <span class="pre">Checkliste',</span> <span class="pre">'ordering':</span> <span class="pre">('-history_date',</span> <span class="pre">'-history_id'),</span> <span class="pre">'get_latest_by':</span> <span class="pre">'history_date'},</span> <span class="pre">bases=(&lt;class</span> <span class="pre">'simple_history.models.HistoricalChanges'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.base.Model'&gt;)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='HistoricalAufgabe',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.IntegerField&gt;),</span> <span class="pre">('bezeichnung',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('history_date',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('history_change_reason',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_type',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('history_user',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'historical</span> <span class="pre">Aufgabe',</span> <span class="pre">'ordering':</span> <span class="pre">('-history_date',</span> <span class="pre">'-history_id'),</span> <span class="pre">'get_latest_by':</span> <span class="pre">'history_date'},</span> <span class="pre">bases=(&lt;class</span> <span class="pre">'simple_history.models.HistoricalChanges'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.base.Model'&gt;)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='ChecklisteRecht',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('abgehakt',</span> <span class="pre">&lt;django.db.models.fields.BooleanField&gt;),</span> <span class="pre">('checkliste',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('recht',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'Zuordnung</span> <span class="pre">Checkliste-Recht',</span> <span class="pre">'verbose_name_plural':</span> <span class="pre">'Zuordnungen</span> <span class="pre">Checkliste-Recht'}&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='ChecklisteAufgabe',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.AutoField&gt;),</span> <span class="pre">('abgehakt',</span> <span class="pre">&lt;django.db.models.fields.BooleanField&gt;),</span> <span class="pre">('aufgabe',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;),</span> <span class="pre">('checkliste',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'Zuordnung</span> <span class="pre">Checkliste-Aufgabe',</span> <span class="pre">'verbose_name_plural':</span> <span class="pre">'Zuordnungen</span> <span class="pre">Checkliste-Aufgabe'}&gt;]</span></em><a class="headerlink" href="#checklisten.migrations.0001_initial.Migration.operations" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="checklisten-migrations-0002-alter-historicalaufgabe-options-and-more-module">
+<h2>checklisten.migrations.0002_alter_historicalaufgabe_options_and_more module<a class="headerlink" href="#checklisten-migrations-0002-alter-historicalaufgabe-options-and-more-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-checklisten.migrations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-checklisten.migrations" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="checklisten.html" class="btn btn-neutral float-left" title="checklisten package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="checklisten.tests.html" class="btn btn-neutral float-right" title="checklisten.tests package" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

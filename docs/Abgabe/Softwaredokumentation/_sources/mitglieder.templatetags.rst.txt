@@ -1,0 +1,21 @@
+mitglieder.templatetags package
+===============================
+
+Submodules
+----------
+
+mitglieder.templatetags.mitglieder\_extras module
+-------------------------------------------------
+
+.. automodule:: mitglieder.templatetags.mitglieder_extras
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mitglieder.templatetags
+   :members:
+   :undoc-members:
+   :show-inheritance:

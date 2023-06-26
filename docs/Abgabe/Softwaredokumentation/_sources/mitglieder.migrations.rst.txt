@@ -1,0 +1,45 @@
+mitglieder.migrations package
+=============================
+
+Submodules
+----------
+
+mitglieder.migrations.0001\_initial module
+------------------------------------------
+
+.. automodule:: mitglieder.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.migrations.0002\_auto\_20210615\_1904 module
+-------------------------------------------------------
+
+.. automodule:: mitglieder.migrations.0002_auto_20210615_1904
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.migrations.0003\_auto\_20210620\_1913 module
+-------------------------------------------------------
+
+.. automodule:: mitglieder.migrations.0003_auto_20210620_1913
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.migrations.0004\_alter\_historicalmitglied\_options\_and\_more module
+--------------------------------------------------------------------------------
+
+.. automodule:: mitglieder.migrations.0004_alter_historicalmitglied_options_and_more
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mitglieder.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:

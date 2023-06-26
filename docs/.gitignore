@@ -4,4 +4,4 @@
 **/.asciidoctor/
 **/images/diagrams/
 # *.pdf
-*.html
+# *.html
