@@ -62,13 +62,11 @@ def test(daten, driver):
     # Bereich
     driver.find_element(By.XPATH, '//div[@id="div_selectbereich1"]/div/div/input[@class="select-dropdown dropdown-trigger"]').click()
     driver.find_element(By.XPATH, f'//div[@id="div_selectbereich1"]/div/div/ul[@class="dropdown-content select-dropdown"]/li[{daten.bereich_value}]').click()
-        
     sleep(0.25)
 
     # Funktion
     driver.find_element(By.XPATH, '//div[@id="div_selectamt1"]/div/div/input[@class="select-dropdown dropdown-trigger"]').click()
     driver.find_element(By.XPATH, f'//div[@id="div_selectamt1"]/div/div/ul[@class="dropdown-content select-dropdown"]/li[{daten.funktion_value}]').click()
-
 
     # E-Mail
     email_input = driver.find_element(By.NAME, 'email1')
