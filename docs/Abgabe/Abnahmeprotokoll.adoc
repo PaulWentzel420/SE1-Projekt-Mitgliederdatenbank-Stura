@@ -15,7 +15,7 @@
 
 *Zeit:* 10:00 Uhr
 
-*Abnahmeumgebung:*
+*Abnahmeumgebung:* Django-Webserver und SQL light Datenbank
 
 == Lieferumfang
 
@@ -32,35 +32,35 @@
 |===
 
 |Use Case
-|erfüllt
+| erfüllt
 |Anmerkung
 
 |UC 1 - Mitglied anlegen
-|
-|
+| erfüllt
+| 
 
 |UC 2 - Mitgliederdaten bearbeiten
-|
+| erfüllt
 |
 
 |UC 3 - Historie ausgeben
-|
+| erfüllt
 |
 
-|UC 4 - Lagdateien erstellen
-|
+|UC 4 - Logdateien erstellen
+| erfüllt
 |
 
 |UC 5 - Daten importieren
-|
-|
+| erfüllt
+| Importscript vorhanden (nur für Funktionen)
 
 |UC 6 - Daten exportieren
-|
-|
+| erfüllt
+| Backup der Datenbank möglich
 
 |UC 7 - Checkliste erstellen
-|
+| erfüllt
 |
 
 |===
@@ -75,67 +75,67 @@
 |Anmerkung
 
 |SWFA-1: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.
-|
+| erfüllt
 |
 
 |SWFA-2: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.
-|
+| erfüllt
 |
 
 |SWFA-3: Das System muss relevante Daten persistent speichern.
-|
+| erfüllt
 |
 
 |NFAU-1: Lokalisation
-|
+| erfüllt
 |
 
 |NFAU-2: Erlernbarkeit
-|
+| erfüllt
 |
 
 |NFAU-3: Zugangsbeschränkung
-|
+| erfüllt
 |
 
 |NFAU-4: Benutzerfreundlichkeit
-|
+| erfüllt
 |
 
 |NFAU-5: Eingabehilfe
-|
+| erfüllt
 |
 
 |NFAR-1: Verfügbarkeit
-|
+| erfüllt
 |
 
 |NFAR-2: Eingabevalidierung
-|
+| erfüllt
 |
 
 |NFAR-3: Dokumentation
-|
+| erfüllt
 |
 
 |NFAR-4: Wiederherstellbarkeit
-|
+| erfüllt
 |
 
 |NFAP-1: Serialisierung
-|
+| erfüllt
 |
 
 |NFAP-2: Workflow
-|
+| erfüllt
 |
 
 |NFAS-1: Installation
-|
+| erfüllt
 |
 
 |NFAS-2: Erweiterbarkeit
-|
+| erfüllt
 |
 
 |===
@@ -149,7 +149,7 @@ Bemerkungen:
  + 
  + 
  +
- + 
+ +
 
 [%header, cols="3,3"]
 |===
