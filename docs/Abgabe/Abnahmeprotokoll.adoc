@@ -1,4 +1,4 @@
-= Abnahmeprotokoll: Antrags- und Beschlussverwaltungstool
+= Abnahmeprotokoll: I6 - Mitgliederdatenbank StuRa
 :author: Team I6
 
 == Projektangaben
