@@ -15,11 +15,11 @@
 
 *Zeit:* 10:00 Uhr
 
-*Abnahmeumgebung:* Django-Webserver und SQL light Datenbank
+*Abnahmeumgebung:* Django-Webserver und SQLite Datenbank
 
 == Lieferumfang
 
-* Software: Mitgliederdatenbank bestehend aus Django-Anwendung und Docker-compose-Datei, welche die Datenbank bereitstellt
+* Software: Mitgliederdatenbank bestehend aus Django-Anwendung, welche die Datenbank bereitstellt
 * Anwenderdokumentation
 * Betriebsdokumentation
 * Anforderungsspezifikationen
