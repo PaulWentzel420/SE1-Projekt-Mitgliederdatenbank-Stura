@@ -1,0 +1,63 @@
+mitglieder package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mitglieder.migrations
+   mitglieder.templatetags
+   mitglieder.tests
+
+Submodules
+----------
+
+mitglieder.apps module
+----------------------
+
+.. automodule:: mitglieder.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.funktions module
+---------------------------
+
+.. automodule:: mitglieder.funktions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.models module
+------------------------
+
+.. automodule:: mitglieder.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.urls module
+----------------------
+
+.. automodule:: mitglieder.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.views module
+-----------------------
+
+.. automodule:: mitglieder.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mitglieder
+   :members:
+   :undoc-members:
+   :show-inheritance:

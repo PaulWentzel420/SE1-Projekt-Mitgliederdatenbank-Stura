@@ -1,0 +1,62 @@
+checklisten package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   checklisten.migrations
+   checklisten.tests
+
+Submodules
+----------
+
+checklisten.admin module
+------------------------
+
+.. automodule:: checklisten.admin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.apps module
+-----------------------
+
+.. automodule:: checklisten.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.models module
+-------------------------
+
+.. automodule:: checklisten.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.urls module
+-----------------------
+
+.. automodule:: checklisten.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checklisten.views module
+------------------------
+
+.. automodule:: checklisten.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: checklisten
+   :members:
+   :undoc-members:
+   :show-inheritance:

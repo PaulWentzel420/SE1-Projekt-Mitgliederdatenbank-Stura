@@ -1,0 +1,45 @@
+mitglieder.tests package
+========================
+
+Submodules
+----------
+
+mitglieder.tests.test\_apps module
+----------------------------------
+
+.. automodule:: mitglieder.tests.test_apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.tests.test\_models module
+------------------------------------
+
+.. automodule:: mitglieder.tests.test_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.tests.test\_urls module
+----------------------------------
+
+.. automodule:: mitglieder.tests.test_urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+mitglieder.tests.test\_views module
+-----------------------------------
+
+.. automodule:: mitglieder.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: mitglieder.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

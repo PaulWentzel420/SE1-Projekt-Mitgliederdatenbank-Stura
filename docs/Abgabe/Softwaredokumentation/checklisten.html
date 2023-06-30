@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>checklisten package &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="checklisten.migrations package" href="checklisten.migrations.html" />
+    <link rel="prev" title="bin.management.commands package" href="bin.management.commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aemter.html">aemter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">checklisten package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html">checklisten.migrations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html">checklisten.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten.admin">checklisten.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten.apps">checklisten.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.apps.ChecklistenConfig"><code class="docutils literal notranslate"><span class="pre">ChecklistenConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten.models">checklisten.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.Aufgabe"><code class="docutils literal notranslate"><span class="pre">Aufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.Checkliste"><code class="docutils literal notranslate"><span class="pre">Checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.ChecklisteAufgabe"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.ChecklisteRecht"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.HistoricalAufgabe"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.HistoricalCheckliste"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.HistoricalChecklisteAufgabe"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.models.HistoricalChecklisteRecht"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten.urls">checklisten.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten.views">checklisten.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.views.abhaken"><code class="docutils literal notranslate"><span class="pre">abhaken()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.views.erstellen"><code class="docutils literal notranslate"><span class="pre">erstellen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.views.get_funktionen"><code class="docutils literal notranslate"><span class="pre">get_funktionen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.views.loeschen"><code class="docutils literal notranslate"><span class="pre">loeschen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checklisten.views.main_screen"><code class="docutils literal notranslate"><span class="pre">main_screen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-checklisten">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html">mitglieder package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">checklisten package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/checklisten.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="checklisten-package">
+<h1>checklisten package<a class="headerlink" href="#checklisten-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="checklisten.migrations.html">checklisten.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.migrations.html#module-checklisten.migrations.0001_initial">checklisten.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.migrations.html#checklisten.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#checklisten.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#checklisten.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#checklisten.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.migrations.html#checklisten-migrations-0002-alter-historicalaufgabe-options-and-more-module">checklisten.migrations.0002_alter_historicalaufgabe_options_and_more module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.migrations.html#module-checklisten.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checklisten.tests.html">checklisten.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_apps">checklisten.tests.test_apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_apps.ReportsConfigTest"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_apps.ReportsConfigTest.test_apps"><code class="docutils literal notranslate"><span class="pre">ReportsConfigTest.test_apps()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_models">checklisten.tests.test_models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels"><code class="docutils literal notranslate"><span class="pre">TestModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels.setUp"><code class="docutils literal notranslate"><span class="pre">TestModels.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels.test_aufgabe_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_aufgabe_toString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels.test_checklisteAufgabe_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_checklisteAufgabe_toString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels.test_checklisteRecht_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_checklisteRecht_toString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_models.TestModels.test_checkliste_toString"><code class="docutils literal notranslate"><span class="pre">TestModels.test_checkliste_toString()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_urls">checklisten.tests.test_urls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls"><code class="docutils literal notranslate"><span class="pre">TestUrls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls.test_abhaken_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_abhaken_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls.test_erstellen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_erstellen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls.test_get_funktionen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_get_funktionen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls.test_loeschen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_loeschen_url_resolves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_urls.TestUrls.test_main_screen_url_resolves"><code class="docutils literal notranslate"><span class="pre">TestUrls.test_main_screen_url_resolves()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_views">checklisten.tests.test_views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_views.TestViews"><code class="docutils literal notranslate"><span class="pre">TestViews</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_views.TestViews.setUp"><code class="docutils literal notranslate"><span class="pre">TestViews.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#checklisten.tests.test_views.TestViews.test_main_screen_GET"><code class="docutils literal notranslate"><span class="pre">TestViews.test_main_screen_GET()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-checklisten.admin">
+<span id="checklisten-admin-module"></span><h2>checklisten.admin module<a class="headerlink" href="#module-checklisten.admin" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-checklisten.apps">
+<span id="checklisten-apps-module"></span><h2>checklisten.apps module<a class="headerlink" href="#module-checklisten.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.apps.ChecklistenConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.apps.</span></span><span class="sig-name descname"><span class="pre">ChecklistenConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/apps.html#ChecklistenConfig"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.apps.ChecklistenConfig" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.apps.ChecklistenConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checklisten'</span></em><a class="headerlink" href="#checklisten.apps.ChecklistenConfig.name" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-checklisten.models">
+<span id="checklisten-models-module"></span><h2>checklisten.models module<a class="headerlink" href="#module-checklisten.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">Aufgabe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/models.html#Aufgabe"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.models.Aufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell Aufgabe</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>bezeichnung: Die Aufgabenbezeichnung, die im UI angezeigt wird. Kann bis zu 50 Zeichen lang sein und darf nicht null sein.</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.Aufgabe.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.Aufgabe.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.bezeichnung">
+<span class="sig-name descname"><span class="pre">bezeichnung</span></span><a class="headerlink" href="#checklisten.models.Aufgabe.bezeichnung" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.checklisteaufgabe_set">
+<span class="sig-name descname"><span class="pre">checklisteaufgabe_set</span></span><a class="headerlink" href="#checklisten.models.Aufgabe.checklisteaufgabe_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.Aufgabe.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.Aufgabe.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.Aufgabe.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.Aufgabe.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Aufgabe.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">Checkliste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/models.html#Checkliste"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.models.Checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell für eine Checkliste.</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>mitglied: Das Mitglied, für das die Checkliste erstellt wurde. Darf nicht null sein.</p></li>
+<li><p>amt: Die Funktion, für die die Checkliste erstellt wurde. Kann null sein.</p></li>
+<li><p>history</p></li>
+</ul>
+<p>Es ist zu beachten, dass die Checkliste gelöscht wird, wenn das zugehörige Mitglied oder die Funktion gelöscht wird. (Cascade)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.Checkliste.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.Checkliste.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.amt">
+<span class="sig-name descname"><span class="pre">amt</span></span><a class="headerlink" href="#checklisten.models.Checkliste.amt" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.amt_id">
+<span class="sig-name descname"><span class="pre">amt_id</span></span><a class="headerlink" href="#checklisten.models.Checkliste.amt_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.checklisteaufgabe_set">
+<span class="sig-name descname"><span class="pre">checklisteaufgabe_set</span></span><a class="headerlink" href="#checklisten.models.Checkliste.checklisteaufgabe_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.checklisterecht_set">
+<span class="sig-name descname"><span class="pre">checklisterecht_set</span></span><a class="headerlink" href="#checklisten.models.Checkliste.checklisterecht_set" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.Checkliste.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.Checkliste.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#checklisten.models.Checkliste.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#checklisten.models.Checkliste.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.Checkliste.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.Checkliste.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Checkliste.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">ChecklisteAufgabe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/models.html#ChecklisteAufgabe"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell einer spezifischen Aufgabe in einer bestimmten Checkliste.</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>checkliste: Referenziert die Checkliste, zu der diese Aufgabe gehört. Kann nicht null sein.</p></li>
+<li><p>aufgabe: Referenziert die Aufgabe, die zu der Checkliste gehört. Kann nicht null sein.</p></li>
+<li><p>abgehakt: Stellt dar, ob die Aufgabe in dieser bestimmten Checkliste bereits erledigt wurde. Standard ist False.</p></li>
+<li><p>history</p></li>
+</ul>
+<p>Es ist zu beachten, dass diese Checklisten-Aufgabe gelöscht wird, wenn die zugehörige Checkliste oder die Aufgabe gelöscht wird. (Cascade)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.abgehakt">
+<span class="sig-name descname"><span class="pre">abgehakt</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.abgehakt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.aufgabe">
+<span class="sig-name descname"><span class="pre">aufgabe</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.aufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.aufgabe_id">
+<span class="sig-name descname"><span class="pre">aufgabe_id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.aufgabe_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.checkliste">
+<span class="sig-name descname"><span class="pre">checkliste</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.checkliste_id">
+<span class="sig-name descname"><span class="pre">checkliste_id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.checkliste_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteAufgabe.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">ChecklisteRecht</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/models.html#ChecklisteRecht"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.models.ChecklisteRecht" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Datenbankmodell eines Rechts, das in einer Checkliste gegeben werden soll.</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>checkliste: Die Checkliste, zu der dieses Recht gehört. Kann nicht null sein.</p></li>
+<li><p>recht: Das Recht, was dieser Checkliste zugeordnet wurde. Kann nicht null sein.</p></li>
+<li><p>abgehakt: Stellt dar, ob das Recht in dieser Checkliste schon gegeben wurde. Standard ist False.</p></li>
+<li><p>history</p></li>
+</ul>
+<p>Es ist zu beachten, dass dieses Checklisten-Recht gelöscht wird, wenn die zugehörige Checkliste oder das Recht gelöscht wird. (Cascade)</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.abgehakt">
+<span class="sig-name descname"><span class="pre">abgehakt</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.abgehakt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.checkliste">
+<span class="sig-name descname"><span class="pre">checkliste</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.checkliste_id">
+<span class="sig-name descname"><span class="pre">checkliste_id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.checkliste_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.HistoryManagerFromHistoricalQuerySet</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.ChecklisteRecht.history" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.ChecklisteRecht.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.recht">
+<span class="sig-name descname"><span class="pre">recht</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.recht" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.recht_id">
+<span class="sig-name descname"><span class="pre">recht_id</span></span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.recht_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.ChecklisteRecht.save_without_historical_record">
+<span class="sig-name descname"><span class="pre">save_without_historical_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.save_without_historical_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalAufgabe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bezeichnung</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.bezeichnung">
+<span class="sig-name descname"><span class="pre">bezeichnung</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.bezeichnung" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#checklisten.models.Aufgabe" title="checklisten.models.Aufgabe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aufgabe</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalAufgabe.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.CharField:</span> <span class="pre">bezeichnung&gt;]</span></em><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalCheckliste</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitglied</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.amt">
+<span class="sig-name descname"><span class="pre">amt</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.amt" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.amt_id">
+<span class="sig-name descname"><span class="pre">amt_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.amt_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#checklisten.models.Checkliste" title="checklisten.models.Checkliste"><code class="xref py py-class docutils literal notranslate"><span class="pre">Checkliste</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.mitglied">
+<span class="sig-name descname"><span class="pre">mitglied</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.mitglied" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.mitglied_id">
+<span class="sig-name descname"><span class="pre">mitglied_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.mitglied_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalCheckliste.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">mitglied&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">amt&gt;]</span></em><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalChecklisteAufgabe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abgehakt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkliste</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aufgabe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.abgehakt">
+<span class="sig-name descname"><span class="pre">abgehakt</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.abgehakt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.aufgabe">
+<span class="sig-name descname"><span class="pre">aufgabe</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.aufgabe" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.aufgabe_id">
+<span class="sig-name descname"><span class="pre">aufgabe_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.aufgabe_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.checkliste">
+<span class="sig-name descname"><span class="pre">checkliste</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.checkliste_id">
+<span class="sig-name descname"><span class="pre">checkliste_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.checkliste_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#checklisten.models.ChecklisteAufgabe" title="checklisten.models.ChecklisteAufgabe"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecklisteAufgabe</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteAufgabe.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">checkliste&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">aufgabe&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">abgehakt&gt;]</span></em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checklisten.models.</span></span><span class="sig-name descname"><span class="pre">HistoricalChecklisteRecht</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abgehakt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkliste</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recht</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_change_reason</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoricalChanges</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.DoesNotExist" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.MultipleObjectsReturned" title="Link zu dieser Definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.abgehakt">
+<span class="sig-name descname"><span class="pre">abgehakt</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.abgehakt" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.checkliste">
+<span class="sig-name descname"><span class="pre">checkliste</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.checkliste" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.checkliste_id">
+<span class="sig-name descname"><span class="pre">checkliste_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.checkliste_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.get_default_history_user">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_history_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_default_history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.get_history_type_display">
+<span class="sig-name descname"><span class="pre">get_history_type_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">history_type&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_history_type_display" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.get_next_by_history_date">
+<span class="sig-name descname"><span class="pre">get_next_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_next_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.get_previous_by_history_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_history_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">history_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_previous_by_history_date" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_change_reason">
+<span class="sig-name descname"><span class="pre">history_change_reason</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_change_reason" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_date">
+<span class="sig-name descname"><span class="pre">history_date</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_date" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_id">
+<span class="sig-name descname"><span class="pre">history_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_object">
+<span class="sig-name descname"><span class="pre">history_object</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_object" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_type">
+<span class="sig-name descname"><span class="pre">history_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_user">
+<span class="sig-name descname"><span class="pre">history_user</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_user" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.history_user_id">
+<span class="sig-name descname"><span class="pre">history_user_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_user_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.id" title="Link zu dieser Definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.instance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.instance" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.instance_type">
+<span class="sig-name descname"><span class="pre">instance_type</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.instance_type" title="Link zu dieser Definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#checklisten.models.ChecklisteRecht" title="checklisten.models.ChecklisteRecht"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecklisteRecht</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.next_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">next_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.next_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.objects" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.prev_record">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prev_record</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.prev_record" title="Link zu dieser Definition"></a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.recht">
+<span class="sig-name descname"><span class="pre">recht</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.recht" title="Link zu dieser Definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.recht_id">
+<span class="sig-name descname"><span class="pre">recht_id</span></span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.recht_id" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.revert_url">
+<span class="sig-name descname"><span class="pre">revert_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.revert_url" title="Link zu dieser Definition"></a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="checklisten.models.HistoricalChecklisteRecht.tracked_fields">
+<span class="sig-name descname"><span class="pre">tracked_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;django.db.models.fields.AutoField:</span> <span class="pre">id&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">checkliste&gt;,</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey:</span> <span class="pre">recht&gt;,</span> <span class="pre">&lt;django.db.models.fields.BooleanField:</span> <span class="pre">abgehakt&gt;]</span></em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.tracked_fields" title="Link zu dieser Definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-checklisten.urls">
+<span id="checklisten-urls-module"></span><h2>checklisten.urls module<a class="headerlink" href="#module-checklisten.urls" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-checklisten.views">
+<span id="checklisten-views-module"></span><h2>checklisten.views module<a class="headerlink" href="#module-checklisten.views" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="checklisten.views.abhaken">
+<span class="sig-prename descclassname"><span class="pre">checklisten.views.</span></span><span class="sig-name descname"><span class="pre">abhaken</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/views.html#abhaken"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.views.abhaken" title="Link zu dieser Definition"></a></dt>
+<dd><p>Diese View ist dafür verantwortlich, eine Aufgabe in der Checkliste zu aktivieren oder zu deaktivieren.
+Sie prüft zunächst, ob der User eine Aufgabe abhaken darf, d. h. authentifiziert und Admin ist.
+Als nächstes werden die Parameter task_type und task_id aus der request geholt. Sie werden verwendet, um festzustellen, ob eine Aufgabe oder ein Recht geprüft wurde, und um die richtige Aufgabe zu erhalten.
+Zum Schluss wird die Aufgabe je nach aktuellem Status aktiviert oder deaktiviert und die Änderungen gespeichert.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTTP-Request, welche die View ausgelöst hat, einschließlich der Parameter task_type und task_id.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eine leere HttpResponse, wenn der Vorgang erfolgreich war.</p>
+</dd>
+<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist oder der User die Operation nicht ausführen darf.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="checklisten.views.erstellen">
+<span class="sig-prename descclassname"><span class="pre">checklisten.views.</span></span><span class="sig-name descname"><span class="pre">erstellen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/views.html#erstellen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.views.erstellen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Diese View ist für das Erstellen einer neuen Checkliste verantwortlich.
+Sie prüft zunächst, ob der User eine neue Checkliste erstellen darf (d. h. authentifiziert und Admin ist).
+Als nächstes werden die IDs des Mitglieds und der Funktion aus der Request geholt, sowie ob allgemeine Aufgaben aufgenommen werden sollen.
+Die View versucht dann, das Mitglied und die Funktion mit der angegebenen ID zu finden und gibt eine Fehlermeldung zurück, falls mindestens eins davon nicht gefunden werden konnte.
+Danach prüft die View, ob für dieses Mitglied und diese Funktion bereits eine Checkliste existiert. Sollte dies der Fall sein, wird dem Benutzer eine Fehlermeldung ausgegeben.
+Zum Schluss wird die neue Checkliste erstellt und alle Aufgaben sowie Rechte gemäß den in der Request angegebenen Parametern hinzugefügt.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTTP-Request, welche die View auslöst, einschließlich der Parameter mitgliedSelect, funktionSelect und generalTasksCheckbox.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist.</p>
+</dd>
+<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Eine Weiterleitung zu /checklisten, wenn das Erstellen der Checkliste erfolgreich war oder bereits eine Checkliste für das gleiche Mitglied mit gleicher Funktion existiert.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="checklisten.views.get_funktionen">
+<span class="sig-prename descclassname"><span class="pre">checklisten.views.</span></span><span class="sig-name descname"><span class="pre">get_funktionen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/views.html#get_funktionen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.views.get_funktionen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Diese View ist dafür verantwortlich, alle Funktionen abzurufen, die einem Mitglied zugeordnet sind, welches im Modal zum Erstellen einer Checkliste ausgewählt wurde.
+Zunächst wird geprüft, ob der User in diesem Zusammenhang eine Liste von Funktionen für ein Mitglied erhalten darf (d. h. der User ist authentifiziert und Admin).
+Als nächstes werden alle Funktionen für die angegebene mitglied_id bestimmt und durch eine gerenderte Vorlage mit Auswahloptionen zurückgegeben, um das Dropdown-Menü im „Checklisten erstellen“ Modal zu füllen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTTP-Request, welche die View auslöst, einschließlich der mitglied_id, um die Funktionen zu erhalten.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist.</p>
+</dd>
+<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Die gerenderten Auswahloptionen zum Auffüllen des Dropdown-Menüs, wenn alles erfolgreich war.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="checklisten.views.loeschen">
+<span class="sig-prename descclassname"><span class="pre">checklisten.views.</span></span><span class="sig-name descname"><span class="pre">loeschen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/views.html#loeschen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.views.loeschen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Diese View ist für das Löschen einer bestehenden Checkliste verantwortlich.
+Zunächst wird geprüft, ob der User die Checkliste löschen darf (d. h. authentifiziert und Admin ist).
+Als nächstes wird die Checkliste mit dem in der request angegebenen Parameter checklist_id gelöscht.
+Da alle Fremdschlüssel-Beziehungen in anderen Models auf Cascade gesetzt sind, muss, wenn die Checkliste gelöscht wird (d. h. in ChecklistRecht und TaskRecht), nur die Checkliste selbst explizit gelöscht werden.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTTP-Request, welche die View auslöst, einschließlich der checkliste_id.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eine leere HttpResponse, falls das Löschen der Checkliste erfolgreich war.</p>
+</dd>
+</dl>
+<p>: return: Eine HttpResponse, die einen Fehler anzeigt, wenn einer aufgetreten ist oder der User eine Checkliste nicht löschen darf.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="checklisten.views.main_screen">
+<span class="sig-prename descclassname"><span class="pre">checklisten.views.</span></span><span class="sig-name descname"><span class="pre">main_screen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/checklisten/views.html#main_screen"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#checklisten.views.main_screen" title="Link zu dieser Definition"></a></dt>
+<dd><p>Diese View rendert alle vorhandenen Checklisten. Des Weiteren liefert sie die letzten 20 Mitglieder für das Modal, das zum Erstellen einer neuen Checkliste verwendet wird.
+Wenn der User nicht authentifiziert ist, wird eine Fehlermeldung angezeigt und der User wird auf die Anmeldeseite zurückgeleitet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTTP-Request, welche die View auslöst hat.</p>
+</dd>
+<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
+<dd class="field-even"><p>Die gerenderte main_screen View oder eine Weiterleitung zur Anmeldeseite, falls der User nicht authentifiziert ist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-checklisten">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-checklisten" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bin.management.commands.html" class="btn btn-neutral float-left" title="bin.management.commands package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="checklisten.migrations.html" class="btn btn-neutral float-right" title="checklisten.migrations package" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

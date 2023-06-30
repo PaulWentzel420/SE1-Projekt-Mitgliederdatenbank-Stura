@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>checklisten.models &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">checklisten.models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für checklisten.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">simple_history.models</span> <span class="kn">import</span> <span class="n">HistoricalRecords</span>
+
+<span class="kn">from</span> <span class="nn">mitglieder.models</span> <span class="kn">import</span> <span class="n">Mitglied</span><span class="p">,</span> <span class="n">MitgliedAmt</span>
+<span class="kn">from</span> <span class="nn">aemter.models</span> <span class="kn">import</span> <span class="n">Recht</span>
+
+<div class="viewcode-block" id="Checkliste"><a class="viewcode-back" href="../../checklisten.html#checklisten.models.Checkliste">[Doku]</a><span class="k">class</span> <span class="nc">Checkliste</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Datenbankmodell für eine Checkliste.</span>
+<span class="sd">    </span>
+<span class="sd">    Felder:</span>
+
+<span class="sd">    * mitglied: Das Mitglied, für das die Checkliste erstellt wurde. Darf nicht null sein.</span>
+<span class="sd">    * amt: Die Funktion, für die die Checkliste erstellt wurde. Kann null sein.</span>
+<span class="sd">    * history</span>
+
+<span class="sd">    Es ist zu beachten, dass die Checkliste gelöscht wird, wenn das zugehörige Mitglied oder die Funktion gelöscht wird. (Cascade)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mitglied</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Mitglied</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">amt</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">MitgliedAmt</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">HistoricalRecords</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">amt</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Checkliste&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Checklisten&quot;</span></div>
+
+<div class="viewcode-block" id="Aufgabe"><a class="viewcode-back" href="../../checklisten.html#checklisten.models.Aufgabe">[Doku]</a><span class="k">class</span> <span class="nc">Aufgabe</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Datenbankmodell Aufgabe</span>
+
+<span class="sd">    Felder:</span>
+
+<span class="sd">    * bezeichnung: Die Aufgabenbezeichnung, die im UI angezeigt wird. Kann bis zu 50 Zeichen lang sein und darf nicht null sein.</span>
+<span class="sd">    * history</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bezeichnung</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">HistoricalRecords</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bezeichnung</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Aufgabe&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Aufgaben&quot;</span></div>
+
+<div class="viewcode-block" id="ChecklisteAufgabe"><a class="viewcode-back" href="../../checklisten.html#checklisten.models.ChecklisteAufgabe">[Doku]</a><span class="k">class</span> <span class="nc">ChecklisteAufgabe</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Datenbankmodell einer spezifischen Aufgabe in einer bestimmten Checkliste.</span>
+
+<span class="sd">    Felder:</span>
+
+<span class="sd">    * checkliste: Referenziert die Checkliste, zu der diese Aufgabe gehört. Kann nicht null sein.</span>
+<span class="sd">    * aufgabe: Referenziert die Aufgabe, die zu der Checkliste gehört. Kann nicht null sein.</span>
+<span class="sd">    * abgehakt: Stellt dar, ob die Aufgabe in dieser bestimmten Checkliste bereits erledigt wurde. Standard ist False.</span>
+<span class="sd">    * history</span>
+
+<span class="sd">    Es ist zu beachten, dass diese Checklisten-Aufgabe gelöscht wird, wenn die zugehörige Checkliste oder die Aufgabe gelöscht wird. (Cascade)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">checkliste</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Checkliste</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">aufgabe</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Aufgabe</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">abgehakt</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">HistoricalRecords</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkliste</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">aufgabe</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Zuordnung Checkliste-Aufgabe&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Zuordnungen Checkliste-Aufgabe&quot;</span></div>
+
+<div class="viewcode-block" id="ChecklisteRecht"><a class="viewcode-back" href="../../checklisten.html#checklisten.models.ChecklisteRecht">[Doku]</a><span class="k">class</span> <span class="nc">ChecklisteRecht</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Datenbankmodell eines Rechts, das in einer Checkliste gegeben werden soll.</span>
+
+<span class="sd">    Felder:</span>
+<span class="sd">    </span>
+<span class="sd">    * checkliste: Die Checkliste, zu der dieses Recht gehört. Kann nicht null sein.</span>
+<span class="sd">    * recht: Das Recht, was dieser Checkliste zugeordnet wurde. Kann nicht null sein.</span>
+<span class="sd">    * abgehakt: Stellt dar, ob das Recht in dieser Checkliste schon gegeben wurde. Standard ist False.</span>
+<span class="sd">    * history</span>
+
+<span class="sd">    Es ist zu beachten, dass dieses Checklisten-Recht gelöscht wird, wenn die zugehörige Checkliste oder das Recht gelöscht wird. (Cascade)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">checkliste</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Checkliste</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">recht</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Recht</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">abgehakt</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">HistoricalRecords</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkliste</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">recht</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Zuordnung Checkliste-Recht&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Zuordnungen Checkliste-Recht&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+bin.management package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   bin.management.commands
+
+Module contents
+---------------
+
+.. automodule:: bin.management
+   :members:
+   :undoc-members:
+   :show-inheritance:

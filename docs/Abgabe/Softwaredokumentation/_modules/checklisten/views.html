@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>checklisten.views &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">checklisten.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für checklisten.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Checkliste</span><span class="p">,</span> <span class="n">ChecklisteAufgabe</span><span class="p">,</span> <span class="n">ChecklisteRecht</span><span class="p">,</span> <span class="n">Aufgabe</span>
+<span class="kn">from</span> <span class="nn">aemter.models</span> <span class="kn">import</span> <span class="n">FunktionRecht</span>
+<span class="kn">from</span> <span class="nn">mitglieder.models</span> <span class="kn">import</span> <span class="n">Mitglied</span><span class="p">,</span> <span class="n">MitgliedAmt</span>
+
+<div class="viewcode-block" id="main_screen"><a class="viewcode-back" href="../../checklisten.html#checklisten.views.main_screen">[Doku]</a><span class="k">def</span> <span class="nf">main_screen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View rendert alle vorhandenen Checklisten. Des Weiteren liefert sie die letzten 20 Mitglieder für das Modal, das zum Erstellen einer neuen Checkliste verwendet wird.</span>
+<span class="sd">    Wenn der User nicht authentifiziert ist, wird eine Fehlermeldung angezeigt und der User wird auf die Anmeldeseite zurückgeleitet.</span>
+
+<span class="sd">    :param request: Die HTTP-Request, welche die View auslöst hat.</span>
+<span class="sd">    :return: Die gerenderte main_screen View oder eine Weiterleitung zur Anmeldeseite, falls der User nicht authentifiziert ist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Du musst angemeldet sein, um diese Seite sehen zu können.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+    <span class="n">checklisten</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">mitglieder</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-id&#39;</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> 
+                  <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;checklisten/main_screen.html&#39;</span><span class="p">,</span> 
+                  <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;checklisten&quot;</span><span class="p">:</span> <span class="n">checklisten</span><span class="p">,</span> <span class="s2">&quot;mitglieder&quot;</span><span class="p">:</span> <span class="n">mitglieder</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="erstellen"><a class="viewcode-back" href="../../checklisten.html#checklisten.views.erstellen">[Doku]</a><span class="k">def</span> <span class="nf">erstellen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View ist für das Erstellen einer neuen Checkliste verantwortlich.</span>
+<span class="sd">    Sie prüft zunächst, ob der User eine neue Checkliste erstellen darf (d. h. authentifiziert und Admin ist).</span>
+<span class="sd">    Als nächstes werden die IDs des Mitglieds und der Funktion aus der Request geholt, sowie ob allgemeine Aufgaben aufgenommen werden sollen.</span>
+<span class="sd">    Die View versucht dann, das Mitglied und die Funktion mit der angegebenen ID zu finden und gibt eine Fehlermeldung zurück, falls mindestens eins davon nicht gefunden werden konnte.</span>
+<span class="sd">    Danach prüft die View, ob für dieses Mitglied und diese Funktion bereits eine Checkliste existiert. Sollte dies der Fall sein, wird dem Benutzer eine Fehlermeldung ausgegeben.</span>
+<span class="sd">    Zum Schluss wird die neue Checkliste erstellt und alle Aufgaben sowie Rechte gemäß den in der Request angegebenen Parametern hinzugefügt.</span>
+
+<span class="sd">    :param request: Die HTTP-Request, welche die View auslöst, einschließlich der Parameter mitgliedSelect, funktionSelect und generalTasksCheckbox.</span>
+<span class="sd">    :return: Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist.</span>
+<span class="sd">    :return: Eine Weiterleitung zu /checklisten, wenn das Erstellen der Checkliste erfolgreich war oder bereits eine Checkliste für das gleiche Mitglied mit gleicher Funktion existiert.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get data from request</span>
+    <span class="n">mitglied_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mitgliedSelect&quot;</span><span class="p">)</span>
+    <span class="n">funktion_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;funktionSelect&quot;</span><span class="p">)</span>
+    <span class="n">includeGeneralTasks</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;generalTasksCheckbox&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Determine if general tasks shall be included</span>
+    <span class="k">if</span> <span class="n">includeGeneralTasks</span> <span class="o">==</span> <span class="s2">&quot;on&quot;</span> <span class="ow">or</span> <span class="n">includeGeneralTasks</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">funktion_id</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">:</span>
+        <span class="n">includeGeneralTasks</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">includeGeneralTasks</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Get foreign data</span>
+    <span class="n">mitglied</span> <span class="o">=</span> <span class="n">Mitglied</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mitglied</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Mitglied does not exist&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Get funktion if selected</span>
+    <span class="n">funktion</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">funktion_id</span> <span class="o">!=</span> <span class="s2">&quot;-1&quot;</span><span class="p">:</span>
+        <span class="n">funktion</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">funktion_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">funktion</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Funktion does not exist&quot;</span><span class="p">)</span>
+
+    <span class="n">existing</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">,</span> <span class="n">amt</span><span class="o">=</span><span class="n">funktion</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">existing</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Es existiert bereits eine Checkliste für dieses Mitglied und diese Funktion.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/checklisten&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create checkliste</span>
+    <span class="n">checkliste</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="p">(</span><span class="n">mitglied</span><span class="o">=</span><span class="n">mitglied</span><span class="p">,</span> <span class="n">amt</span><span class="o">=</span><span class="n">funktion</span><span class="p">)</span>
+    <span class="n">checkliste</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="c1"># Add general tasks if selected</span>
+    <span class="k">if</span> <span class="n">includeGeneralTasks</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">Aufgabe</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">aufgabe</span> <span class="o">=</span> <span class="n">ChecklisteAufgabe</span><span class="p">(</span><span class="n">checkliste</span><span class="o">=</span><span class="n">checkliste</span><span class="p">,</span> <span class="n">aufgabe</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+            <span class="n">aufgabe</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    
+    <span class="c1"># Add Rechte if Funktion was selected</span>
+    <span class="k">if</span> <span class="n">funktion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">funktion_recht</span> <span class="ow">in</span> <span class="n">FunktionRecht</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">funktion__id</span><span class="o">=</span><span class="n">funktion</span><span class="o">.</span><span class="n">funktion</span><span class="o">.</span><span class="n">id</span><span class="p">):</span>
+            <span class="n">perm</span> <span class="o">=</span> <span class="n">funktion_recht</span><span class="o">.</span><span class="n">recht</span>
+            <span class="n">recht</span> <span class="o">=</span> <span class="n">ChecklisteRecht</span><span class="p">(</span><span class="n">checkliste</span><span class="o">=</span><span class="n">checkliste</span><span class="p">,</span> <span class="n">recht</span><span class="o">=</span><span class="n">perm</span><span class="p">)</span>
+            <span class="n">recht</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/checklisten&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="abhaken"><a class="viewcode-back" href="../../checklisten.html#checklisten.views.abhaken">[Doku]</a><span class="k">def</span> <span class="nf">abhaken</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View ist dafür verantwortlich, eine Aufgabe in der Checkliste zu aktivieren oder zu deaktivieren.</span>
+<span class="sd">    Sie prüft zunächst, ob der User eine Aufgabe abhaken darf, d. h. authentifiziert und Admin ist.</span>
+<span class="sd">    Als nächstes werden die Parameter task_type und task_id aus der request geholt. Sie werden verwendet, um festzustellen, ob eine Aufgabe oder ein Recht geprüft wurde, und um die richtige Aufgabe zu erhalten.</span>
+<span class="sd">    Zum Schluss wird die Aufgabe je nach aktuellem Status aktiviert oder deaktiviert und die Änderungen gespeichert.</span>
+
+<span class="sd">    :param request: Die HTTP-Request, welche die View ausgelöst hat, einschließlich der Parameter task_type und task_id.</span>
+<span class="sd">    :return: Eine leere HttpResponse, wenn der Vorgang erfolgreich war.</span>
+<span class="sd">    :return: Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist oder der User die Operation nicht ausführen darf.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Nice try, FBI.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;No way, CIA.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Determine if an Aufgabe or a Recht was selected</span>
+    <span class="n">task_type</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_type&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">task_type</span> <span class="o">!=</span> <span class="s2">&quot;Aufgabe&quot;</span> <span class="ow">and</span> <span class="n">task_type</span> <span class="o">!=</span> <span class="s2">&quot;Recht&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Invalid task_type&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get the appropriate task from ChecklisteAufgabe or ChecklisteRecht, depending on task_type</span>
+    <span class="n">task_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">task_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;No task_id provided&quot;</span><span class="p">)</span>
+
+    <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">task_type</span> <span class="o">==</span> <span class="s2">&quot;Aufgabe&quot;</span><span class="p">:</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">ChecklisteAufgabe</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">task_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">task_type</span> <span class="o">==</span> <span class="s2">&quot;Recht&quot;</span><span class="p">:</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">ChecklisteRecht</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">task_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">task</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Invalid task_id&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Flip the (boolean) abgehakt property and save it</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">abgehakt</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">task</span><span class="o">.</span><span class="n">abgehakt</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="loeschen"><a class="viewcode-back" href="../../checklisten.html#checklisten.views.loeschen">[Doku]</a><span class="k">def</span> <span class="nf">loeschen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View ist für das Löschen einer bestehenden Checkliste verantwortlich.</span>
+<span class="sd">    Zunächst wird geprüft, ob der User die Checkliste löschen darf (d. h. authentifiziert und Admin ist).</span>
+<span class="sd">    Als nächstes wird die Checkliste mit dem in der request angegebenen Parameter checklist_id gelöscht.</span>
+<span class="sd">    Da alle Fremdschlüssel-Beziehungen in anderen Models auf Cascade gesetzt sind, muss, wenn die Checkliste gelöscht wird (d. h. in ChecklistRecht und TaskRecht), nur die Checkliste selbst explizit gelöscht werden.</span>
+
+<span class="sd">    :param request: Die HTTP-Request, welche die View auslöst, einschließlich der checkliste_id.</span>
+<span class="sd">    :return: Eine leere HttpResponse, falls das Löschen der Checkliste erfolgreich war.</span>
+<span class="sd">    : return: Eine HttpResponse, die einen Fehler anzeigt, wenn einer aufgetreten ist oder der User eine Checkliste nicht löschen darf.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Not today, NSA.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Good trick, MI6.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get Checkliste with specified ID</span>
+    <span class="n">checkliste_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;checkliste_id&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkliste_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;No checkliste_id provided&quot;</span><span class="p">)</span>
+    <span class="n">checkliste</span> <span class="o">=</span> <span class="n">Checkliste</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">checkliste_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkliste</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Invalid checkliste_id&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Delete Checkliste</span>
+    <span class="n">checkliste</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="get_funktionen"><a class="viewcode-back" href="../../checklisten.html#checklisten.views.get_funktionen">[Doku]</a><span class="k">def</span> <span class="nf">get_funktionen</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Diese View ist dafür verantwortlich, alle Funktionen abzurufen, die einem Mitglied zugeordnet sind, welches im Modal zum Erstellen einer Checkliste ausgewählt wurde.</span>
+<span class="sd">    Zunächst wird geprüft, ob der User in diesem Zusammenhang eine Liste von Funktionen für ein Mitglied erhalten darf (d. h. der User ist authentifiziert und Admin).</span>
+<span class="sd">    Als nächstes werden alle Funktionen für die angegebene mitglied_id bestimmt und durch eine gerenderte Vorlage mit Auswahloptionen zurückgegeben, um das Dropdown-Menü im „Checklisten erstellen“ Modal zu füllen.</span>
+
+<span class="sd">    :param request: Die HTTP-Request, welche die View auslöst, einschließlich der mitglied_id, um die Funktionen zu erhalten.</span>
+<span class="sd">    :return: Eine HttpResponse, die dem User anzeigt, wenn ein Fehler aufgetreten ist.</span>
+<span class="sd">    :return: Die gerenderten Auswahloptionen zum Auffüllen des Dropdown-Menüs, wenn alles erfolgreich war.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Permission denied&quot;</span><span class="p">)</span>
+
+    <span class="n">mitglied_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mitglied_id&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mitglied_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;No mitglied_id provided&quot;</span><span class="p">)</span>
+    <span class="n">funktionen</span> <span class="o">=</span> <span class="n">MitgliedAmt</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">mitglied__id</span><span class="o">=</span><span class="n">mitglied_id</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> 
+                  <span class="n">template_name</span><span class="o">=</span><span class="s1">&#39;checklisten/_funktionSelectOptions.html&#39;</span><span class="p">,</span> 
+                  <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;funktionen&quot;</span><span class="p">:</span> <span class="n">funktionen</span><span class="p">})</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

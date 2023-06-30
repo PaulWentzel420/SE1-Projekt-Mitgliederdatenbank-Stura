@@ -1,0 +1,53 @@
+historie package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   historie.tests
+
+Submodules
+----------
+
+historie.apps module
+--------------------
+
+.. automodule:: historie.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+historie.models module
+----------------------
+
+.. automodule:: historie.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+historie.urls module
+--------------------
+
+.. automodule:: historie.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+historie.views module
+---------------------
+
+.. automodule:: historie.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: historie
+   :members:
+   :undoc-members:
+   :show-inheritance:

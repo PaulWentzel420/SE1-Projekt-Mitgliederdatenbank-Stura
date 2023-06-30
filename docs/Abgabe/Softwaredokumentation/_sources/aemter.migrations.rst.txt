@@ -1,0 +1,29 @@
+aemter.migrations package
+=========================
+
+Submodules
+----------
+
+aemter.migrations.0001\_initial module
+--------------------------------------
+
+.. automodule:: aemter.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.migrations.0002\_alter\_historicalfunktion\_options\_and\_more module
+----------------------------------------------------------------------------
+
+.. automodule:: aemter.migrations.0002_alter_historicalfunktion_options_and_more
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aemter.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:

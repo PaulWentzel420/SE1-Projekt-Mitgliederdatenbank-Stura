@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="aemter package" href="aemter.html" />
+    <link rel="prev" title="Welcome to Mitgliederdatenbank für den StuRa (I06)‘s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html">aemter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html">bin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html">checklisten package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html">historie package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html">importscripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html">mitglieder package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">src</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src">
+<h1>src<a class="headerlink" href="#src" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aemter.html">aemter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aemter.migrations.html">aemter.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aemter.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.migrations.html#aemter-migrations-0001-initial-module">aemter.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.migrations.html#aemter-migrations-0002-alter-historicalfunktion-options-and-more-module">aemter.migrations.0002_alter_historicalfunktion_options_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.migrations.html#module-aemter.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aemter.tests.html">aemter.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#module-aemter.tests.test_apps">aemter.tests.test_apps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-models-module">aemter.tests.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-urls-module">aemter.tests.test_urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#aemter-tests-test-views-module">aemter.tests.test_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.tests.html#module-aemter.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#aemter-admin-module">aemter.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#module-aemter.apps">aemter.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aemter.html#aemter.apps.AemterConfig"><code class="docutils literal notranslate"><span class="pre">AemterConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aemter.html#aemter.apps.AemterConfig.name"><code class="docutils literal notranslate"><span class="pre">AemterConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.html#aemter.apps.AemterConfig.ready"><code class="docutils literal notranslate"><span class="pre">AemterConfig.ready()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aemter.html#aemter.apps.AemterConfig.verbose_name"><code class="docutils literal notranslate"><span class="pre">AemterConfig.verbose_name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#aemter-models-module">aemter.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#aemter-urls-module">aemter.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#aemter-views-module">aemter.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aemter.html#module-aemter">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bin.management.html">bin.management package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bin.management.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin.management.html#module-bin.management">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#module-bin.asgi">bin.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#module-bin.settings">bin.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#module-bin.urls">bin.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#module-bin.wsgi">bin.wsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bin.html#module-bin">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checklisten.html">checklisten package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.migrations.html">checklisten.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#module-checklisten.migrations.0001_initial">checklisten.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#checklisten-migrations-0002-alter-historicalaufgabe-options-and-more-module">checklisten.migrations.0002_alter_historicalaufgabe_options_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.migrations.html#module-checklisten.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.tests.html">checklisten.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_apps">checklisten.tests.test_apps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_models">checklisten.tests.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_urls">checklisten.tests.test_urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests.test_views">checklisten.tests.test_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.tests.html#module-checklisten.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten.admin">checklisten.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten.apps">checklisten.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.apps.ChecklistenConfig"><code class="docutils literal notranslate"><span class="pre">ChecklistenConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.apps.ChecklistenConfig.name"><code class="docutils literal notranslate"><span class="pre">ChecklistenConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten.models">checklisten.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe"><code class="docutils literal notranslate"><span class="pre">Aufgabe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Aufgabe.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Aufgabe.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.bezeichnung"><code class="docutils literal notranslate"><span class="pre">Aufgabe.bezeichnung</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.checklisteaufgabe_set"><code class="docutils literal notranslate"><span class="pre">Aufgabe.checklisteaufgabe_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.history"><code class="docutils literal notranslate"><span class="pre">Aufgabe.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.id"><code class="docutils literal notranslate"><span class="pre">Aufgabe.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.objects"><code class="docutils literal notranslate"><span class="pre">Aufgabe.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Aufgabe.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">Aufgabe.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste"><code class="docutils literal notranslate"><span class="pre">Checkliste</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Checkliste.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Checkliste.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.amt"><code class="docutils literal notranslate"><span class="pre">Checkliste.amt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.amt_id"><code class="docutils literal notranslate"><span class="pre">Checkliste.amt_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.checklisteaufgabe_set"><code class="docutils literal notranslate"><span class="pre">Checkliste.checklisteaufgabe_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.checklisterecht_set"><code class="docutils literal notranslate"><span class="pre">Checkliste.checklisterecht_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.history"><code class="docutils literal notranslate"><span class="pre">Checkliste.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.id"><code class="docutils literal notranslate"><span class="pre">Checkliste.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.mitglied"><code class="docutils literal notranslate"><span class="pre">Checkliste.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.mitglied_id"><code class="docutils literal notranslate"><span class="pre">Checkliste.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.objects"><code class="docutils literal notranslate"><span class="pre">Checkliste.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.Checkliste.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">Checkliste.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.abgehakt"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.abgehakt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.aufgabe"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.aufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.aufgabe_id"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.aufgabe_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.checkliste"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.checkliste_id"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.checkliste_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.history"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.id"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.objects"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteAufgabe.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">ChecklisteAufgabe.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.abgehakt"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.abgehakt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.checkliste"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.checkliste_id"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.checkliste_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.history"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.id"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.objects"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.recht"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.recht</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.recht_id"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.recht_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.ChecklisteRecht.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">ChecklisteRecht.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.bezeichnung"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.bezeichnung</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.id"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalAufgabe.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalAufgabe.tracked_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.amt"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.amt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.amt_id"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.amt_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.id"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.mitglied"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.mitglied_id"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalCheckliste.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalCheckliste.tracked_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.abgehakt"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.abgehakt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.aufgabe"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.aufgabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.aufgabe_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.aufgabe_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.checkliste"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.checkliste_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.checkliste_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteAufgabe.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteAufgabe.tracked_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.abgehakt"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.abgehakt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.checkliste"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.checkliste_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.checkliste_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.recht"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.recht</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.recht_id"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.recht_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="checklisten.html#checklisten.models.HistoricalChecklisteRecht.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalChecklisteRecht.tracked_fields</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten.urls">checklisten.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten.views">checklisten.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.views.abhaken"><code class="docutils literal notranslate"><span class="pre">abhaken()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.views.erstellen"><code class="docutils literal notranslate"><span class="pre">erstellen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.views.get_funktionen"><code class="docutils literal notranslate"><span class="pre">get_funktionen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.views.loeschen"><code class="docutils literal notranslate"><span class="pre">loeschen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="checklisten.html#checklisten.views.main_screen"><code class="docutils literal notranslate"><span class="pre">main_screen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="checklisten.html#module-checklisten">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="historie.html">historie package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="historie.tests.html">historie.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="historie.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="historie.tests.html#module-historie.tests.test_apps">historie.tests.test_apps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="historie.tests.html#module-historie.tests.test_urls">historie.tests.test_urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="historie.tests.html#module-historie.tests.test_views">historie.tests.test_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="historie.tests.html#module-historie.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.apps">historie.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="historie.html#historie.apps.HistorieConfig"><code class="docutils literal notranslate"><span class="pre">HistorieConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="historie.html#historie.apps.HistorieConfig.name"><code class="docutils literal notranslate"><span class="pre">HistorieConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.models">historie.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.urls">historie.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.views">historie.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="historie.html#historie.views.fetch_entries"><code class="docutils literal notranslate"><span class="pre">fetch_entries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="historie.html#historie.views.list"><code class="docutils literal notranslate"><span class="pre">list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="importscripts.html">importscripts package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html#module-importscripts.main">importscripts.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="importscripts.html#importscripts.main.importAemter"><code class="docutils literal notranslate"><span class="pre">importAemter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importscripts.html#module-importscripts">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">login package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="login.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="login.tests.html">login.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="login.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.tests.html#module-login.tests.test_apps">login.tests.test_apps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.tests.html#module-login.tests.test_urls">login.tests.test_urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.tests.html#module-login.tests.test_views">login.tests.test_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.tests.html#module-login.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login.apps">login.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="login.html#login.apps.LoginConfig"><code class="docutils literal notranslate"><span class="pre">LoginConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.apps.LoginConfig.name"><code class="docutils literal notranslate"><span class="pre">LoginConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login.urls">login.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login.views">login.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="login.html#login.views.logout_request"><code class="docutils literal notranslate"><span class="pre">logout_request()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="login.html#login.views.main_screen"><code class="docutils literal notranslate"><span class="pre">main_screen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#manage.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mitglieder.html">mitglieder package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.migrations.html">mitglieder.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0001_initial">mitglieder.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0002_auto_20210615_1904">mitglieder.migrations.0002_auto_20210615_1904 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations.0003_auto_20210620_1913">mitglieder.migrations.0003_auto_20210620_1913 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#mitglieder-migrations-0004-alter-historicalmitglied-options-and-more-module">mitglieder.migrations.0004_alter_historicalmitglied_options_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.migrations.html#module-mitglieder.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.templatetags.html">mitglieder.templatetags package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.templatetags.html#module-mitglieder.templatetags.mitglieder_extras">mitglieder.templatetags.mitglieder_extras module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.templatetags.html#module-mitglieder.templatetags">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.tests.html">mitglieder.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_apps">mitglieder.tests.test_apps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_models">mitglieder.tests.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_urls">mitglieder.tests.test_urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests.test_views">mitglieder.tests.test_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.tests.html#module-mitglieder.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.apps">mitglieder.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.apps.MitgliederConfig"><code class="docutils literal notranslate"><span class="pre">MitgliederConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.apps.MitgliederConfig.name"><code class="docutils literal notranslate"><span class="pre">MitgliederConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.funktions">mitglieder.funktions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.funktions.getValue"><code class="docutils literal notranslate"><span class="pre">getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.funktions.is_past_due"><code class="docutils literal notranslate"><span class="pre">is_past_due()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.models">mitglieder.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.auto_checkliste"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.auto_checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.kenntnis_ordn"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.kenntnis_ordn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.name"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.spitzname"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.spitzname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.stammdatenblatt"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.stammdatenblatt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.tel_mobil"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.tel_mobil</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.tel_weitergabe"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.tel_weitergabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.tracked_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.verpfl_datengeheimnis"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.verpfl_datengeheimnis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.vorname"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.vorname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitglied.wahl_angenommen"><code class="docutils literal notranslate"><span class="pre">HistoricalMitglied.wahl_angenommen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.amtszeit_beginn"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.amtszeit_beginn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.amtszeit_ende"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.amtszeit_ende</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.funktion"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.funktion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.funktion_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.funktion_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.mitglied"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.mitglied_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedAmt.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedAmt.tracked_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.email"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.get_default_history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.get_default_history_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.get_history_type_display"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.get_history_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.get_next_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.get_next_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.get_previous_by_history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.get_previous_by_history_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_change_reason"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_change_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_date"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_object"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_user"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.history_user_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.history_user_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.instance"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.instance_type"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.instance_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.mitglied"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.mitglied_id"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.next_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.next_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.objects"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.prev_record"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.prev_record</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.revert_url"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.revert_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.HistoricalMitgliedMail.tracked_fields"><code class="docutils literal notranslate"><span class="pre">HistoricalMitgliedMail.tracked_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied"><code class="docutils literal notranslate"><span class="pre">Mitglied</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Mitglied.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Mitglied.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.admission_data_complete"><code class="docutils literal notranslate"><span class="pre">Mitglied.admission_data_complete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.auto_checkliste"><code class="docutils literal notranslate"><span class="pre">Mitglied.auto_checkliste</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.checkliste_set"><code class="docutils literal notranslate"><span class="pre">Mitglied.checkliste_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.curr_funktion_count"><code class="docutils literal notranslate"><span class="pre">Mitglied.curr_funktion_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.curr_funktion_first"><code class="docutils literal notranslate"><span class="pre">Mitglied.curr_funktion_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.history"><code class="docutils literal notranslate"><span class="pre">Mitglied.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.id"><code class="docutils literal notranslate"><span class="pre">Mitglied.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.kenntnis_ordn"><code class="docutils literal notranslate"><span class="pre">Mitglied.kenntnis_ordn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.mitgliedamt_set"><code class="docutils literal notranslate"><span class="pre">Mitglied.mitgliedamt_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.mitgliedmail_set"><code class="docutils literal notranslate"><span class="pre">Mitglied.mitgliedmail_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.name"><code class="docutils literal notranslate"><span class="pre">Mitglied.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.objects"><code class="docutils literal notranslate"><span class="pre">Mitglied.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">Mitglied.save_without_historical_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.spitzname"><code class="docutils literal notranslate"><span class="pre">Mitglied.spitzname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.stammdatenblatt"><code class="docutils literal notranslate"><span class="pre">Mitglied.stammdatenblatt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.tel_mobil"><code class="docutils literal notranslate"><span class="pre">Mitglied.tel_mobil</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.tel_weitergabe"><code class="docutils literal notranslate"><span class="pre">Mitglied.tel_weitergabe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.verpfl_datengeheimnis"><code class="docutils literal notranslate"><span class="pre">Mitglied.verpfl_datengeheimnis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.vorname"><code class="docutils literal notranslate"><span class="pre">Mitglied.vorname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.Mitglied.wahl_angenommen"><code class="docutils literal notranslate"><span class="pre">Mitglied.wahl_angenommen</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.amtszeit_beginn"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.amtszeit_beginn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.amtszeit_ende"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.amtszeit_ende</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.checkliste_set"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.checkliste_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.funktion"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.funktion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.funktion_id"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.funktion_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.history"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.id"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.mitglied"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.mitglied_id"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.objects"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedAmt.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">MitgliedAmt.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail"><code class="docutils literal notranslate"><span class="pre">MitgliedMail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.email"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.history"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.id"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.mitglied"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.mitglied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.mitglied_id"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.mitglied_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.objects"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mitglieder.html#mitglieder.models.MitgliedMail.save_without_historical_record"><code class="docutils literal notranslate"><span class="pre">MitgliedMail.save_without_historical_record()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.urls">mitglieder.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.views">mitglieder.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.bereiche_laden"><code class="docutils literal notranslate"><span class="pre">bereiche_laden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.email_html_laden"><code class="docutils literal notranslate"><span class="pre">email_html_laden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.email_loeschen"><code class="docutils literal notranslate"><span class="pre">email_loeschen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.erstellen"><code class="docutils literal notranslate"><span class="pre">erstellen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.funktion_loeschen"><code class="docutils literal notranslate"><span class="pre">funktion_loeschen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.funktionen_html_laden"><code class="docutils literal notranslate"><span class="pre">funktionen_html_laden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.funktionen_laden"><code class="docutils literal notranslate"><span class="pre">funktionen_laden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.funktionen_max_member_ueberpruefen"><code class="docutils literal notranslate"><span class="pre">funktionen_max_member_ueberpruefen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.main_screen"><code class="docutils literal notranslate"><span class="pre">main_screen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.mitgliedBearbeitenView"><code class="docutils literal notranslate"><span class="pre">mitgliedBearbeitenView()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.mitgliedErstellenView"><code class="docutils literal notranslate"><span class="pre">mitgliedErstellenView()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.mitglied_laden"><code class="docutils literal notranslate"><span class="pre">mitglied_laden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.mitglieder_loeschen"><code class="docutils literal notranslate"><span class="pre">mitglieder_loeschen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.speichern"><code class="docutils literal notranslate"><span class="pre">speichern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder.views.suchen"><code class="docutils literal notranslate"><span class="pre">suchen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.MyFuncAemter">tests.MyFuncAemter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncAemter.createAmt"><code class="docutils literal notranslate"><span class="pre">createAmt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncAemter.createReferat"><code class="docutils literal notranslate"><span class="pre">createReferat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncAemter.createUnterbereich"><code class="docutils literal notranslate"><span class="pre">createUnterbereich()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.MyFuncLogin">tests.MyFuncLogin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncLogin.loginAsLukasAdmin"><code class="docutils literal notranslate"><span class="pre">loginAsLukasAdmin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncLogin.loginAsLukasUser"><code class="docutils literal notranslate"><span class="pre">loginAsLukasUser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.MyFuncMitglieder">tests.MyFuncMitglieder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncMitglieder.addMitglied"><code class="docutils literal notranslate"><span class="pre">addMitglied()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyFuncMitglieder.addMitgliedWithParameters"><code class="docutils literal notranslate"><span class="pre">addMitgliedWithParameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.MyTestCase">tests.MyTestCase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.MyTestCase.MyTestCase"><code class="docutils literal notranslate"><span class="pre">MyTestCase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.MyTestCase.MyTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">MyTestCase.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.MyTestCase.MyTestCase.tearDown"><code class="docutils literal notranslate"><span class="pre">MyTestCase.tearDown()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_001_admin">tests.test_001_admin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_001_admin.TestAdmin"><code class="docutils literal notranslate"><span class="pre">TestAdmin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_001_admin.TestAdmin.test_login_superuser"><code class="docutils literal notranslate"><span class="pre">TestAdmin.test_login_superuser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_002_user">tests.test_002_user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_002_user.TestUser"><code class="docutils literal notranslate"><span class="pre">TestUser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_002_user.TestUser.test_login_user"><code class="docutils literal notranslate"><span class="pre">TestUser.test_login_user()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_003_multiuser">tests.test_003_multiuser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_004_mitgliedHinzufuegen">tests.test_004_mitgliedHinzufuegen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen"><code class="docutils literal notranslate"><span class="pre">TestMitgliedHinzufuegen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufugen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestMitgliedHinzufuegen.test_1MitgliedHinzufügen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufugen_AsSuperuser_lookAsUser"><code class="docutils literal notranslate"><span class="pre">TestMitgliedHinzufuegen.test_50MitgliederHinzufügen_AsSuperuser_lookAsUser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_005_mitgliedEntfernen">tests.test_005_mitgliedEntfernen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen"><code class="docutils literal notranslate"><span class="pre">TestMitgliedEntfernen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_006_mitgliedAendern">tests.test_006_mitgliedAendern module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_006_mitgliedAendern.TestMitgliedAendern"><code class="docutils literal notranslate"><span class="pre">TestMitgliedAendern</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_006_mitgliedAendern.TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_007_aemtHinzufuegen">tests.test_007_aemtHinzufuegen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen.test_1FunktionHinzufuegen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen.test_1OrganisationseinheitHinzufuegen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen.test_1UnterbereichHinzufuegen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_008_aemtEntfernen">tests.test_008_aemtEntfernen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_008_aemtEntfernen.TestAemtEntfernen"><code class="docutils literal notranslate"><span class="pre">TestAemtEntfernen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser"><code class="docutils literal notranslate"><span class="pre">TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_009_aemtAendern">tests.test_009_aemtAendern module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtBezeichnungAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1AmtBezeichnungAendern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtReferatAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1AmtReferatAendern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1AmtWorkloadAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1AmtWorkloadAendern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1OrganisationseinheitBezeichnungAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1OrganisationseinheitBezeichnungAendern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichBezeichnungAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1UnterbereichBezeichnungAendern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_009_aemtAendern.TestAemtAendern.test_1UnterbereichReferatAendern"><code class="docutils literal notranslate"><span class="pre">TestAemtAendern.test_1UnterbereichReferatAendern()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#tests-test-101-mitgliedhinzufuegen-module">tests.test_101_mitgliedHinzufuegen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Mitgliederdatenbank für den StuRa (I06)‘s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="aemter.html" class="btn btn-neutral float-right" title="aemter package" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

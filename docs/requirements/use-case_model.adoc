@@ -53,8 +53,8 @@ include::use_case_07.inc.adoc[]
 Hierbei handelt es sich um Wireframes für unseren Prototypen aus Software Engineering 1. Im Zuge der Übernahe des Vorgängerprojektes sind diese überflüssig geworden.
 
 .Formular
-image::0.png[]
+image::Formular.png[]
 .Input-Validierung
-image::1.png[]
+image::Input-Validierung.png[]
 .Formular (Ämter-Auswahl)
-image::2.png[]
+image::Formular (Ämter-Auswahl).png[]

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tests.test_005_mitgliedEntfernen &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">tests.test_005_mitgliedEntfernen</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für tests.test_005_mitgliedEntfernen</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tests.MyTestCase</span> <span class="kn">import</span> <span class="n">MyTestCase</span>
+<span class="kn">from</span> <span class="nn">tests.MyFuncLogin</span> <span class="kn">import</span> <span class="n">loginAsLukasAdmin</span>
+<span class="kn">from</span> <span class="nn">tests.MyFuncMitglieder</span> <span class="kn">import</span> <span class="n">addMitglied</span>
+
+
+<div class="viewcode-block" id="TestMitgliedEntfernen"><a class="viewcode-back" href="../../tests.html#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen">[Doku]</a><span class="k">class</span> <span class="nc">TestMitgliedEntfernen</span><span class="p">(</span><span class="n">MyTestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setup and Teardown functions are specified in</span>
+<span class="sd">        MyTestCase</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Tests</span>
+<div class="viewcode-block" id="TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser"><a class="viewcode-back" href="../../tests.html#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser">[Doku]</a>    <span class="k">def</span> <span class="nf">test_1MitgliedEntfernen_AsSuperuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is a &quot;positive&quot; Systemtest as Blackboxtest.</span>
+<span class="sd">            Here we want to check if you can delete a new Member as Admin and if the</span>
+<span class="sd">            Member is deleted correctly in the table.</span>
+
+<span class="sd">            Steps:</span>
+
+<span class="sd">            * login as Admin</span>
+<span class="sd">            * add a Member</span>
+<span class="sd">            * delete Member</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Login as Admin</span>
+        <span class="n">loginAsLukasAdmin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">addMitglied</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Löschen eines Mitglieds</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//form[@method=&#39;post&#39;]/label/span&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@id=&#39;delbtnl&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//a[@id=&#39;delmitgliederconfirm&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Überprüfung ob Mitglied gelöscht</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//div[@id=&#39;notification&#39;]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

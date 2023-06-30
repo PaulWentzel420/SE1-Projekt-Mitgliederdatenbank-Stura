@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tests.MyFuncMitglieder &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">tests.MyFuncMitglieder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für tests.MyFuncMitglieder</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+
+
+<div class="viewcode-block" id="addMitglied"><a class="viewcode-back" href="../../tests.html#tests.MyFuncMitglieder.addMitglied">[Doku]</a><span class="k">def</span> <span class="nf">addMitglied</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a member with default parameters over the &quot;mitglieder/erstellen&quot; view.</span>
+<span class="sd">        You need to be on the &quot;mitglieder/&quot; site to call this function.</span>
+
+<span class="sd">        :param self:</span>
+<span class="sd">        :type self:</span>
+<span class="sd">        :return: No return Value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Suchen des Hinzufügen Buttons</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">btnAddMitglied</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//a[@href=&#39;/mitglieder/erstellen&#39;]&quot;</span><span class="p">)</span>
+        <span class="c1">#btnAddMitglied = self.browser.find_element_by_id(&#39;btn-mitadd&#39;)</span>
+    <span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Klicken des Buttons</span>
+    <span class="n">btnAddMitglied</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># Suchen aller relevanten Objekte zum hinzufügen eines Mitglieds</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Entrys</span>
+        <span class="n">entVorname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;vorname&#39;</span><span class="p">)</span>
+        <span class="n">entNachname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;nachname&#39;</span><span class="p">)</span>
+        <span class="n">entSpitzname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;spitzname&#39;</span><span class="p">)</span>
+
+        <span class="n">entTelefon_mobil</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;telefon_mobil&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Buttons</span>
+        <span class="n">btnAddEmail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;addEmailBtn&#39;</span><span class="p">)</span>
+        <span class="n">btnSave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;save_button&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Einfügen der Form</span>
+    <span class="n">entVorname</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Hans&#39;</span><span class="p">)</span>
+    <span class="n">entNachname</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Peter&#39;</span><span class="p">)</span>
+    <span class="n">entSpitzname</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Hansi&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Organisationseinheit auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[19]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># Bereich auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectbereich1&#39;]/div/div/input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectbereich1&#39;]/div/div/ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[2]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># Funktion auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectamt1&#39;]/div/div/input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectamt1&#39;]/div/div/ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[2]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="n">btnAddEmail</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="c1"># Finden der Email Felder</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">entEmail1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;email1&#39;</span><span class="p">)</span>
+        <span class="n">entEmail2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;email2&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Eingabe der Emails</span>
+    <span class="n">entEmail1</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;sxxxxx@htw-dresden.de&#39;</span><span class="p">)</span>
+    <span class="n">entEmail2</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Hans.Peter@web.de&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Einfügen der restlichen Daten der Form</span>
+    <span class="n">entTelefon_mobil</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;0362594833&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Speichern der Daten</span>
+    <span class="n">btnSave</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># überprüfen ob alles geklapt hat</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">current_url</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">live_server_url</span> <span class="o">+</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;mitglieder:homepage&#39;</span><span class="p">),</span>
+                     <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Weiterleitung nicht erfolgt&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//tr[@class=&#39;mitglied&#39;]/td[contains(text(), &#39;Hans Peter&#39;)]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+        <span class="s2">&quot;Hans Peter&quot;</span><span class="p">,</span>
+        <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Hans Peter wurde nicht angelegt&quot;</span><span class="p">)</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="addMitgliedWithParameters"><a class="viewcode-back" href="../../tests.html#tests.MyFuncMitglieder.addMitgliedWithParameters">[Doku]</a><span class="k">def</span> <span class="nf">addMitgliedWithParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                <span class="n">vorname</span><span class="p">,</span>
+                                <span class="n">nachname</span><span class="p">,</span>
+                                <span class="n">spitzname</span><span class="p">,</span>
+                                <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a member with default parameters over the &quot;mitglieder/erstellen&quot; view.</span>
+<span class="sd">        You can change firstname, lastname and username.</span>
+<span class="sd">        You need to be on the &quot;mitglieder/&quot; site to call this function.</span>
+
+<span class="sd">        :param self:</span>
+<span class="sd">        :type self:</span>
+<span class="sd">        :param vorname: Firstname of the Member, that you want to create.</span>
+<span class="sd">        :type vorname: string</span>
+<span class="sd">        :param nachname: Lastname of the Member, that you want to create.</span>
+<span class="sd">        :type nachname: string</span>
+<span class="sd">        :param spitzname: Username of the Member, that you want to create.</span>
+<span class="sd">        :type spitzname: string</span>
+<span class="sd">        :return: No return Value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Suchen des Hinzufügen Buttons</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/mitglieder/erstellen&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//a[@href=&#39;/mitglieder/erstellen&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Suchen aller relevanten Objekte zum hinzufügen eines Mitglieds</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Entrys</span>
+        <span class="c1"># Einfügen der Form</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;vorname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">vorname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;nachname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">nachname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;spitzname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">spitzname</span><span class="p">)</span>
+
+        <span class="n">entTelefon_mobil</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;telefon_mobil&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Buttons</span>
+        <span class="n">btnAddEmail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;addEmailBtn&#39;</span><span class="p">)</span>
+        <span class="n">btnSave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;save_button&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Organisationseinheit auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[19]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># Bereich auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectbereich1&#39;]/div/div/input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectbereich1&#39;]/div/div/ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[3]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># Funktion auswählen</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectamt1&#39;]/div/div/input[@class=&#39;select-dropdown dropdown-trigger&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+        <span class="s2">&quot;//div[@id=&#39;div_selectamt1&#39;]/div/div/ul[@class=&#39;dropdown-content select-dropdown&#39;]/li[3]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="n">btnAddEmail</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="c1"># Finden der Email Felder</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">entEmail1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;email1&#39;</span><span class="p">)</span>
+        <span class="n">entEmail2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s1">&#39;email2&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es wurden nicht alle Objekte auf der Seite gefunden&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Eingabe der Emails</span>
+    <span class="n">entEmail1</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;sxxxxx@htw-dresden.de&#39;</span><span class="p">)</span>
+    <span class="n">entEmail2</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">vorname</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">nachname</span> <span class="o">+</span> <span class="s2">&quot;@web.de&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Einfügen der restlichen Daten der Form</span>
+    <span class="n">entTelefon_mobil</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;0362594833&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Speichern der Daten</span>
+    <span class="n">btnSave</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1"># überprüfen ob alles geklapt hat</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">current_url</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">live_server_url</span> <span class="o">+</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;mitglieder:homepage&#39;</span><span class="p">),</span>
+                     <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Weiterleitung nicht erfolgt&quot;</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># print(f&quot;Durchsucht wird Seite {i}&quot;)</span>
+            <span class="n">webelement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//tr[@class=&#39;mitglied&#39;]/td[contains(text(), &#39;</span><span class="si">%s</span><span class="s2">&#39;)]&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">vorname</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nachname</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//ul[@class=&#39;pagination&#39;]/li/a[contains(text(), &#39;</span><span class="si">%d</span><span class="s2">&#39;)]&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="c1"># print(&quot;Etwas ist schief gegangen\n&quot;)</span>
+                <span class="k">pass</span>
+            <span class="k">continue</span>
+        <span class="k">break</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+        <span class="n">webelement</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+        <span class="n">vorname</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nachname</span><span class="p">,</span>
+        <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> wurde nicht angelegt&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">vorname</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nachname</span><span class="p">))</span>
+    <span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

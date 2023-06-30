@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mitglieder.funktions &mdash; Mitgliederdatenbank für den StuRa (I06)  Dokumentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Mitgliederdatenbank für den StuRa (I06)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mitgliederdatenbank für den StuRa (I06)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modul-Quellcode</a></li>
+      <li class="breadcrumb-item active">mitglieder.funktions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Quellcode für mitglieder.funktions</h1><div class="highlight"><pre>
+<span></span>
+
+<span class="c1"># Attribut attr (string) wird aus request (POST-Request) entnommen und zurueckgegeben</span>
+<span class="c1"># bei einem KeyError oder leerem String wird None zurueckgegeben</span>
+<div class="viewcode-block" id="getValue"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.funktions.getValue">[Doku]</a><span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</span>
+
+<span class="sd">    Aufgaben:</span>
+
+<span class="sd">    * Entnehmen des Attributs</span>
+<span class="sd">    * Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</span>
+
+<span class="sd">    :param request: Eine POST-Request.</span>
+<span class="sd">    :param attr: Das Attribut, das aus Request entnommen werden soll.</span>
+<span class="sd">    :return: Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">val</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">val</span><span class="o">=</span><span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KeyError for attribute &quot;</span> <span class="o">+</span> <span class="n">attr</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">val</span></div>
+
+
+<span class="c1"># preuft, ob date2 liegt hinter date1 liegt</span>
+<div class="viewcode-block" id="is_past_due"><a class="viewcode-back" href="../../mitglieder.html#mitglieder.funktions.is_past_due">[Doku]</a><span class="k">def</span> <span class="nf">is_past_due</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">date2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prüft, ob date2 hinter date1 liegt.</span>
+
+<span class="sd">    :param date1: Erstes Datum</span>
+<span class="sd">    :param date2: Zweites Datum</span>
+<span class="sd">    :return: True, wenn date2 später als date1 ist. False, wenn nicht oder wenn eines der beiden Attribute None ist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">date1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">date2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">date2</span> <span class="o">&gt;</span> <span class="n">date1</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Paul Wentzel.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

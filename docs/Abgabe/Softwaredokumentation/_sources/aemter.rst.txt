@@ -1,0 +1,62 @@
+aemter package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   aemter.migrations
+   aemter.tests
+
+Submodules
+----------
+
+aemter.admin module
+-------------------
+
+.. automodule:: aemter.admin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.apps module
+------------------
+
+.. automodule:: aemter.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.models module
+--------------------
+
+.. automodule:: aemter.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.urls module
+------------------
+
+.. automodule:: aemter.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aemter.views module
+-------------------
+
+.. automodule:: aemter.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aemter
+   :members:
+   :undoc-members:
+   :show-inheritance:

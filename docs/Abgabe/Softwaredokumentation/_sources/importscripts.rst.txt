@@ -1,0 +1,21 @@
+importscripts package
+=====================
+
+Submodules
+----------
+
+importscripts.main module
+-------------------------
+
+.. automodule:: importscripts.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: importscripts
+   :members:
+   :undoc-members:
+   :show-inheritance:

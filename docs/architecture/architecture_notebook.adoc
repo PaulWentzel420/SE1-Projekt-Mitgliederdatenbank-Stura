@@ -134,6 +134,8 @@ image::paketdiagramm.png[]
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
 * UC01 Mitglied anlegen
-* UC02 Mitglied löschen
-* UC03 Mitgliederdaten bearbeiten
-* UC07 Daten importieren
+* UC02 Mitgliederdaten bearbeiten
+* UC03 Historie ausgeben
+* UC05 Daten importieren
+* UC06 Daten exportieren
+* UC07 Checkliste erstellen
