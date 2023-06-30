@@ -1,0 +1,160 @@
+= Abnahmeprotokoll: Antrags- und Beschlussverwaltungstool
+:author: Team I6
+
+== Projektangaben
+
+*Thema:* Entwicklung einer Mitgliederdatenbank für den StuRa der HTW Dresden
+
+*Zeitraum:* November 2022 - Juni 2023 
+
+*GitHub Repository:* https://github.com/PaulWentzel420/SE1-Projekt-Mitgliederdatenbank-Stura
+
+== Abnahmedokumentation
+
+*Datum:* 30.06.2023
+
+*Zeit:* 10:00 Uhr
+
+*Abnahmeumgebung:*
+
+== Lieferumfang
+
+* Software: Mitgliederdatenbank bestehend aus Django-Anwendung und Docker-compose-Datei, welche die Datenbank bereitstellt
+* Anwenderdokumentation
+* Betriebsdokumentation
+* Anforderungsspezifikationen
+* Entwicklerdokumentation
+* Testdokumentation
+
+== Funktionalität
+
+[%header, cols="3,1,2"]
+|===
+
+|Use Case
+|erfüllt
+|Anmerkung
+
+|UC 1 - Mitglied anlegen
+|
+|
+
+|UC 2 - Mitgliederdaten bearbeiten
+|
+|
+
+|UC 3 - Historie ausgeben
+|
+|
+
+|UC 4 - Lagdateien erstellen
+|
+|
+
+|UC 5 - Daten importieren
+|
+|
+
+|UC 6 - Daten exportieren
+|
+|
+
+|UC 7 - Checkliste erstellen
+|
+|
+
+|===
+
+== Systemweite Anforderungen
+
+[%header, cols="3,1,2"]
+|===
+
+|Anforderung
+|erfüllt
+|Anmerkung
+
+|SWFA-1: Ein Access-Control für das Backend/Verwaltungsoberfläche ist nötig.
+|
+|
+
+|SWFA-2: Änderungen am System oder an der Software sollen dokumentiert werden (Auditing) und leicht nachvollziehbar sein.
+|
+|
+
+|SWFA-3: Das System muss relevante Daten persistent speichern.
+|
+|
+
+|NFAU-1: Lokalisation
+|
+|
+
+|NFAU-2: Erlernbarkeit
+|
+|
+
+|NFAU-3: Zugangsbeschränkung
+|
+|
+
+|NFAU-4: Benutzerfreundlichkeit
+|
+|
+
+|NFAU-5: Eingabehilfe
+|
+|
+
+|NFAR-1: Verfügbarkeit
+|
+|
+
+|NFAR-2: Eingabevalidierung
+|
+|
+
+|NFAR-3: Dokumentation
+|
+|
+
+|NFAR-4: Wiederherstellbarkeit
+|
+|
+
+|NFAP-1: Serialisierung
+|
+|
+
+|NFAP-2: Workflow
+|
+|
+
+|NFAS-1: Installation
+|
+|
+
+|NFAS-2: Erweiterbarkeit
+|
+|
+
+|===
+
+== Unterschriften
+
+Hiermit wird die Abnahme vollständig/mit Mängeln bestätigt.
+
+Bemerkungen:
+ + 
+ + 
+ + 
+ +
+ + 
+
+[%header, cols="3,3"]
+|===
+|>
+|>
+|Unterschrift StuRa HTW Dresden
+|Unterschrift Projektleitung Team I6
+|===
